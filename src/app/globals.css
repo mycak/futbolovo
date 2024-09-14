@@ -19,10 +19,21 @@ body {
   background: var(--background);
 }
 
+/* HERO IMAGE CLIP */
 .hero-clip-diagonal {
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 36% 100%);
 }
 
+/* REACT SELECT ADDITIONAL CLASSES TO KEEP ONLY ONE LINE */
+.react-select__value-container {
+  flex-wrap: nowrap !important;
+}
+
+.react-select__multi-value {
+  min-width: 20% !important;
+}
+
+/* TAILWIND UTILITIES */
 @layer utilities {
   .text-balance {
     text-wrap: balance;

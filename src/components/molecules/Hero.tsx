@@ -7,7 +7,7 @@ import { paths } from "@/constants/paths";
 const Hero = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [textOpacity, setTextOpacity] = useState<number>(1);
-
+  const CHANGE_TEXT_INTERVAL = 9000;
   useEffect(() => {
     //CHange the text every n seconds
     const interval = setInterval(() => {
@@ -16,12 +16,13 @@ const Hero = () => {
         setCurrentTextIndex((prevIndex) => (prevIndex + 1) % heroTexts.length);
         setTextOpacity(1);
       }, 500);
-    }, 6500);
+    }, CHANGE_TEXT_INTERVAL);
     return () => clearInterval(interval);
   }, []);
+
   //TODO: make smaller text on lowe media queries
   return (
-    <div className='-mx-8 relative aspect-video bg-[url("/images/football-pitch.jpg")] bg-cover'>
+    <div className='relative aspect-video bg-[url("/images/football-pitch.jpg")] bg-cover max-w-screen-2xl mx-auto'>
       <div className="absolute inset-0 ">
         <div className="w-full h-full bg-gray-900 opacity-80 hero-clip-diagonal relative" />
         <div
@@ -35,7 +36,7 @@ const Hero = () => {
             asLink
             href={paths.Map}
             text="Dołącz do gry!"
-            classNames="px-5 py-3 text-3xl mt-8 mr-auto opacity-90 hover:opacity-100"
+            classNames="px-5 py-3 text-3xl mt-8 mr-auto opacity-90 hover:opacity-100 animate-shake"
           />
         </div>
       </div>

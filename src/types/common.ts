@@ -3,3 +3,8 @@ export type IconText = {
   title: string;
   text: string;
 };
+
+export type SelectOptions = {
+  value: string;
+  label: string;
+}[];

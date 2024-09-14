@@ -44,6 +44,18 @@ const config: Config = {
           150: "#365a08",
         },
       },
+      keyframes: {
+        shake: {
+          "0%, 25%": { transform: "translate(0, 0) rotate(0deg)" },
+          "5%, 15%": { transform: "translate(0.5px, 0.5px) rotate(0.1deg)" },
+          "10%, 20%": {
+            transform: "translate(-0.5px, -0.5px) rotate(-0.1deg)",
+          },
+        },
+      },
+      animation: {
+        shake: "shake 2.5s infinite",
+      },
     },
   },
   plugins: [],

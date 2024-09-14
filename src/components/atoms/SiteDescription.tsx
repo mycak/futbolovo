@@ -1,16 +1,11 @@
-import clsx from "clsx";
 import Image from "next/image";
 import Button from "./Button";
 import { paths } from "@/constants/paths";
+import PageWrapper from "./PageWrapper";
 
-const SiteDescription = ({ classNames }: { classNames?: string }) => {
+const SiteDescription = () => {
   return (
-    <div
-      className={clsx(
-        "bg-gray-900 -mx-8 px-8 py-12 flex justify-between gap-12",
-        classNames
-      )}
-    >
+    <PageWrapper classNames="bg-gray-900 py-12 flex justify-between gap-12">
       <div className="flex flex-col justify-center ">
         <div className="max-w-2xl">
           <h3 className="text-right text-5xl text-grass-20">
@@ -27,7 +22,7 @@ const SiteDescription = ({ classNames }: { classNames?: string }) => {
             asLink
             href={paths.Map}
             text="Sprawdź!"
-            classNames="px-5 py-3 text-3xl mt-8 opacity-90 block ml-auto hover:opacity-100"
+            classNames="px-5 py-3 text-3xl mt-8 opacity-90 block ml-auto hover:opacity-100 animate-shake"
           />
         </div>
       </div>
@@ -39,7 +34,7 @@ const SiteDescription = ({ classNames }: { classNames?: string }) => {
         layout="responsive"
         className="max-w-xl h-full mr-auto mt-8"
       />
-    </div>
+    </PageWrapper>
   );
 };
 
