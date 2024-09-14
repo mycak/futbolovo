@@ -20,7 +20,6 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  //TODO: make smaller text on lowe media queries
   return (
     <div className='relative aspect-video bg-[url("/images/football-pitch.jpg")] bg-cover max-w-screen-2xl mx-auto'>
       <div className="absolute inset-0 ">

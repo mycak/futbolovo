@@ -31,8 +31,7 @@ const SiteDescription = () => {
         alt="overview"
         width={1920}
         height={1080}
-        layout="responsive"
-        className="max-w-xl h-full mr-auto mt-8"
+        className="max-w-xl h-full mr-auto"
       />
     </PageWrapper>
   );
