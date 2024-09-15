@@ -15,9 +15,11 @@ const multiValueLabelStyles = "py-0.5";
 const clearIndicatorStyles = "text-ivory-150 hover:text-red-700";
 const indicatorSeparatorStyles = "hidden";
 const dropdownIndicatorStyles = "px-1 text-grass-30 hover:text-grass-20";
+const placeholderStyles = "text-ivory-150 pl-4";
 const menuStyles =
   "p-1 mt-2 border border-grass-50 bg-emerald-600 rounded-sm max-w-80";
 const groupHeadingStyles = "ml-3 mt-2 mb-1 text-ivory-100 text-sm";
+
 const optionStyles = {
   base: "hover:cursor-pointer px-3 py-2 rounded-sm",
   focus: "bg-emerald-500 active:bg-emerald-400",
@@ -25,7 +27,6 @@ const optionStyles = {
 };
 const noOptionsMessageStyles =
   "text-ivory-100 text-sm p-2 bbg-emerald-500 border border-grass-50 rounded-sm";
-const placeholderStyles = "text-ivory-150 pl-4";
 
 export const generateClassNames = () => ({
   control: ({ isFocused }: { isFocused: boolean }) =>
