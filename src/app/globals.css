@@ -19,6 +19,51 @@ body {
   background: var(--background);
 }
 
+/* SEARCH INPUT CLEAR BUTTON */
+[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  height: 16px;
+  width: 16px;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23777'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+  background-color: #fbf5df;
+  background-size: 20px 20px;
+}
+
+/* GOOGLE AUTOCOMPLETE DROPDOWN */
+.pac-container {
+  background-color: #059669;
+  margin-top: 8px;
+  border-radius: 2px;
+  border: 1px solid #72eb3a;
+  font-family: "__Protest_Guerrilla_f023ba";
+  box-shadow: none;
+  padding: 4px;
+}
+
+.pac-item {
+  cursor: pinter;
+  padding: 8px 12px 8px 12px;
+  border: none;
+  line-height: inherit;
+  font-size: 16px;
+  color: #fbf5df;
+}
+.pac-item:hover {
+  background-color: #10b981;
+}
+.pac-item-selected,
+.pac-item-selected:hover {
+  background-color: #ebf2fe;
+}
+.pac-item-query {
+  color: #d9f99d;
+}
+.pac-icon {
+  display: none;
+}
+
 /* HERO IMAGE CLIP */
 .hero-clip-diagonal {
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 36% 100%);

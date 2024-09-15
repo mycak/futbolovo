@@ -3,7 +3,6 @@
 
 // Build inputs:
 // - Search input
-// - GooglePlace input
 // - Date input
 
 // LOW PRIORITY:

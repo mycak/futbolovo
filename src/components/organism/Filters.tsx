@@ -1,6 +1,7 @@
 import { categoryOptions } from "@/constants/inputOptions";
 import SelectInput from "../atoms/inputs/SelectInput";
 import LocalizationInput from "../atoms/inputs/LocalizationInput";
+import SearchInput from "../atoms/inputs/SearchInput";
 
 const Filters = () => {
   return (
@@ -16,6 +17,7 @@ const Filters = () => {
         options={categoryOptions}
       />
       <LocalizationInput label="Lokalizacja" placeholder="Szukaj" />
+      <SearchInput label="Szukaj" placeholder="Wpisz frazę" />
     </div>
   );
 };
