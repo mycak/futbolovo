@@ -2,8 +2,11 @@
 // Migrate from Marker to Advanced Marker
 
 // Build inputs:
-// - Search input
 // - Date input
+
+//TODO: MILESTONES
+//MENU
+//ADDING RECORDS
 
 // LOW PRIORITY:
 // - Text input

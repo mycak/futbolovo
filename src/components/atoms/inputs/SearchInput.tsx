@@ -1,6 +1,6 @@
 "use client";
 import { useDebounce } from "@/hooks/useDebounce";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const SearchInput = ({
   label,
@@ -11,9 +11,8 @@ const SearchInput = ({
 }) => {
   const DELAY = 1500;
   const [value, setValue] = useState<string>("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const debounceValue = useDebounce(value, DELAY);
-
-  useEffect(() => console.log(debounceValue), [debounceValue]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
     setValue(event.target.value);
