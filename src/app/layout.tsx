@@ -29,7 +29,14 @@ export default function RootLayout({
         src="https://kit.fontawesome.com/2cbff78358.js"
         crossOrigin="anonymous"
       />
-      <body className={clsx(protestGuerilla.className, "text-ivory-150")}>
+      <body
+        className={clsx(protestGuerilla.className, "text-ivory-150")}
+        style={
+          {
+            "--font-guerrilla": protestGuerilla.style.fontFamily,
+          } as React.CSSProperties
+        }
+      >
         <Logo />
         {children}
         <Footer />

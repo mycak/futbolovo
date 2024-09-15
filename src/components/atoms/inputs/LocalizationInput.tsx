@@ -1,16 +1,6 @@
 "use client";
+import { LocationInputState } from "@/types/common";
 import React, { useEffect, useState, useRef } from "react";
-
-type InputState = {
-  streetAddress: string;
-  country: string;
-  zipCode: string;
-  city: string;
-  state: string;
-  latitude: number | undefined;
-  longitude: number | undefined;
-  location: string;
-};
 
 const initialInputState = {
   streetAddress: "",
@@ -26,11 +16,13 @@ const initialInputState = {
 const LocalizationInput = ({
   label,
   placeholder,
+  onChangeCallback,
 }: {
   label: string;
   placeholder: string;
+  onChangeCallback: (data: LocationInputState) => void;
 }) => {
-  const [input, setInput] = useState<InputState>(initialInputState);
+  const [input, setInput] = useState<LocationInputState>(initialInputState);
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -49,6 +41,10 @@ const LocalizationInput = ({
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    onChangeCallback(input);
+  }, [input, onChangeCallback]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;

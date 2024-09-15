@@ -1,12 +1,13 @@
 "use client";
 
-import DashboardHeading from "@/components/atoms/DashboardHeading";
-import PageContainer from "@/components/atoms/PageContainer";
-import PageWrapper from "@/components/atoms/PageWrapper";
-import Filters from "@/components/organism/Filters";
+import {
+  PageContainer,
+  DashboardHeading,
+  PageWrapper,
+} from "@/components/atoms/";
+import { Filters, MapComponent } from "@/components/organism/";
 import { Libraries, LoadScript } from "@react-google-maps/api";
 import { useState } from "react";
-import MapComponent from "@/components/organism/MapComponent";
 
 const DashboardPage = () => {
   const [libraries] = useState<Libraries>([

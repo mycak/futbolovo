@@ -1,9 +1,10 @@
-import DashboardHeading from "@/components/atoms/DashboardHeading";
-import Hero from "@/components/molecules/Hero";
-import PageContainer from "@/components/atoms/PageContainer";
-import IconsSection from "@/components/molecules/IconsSection";
+import {
+  DashboardHeading,
+  PageContainer,
+  SiteDescription,
+} from "@/components/atoms/";
+import { IconsSection, Hero } from "@/components/molecules";
 import { usersIconsTexts, ownersIconsTexts } from "@/constants/texts";
-import SiteDescription from "@/components/atoms/SiteDescription";
 
 const DashboardPage = () => {
   return (

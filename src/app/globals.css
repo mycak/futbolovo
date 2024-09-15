@@ -29,7 +29,7 @@ body {
   border-bottom: 1px solid #72eb3a !important;
 }
 .react-datepicker__month-container > * {
-  font-family: "__Protest_Guerrilla_f023ba" !important;
+  font-family: var(--font-guerrilla), sans-serif !important;
 }
 .react-datepicker__current-month {
   color: #064e3b !important;
@@ -66,7 +66,7 @@ body {
   margin-top: 8px;
   border-radius: 2px;
   border: 1px solid #72eb3a;
-  font-family: "__Protest_Guerrilla_f023ba";
+  font-family: var(--font-guerrilla), sans-serif;
   box-shadow: none;
   padding: 4px;
 }

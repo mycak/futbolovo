@@ -18,3 +18,14 @@ export type GooglePlace = {
   country: string | undefined;
   postcode: string | undefined;
 };
+
+export type LocationInputState = {
+  streetAddress: string;
+  country: string;
+  zipCode: string;
+  city: string;
+  state: string;
+  latitude: number | undefined;
+  longitude: number | undefined;
+  location: string;
+};
