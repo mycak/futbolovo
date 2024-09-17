@@ -1,23 +1,45 @@
 import clsx from "clsx";
 import Link from "next/link";
+import { FieldValues, SubmitHandler } from "react-hook-form";
 
 type ButtonProps =
   | {
-      text: string;
-      onClick?: () => void;
+      text?: string;
+      type?: "basic";
+      onClick?: (() => void) | SubmitHandler<FieldValues>;
       classNames?: string;
       asLink: true;
       href: string;
+      icon?: never;
     }
   | {
-      text: string;
-      onClick: () => void;
+      text?: string;
+      type?: "basic";
+      onClick: (() => void) | SubmitHandler<FieldValues>;
       classNames?: string;
       asLink?: false;
       href?: never;
+      icon?: never;
+    }
+  | {
+      text?: string;
+      type?: "icon";
+      onClick: (() => void) | SubmitHandler<FieldValues>;
+      classNames?: string;
+      asLink?: false;
+      href?: never;
+      icon: string;
     };
 
-const Button = ({ text, onClick, classNames, asLink, href }: ButtonProps) => {
+const Button = ({
+  text,
+  onClick,
+  classNames,
+  asLink,
+  href,
+  type,
+  icon,
+}: ButtonProps) => {
   return (
     <button
       onClick={onClick}
@@ -26,6 +48,9 @@ const Button = ({ text, onClick, classNames, asLink, href }: ButtonProps) => {
         classNames
       )}
     >
+      {type === "icon" && (
+        <i className={`fa-solid fa-${icon} fa-lg text-ivory-150`} />
+      )}
       {asLink ? <Link href={href}>{text}</Link> : text}
     </button>
   );

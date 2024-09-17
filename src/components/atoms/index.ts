@@ -4,6 +4,7 @@ import DashboardHeading from "./DashboardHeading";
 import PageContainer from "./PageContainer";
 import PageWrapper from "./PageWrapper";
 import SiteDescription from "./SiteDescription";
+import Divider from "./Divider";
 export * from "./inputs";
 
 export {
@@ -13,4 +14,5 @@ export {
   PageContainer,
   PageWrapper,
   SiteDescription,
+  Divider,
 };

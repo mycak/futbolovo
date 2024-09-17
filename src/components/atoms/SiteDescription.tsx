@@ -15,8 +15,10 @@ const SiteDescription = () => {
           <p className="text-right text-xl mt-6">
             Znajdziesz tutaj wszystkie najważniejsze informacje o turniejach,
             ligach szóstek, szkółkach piłkarskich dla dzieci, boiskach do
-            wynajęcia oraz usługach piłkarskich. Sprawdź, co dzieje się w Twojej
-            okolicy i dołącz do gry!
+            wynajęcia oraz usługach piłkarskich.{" "}
+            <span className="text-grass-50">
+              Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!
+            </span>
           </p>
           <Button
             asLink

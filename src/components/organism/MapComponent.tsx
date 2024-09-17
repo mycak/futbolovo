@@ -1,9 +1,11 @@
 "use client";
 import { GoogleMap, Marker } from "@react-google-maps/api";
+import { PageWrapper } from "../atoms";
 
 const containerStyle = {
-  width: "800px",
-  height: "800px",
+  width: "100%",
+  height: "65vh",
+  minHeight: "600px",
 };
 
 const center = {
@@ -13,11 +15,11 @@ const center = {
 
 const MapComponent = () => {
   return true ? (
-    <div className="mx-auto max-w-[800px]">
+    <PageWrapper>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
         <Marker position={center} zIndex={565656}></Marker>
       </GoogleMap>
-    </div>
+    </PageWrapper>
   ) : (
     <p>Esa loading</p>
   );

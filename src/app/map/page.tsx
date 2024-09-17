@@ -1,10 +1,7 @@
 "use client";
 
-import {
-  PageContainer,
-  DashboardHeading,
-  PageWrapper,
-} from "@/components/atoms/";
+import { PageContainer, Divider } from "@/components/atoms/";
+import { AddPlaceSection } from "@/components/molecules";
 import { Filters, MapComponent } from "@/components/organism/";
 import { Libraries, LoadScript } from "@react-google-maps/api";
 import { useState } from "react";
@@ -27,11 +24,11 @@ const DashboardPage = () => {
       libraries={libraries}
     >
       <PageContainer>
-        <DashboardHeading classNames="my-4" />
-        <PageWrapper classNames="mb-8">
-          <Filters />
-        </PageWrapper>
+        <Divider />
+        <Filters />
         <MapComponent />
+        <Divider />
+        <AddPlaceSection />
       </PageContainer>
     </LoadScript>
   );

@@ -33,20 +33,22 @@ const SelectInput = <
         <Controller
           name={props.name as string}
           control={control}
-          render={({ field: { onChange, onBlur, value } }) => (
-            <Select
-              {...props}
-              theme={(theme) => ({ ...theme, borderRadius: 0 })}
-              id={id}
-              unstyled
-              classNamePrefix="react-select"
-              hideSelectedOptions={false}
-              classNames={generateClassNames()}
-              value={value}
-              onChange={onChange}
-              onBlur={onBlur}
-            />
-          )}
+          render={({ field: { onChange, onBlur, value } }) => {
+            return (
+              <Select
+                {...props}
+                theme={(theme) => ({ ...theme, borderRadius: 0 })}
+                id={id}
+                unstyled
+                classNamePrefix="react-select"
+                hideSelectedOptions={false}
+                classNames={generateClassNames()}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+              />
+            );
+          }}
         />
       </label>
     </div>
