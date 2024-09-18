@@ -14,14 +14,12 @@ const center = {
 };
 
 const MapComponent = () => {
-  return true ? (
+  return (
     <PageWrapper>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
         <Marker position={center} zIndex={565656}></Marker>
       </GoogleMap>
     </PageWrapper>
-  ) : (
-    <p>Esa loading</p>
   );
 };
 

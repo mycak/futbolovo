@@ -1,16 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { navigationItems } from "@/constants/navigation";
 import { NavigationKey } from "@/types/common";
+import { useOutsideClick } from "@/hooks";
+import { usePathname } from "next/navigation";
 
 const NavigationMenu = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const pathname = usePathname();
+
+  const ref = useOutsideClick(() => setIsOpen(false));
+
+  useEffect(() => setIsOpen(false), [pathname]);
+
   const toggleMenu = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
-  //TODO: Add close menu on click outside and on change router
 
   return (
     <div className="relative inline-block text-left">
@@ -36,6 +43,7 @@ const NavigationMenu = () => {
         aria-orientation="vertical"
         aria-labelledby="menu-button"
         tabIndex={-1}
+        ref={ref}
       >
         <div className="py-1" role="none">
           {Object.keys(navigationItems(true)).map((key, index) => (

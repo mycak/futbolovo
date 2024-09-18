@@ -1,11 +1,7 @@
 //TODO: LIST
 // Migrate from Marker to Advanced Marker
 
-// Build inputs:
-// - Date input
-
 //TODO: MILESTONES
-//MENU
 //ADDING RECORDS
 
 // LOW PRIORITY:
@@ -13,3 +9,5 @@
 // - Number input
 // - Textarea input
 // - Password input
+
+// CONSIDER MIGRATION TO @vis.gl/react-google-maps

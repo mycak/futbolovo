@@ -3,7 +3,7 @@
 import { PageContainer, Divider } from "@/components/atoms/";
 import { AddPlaceSection } from "@/components/molecules";
 import { Filters, MapComponent } from "@/components/organism/";
-import { Libraries, LoadScript } from "@react-google-maps/api";
+import { Libraries, useJsApiLoader } from "@react-google-maps/api";
 import { useState } from "react";
 
 const DashboardPage = () => {
@@ -13,27 +13,29 @@ const DashboardPage = () => {
     "maps",
     "marker",
   ]);
-
-  // TODO: Swith LoadScript
+  const { isLoaded } = useJsApiLoader({
+    id: "futbolovo",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY as string,
+    language: "pl",
+    region: "PL",
+    version: "weekly",
+    libraries,
+  });
 
   return (
-    <LoadScript
-      id="futbolovo"
-      googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY as string}
-      language="pl"
-      mapIds={["futbolovo"]}
-      region="PL"
-      version="weekly"
-      libraries={libraries}
-    >
-      <PageContainer>
-        <Divider />
-        <Filters />
-        <MapComponent />
-        <Divider />
-        <AddPlaceSection />
-      </PageContainer>
-    </LoadScript>
+    <PageContainer>
+      <Divider />
+      {isLoaded ? (
+        <div>
+          <Filters />
+          <MapComponent />
+        </div>
+      ) : (
+        <div>Loading...</div>
+      )}
+      <Divider />
+      <AddPlaceSection />
+    </PageContainer>
   );
 };
 

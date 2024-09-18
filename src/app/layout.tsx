@@ -14,6 +14,11 @@ const protestGuerilla = Protest_Guerrilla({
 export const metadata: Metadata = {
   title: "Futbolovo - find football everywhere",
   description: "By mycak",
+  icons: {
+    icon: "/fav.png",
+    shortcut: "/fav.png",
+    apple: "/fav.png",
+  },
 };
 
 export default function RootLayout({
