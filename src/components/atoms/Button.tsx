@@ -49,7 +49,7 @@ const Button = ({
       )}
     >
       {type === "icon" && (
-        <i className={`fa-solid fa-${icon} fa-lg text-ivory-150`} />
+        <i className={`fa-solid fa-${icon} fa-sm text-ivory-150 mr-3`} />
       )}
       {asLink ? <Link href={href}>{text}</Link> : text}
     </button>

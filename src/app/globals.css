@@ -72,12 +72,13 @@ body {
 }
 
 .pac-item {
-  cursor: pinter;
+  cursor: pointer;
   padding: 8px 12px 8px 12px;
   border: none;
   line-height: inherit;
   font-size: 16px;
   color: #fbf5df;
+  transition: all 0.3s;
 }
 .pac-item:hover {
   background-color: #10b981;

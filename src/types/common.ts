@@ -9,6 +9,7 @@ export type SelectOptions = {
   label: string;
 }[];
 
+//GOOGLE AUTOCOMPLETE
 export type GooglePlace = {
   latitude: number | undefined;
   longitude: number | undefined;
@@ -28,4 +29,12 @@ export type LocationInputState = {
   latitude: number | undefined;
   longitude: number | undefined;
   location: string;
+};
+
+//NAVIGATION
+export type NavigationKey = "mainPage" | "map" | "auth";
+
+export type NavigationItem = {
+  text: string;
+  to: string;
 };

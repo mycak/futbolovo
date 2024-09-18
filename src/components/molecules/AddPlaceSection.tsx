@@ -5,7 +5,7 @@ const AddPlaceSection = () => {
   return (
     <PageWrapper>
       <div className="mx-auto max-w-max">
-        <i className="fa-solid fa-map fa-5x text-ivory-150 mx-auto" />
+        <i className="fa-solid fa-map-location-dot fa-5x text-ivory-150 mx-auto" />
       </div>
       <h2 className="text-5xl text-center text-grass-20 mt-8">
         Chcesz zaistnieć na mapie?

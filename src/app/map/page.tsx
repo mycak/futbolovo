@@ -14,11 +14,14 @@ const DashboardPage = () => {
     "marker",
   ]);
 
+  // TODO: Swith LoadScript
+
   return (
     <LoadScript
       id="futbolovo"
       googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY as string}
       language="pl"
+      mapIds={["futbolovo"]}
       region="PL"
       version="weekly"
       libraries={libraries}

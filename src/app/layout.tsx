@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Protest_Guerrilla } from "next/font/google";
 import clsx from "clsx";
-
 import "./globals.css";
 import Script from "next/script";
-import Footer from "@/components/molecules/Footer";
-import Logo from "@/components/atoms/Logo";
+import { Footer, Header } from "@/components/molecules";
 
 const protestGuerilla = Protest_Guerrilla({
   weight: "400",
@@ -37,7 +35,7 @@ export default function RootLayout({
           } as React.CSSProperties
         }
       >
-        <Logo />
+        <Header />
         {children}
         <Footer />
       </body>

@@ -63,7 +63,7 @@ const Filters = () => {
     <PageWrapper classNames="mb-8">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex justify-center gap-x-8 gap-y-2 "
+        className="flex justify-center gap-x-8 gap-y-2 flex-wrap"
       >
         <SelectInput
           control={control as unknown as Control<FieldValues>}
@@ -88,9 +88,11 @@ const Filters = () => {
             disabled={dateRangeDisabled}
             setValue={setValue as unknown as UseFormSetValue<FieldValues>}
           />
-          <p className="text-sm text-grass-50">
-            Dotyczy jedynie kategorii obozów lub turniejów.
-          </p>
+          {dateRangeDisabled && (
+            <p className="text-sm text-grass-50">
+              Dotyczy jedynie kategorii obozów lub turniejów.
+            </p>
+          )}
         </div>
         <SearchInput
           label="Szukaj"
@@ -99,9 +101,10 @@ const Filters = () => {
           name="search"
         />
         <Button
-          classNames="h-10 self-center mt-1 bg-grass-45 hover:bg-grass-0"
+          classNames="h-[38px] mt-6 bg-grass-45 text-xl flex items-center pl-3 pr-5 opacity-90 transition-all duration-300 hover:opacity-100"
           type="icon"
           icon="search"
+          text="Szukaj"
           onClick={onSubmit as unknown as SubmitHandler<FieldValues>}
         />
       </form>

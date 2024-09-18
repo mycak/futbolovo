@@ -21,7 +21,7 @@ const menuStyles =
   "p-1 mt-2 border border-grass-50 bg-emerald-600 rounded-sm max-w-80";
 const groupHeadingStyles = "ml-3 mt-2 mb-1 text-ivory-100 text-sm";
 const optionStyles = {
-  base: "hover:cursor-pointer px-3 py-2 rounded-sm",
+  base: "hover:cursor-pointer px-3 py-2 rounded-sm transition-all duration-300",
   focus: "bg-emerald-500 active:bg-emerald-400",
   selected: "after:content-['✔'] after:ml-2 after:text-green-500 text-grass-30",
 };
