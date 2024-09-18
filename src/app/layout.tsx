@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   title: "Futbolovo - find football everywhere",
   description: "By mycak",
   icons: {
-    icon: "/fav.png",
-    shortcut: "/fav.png",
-    apple: "/fav.png",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
