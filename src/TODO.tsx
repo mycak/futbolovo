@@ -1,13 +1,22 @@
 //TODO: LIST
 // Migrate from Marker to Advanced Marker
+// CONSIDER MIGRATION TO @vis.gl/react-google-maps
 
 //TODO: MILESTONES
-//ADDING RECORDS
+//MAP:
+// - DISPLAY DATA ON MAP (MARKERS)
+// - CREATE SIDEBAR WITH DATA (MARKERS)
+// - HANDLE LOADING STATE ON GOOGLE MAPS LOADING (SPINNER/LOADING COMPONENT)
 
-// LOW PRIORITY:
-// - Text input
-// - Number input
-// - Textarea input
-// - Password input
+//ADD EVENTS:
+// - FORM
+// - CONFIRMATION MODAL
+// - WHAT WITH IMAGES?
 
-// CONSIDER MIGRATION TO @vis.gl/react-google-maps
+// LOGIN/REGISTER/RESET-PASSWORD PAGES (AUTH FLOW)
+// CONTACT PAGE
+// COOPERATION PAGE
+// 404 PAGE
+// BACK BUTTON
+
+//i18n

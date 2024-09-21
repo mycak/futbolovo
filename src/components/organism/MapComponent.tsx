@@ -6,6 +6,7 @@ const containerStyle = {
   width: "100%",
   height: "65vh",
   minHeight: "600px",
+  borderRadius: "0.125rem",
 };
 
 const center = {

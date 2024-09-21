@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, PageWrapper } from "../atoms";
+import { paths } from "@/constants/paths";
 
 const AddPlaceSection = () => {
   return (
@@ -11,8 +12,9 @@ const AddPlaceSection = () => {
         Chcesz zaistnieć na mapie?
       </h2>
       <Button
+        asLink
+        href={paths.EventAdd}
         classNames="mt-8 px-5 py-3 text-3xl mt-8 mx-auto opacity-90 hover:opacity-100 animate-shake block"
-        onClick={() => console.log("Dodaj miejsce")}
         text="Dodaj miejsce"
       />
       <p className="text-center text-ivory-150-60 text-2xl mt-8">

@@ -15,7 +15,7 @@ const multiValueLabelStyles = "py-0.5";
 const clearIndicatorStyles = "text-ivory-150 hover:text-red-700";
 const indicatorSeparatorStyles = "hidden";
 const dropdownIndicatorStyles = "px-1 text-grass-30 hover:text-grass-20";
-const placeholderStyles = "text-ivory-150 pl-4";
+const placeholderStyles = "text-ivory-150 pl-2";
 //Dropdown menu
 const menuStyles =
   "p-1 mt-2 border border-grass-50 bg-emerald-600 rounded-sm max-w-80";
@@ -59,3 +59,6 @@ export const generateClassNames = () => ({
     ),
   noOptionsMessage: () => noOptionsMessageStyles,
 });
+
+export const customStyles =
+  "h-[38px] border border-grass-50 rounded-sm bg-emerald-900 w-80 p-1 pl-2 text-ivory-150 placeholder:text-ivory-150 hover:cursor-pointer hover:border-grass-40 active:outline-none focus:outline-none focus:border-grass-40";

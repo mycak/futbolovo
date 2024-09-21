@@ -16,11 +16,11 @@ import {
   UseFormSetValue,
 } from "react-hook-form";
 import { useEffect, useState } from "react";
-import { LocationInputState } from "@/types/common";
+import { EventCategoryEnum, LocationInputState } from "@/types/common";
 
 type MapInputs = {
   categories: {
-    value: string;
+    value: EventCategoryEnum;
     label: string;
   }[];
   coords: {
@@ -36,7 +36,10 @@ const Filters = () => {
   const [dateRangeDisabled, setDateRangeDisabled] = useState<boolean>(false);
 
   useEffect(() => {
-    const rangeCategories = ["tournaments", "camps"];
+    const rangeCategories: EventCategoryEnum[] = [
+      EventCategoryEnum.TOURNAMENT,
+      EventCategoryEnum.CAMP,
+    ];
     const subscription = watch(({ categories }) => {
       if (
         rangeCategories.some((item) =>

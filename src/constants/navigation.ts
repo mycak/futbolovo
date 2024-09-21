@@ -1,4 +1,5 @@
 import { NavigationItem, NavigationKey } from "@/types/common";
+import { paths } from "./paths";
 
 export const navigationItems: (
   isSignIn: boolean
@@ -6,17 +7,17 @@ export const navigationItems: (
   mainPage: [
     {
       text: "Strona główna",
-      to: "/",
+      to: paths.Dashboard,
     },
   ],
   map: [
     {
       text: "Mapa",
-      to: "/map",
+      to: paths.Map,
     },
     {
       text: "Dodaj punkt na mapie",
-      to: "add-event",
+      to: paths.EventAdd,
     },
   ],
   auth: isSignIn

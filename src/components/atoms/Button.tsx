@@ -44,7 +44,7 @@ const Button = ({
     <button
       onClick={onClick}
       className={clsx(
-        "bg-grass-150 px-3 py-1 transition-all duration-300",
+        "bg-grass-150 px-3 py-1 transition-all duration-300 rounded-sm",
         classNames
       )}
     >

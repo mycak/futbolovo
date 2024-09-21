@@ -5,7 +5,7 @@ export type IconText = {
 };
 
 export type SelectOptions = {
-  value: string;
+  value: string | number;
   label: string;
 }[];
 
@@ -38,3 +38,12 @@ export type NavigationItem = {
   text: string;
   to: string;
 };
+
+export enum EventCategoryEnum {
+  TOURNAMENT = "tournament",
+  SCHOOL = "school",
+  SPORT_FIELD = "sportField",
+  CAMP = "camp",
+  SIX_LEAGUE = "sixLeague",
+  SERVICE = "service",
+}

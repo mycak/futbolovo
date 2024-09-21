@@ -1,4 +1,5 @@
 "use client";
+import { startOfMonth } from "date-fns";
 import React, { useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { pl } from "date-fns/locale";
@@ -15,15 +16,21 @@ const DateRangeInput = ({
   name,
 }: {
   label: string;
-  disabled?: boolean;
+  disabled: boolean;
   setValue: UseFormSetValue<FieldValues>;
   name: string;
 }) => {
-  const [date, setDate] = useState<Date | null>(new Date());
+  const monthBeginning = startOfMonth(new Date());
 
-  const onChange = (date: Date | null) => {
-    setValue(name, date);
-    setDate(date);
+  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([
+    monthBeginning,
+    monthBeginning,
+  ]);
+  const [startDate, endDate] = dateRange;
+
+  const onChange = (dates: [Date | null, Date | null]) => {
+    setValue(name, dates);
+    setDateRange(dates);
   };
 
   return (
@@ -32,7 +39,9 @@ const DateRangeInput = ({
         <span className="text-grass-20">{label}</span>
         <DatePicker
           disabled={disabled}
-          selected={date ?? undefined}
+          selectsRange={true}
+          startDate={startDate ?? undefined}
+          endDate={endDate ?? undefined}
           onChange={onChange}
           className={clsx(customStyles, disabled && "opacity-75")}
           calendarClassName="!p-1 !border !border-grass-50 !bg-emerald-600 !rounded-sm max-w-80"

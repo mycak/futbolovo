@@ -108,6 +108,41 @@ body {
   min-width: 20% !important;
 }
 
+/* NUMBER INPUT */
+/* HIDE SPINNERS */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+/* ADD SUFFIX TO PRICE INPUT */
+/* prepare wrapper element */
+.price {
+  position: relative;
+}
+
+/* position the unit to the right of the wrapper */
+.price::after {
+  position: absolute;
+  top: 32px;
+  right: 0.5em;
+  transition: all 0.05s ease-in-out;
+  content: "zł";
+}
+
+/* handle Firefox (arrows always shown) */
+@supports (-moz-appearance: none) {
+  .price::after {
+    right: 1.5em;
+  }
+}
+
 /* TAILWIND UTILITIES */
 @layer utilities {
   .text-balance {
