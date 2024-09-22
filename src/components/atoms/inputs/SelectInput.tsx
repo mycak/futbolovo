@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import Select, { GroupBase, Props } from "react-select";
+import Select, { GroupBase, Props, PropsValue } from "react-select";
 import { generateClassNames } from "./styles";
 import { Control, Controller, FieldValues } from "react-hook-form";
+import { SelectOption } from "@/types/common";
 
 interface ExtendedProps<
   Option,
@@ -11,6 +12,7 @@ interface ExtendedProps<
 > extends Props<Option, IsMulti, Group> {
   label: string;
   control: Control<FieldValues>;
+  error?: string;
 }
 
 const SelectInput = <
@@ -20,20 +22,27 @@ const SelectInput = <
 >({
   label,
   control,
+  error,
   ...props
 }: ExtendedProps<Option, IsMulti, Group>) => {
   const id = Date.now().toString();
+
   const [isMounted, setIsMounted] = useState(false);
+
+  const [currentSelectValues, setCurrentSelectValues] = useState<
+    SelectOption | SelectOption[] | undefined
+  >(undefined);
+
   useEffect(() => setIsMounted(true), []);
 
   return isMounted ? (
-    <div className="flex flex-col">
-      <label>
+    <div className="flex flex-col relative">
+      <label className="">
         <span className="mb-1 text-grass-20">{label}</span>
         <Controller
           name={props.name as string}
           control={control}
-          render={({ field: { onChange, onBlur, value } }) => {
+          render={({ field: { onChange, onBlur, ref } }) => {
             return (
               <Select
                 {...props}
@@ -42,15 +51,29 @@ const SelectInput = <
                 unstyled
                 classNamePrefix="react-select"
                 hideSelectedOptions={false}
-                classNames={generateClassNames()}
-                value={value}
-                onChange={onChange}
+                classNames={generateClassNames(!!error)}
+                value={currentSelectValues as PropsValue<Option> | undefined}
+                onChange={(newValue) => {
+                  const valueOnlyArray = props.isMulti
+                    ? (newValue as SelectOption[]).map((item) => item.value)
+                    : (newValue as SelectOption).value;
+                  setCurrentSelectValues(
+                    newValue as SelectOption | SelectOption[]
+                  );
+                  onChange(valueOnlyArray);
+                }}
                 onBlur={onBlur}
+                ref={ref}
               />
             );
           }}
         />
       </label>
+      {error && (
+        <span className="absolute text-red-500 text-xs -bottom-4 right-0">
+          {error}
+        </span>
+      )}
     </div>
   ) : null;
 };

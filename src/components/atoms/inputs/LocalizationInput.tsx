@@ -18,10 +18,12 @@ const LocalizationInput = ({
   label,
   placeholder,
   onChangeCallback,
+  error,
 }: {
   label: string;
   placeholder: string;
   onChangeCallback: (data: LocationInputState) => void;
+  error?: string;
 }) => {
   const [input, setInput] = useState<LocationInputState>(initialInputState);
 
@@ -45,7 +47,8 @@ const LocalizationInput = ({
 
   useEffect(() => {
     onChangeCallback(input);
-  }, [input, onChangeCallback]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [input]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -105,19 +108,24 @@ const LocalizationInput = ({
   };
 
   return (
-    <div>
+    <div className="relative">
       <label className="flex flex-col">
         <span className="text-grass-20">{label}</span>
         <input
           ref={inputRef}
           type="text"
           name="localization"
-          className={customStyles}
+          className={customStyles({ error: !!error })}
           onChange={handleChange}
           value={input.location}
           placeholder={placeholder}
         />
       </label>
+      {error && (
+        <span className="absolute text-red-500 text-xs -bottom-4 right-0">
+          {error === "Required" ? "Pole jest wymagane" : error}
+        </span>
+      )}
     </div>
   );
 };

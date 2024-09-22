@@ -3,11 +3,12 @@ export type IconText = {
   title: string;
   text: string;
 };
-
-export type SelectOptions = {
+export type SelectOption = {
   value: string | number;
   label: string;
-}[];
+};
+
+export type SelectOptions = SelectOption[];
 
 //GOOGLE AUTOCOMPLETE
 export type GooglePlace = {

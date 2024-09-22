@@ -1,49 +1,58 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { pl } from "date-fns/locale";
-import { FieldValues, UseFormSetValue } from "react-hook-form";
-import { clsx } from "clsx";
+import { Control, Controller, FieldValues } from "react-hook-form";
 import { customStyles } from "./styles";
 
 registerLocale("pl", pl);
 
-const DateRangeInput = ({
+const DateInput = ({
   label,
+  placeholder,
   disabled = false,
-  setValue,
+  control,
   name,
+  error,
 }: {
   label: string;
   disabled?: boolean;
-  setValue: UseFormSetValue<FieldValues>;
+  control: Control<FieldValues>;
   name: string;
+  error?: string;
+  placeholder: string;
 }) => {
-  const [date, setDate] = useState<Date | null>(new Date());
-
-  const onChange = (date: Date | null) => {
-    setValue(name, date);
-    setDate(date);
-  };
-
   return (
-    <div>
+    <div className="relative">
       <label className="flex flex-col">
         <span className="text-grass-20">{label}</span>
-        <DatePicker
-          disabled={disabled}
-          selected={date ?? undefined}
-          onChange={onChange}
-          className={clsx(customStyles, disabled && "opacity-75")}
-          calendarClassName="!p-1 !border !border-grass-50 !bg-emerald-600 !rounded-sm max-w-80"
-          dayClassName={() =>
-            "!hover:cursor-pointer !hover:bg-emerald-900 !rounded-sm !text-ivory-150"
-          }
-          locale="pl"
+        <Controller
+          control={control}
+          name={name}
+          render={({ field: { onChange, value } }) => (
+            <DatePicker
+              disabled={disabled}
+              selected={value ?? null}
+              onChange={(date) => onChange(date)}
+              className={customStyles({ disabled, error: !!error })}
+              calendarClassName="!p-1 !border !border-grass-50 !bg-emerald-600 !rounded-sm max-w-80"
+              dayClassName={() =>
+                "!hover:cursor-pointer !hover:bg-emerald-900 !rounded-sm !text-ivory-150"
+              }
+              locale="pl"
+              placeholderText={placeholder}
+            />
+          )}
         />
+        {error && <span className="text-red-500">{error}</span>}
       </label>
+      {error && (
+        <span className="absolute text-red-500 text-xs -bottom-4 right-0">
+          {error}
+        </span>
+      )}
     </div>
   );
 };
 
-export default DateRangeInput;
+export default DateInput;

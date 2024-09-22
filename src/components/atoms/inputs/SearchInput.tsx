@@ -9,11 +9,13 @@ const SearchInput = ({
   placeholder,
   name,
   setValue,
+  error,
 }: {
   label: string;
   placeholder: string;
   name: string;
   setValue: UseFormSetValue<FieldValues>;
+  error?: string;
 }) => {
   const DELAY = 1500;
   const [inputValue, setInputValue] = useState<string>("");
@@ -27,18 +29,23 @@ const SearchInput = ({
     setInputValue(event.target.value);
 
   return (
-    <div>
+    <div className="relative">
       <label className="flex flex-col">
         <span className="text-grass-20">{label}</span>
         <input
           type="search"
           id="search"
-          className={customStyles}
+          className={customStyles({ error: !!error })}
           onChange={handleChange}
           value={inputValue}
           placeholder={placeholder}
         />
       </label>
+      {error && (
+        <span className="absolute text-red-500 text-xs -bottom-4 right-0">
+          {error}
+        </span>
+      )}
     </div>
   );
 };

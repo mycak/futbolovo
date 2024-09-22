@@ -7,6 +7,7 @@ import TextInput from "./TextInput";
 import NumberInput from "./NumberInput";
 import TextAreaInput from "./TextAreaInput";
 import PhoneNumberInput from "./PhoneNumberInput";
+import FileInput from "./FileInput";
 import EmailInput from "./EmailInput";
 
 export {
@@ -20,4 +21,5 @@ export {
   TextAreaInput,
   EmailInput,
   PhoneNumberInput,
+  FileInput,
 };

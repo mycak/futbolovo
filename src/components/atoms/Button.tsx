@@ -5,30 +5,33 @@ import { FieldValues, SubmitHandler } from "react-hook-form";
 type ButtonProps =
   | {
       text?: string;
-      type?: "basic";
+      variant?: "basic";
       onClick?: (() => void) | SubmitHandler<FieldValues>;
       classNames?: string;
       asLink: true;
       href: string;
       icon?: never;
+      type?: "button" | "submit" | "reset";
     }
   | {
       text?: string;
-      type?: "basic";
-      onClick: (() => void) | SubmitHandler<FieldValues>;
+      variant?: "basic";
+      onClick?: (() => void) | SubmitHandler<FieldValues>;
       classNames?: string;
       asLink?: false;
       href?: never;
       icon?: never;
+      type?: "button" | "submit" | "reset";
     }
   | {
       text?: string;
-      type?: "icon";
-      onClick: (() => void) | SubmitHandler<FieldValues>;
+      variant?: "icon";
+      onClick?: (() => void) | SubmitHandler<FieldValues>;
       classNames?: string;
       asLink?: false;
       href?: never;
       icon: string;
+      type?: "button" | "submit" | "reset";
     };
 
 const Button = ({
@@ -37,18 +40,20 @@ const Button = ({
   classNames,
   asLink,
   href,
-  type,
+  variant,
   icon,
+  type,
 }: ButtonProps) => {
   return (
     <button
+      type={type ?? "button"}
       onClick={onClick}
       className={clsx(
         "bg-grass-150 px-3 py-1 transition-all duration-300 rounded-sm",
         classNames
       )}
     >
-      {type === "icon" && (
+      {variant === "icon" && (
         <i className={`fa-solid fa-${icon} fa-sm text-ivory-150 mr-3`} />
       )}
       {asLink ? <Link href={href}>{text}</Link> : text}

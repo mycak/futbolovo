@@ -1,29 +1,51 @@
-import { FieldValues, UseFormRegister } from "react-hook-form";
+"use client";
+import { FieldValues, Control, Controller } from "react-hook-form";
 import { customStyles } from "./styles";
 
 const NumberInput = ({
   label,
   placeholder,
   name,
-  register,
+  control,
+  error,
 }: {
   label: string;
   placeholder: string;
   name: string;
-  register: UseFormRegister<FieldValues>;
+  control: Control<FieldValues>;
+  error?: string;
 }) => {
   return (
-    <div>
+    <div className="relative">
       <label className="flex flex-col price">
         <span className="text-grass-20">{label}</span>
-        <input
-          type="number"
-          id="number"
-          className={customStyles}
-          placeholder={placeholder}
-          {...register(name)}
+        <Controller
+          name={name}
+          control={control}
+          defaultValue={undefined} // Ensure defaultValue is set to avoid uncontrolled warning
+          render={(
+            { field: { onChange, onBlur, value = "", ref } } // Default value to empty string
+          ) => (
+            <input
+              type="number"
+              id={name}
+              className={customStyles({ error: !!error })}
+              placeholder={placeholder}
+              onChange={(e) =>
+                onChange(e.target.value ? Number(e.target.value) : undefined)
+              } // Convert to number
+              onBlur={onBlur}
+              value={value}
+              ref={ref}
+            />
+          )}
         />
       </label>
+      {error && (
+        <span className="absolute text-red-500 text-xs -bottom-4 right-0">
+          {error}
+        </span>
+      )}
     </div>
   );
 };

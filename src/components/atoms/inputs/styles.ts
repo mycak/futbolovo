@@ -4,6 +4,7 @@ const controlStyles = {
   base: "border border-grass-50 rounded-sm bg-emerald-900 w-80 hover:cursor-pointer",
   focus: "ring-1 ring-primary-500",
   nonFocus: "hover:border-grass-40",
+  error: "border-red-500",
 };
 const valueContainerStyles = "p-1 gap-1";
 const multiValueStyles =
@@ -28,10 +29,14 @@ const optionStyles = {
 const noOptionsMessageStyles =
   "text-ivory-100 text-sm p-2 bbg-emerald-500 border border-grass-50 rounded-sm";
 
-export const generateClassNames = () => ({
+export const generateClassNames = (error?: boolean) => ({
   control: ({ isFocused }: { isFocused: boolean }) =>
     clsx(
-      isFocused ? controlStyles.focus : controlStyles.nonFocus,
+      error
+        ? controlStyles.error
+        : isFocused
+        ? controlStyles.focus
+        : controlStyles.nonFocus,
       controlStyles.base
     ),
   placeholder: () => placeholderStyles,
@@ -60,5 +65,15 @@ export const generateClassNames = () => ({
   noOptionsMessage: () => noOptionsMessageStyles,
 });
 
-export const customStyles =
-  "h-[38px] border border-grass-50 rounded-sm bg-emerald-900 w-80 p-1 pl-2 text-ivory-150 placeholder:text-ivory-150 hover:cursor-pointer hover:border-grass-40 active:outline-none focus:outline-none focus:border-grass-40";
+export const customStyles = ({
+  disabled,
+  error,
+}: {
+  disabled?: boolean;
+  error?: boolean;
+}) =>
+  clsx(
+    "h-[38px] border border-grass-50 rounded-sm bg-emerald-900 w-80 p-1 pl-2 text-ivory-150 placeholder:text-ivory-150 hover:cursor-pointer hover:border-grass-40 active:outline-none focus:outline-none focus:border-grass-40",
+    disabled && "opacity-75",
+    error && "border-red-500 focus:border-red-400 hover:border-red-400"
+  );

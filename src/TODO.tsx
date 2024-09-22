@@ -10,6 +10,7 @@
 
 //ADD EVENTS:
 // - FORM
+// - Images upload Cloudinary/firebase
 // - CONFIRMATION MODAL
 // - WHAT WITH IMAGES?
 

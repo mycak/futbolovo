@@ -1,5 +1,7 @@
 import "react-datepicker/dist/react-datepicker.css";
 import { categoryOptions } from "@/constants/inputOptions";
+import { startOfMonth } from "date-fns";
+
 import {
   SelectInput,
   LocalizationInput,
@@ -19,10 +21,7 @@ import { useEffect, useState } from "react";
 import { EventCategoryEnum, LocationInputState } from "@/types/common";
 
 type MapInputs = {
-  categories: {
-    value: EventCategoryEnum;
-    label: string;
-  }[];
+  categories: EventCategoryEnum[];
   coords: {
     latitude: number | undefined;
     longitude: number | undefined;
@@ -42,8 +41,8 @@ const Filters = () => {
     ];
     const subscription = watch(({ categories }) => {
       if (
-        rangeCategories.some((item) =>
-          categories?.map((item) => item?.value).includes(item)
+        rangeCategories.some((rangeCategory) =>
+          categories?.map((item) => item).includes(rangeCategory)
         ) ||
         categories?.length === 0
       ) {
@@ -88,8 +87,9 @@ const Filters = () => {
           <DateRangeInput
             name="dateRange"
             label="Zakres dat"
+            startDate={startOfMonth(new Date())}
             disabled={dateRangeDisabled}
-            setValue={setValue as unknown as UseFormSetValue<FieldValues>}
+            control={control as unknown as Control<FieldValues>}
           />
           {dateRangeDisabled && (
             <p className="text-sm text-grass-50">
@@ -105,10 +105,10 @@ const Filters = () => {
         />
         <Button
           classNames="h-[38px] mt-6 bg-grass-45 text-xl flex items-center pl-3 pr-5 opacity-90 transition-all duration-300 hover:opacity-100"
-          type="icon"
+          variant="icon"
           icon="search"
           text="Szukaj"
-          onClick={onSubmit as unknown as SubmitHandler<FieldValues>}
+          type="submit"
         />
       </form>
     </PageWrapper>
