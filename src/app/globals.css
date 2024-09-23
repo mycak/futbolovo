@@ -143,6 +143,10 @@ input[type="number"] {
   }
 }
 
+/* ANIMATION DELAY */
+.delay-1 {
+  animation-delay: 1s;
+}
 /* TAILWIND UTILITIES */
 @layer utilities {
   .text-balance {

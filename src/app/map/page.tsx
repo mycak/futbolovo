@@ -1,12 +1,17 @@
 "use client";
 
-import { PageContainer, Divider } from "@/components/atoms/";
+import {
+  PageContainer,
+  Divider,
+  PageWrapper,
+  Loader,
+} from "@/components/atoms/";
 import { AddPlaceSection } from "@/components/molecules";
 import { Filters, MapComponent } from "@/components/organism/";
 import { useJsApiLoader } from "@react-google-maps/api";
 import { googleApiConfig } from "@/configs/googleApi";
 
-const DashboardPage = () => {
+const MapPage = () => {
   const { isLoaded } = useJsApiLoader(googleApiConfig);
 
   return (
@@ -18,7 +23,9 @@ const DashboardPage = () => {
           <MapComponent />
         </div>
       ) : (
-        <div>Loading...</div>
+        <PageWrapper>
+          <Loader />
+        </PageWrapper>
       )}
       <Divider />
       <AddPlaceSection />
@@ -26,4 +33,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default MapPage;

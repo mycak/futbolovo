@@ -4,6 +4,7 @@ import {
   Divider,
   DashboardHeading,
   PageWrapper,
+  Loader,
 } from "@/components/atoms/";
 import { AddEventForm } from "@/components/organism";
 import { useJsApiLoader } from "@react-google-maps/api";
@@ -23,7 +24,7 @@ const DashboardPage = () => {
           <h2 className="text-3xl text-center text-grass-20 mt-8">
             Dodaj punkt na mapie
           </h2>
-          {isLoaded ? <AddEventForm /> : <div>Loading... </div>}
+          {isLoaded ? <AddEventForm /> : <Loader />}
         </div>
       </PageWrapper>
     </PageContainer>

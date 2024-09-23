@@ -5,6 +5,7 @@ import PageContainer from "./PageContainer";
 import PageWrapper from "./PageWrapper";
 import SiteDescription from "./SiteDescription";
 import Divider from "./Divider";
+import Loader from "./Loader";
 export * from "./inputs";
 
 export {
@@ -15,4 +16,5 @@ export {
   PageWrapper,
   SiteDescription,
   Divider,
+  Loader,
 };

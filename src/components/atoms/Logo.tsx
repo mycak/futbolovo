@@ -1,11 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import { paths } from "@/constants/paths";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Logo = () => {
+  const pathname = usePathname();
+
   return (
     <div className="flex flex-col items-center">
-      <Link href={paths.Map} className="max-w-max mx-auto">
+      <Link
+        href={pathname.includes("map") ? paths.Dashboard : paths.Map}
+        className="max-w-max mx-auto"
+      >
         <div className="px-6 pt-3 max-w-max border border-ivory-150 flex gap-6">
           <p className="text-5xl">Futbolovo</p>
           <Image

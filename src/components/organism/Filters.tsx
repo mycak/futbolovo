@@ -19,6 +19,7 @@ import {
 } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { EventCategoryEnum, LocationInputState } from "@/types/common";
+import { paths } from "@/constants/paths";
 
 type MapInputs = {
   categories: EventCategoryEnum[];
@@ -103,13 +104,23 @@ const Filters = () => {
           setValue={setValue as unknown as UseFormSetValue<FieldValues>}
           name="search"
         />
-        <Button
-          classNames="h-[38px] mt-6 bg-grass-45 text-xl flex items-center pl-3 pr-5 opacity-90 transition-all duration-300 hover:opacity-100"
-          variant="icon"
-          icon="search"
-          text="Szukaj"
-          type="submit"
-        />
+        <div className="flex gap-4">
+          <Button
+            classNames="h-[38px] mt-6 bg-grass-45 text-xl flex items-center pl-3 pr-5 opacity-90 transition-all duration-300 hover:opacity-100"
+            variant="icon"
+            icon="search"
+            text="Szukaj"
+            type="submit"
+          />
+          <Button
+            classNames="h-[38px] mt-6 bg-grass-45 text-xl flex items-center pl-3 pr-5 opacity-90 transition-all duration-300 bg-red-400 hover:opacity-100"
+            variant="icon"
+            icon="add"
+            text="Dodaj"
+            asLink
+            href={paths.EventAdd}
+          />
+        </div>
       </form>
     </PageWrapper>
   );

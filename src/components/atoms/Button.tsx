@@ -5,12 +5,12 @@ import { FieldValues, SubmitHandler } from "react-hook-form";
 type ButtonProps =
   | {
       text?: string;
-      variant?: "basic";
+      variant?: "basic" | "icon";
       onClick?: (() => void) | SubmitHandler<FieldValues>;
       classNames?: string;
       asLink: true;
       href: string;
-      icon?: never;
+      icon?: string;
       type?: "button" | "submit" | "reset";
     }
   | {
@@ -20,7 +20,7 @@ type ButtonProps =
       classNames?: string;
       asLink?: false;
       href?: never;
-      icon?: never;
+      icon?: string;
       type?: "button" | "submit" | "reset";
     }
   | {

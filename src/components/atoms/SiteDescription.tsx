@@ -20,12 +20,20 @@ const SiteDescription = () => {
               Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!
             </span>
           </p>
-          <Button
-            asLink
-            href={paths.Map}
-            text="Sprawdź!"
-            classNames="px-5 py-3 text-3xl mt-8 opacity-90 block ml-auto hover:opacity-100 animate-shake"
-          />
+          <div className="flex items-end gap-8">
+            <Button
+              asLink
+              href={paths.Map}
+              text="Sprawdź!"
+              classNames="ml-auto px-5 py-3 text-3xl mt-8 opacity-90 hover:opacity-100 animate-shake"
+            />
+            <Button
+              asLink
+              href={paths.EventAdd}
+              text="Dodaj punkt!"
+              classNames="px-5 py-3 text-3xl mt-8 opacity-90 hover:opacity-100 animate-shake bg-red-400 delay-1"
+            />
+          </div>
         </div>
       </div>
       <Image
