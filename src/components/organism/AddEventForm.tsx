@@ -24,6 +24,7 @@ import {
   useForm,
   UseFormRegister,
 } from "react-hook-form";
+import { CldUploadWidget } from "next-cloudinary";
 
 const AddEventForm = () => {
   const {
@@ -179,6 +180,29 @@ const AddEventForm = () => {
         error={errors.description?.message}
         register={register as unknown as UseFormRegister<FieldValues>}
       />
+      {/* <CldUploadWidget
+        uploadPreset="futbolovo-beta-v1"
+        options={{
+          sources: ["local"],
+          multiple: false,
+          maxImageFileSize: 4194304,
+          minImageWidth: 424,
+          minImageHeight: 600,
+          // maxImageWidth: 2480,
+          // maxImageHeight: 3508,
+          // validateMaxWidthHeight: true,
+          singleUploadAutoClose: false,
+          cropping: true,
+          croppingAspectRatio: 424 / 600,
+          croppingShowDimensions: true,
+          showSkipCropButton: false,
+        }}
+      >
+        {({ open }) => {
+          return <button onClick={() => open()}>Upload an Image</button>;
+        }}
+      </CldUploadWidget> */}
+
       <Button
         classNames="h-[38px] mt-6 bg-grass-45 text-xl flex items-center pl-3 pr-5 opacity-90 transition-all duration-300 col-span-2 max-w-max mx-auto hover:opacity-100"
         variant="icon"
