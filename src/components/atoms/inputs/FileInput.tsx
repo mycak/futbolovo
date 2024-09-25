@@ -22,83 +22,87 @@ const FileInput = ({
   type?: "basic" | "image";
 }) => {
   const [fileName, setFileName] = useState<string | null>(null);
+  const [fileUniqueId, setFileUniqueId] = useState<string>(
+    `id-${Date.now()}-${Math.random()}`
+  );
 
   return (
     <div className="flex flex-col relative">
       {type === "image" ? (
-        <>
-          <Controller
-            control={control}
-            name={name}
-            render={({ field: { onChange } }) => (
-              <CldUploadWidget
-                uploadPreset="futbolovo-beta-v1"
-                options={cloudinaryWidgetConfig}
-                onError={(error) => console.error("Upload error:", error)}
-                onSuccess={(results) => {
-                  const uploadedFileName = (
-                    results?.info as CloudinaryUploadWidgetInfo
-                  )?.original_filename;
-                  setFileName(uploadedFileName);
-                  onChange(uploadedFileName);
-                }}
-              >
-                {({ open }) => (
-                  <>
-                    <label
-                      className="text-grass-20 relative"
-                      htmlFor="upload-photo"
-                    >
-                      {label}
+        <Controller
+          control={control}
+          name={name}
+          render={({ field: { onChange } }) => (
+            <CldUploadWidget
+              uploadPreset="futbolovo-beta-v1"
+              options={cloudinaryWidgetConfig(fileUniqueId)}
+              onError={(error) => console.error("Upload error:", error)}
+              onSuccess={(results) => {
+                const uploadedFileName = (
+                  results?.info as CloudinaryUploadWidgetInfo
+                )?.original_filename;
+                setFileName(uploadedFileName);
+                onChange(fileUniqueId);
 
-                      <input
-                        type="button"
-                        id="upload-photo"
-                        className="opacity-0 absolute top-6 left-0 w-full h-[38px] cursor-pointer"
-                        placeholder={placeholder}
-                        onClick={() => open()}
-                      />
-                      <p
-                        className={clsx(
-                          customStyles({ error: !!error }),
-                          "mt-0! pt-[7px] truncate"
-                        )}
-                      >
-                        {fileName?.length ? fileName : "Wybierz plik"}
-                      </p>
+                //Reset fileUniqueId in case of new upload
+                setFileUniqueId(`id-${Date.now()}-${Math.random()}`);
+              }}
+            >
+              {({ open }) => (
+                <>
+                  <label
+                    className="text-grass-20 relative"
+                    htmlFor="upload-photo"
+                  >
+                    {label}
 
-                      {!fileName && (
-                        <span className="text-gray-500 text-sm">
-                          Brak wybranego pliku
-                        </span>
+                    <input
+                      type="button"
+                      id="upload-photo"
+                      className="opacity-0 absolute top-6 left-0 w-full h-[38px] cursor-pointer"
+                      placeholder={placeholder}
+                      onClick={() => open()}
+                    />
+                    <p
+                      className={clsx(
+                        customStyles({ error: !!error }),
+                        "mt-0! pt-[7px] truncate"
                       )}
-                    </label>
+                    >
+                      {fileName?.length ? fileName : "Wybierz plik"}
+                    </p>
 
-                    {fileName && (
-                      <button
-                        type="button"
-                        className="mt-2 text-red-500 hover:underline text-sm"
-                        onClick={() => {
-                          setFileName(null);
-                          onChange(null);
-                          //TODO: Add delete image from cloudinary
-                        }}
-                      >
-                        Wyczyść
-                      </button>
-                    )}
-
-                    {error && (
-                      <span className="absolute text-red-500 text-xs bottom-6 right-0">
-                        {error}
+                    {!fileName && (
+                      <span className="text-gray-500 text-sm">
+                        Brak wybranego pliku
                       </span>
                     )}
-                  </>
-                )}
-              </CldUploadWidget>
-            )}
-          />
-        </>
+                  </label>
+
+                  {fileName && (
+                    <button
+                      type="button"
+                      className="mt-2 text-red-500 hover:underline text-sm"
+                      onClick={() => {
+                        setFileName(null);
+                        onChange(null);
+                        //TODO: Add delete image from cloudinary
+                      }}
+                    >
+                      Wyczyść
+                    </button>
+                  )}
+
+                  {error && (
+                    <span className="absolute text-red-500 text-xs bottom-6 right-0">
+                      {error}
+                    </span>
+                  )}
+                </>
+              )}
+            </CldUploadWidget>
+          )}
+        />
       ) : (
         <Controller
           control={control}
