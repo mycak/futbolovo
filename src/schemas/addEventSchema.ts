@@ -32,7 +32,9 @@ export const addEventSchema = z
       .regex(phoneRegex, "Nieprawidłowy format numeru telefonu"),
 
     email: z.string().min(1, { message: "Pole jest wymagane" }),
-    image: z.instanceof(File).nullable().optional(),
+    //TODO: remove if image storing doesnt change
+    // image: z.instanceof(File).nullable().optional(),
+    image: z.string().nullable().optional(),
   })
   .refine(
     (data) => {
