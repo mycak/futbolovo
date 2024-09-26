@@ -26,7 +26,6 @@ const LocalizationInput = ({
   error?: string;
 }) => {
   const [input, setInput] = useState<LocationInputState>(initialInputState);
-
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {

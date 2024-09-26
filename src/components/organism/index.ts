@@ -1,5 +1,5 @@
 import Filters from "./Filters";
 import MapComponent from "./MapComponent";
-import AddEventForm from "./AddEventForm";
+export * from "./AddEventWizard";
 
-export { Filters, MapComponent, AddEventForm };
+export { Filters, MapComponent };

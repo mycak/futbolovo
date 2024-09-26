@@ -7,13 +7,14 @@ export const addEventSchema = z
     category: z.nativeEnum(EventCategoryEnum, {
       errorMap: () => ({ message: "Pole jest wymagane" }),
     }),
-    coords: z.object({
+    location: z.object({
       latitude: z.number().nullable().optional(),
       longitude: z.number().nullable().optional(),
+      addressName: z.string().nullable().optional(),
     }),
     ageCategories: z.array(z.string()).optional(),
 
-    dateRange: z.tuple([z.date().nullable(), z.date().nullable()]).optional(),
+    dateRange: z.tuple([z.date(), z.date()]).optional(),
 
     date: z.date().nullable().optional(),
 
