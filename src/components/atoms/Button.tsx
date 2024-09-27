@@ -49,7 +49,7 @@ const Button = ({
       type={type ?? "button"}
       onClick={onClick}
       className={clsx(
-        "bg-grass-150 px-3 py-1 transition-all duration-300 rounded-sm",
+        "bg-grass-150 px-3 py-1 transition-all duration-300 opacity-90 rounded-sm flex items-center hover:opacity-100",
         classNames
       )}
     >

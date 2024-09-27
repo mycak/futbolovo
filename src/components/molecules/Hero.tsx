@@ -35,7 +35,7 @@ const Hero = () => {
             asLink
             href={paths.Map}
             text="Dołącz do gry!"
-            classNames="px-5 py-3 text-3xl mt-8 mr-auto opacity-90 hover:opacity-100 animate-shake"
+            classNames="px-5 py-3 text-3xl mt-8 mr-auto animate-shake"
           />
         </div>
       </div>

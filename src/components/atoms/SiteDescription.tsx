@@ -25,13 +25,13 @@ const SiteDescription = () => {
               asLink
               href={paths.Map}
               text="Sprawdź!"
-              classNames="ml-auto px-5 py-3 text-3xl mt-8 opacity-90 hover:opacity-100 animate-shake"
+              classNames="ml-auto px-5 py-3 text-3xl mt-8 animate-shake"
             />
             <Button
               asLink
               href={paths.EventAdd}
               text="Dodaj punkt!"
-              classNames="px-5 py-3 text-3xl mt-8 opacity-90 hover:opacity-100 animate-shake bg-red-400 delay-1"
+              classNames="px-5 py-3 text-3xl mt-8 animate-shake bg-red-400 delay-1"
             />
           </div>
         </div>

@@ -73,7 +73,7 @@ const FileInput = ({
                     </p>
 
                     {!fileName && (
-                      <span className="text-gray-500 text-sm">
+                      <span className="absolute text-gray-500 text-sm">
                         Brak wybranego pliku
                       </span>
                     )}
@@ -82,7 +82,7 @@ const FileInput = ({
                   {fileName && (
                     <button
                       type="button"
-                      className="mt-2 text-red-500 hover:underline text-sm"
+                      className="absolute top-14 right-0 mt-2 text-red-500 hover:underline text-sm"
                       onClick={() => {
                         setFileName(null);
                         onChange(null);
@@ -133,7 +133,7 @@ const FileInput = ({
                 </p>
 
                 {!fileName && (
-                  <span className="text-gray-500 text-sm">
+                  <span className="absolute text-gray-500 text-sm">
                     Brak wybranego pliku
                   </span>
                 )}

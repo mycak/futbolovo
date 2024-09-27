@@ -14,7 +14,7 @@ export const addEventSchema = z
     }),
     ageCategories: z.array(z.string()).optional(),
 
-    dateRange: z.tuple([z.date(), z.date()]).optional(),
+    dateRange: z.tuple([z.date().nullable(), z.date().nullable()]).optional(),
 
     date: z.date().nullable().optional(),
 

@@ -148,6 +148,7 @@ const AddEventForm = () => {
           placeholder="Miasto, województwo, ulica"
           onChangeCallback={onLocationChange}
           error={errors.location?.message}
+          displayValue={addData?.location?.addressName}
         />
         <TextInput
           label="Nazwa"
@@ -160,7 +161,7 @@ const AddEventForm = () => {
         {/* CONTACT AND DESCRIPTION */}
         <NumberInput
           label="Cena"
-          placeholder="Podaj kwotę / sezon"
+          placeholder="Podaj kwotę"
           name="price"
           control={control as unknown as Control<FieldValues>}
           error={errors.price?.message}
@@ -196,10 +197,10 @@ const AddEventForm = () => {
           error={errors.description?.message}
           register={register as unknown as UseFormRegister<FieldValues>}
         />
-        <Divider wrapperClassNames="col-span-2" />
+        <Divider contained classNames="col-span-2" />
 
         <Button
-          classNames="h-[38px] bg-emerald-400 bg-grass-45 text-xl flex items-center pl-3 pr-5 opacity-90 transition-all duration-300 col-span-2 max-w-max mx-auto hover:opacity-100"
+          classNames="h-[38px] bg-grass-45 text-xl pl-3 pr-5 col-span-2 max-w-max mx-auto"
           variant="icon"
           icon="location-dot"
           text="Dodaj"

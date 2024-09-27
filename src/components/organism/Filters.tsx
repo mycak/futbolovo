@@ -1,3 +1,4 @@
+"use client";
 import "react-datepicker/dist/react-datepicker.css";
 import { categoryOptions } from "@/constants/inputOptions";
 import { startOfMonth } from "date-fns";
@@ -106,14 +107,14 @@ const Filters = () => {
         />
         <div className="flex gap-4">
           <Button
-            classNames="h-[38px] mt-6 bg-grass-45 text-xl flex items-center pl-3 pr-5 opacity-90 transition-all duration-300 hover:opacity-100"
+            classNames="h-[38px] mt-6 bg-grass-45 text-xl pl-3 pr-5"
             variant="icon"
             icon="search"
             text="Szukaj"
             type="submit"
           />
           <Button
-            classNames="h-[38px] mt-6 bg-grass-45 text-xl flex items-center pl-3 pr-5 opacity-90 transition-all duration-300 bg-red-400 hover:opacity-100"
+            classNames="h-[38px] mt-6 text-xl pl-3 pr-5 bg-red-400"
             variant="icon"
             icon="add"
             text="Dodaj"

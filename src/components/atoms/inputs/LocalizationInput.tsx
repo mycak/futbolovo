@@ -19,11 +19,13 @@ const LocalizationInput = ({
   placeholder,
   onChangeCallback,
   error,
+  displayValue,
 }: {
   label: string;
   placeholder: string;
   onChangeCallback: (data: LocationInputState) => void;
   error?: string;
+  displayValue?: string | null;
 }) => {
   const [input, setInput] = useState<LocationInputState>(initialInputState);
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -116,7 +118,7 @@ const LocalizationInput = ({
           name="localization"
           className={customStyles({ error: !!error })}
           onChange={handleChange}
-          value={input.location}
+          value={input.location ? input.location : displayValue ?? ""}
           placeholder={placeholder}
         />
       </label>

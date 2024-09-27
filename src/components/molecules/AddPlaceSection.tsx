@@ -14,7 +14,7 @@ const AddPlaceSection = () => {
       <Button
         asLink
         href={paths.EventAdd}
-        classNames="mt-8 px-5 py-3 text-3xl mt-8 mx-auto opacity-90 hover:opacity-100 animate-shake block"
+        classNames="mt-8 px-5 py-3 text-3xl mt-8 mx-auto animate-shake block"
         text="Dodaj miejsce"
       />
       <p className="text-center text-ivory-150-60 text-2xl mt-8">

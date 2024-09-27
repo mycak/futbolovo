@@ -53,7 +53,6 @@ const DateRangeInput = ({
             );
           }}
         />
-        {error && <span className="text-red-500">{error}</span>}
       </label>
       {error && (
         <span className="absolute text-red-500 text-xs -bottom-4 right-0">

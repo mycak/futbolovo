@@ -1,17 +1,49 @@
+"use client";
 import { useAddEventStore } from "@/stores";
-import { CldImage } from "next-cloudinary";
-import React from "react";
-import Image from "next/image";
-import { Divider } from "@/components/atoms";
-import { translateEventType } from "@/utils";
+import React, { useEffect, useState } from "react";
+import { Button, Divider, Loader } from "@/components/atoms";
+import { generateEventEndDate, translateEventType } from "@/utils";
 import { format } from "date-fns";
 import { currentCurrencySign, DATE_FORMAT } from "@/constants/common";
 import { EventCategoryEnum } from "@/types/common";
+import { useRouter } from "next/navigation";
+import { paths } from "@/constants/paths";
+import { EventImage } from "@/components/molecules";
 
 const AddEventPreview = () => {
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const eventData = useAddEventStore((state) => state.addData);
+  const prevStep = useAddEventStore((state) => state.prevStep);
 
-  if (!eventData) return null;
+  useEffect(() => setIsLoading(false), []);
+
+  const onAddEvent = () => {
+    if (eventData === undefined) return;
+    setIsLoading(true);
+    //BACKEND ACTION - for now just promise resolved after 2 sec
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve("Event added");
+      }, 2000);
+    })
+      .then(() => {
+        console.log("Add event");
+        const successPageQuery = {
+          email: eventData.email,
+          endDate: format(
+            generateEventEndDate(eventData.category, eventData),
+            DATE_FORMAT
+          ),
+        };
+        const params = new URLSearchParams(successPageQuery).toString();
+        const fullPath = `${paths.EventAddConfirm}?${params}`;
+        router.push(fullPath);
+      })
+      .catch(() => console.log("Error"));
+  };
+
+  if (!eventData || isLoading) return <Loader />;
   return (
     <div>
       <Divider />
@@ -19,22 +51,7 @@ const AddEventPreview = () => {
         {eventData.name}
       </h1>
       <div className="mx-auto w-max">
-        {eventData.image ? (
-          <CldImage
-            width="424"
-            height="600"
-            src={eventData?.image}
-            sizes="100vw"
-            alt={eventData?.name}
-          />
-        ) : (
-          <Image
-            src="/images/posters/tournament-poster.jpg"
-            width={400}
-            height={610}
-            alt="Tournament"
-          />
-        )}
+        <EventImage eventData={eventData} />
       </div>
       <Divider />
 
@@ -43,10 +60,7 @@ const AddEventPreview = () => {
           <i className="fa-solid fa-futbol text-grass-50" />
           <p>{translateEventType(eventData.category)}</p>
         </div>
-        <div className="flex items-center gap-3">
-          <i className="fa-solid fa-location-dot text-grass-50" />
-          <p>{eventData?.location.addressName}</p>
-        </div>
+
         {eventData.category === EventCategoryEnum.TOURNAMENT && (
           <div className="flex items-center gap-3">
             <i className="fa-solid fa-calendar-days text-grass-50" />
@@ -63,9 +77,12 @@ const AddEventPreview = () => {
             <p>
               {eventData.dateRange
                 ? `${format(
-                    new Date(eventData.dateRange[0]),
+                    new Date(eventData.dateRange[0] as Date),
                     DATE_FORMAT
-                  )} ${format(new Date(eventData.dateRange[1]), DATE_FORMAT)}`
+                  )} - ${format(
+                    new Date(eventData.dateRange[1] as Date),
+                    DATE_FORMAT
+                  )}`
                 : "-"}
             </p>
           </div>
@@ -95,11 +112,31 @@ const AddEventPreview = () => {
           <p>{eventData.email}</p>
         </div>
         <div className="flex items-center gap-3 col-span-2">
+          <i className="fa-solid fa-location-dot text-grass-50" />
+          <p>{eventData?.location.addressName}</p>
+        </div>
+        <div className="flex items-center gap-3 col-span-2">
           <i className="fa-regular fa-comment text-grass-50" />
           <p>{eventData.description}</p>
         </div>
       </div>
       <Divider />
+      <div className="flex justify-between">
+        <Button
+          classNames="h-[38px] text-xl pl-3 pr-5 bg-red-400"
+          variant="icon"
+          text="Popraw"
+          icon="pen-to-square"
+          onClick={prevStep}
+        />
+        <Button
+          classNames="h-[38px] bg-grass-45 text-xl pl-3 pr-5"
+          variant="icon"
+          icon="futbol"
+          text="Akceptuj"
+          onClick={onAddEvent}
+        />
+      </div>
     </div>
   );
 };

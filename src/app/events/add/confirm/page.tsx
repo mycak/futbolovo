@@ -1,17 +1,12 @@
-"use client";
 import {
   PageContainer,
   Divider,
   DashboardHeading,
   PageWrapper,
-  Loader,
 } from "@/components/atoms/";
-import { AddEventWizard } from "@/components/organism";
-import { useJsApiLoader } from "@react-google-maps/api";
-import { googleApiConfig } from "@/configs/googleApi";
+import { AddEventConfirm } from "@/components/organism";
 
-const DashboardPage = () => {
-  const { isLoaded } = useJsApiLoader(googleApiConfig);
+const AddEventConfirmPage = () => {
   return (
     <PageContainer>
       <DashboardHeading classNames="my-4" />
@@ -24,11 +19,11 @@ const DashboardPage = () => {
           <h2 className="text-3xl text-center text-grass-20 mt-8">
             Dodaj punkt na mapie
           </h2>
-          {isLoaded ? <AddEventWizard /> : <Loader />}
+          <AddEventConfirm />
         </div>
       </PageWrapper>
     </PageContainer>
   );
 };
 
-export default DashboardPage;
+export default AddEventConfirmPage;

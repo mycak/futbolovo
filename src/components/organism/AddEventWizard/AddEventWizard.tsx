@@ -13,7 +13,6 @@ const steps: {
     key: "preview",
     Component: AddEventPreview,
   },
-  { key: "confirmMessage", Component: () => <div>Event added</div> },
 ] as const;
 
 const AddEventWizard = () => {

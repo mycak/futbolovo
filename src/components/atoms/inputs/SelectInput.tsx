@@ -27,6 +27,7 @@ const SelectInput = <
 }: ExtendedProps<Option, IsMulti, Group>) => {
   const id = Date.now().toString();
 
+  //WORKAROUND FOR CONSOLE ERROR
   const [isMounted, setIsMounted] = useState(false);
 
   const [currentSelectValues, setCurrentSelectValues] = useState<
@@ -42,7 +43,15 @@ const SelectInput = <
         <Controller
           name={props.name as string}
           control={control}
-          render={({ field: { onChange, onBlur, ref } }) => {
+          render={({ field: { onChange, onBlur, ref, value } }) => {
+            //USEFUL FOR FORM ONLY-VALUE POPULATION
+            const selectValue =
+              !currentSelectValues && value
+                ? (props.options as unknown as SelectOption[]).find(
+                    (option) => option.value === value
+                  )
+                : currentSelectValues;
+
             return (
               <Select
                 {...props}
@@ -52,7 +61,7 @@ const SelectInput = <
                 classNamePrefix="react-select"
                 hideSelectedOptions={false}
                 classNames={generateClassNames(!!error)}
-                value={currentSelectValues as PropsValue<Option> | undefined}
+                value={selectValue as PropsValue<Option> | undefined}
                 onChange={(newValue) => {
                   const valueOnlyArray = props.isMulti
                     ? (newValue as SelectOption[]).map((item) => item.value)
