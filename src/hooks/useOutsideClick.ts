@@ -1,23 +1,33 @@
 import { useEffect, useRef } from "react";
 
-export const useOutsideClick = (callback: () => void) => {
+export const useOutsideClick = (
+  callback: () => void,
+  additionalRefs: React.RefObject<HTMLElement>[] = []
+) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+
+      const isInsideDropdown = ref.current?.contains(target);
+      const isInsideButton = additionalRefs.some((buttonRef) =>
+        buttonRef.current?.contains(target)
+      );
+
+      if (!isInsideDropdown && !isInsideButton) {
         callback();
       }
     };
 
-    document.addEventListener("mouseup", handleClickOutside);
-    document.addEventListener("touchend", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
 
     return () => {
-      document.removeEventListener("mouseup", handleClickOutside);
-      document.removeEventListener("touchend", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
     };
-  }, [callback]);
+  }, [callback, additionalRefs]);
 
   return ref;
 };

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { navigationItems } from "@/constants/navigation";
 import { NavigationKey } from "@/types/common";
@@ -11,13 +11,11 @@ const NavigationMenu = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const pathname = usePathname();
 
-  const ref = useOutsideClick(() => setIsOpen(false));
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useOutsideClick(() => setIsOpen(false), [buttonRef]);
 
   useEffect(() => setIsOpen(false), [pathname]);
-
-  const toggleMenu = () => {
-    setIsOpen((prevIsOpen) => !prevIsOpen);
-  };
+  const toggleMenu = () => setIsOpen((prevIsOpen) => !prevIsOpen);
 
   return (
     <div className="relative inline-block text-left">
@@ -29,12 +27,14 @@ const NavigationMenu = () => {
           aria-expanded={isOpen}
           aria-haspopup={isOpen}
           onClick={toggleMenu}
+          ref={buttonRef}
         >
           <i className="fa-solid fa-bars fa-2xl text-grass-45 mx-auto transition-colors duration-500 hover:text-grass-20" />
         </button>
       </div>
 
       <div
+        ref={dropdownRef}
         className={`absolute right-0 z-10 mt-6 w-56 origin-top-right rounded-md bg-grass-45 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none
         transition-all duration-300 ease-out transform ${
           isOpen ? "opacity-100 scale-100" : "opacity-0 scale-95"
@@ -43,7 +43,6 @@ const NavigationMenu = () => {
         aria-orientation="vertical"
         aria-labelledby="menu-button"
         tabIndex={-1}
-        ref={ref}
       >
         <div className="py-1" role="none">
           {Object.keys(navigationItems(true)).map((key, index) => (
