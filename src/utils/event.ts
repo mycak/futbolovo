@@ -21,6 +21,25 @@ export const generateDummyPoster = (category: EventCategoryEnum) => {
   }
 };
 
+export const generateMapIcon = (category: EventCategoryEnum) => {
+  switch (category) {
+    case EventCategoryEnum.TOURNAMENT:
+      return "/icons/pins/trophy-pin.svg";
+    case EventCategoryEnum.SCHOOL:
+      return "/icons/pins/school-pin.svg";
+    case EventCategoryEnum.CAMP:
+      return "/icons/pins/camp-pin.svg";
+    case EventCategoryEnum.SIX_LEAGUE:
+      return "/icons/pins/six-league-pin.svg";
+    case EventCategoryEnum.SPORT_FIELD:
+      return "/icons/pins/pitch-pin.svg";
+    case EventCategoryEnum.SERVICE:
+      return "/icons/pins/service-pin.svg";
+    default:
+      return "/icons/pins/ball-pin.svg";
+  }
+};
+
 export const generateEventEndDate = (
   category: EventCategoryEnum,
   eventData: AddEventInputs

@@ -1,2 +1,2 @@
 export * from "./translations.utils";
-export * from "./addEvent.utils";
+export * from "./event";

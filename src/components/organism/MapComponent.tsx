@@ -2,6 +2,7 @@
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import { PageWrapper } from "../atoms";
 import { EventCategoryEnum } from "@/types/common";
+import { generateMapIcon } from "@/utils";
 
 const containerStyle = {
   width: "100%",
@@ -14,9 +15,9 @@ const mockData = [
   {
     category: EventCategoryEnum.CAMP,
     location: {
-      latitude: 50.0619474,
-      longitude: 19.9368564,
-      addressName: "Main Camp Location",
+      latitude: 54.352025,
+      longitude: 18.646368,
+      addressName: "Gdańsk Marina, Gdańsk",
     },
     ageCategories: ["2016", "2015", "Open"],
     dateRange: [new Date("2024-07-01"), new Date("2024-07-15")],
@@ -49,9 +50,9 @@ const mockData = [
   {
     category: EventCategoryEnum.SCHOOL,
     location: {
-      latitude: null,
-      longitude: null,
-      addressName: "Virtual Classroom",
+      latitude: 52.229676,
+      longitude: 21.012229,
+      addressName: "Palace of Culture and Science, Warsaw",
     },
     ageCategories: ["2018", "2019"],
     dateRange: null,
@@ -66,15 +67,33 @@ const mockData = [
 ];
 
 const center = {
-  lat: -3.745,
-  lng: -38.523,
+  lat: 52.229676,
+  lng: 21.017532,
 };
 
 const MapComponent = () => {
   return (
     <PageWrapper>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
-        <Marker position={center} zIndex={565656}></Marker>
+        {mockData.map((event) => {
+          return (
+            <Marker
+              key={event.name}
+              position={{
+                lat: event.location.latitude,
+                lng: event.location.longitude,
+              }}
+              icon={{
+                url: generateMapIcon(event.category),
+                fillColor: "#FF0000",
+                scaledSize: new window.google.maps.Size(45, 45),
+                origin: new window.google.maps.Point(0, 0),
+                anchor: new window.google.maps.Point(10, 20),
+              }}
+              zIndex={666666}
+            />
+          );
+        })}
       </GoogleMap>
     </PageWrapper>
   );
