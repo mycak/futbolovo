@@ -3,8 +3,10 @@ import {
   Divider,
   DashboardHeading,
   PageWrapper,
+  Loader,
 } from "@/components/atoms/";
 import { AddEventConfirm } from "@/components/organism";
+import { Suspense } from "react";
 
 const AddEventConfirmPage = () => {
   return (
@@ -19,7 +21,9 @@ const AddEventConfirmPage = () => {
           <h2 className="text-3xl text-center text-grass-20 mt-8">
             Dodaj punkt na mapie
           </h2>
-          <AddEventConfirm />
+          <Suspense fallback={<Loader />}>
+            <AddEventConfirm />
+          </Suspense>
         </div>
       </PageWrapper>
     </PageContainer>
