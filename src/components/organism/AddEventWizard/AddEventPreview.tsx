@@ -111,6 +111,10 @@ const AddEventPreview = () => {
           <i className="fa-regular fa-envelope text-grass-50" />
           <p>{eventData.email}</p>
         </div>
+        <div className="flex items-center gap-3">
+          <i className="fa-solid fa-phone-flip text-grass-50" />
+          <p>{eventData.phoneNumber}</p>
+        </div>
         <div className="flex items-center gap-3 col-span-2">
           <i className="fa-solid fa-location-dot text-grass-50" />
           <p>{eventData?.location.addressName}</p>

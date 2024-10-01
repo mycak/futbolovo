@@ -5,7 +5,7 @@ export const translateEventType = (event: EventCategoryEnum) => {
     case EventCategoryEnum.TOURNAMENT:
       return "Turniej";
     case EventCategoryEnum.SCHOOL:
-      return "Szkoła";
+      return "Szkoła/Akademia";
     case EventCategoryEnum.SPORT_FIELD:
       return "Boisko";
     case EventCategoryEnum.CAMP:

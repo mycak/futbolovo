@@ -43,8 +43,8 @@ export type NavigationItem = {
 export enum EventCategoryEnum {
   TOURNAMENT = "tournament",
   SCHOOL = "school",
-  SPORT_FIELD = "sportField",
   CAMP = "camp",
+  SPORT_FIELD = "sportField",
   SIX_LEAGUE = "sixLeague",
   SERVICE = "service",
 }
