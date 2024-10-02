@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import AddEventForm from "./AddEventForm";
-import { useAddEventStore } from "@/stores";
+import { useAddEventWizardStore } from "@/stores";
 import AddEventPreview from "./AddEventPreview";
 
 const steps: {
@@ -16,7 +16,7 @@ const steps: {
 ] as const;
 
 const AddEventWizard = () => {
-  const currentStep = useAddEventStore((state) => state.currentStep);
+  const currentStep = useAddEventWizardStore((state) => state.currentStep);
   const { Component } = steps[currentStep];
 
   return <Component />;

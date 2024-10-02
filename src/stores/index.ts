@@ -1,3 +1,4 @@
-import { useAddEventStore } from "./addEventStore";
+import { useAddEventWizardStore } from "./addEventWizardStore";
+import { useEventsStore } from "./eventsStore";
 
-export { useAddEventStore };
+export { useAddEventWizardStore, useEventsStore };

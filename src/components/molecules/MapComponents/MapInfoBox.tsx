@@ -3,13 +3,12 @@ import { useEffect, useRef, useState } from "react";
 import { InfoBox } from "@react-google-maps/api";
 import { generateMapIcon, translateEventType } from "@/utils";
 import { format } from "date-fns";
-import { EventCategoryEnum } from "@/types/common";
+import { EventCategoryEnum, Event } from "@/types/common";
 import { currentCurrencySign, DATE_FORMAT } from "@/constants/common";
 import clsx from "clsx";
 import Image from "next/image";
 import { paths } from "@/constants/paths";
 import { Button } from "@/components/atoms";
-import { AddEventInputs } from "@/schemas/addEventSchema";
 
 const MapInfoBox = ({
   event,
@@ -17,7 +16,7 @@ const MapInfoBox = ({
   currentId,
 }: {
   currentId: string | number | null;
-  event: AddEventInputs & { id: string };
+  event: Event;
   resetCurrent: () => void;
 }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);

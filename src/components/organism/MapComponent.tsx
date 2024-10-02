@@ -3,9 +3,10 @@ import { GoogleMap, Marker } from "@react-google-maps/api";
 import { PageWrapper } from "../atoms";
 import { generateMapIcon } from "@/utils";
 import { mockedEvents } from "@/constants/mocks";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MapInfoBox } from "../molecules";
-import { AddEventInputs } from "@/schemas/addEventSchema";
+import { EventCategoryEnum, Events } from "@/types/common";
+import { useEventsStore } from "@/stores";
 
 const containerStyle = {
   width: "100%",
@@ -20,6 +21,61 @@ const center = {
 };
 
 const MapComponent = () => {
+  const filters = useEventsStore((state) => state.filters);
+
+  //TEMMPORARY EVENTS STATE
+  const [events, setEvents] = useState<Events>(mockedEvents);
+
+  useEffect(() => {
+    const filteredEvents = mockedEvents.filter((event) => {
+      //CATEGORIES CHECK
+      if (filters.categories && !filters.categories.includes(event.category)) {
+        return false;
+      }
+      //SEARCH CHECK
+      if (filters.search) {
+        const search = filters.search.toLowerCase();
+        const matchesSearch =
+          event.name.toLowerCase().includes(search) ||
+          event.description.toLowerCase().includes(search) ||
+          (event.location.addressName ?? "").toLowerCase().includes(search);
+        if (!matchesSearch) {
+          return false;
+        }
+      }
+      //DATES CHECK
+      if (filters.dateRange) {
+        const [startDate, endDate] = filters.dateRange.map((date) =>
+          (date as Date).getTime()
+        );
+
+        if (event.category === EventCategoryEnum.TOURNAMENT) {
+          const eventDate = (event.date as Date).getTime();
+          if (eventDate < startDate || eventDate > endDate) {
+            return false;
+          }
+        }
+
+        if (event.category === EventCategoryEnum.CAMP) {
+          const [eventStart, eventEnd] = (event.dateRange as [Date, Date]).map(
+            (date) => date.getTime()
+          );
+          const overlaps =
+            (eventStart >= startDate && eventStart <= endDate) ||
+            (eventEnd >= startDate && eventEnd <= endDate);
+          if (!overlaps) {
+            return false;
+          }
+        }
+      }
+      //TODO: LOCATION CHECK
+
+      return true;
+    });
+
+    setEvents(filteredEvents);
+  }, [filters]);
+
   const [currentEventId, setCurrentEventId] = useState<string | number | null>(
     null
   );
@@ -33,7 +89,7 @@ const MapComponent = () => {
   return (
     <PageWrapper>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
-        {mockedEvents.map((event) => {
+        {events.map((event) => {
           //TODO: Add default pin instead
           if (!event.location.latitude || !event.location.longitude)
             return null;
@@ -51,7 +107,7 @@ const MapComponent = () => {
               onClick={() => setCurrentEventId(event.id)}
             >
               <MapInfoBox
-                event={event as AddEventInputs & { id: string }}
+                event={event}
                 resetCurrent={() => setCurrentEventId(null)}
                 currentId={currentEventId}
               />

@@ -25,12 +25,12 @@ import {
   useForm,
   UseFormRegister,
 } from "react-hook-form";
-import { useAddEventStore } from "@/stores";
+import { useAddEventWizardStore } from "@/stores";
 
 const AddEventForm = () => {
-  const nextStep = useAddEventStore((state) => state.nextStep);
-  const setAddData = useAddEventStore((state) => state.setAddData);
-  const addData = useAddEventStore((state) => state.addData);
+  const nextStep = useAddEventWizardStore((state) => state.nextStep);
+  const setAddData = useAddEventWizardStore((state) => state.setAddData);
+  const addData = useAddEventWizardStore((state) => state.addData);
 
   const {
     handleSubmit,

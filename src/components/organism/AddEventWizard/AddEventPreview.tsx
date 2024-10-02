@@ -1,5 +1,5 @@
 "use client";
-import { useAddEventStore } from "@/stores";
+import { useAddEventWizardStore } from "@/stores";
 import React, { useEffect, useState } from "react";
 import { Button, Divider, Loader } from "@/components/atoms";
 import { generateEventEndDate, translateEventType } from "@/utils";
@@ -13,8 +13,8 @@ import { EventImage } from "@/components/molecules";
 const AddEventPreview = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const eventData = useAddEventStore((state) => state.addData);
-  const prevStep = useAddEventStore((state) => state.prevStep);
+  const eventData = useAddEventWizardStore((state) => state.addData);
+  const prevStep = useAddEventWizardStore((state) => state.prevStep);
 
   useEffect(() => setIsLoading(false), []);
 

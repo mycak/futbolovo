@@ -3,11 +3,11 @@ import { Button, Divider, Loader } from "@/components/atoms";
 import { paths } from "@/constants/paths";
 import React, { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { useAddEventStore } from "@/stores";
+import { useAddEventWizardStore } from "@/stores";
 
 const AddEventConfirm = () => {
   const params = useSearchParams();
-  const clearState = useAddEventStore((state) => state.clearState);
+  const clearState = useAddEventWizardStore((state) => state.clearState);
 
   const endDate = params.get("endDate");
   const email = params.get("email");

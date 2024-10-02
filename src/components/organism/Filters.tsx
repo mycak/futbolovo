@@ -1,7 +1,7 @@
 "use client";
 import "react-datepicker/dist/react-datepicker.css";
 import { categoryOptions } from "@/constants/inputOptions";
-import { startOfMonth } from "date-fns";
+import { addDays } from "date-fns";
 
 import {
   SelectInput,
@@ -19,21 +19,18 @@ import {
   UseFormSetValue,
 } from "react-hook-form";
 import { useEffect, useState } from "react";
-import { EventCategoryEnum, LocationInputState } from "@/types/common";
+import {
+  EventCategoryEnum,
+  LocationInputState,
+  MapFilters,
+} from "@/types/common";
 import { paths } from "@/constants/paths";
-
-type MapInputs = {
-  categories: EventCategoryEnum[];
-  coords: {
-    latitude: number | undefined;
-    longitude: number | undefined;
-  };
-  search: string;
-  dateRange: [Date | null, Date | null];
-};
+import { useEventsStore } from "@/stores";
 
 const Filters = () => {
-  const { handleSubmit, watch, control, setValue } = useForm<MapInputs>();
+  const setFilters = useEventsStore((state) => state.setFilters);
+
+  const { handleSubmit, watch, control, setValue } = useForm<MapFilters>();
   const [dateRangeDisabled, setDateRangeDisabled] = useState<boolean>(false);
 
   useEffect(() => {
@@ -56,7 +53,7 @@ const Filters = () => {
     return () => subscription.unsubscribe();
   }, [watch]);
 
-  const onSubmit: SubmitHandler<MapInputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<MapFilters> = (data) => setFilters(data);
 
   const onLocationChange = (data: LocationInputState) => {
     const { latitude, longitude } = data;
@@ -85,16 +82,17 @@ const Filters = () => {
           onChangeCallback={onLocationChange}
         />
 
-        <div>
+        <div className="relative">
           <DateRangeInput
             name="dateRange"
             label="Zakres dat"
-            startDate={startOfMonth(new Date())}
+            startDate={new Date()}
+            endDate={addDays(new Date(), 14)}
             disabled={dateRangeDisabled}
             control={control as unknown as Control<FieldValues>}
           />
           {dateRangeDisabled && (
-            <p className="text-sm text-grass-50">
+            <p className="absolute top-16 text-sm text-grass-50">
               Dotyczy jedynie kategorii obozów lub turniejów.
             </p>
           )}

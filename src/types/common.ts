@@ -1,3 +1,5 @@
+import { AddEventInputs } from "@/schemas/addEventSchema";
+
 export type IconText = {
   icon: string;
   title: string;
@@ -31,6 +33,26 @@ export type LocationInputState = {
   longitude: number | undefined;
   location: string;
 };
+
+//MAP FILTERS
+export type MapFilters = {
+  categories: EventCategoryEnum[] | undefined;
+  coords:
+    | {
+        latitude: number | undefined;
+        longitude: number | undefined;
+      }
+    | undefined;
+  search: string | undefined;
+  dateRange: [Date | null, Date | null] | undefined;
+};
+
+//EVENTS
+export type Event = AddEventInputs & {
+  id: string;
+  dateRange?: [Date | null, Date | null] | Date[];
+};
+export type Events = Event[];
 
 //NAVIGATION
 export type NavigationKey = "mainPage" | "map" | "auth";

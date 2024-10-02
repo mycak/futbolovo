@@ -19,7 +19,7 @@ const initialState: AddEventState = {
   currentStep: 0,
 };
 
-export const useAddEventStore = create<AddEventState & AddEventAction>(
+export const useAddEventWizardStore = create<AddEventState & AddEventAction>(
   (set) => ({
     ...initialState,
     setAddData: (addData) => set({ addData }),

@@ -4,6 +4,7 @@ import { phoneRegex } from "@/constants/common";
 
 export const addEventSchema = z
   .object({
+    dateRange: z.tuple([z.date().nullable(), z.date().nullable()]).optional(),
     category: z.nativeEnum(EventCategoryEnum, {
       errorMap: () => ({ message: "Pole jest wymagane" }),
     }),
@@ -13,8 +14,6 @@ export const addEventSchema = z
       addressName: z.string().nullable().optional(),
     }),
     ageCategories: z.array(z.string()).optional(),
-
-    dateRange: z.tuple([z.date().nullable(), z.date().nullable()]).optional(),
 
     date: z.date().nullable().optional(),
 
@@ -33,8 +32,6 @@ export const addEventSchema = z
       .regex(phoneRegex, "Nieprawidłowy format numeru telefonu"),
 
     email: z.string().min(1, { message: "Pole jest wymagane" }),
-    //TODO: remove if image storing doesnt change
-    // image: z.instanceof(File).nullable().optional(),
     image: z.string().nullable().optional(),
   })
   .refine(

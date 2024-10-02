@@ -15,6 +15,7 @@ const DateRangeInput = ({
   error,
   placeholder,
   startDate,
+  endDate,
 }: {
   label: string;
   disabled?: boolean;
@@ -23,7 +24,10 @@ const DateRangeInput = ({
   error?: string;
   placeholder?: string;
   startDate?: Date;
+  endDate?: Date;
 }) => {
+  const initialStartDate = startDate ?? new Date();
+  const initialEndDate = endDate ?? new Date();
   return (
     <div className="relative">
       <label className="flex flex-col">
@@ -31,7 +35,7 @@ const DateRangeInput = ({
         <Controller
           control={control}
           name={name}
-          defaultValue={[startDate, startDate]}
+          defaultValue={[initialStartDate, initialEndDate]}
           render={({ field: { onChange, value } }) => {
             const [startDate, endDate] = value || [null, null];
 
