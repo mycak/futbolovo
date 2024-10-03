@@ -3,7 +3,7 @@ import { GoogleMap, Marker } from "@react-google-maps/api";
 import { PageWrapper } from "../atoms";
 import { generateMapIcon } from "@/utils";
 import { mockedEvents } from "@/constants/mocks";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MapInfoBox } from "../molecules";
 import { EventCategoryEnum, Events } from "@/types/common";
 import { useEventsStore } from "@/stores";
@@ -22,9 +22,17 @@ const center = {
 
 const MapComponent = () => {
   const filters = useEventsStore((state) => state.filters);
-
-  //TEMMPORARY EVENTS STATE
+  const mapRef = useRef<google.maps.Map | null>(null);
+  //TEMPORARY EVENTS STATE
   const [events, setEvents] = useState<Events>(mockedEvents);
+
+  const moveMapToCoords = (coords: { latitude: number; longitude: number }) => {
+    if (mapRef.current) {
+      mapRef.current.panTo(
+        new google.maps.LatLng(coords.latitude, coords.longitude)
+      );
+    }
+  };
 
   useEffect(() => {
     const filteredEvents = mockedEvents.filter((event) => {
@@ -68,7 +76,13 @@ const MapComponent = () => {
           }
         }
       }
-      //TODO: LOCATION CHECK
+      //LOCATION CHANGE
+      if (!!filters.coords?.latitude && !!filters.coords?.longitude) {
+        moveMapToCoords({
+          latitude: filters.coords.latitude,
+          longitude: filters.coords.longitude,
+        });
+      }
 
       return true;
     });
@@ -88,7 +102,14 @@ const MapComponent = () => {
 
   return (
     <PageWrapper>
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
+      <GoogleMap
+        mapContainerStyle={containerStyle}
+        center={center}
+        zoom={10}
+        onLoad={(map) => {
+          mapRef.current = map;
+        }}
+      >
         {events.map((event) => {
           //TODO: Add default pin instead
           if (!event.location.latitude || !event.location.longitude)

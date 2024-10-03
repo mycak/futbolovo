@@ -105,19 +105,19 @@ const Filters = () => {
         />
         <div className="flex gap-4">
           <Button
-            classNames="h-[38px] mt-6 bg-grass-45 text-xl pl-3 pr-5"
-            variant="icon"
-            icon="search"
-            text="Szukaj"
-            type="submit"
-          />
-          <Button
             classNames="h-[38px] mt-6 text-xl pl-3 pr-5 bg-red-400"
             variant="icon"
             icon="add"
             text="Dodaj"
             asLink
             href={paths.EventAdd}
+          />
+          <Button
+            classNames="h-[38px] mt-6 bg-grass-45 text-xl pl-3 pr-5"
+            variant="icon"
+            icon="search"
+            text="Szukaj"
+            type="submit"
           />
         </div>
       </form>
