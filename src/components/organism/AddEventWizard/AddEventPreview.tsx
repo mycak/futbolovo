@@ -2,7 +2,7 @@
 import { useAddEventWizardStore } from "@/stores";
 import React, { useEffect, useState } from "react";
 import { Button, Divider, Loader } from "@/components/atoms";
-import { generateEventEndDate, translateEventType } from "@/utils";
+import { generateEventVisibilityEndDate, translateEventType } from "@/utils";
 import { format } from "date-fns";
 import { currentCurrencySign, DATE_FORMAT } from "@/constants/common";
 import { EventCategoryEnum } from "@/types/common";
@@ -32,7 +32,7 @@ const AddEventPreview = () => {
         const successPageQuery = {
           email: eventData.email,
           endDate: format(
-            generateEventEndDate(eventData.category, eventData),
+            generateEventVisibilityEndDate(eventData.category, eventData),
             DATE_FORMAT
           ),
         };

@@ -67,6 +67,6 @@ export enum EventCategoryEnum {
   SCHOOL = "school",
   CAMP = "camp",
   SPORT_FIELD = "sportField",
-  SIX_LEAGUE = "sixLeague",
+  LEAGUE = "league",
   SERVICE = "service",
 }

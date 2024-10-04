@@ -669,7 +669,7 @@ export const mockedEvents: Events = [
   },
   {
     id: "70",
-    category: EventCategoryEnum.SIX_LEAGUE,
+    category: EventCategoryEnum.LEAGUE,
     location: {
       latitude: 52.3906, // Wrocław (nowe współrzędne)
       longitude: 16.8979,
@@ -685,7 +685,7 @@ export const mockedEvents: Events = [
   },
   {
     id: "71",
-    category: EventCategoryEnum.SIX_LEAGUE,
+    category: EventCategoryEnum.LEAGUE,
     location: {
       latitude: 50.0645, // Katowice (nowe współrzędne)
       longitude: 19.945,
@@ -701,7 +701,7 @@ export const mockedEvents: Events = [
   },
   {
     id: "72",
-    category: EventCategoryEnum.SIX_LEAGUE,
+    category: EventCategoryEnum.LEAGUE,
     location: {
       latitude: 54.352, // Gdańsk (nowe współrzędne)
       longitude: 18.6465,
@@ -717,7 +717,7 @@ export const mockedEvents: Events = [
   },
   {
     id: "73",
-    category: EventCategoryEnum.SIX_LEAGUE,
+    category: EventCategoryEnum.LEAGUE,
     location: {
       latitude: 51.1079, // Wrocław (nowe współrzędne)
       longitude: 17.0385,
@@ -733,7 +733,7 @@ export const mockedEvents: Events = [
   },
   {
     id: "74",
-    category: EventCategoryEnum.SIX_LEAGUE,
+    category: EventCategoryEnum.LEAGUE,
     location: {
       latitude: 52.2298, // Warszawa (nowe współrzędne)
       longitude: 21.0118,
@@ -749,7 +749,7 @@ export const mockedEvents: Events = [
   },
   {
     id: "75",
-    category: EventCategoryEnum.SIX_LEAGUE,
+    category: EventCategoryEnum.LEAGUE,
     location: {
       latitude: 50.0614, // Kraków (nowe współrzędne)
       longitude: 19.9383,
@@ -765,7 +765,7 @@ export const mockedEvents: Events = [
   },
   {
     id: "76",
-    category: EventCategoryEnum.SIX_LEAGUE,
+    category: EventCategoryEnum.LEAGUE,
     location: {
       latitude: 51.2465, // Lublin (nowe współrzędne)
       longitude: 22.573,
@@ -781,7 +781,7 @@ export const mockedEvents: Events = [
   },
   {
     id: "77",
-    category: EventCategoryEnum.SIX_LEAGUE,
+    category: EventCategoryEnum.LEAGUE,
     location: {
       latitude: 54.3723, // Szczecin (nowe współrzędne)
       longitude: 14.5376,
@@ -797,7 +797,7 @@ export const mockedEvents: Events = [
   },
   {
     id: "78",
-    category: EventCategoryEnum.SIX_LEAGUE,
+    category: EventCategoryEnum.LEAGUE,
     location: {
       latitude: 52.4064, // Poznań (nowe współrzędne)
       longitude: 16.9252,
@@ -813,7 +813,7 @@ export const mockedEvents: Events = [
   },
   {
     id: "79",
-    category: EventCategoryEnum.SIX_LEAGUE,
+    category: EventCategoryEnum.LEAGUE,
     location: {
       latitude: 52.2297, // Warszawa (nowe współrzędne)
       longitude: 21.0122,
@@ -829,7 +829,7 @@ export const mockedEvents: Events = [
   },
   {
     id: "80",
-    category: EventCategoryEnum.SIX_LEAGUE,
+    category: EventCategoryEnum.LEAGUE,
     location: {
       latitude: 50.8709, // Radom (nowe współrzędne)
       longitude: 20.6222,

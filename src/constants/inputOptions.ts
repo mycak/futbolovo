@@ -5,7 +5,7 @@ export const categoryOptions: SelectOptions = [
   { value: EventCategoryEnum.SCHOOL, label: "Szkółka lub akademia" },
   { value: EventCategoryEnum.SPORT_FIELD, label: "Boisko lub hala na wynajem" },
   { value: EventCategoryEnum.CAMP, label: "Obóz" },
-  { value: EventCategoryEnum.SIX_LEAGUE, label: "Liga szóstek" },
+  { value: EventCategoryEnum.LEAGUE, label: "Liga szóstek" },
   { value: EventCategoryEnum.SERVICE, label: "Usługa" },
 ];
 

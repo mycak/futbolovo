@@ -10,7 +10,7 @@ export const generateDummyPoster = (category: EventCategoryEnum) => {
       return "/images/posters/academy-poster.jpg";
     case EventCategoryEnum.CAMP:
       return "/images/posters/camp-poster.jpg";
-    case EventCategoryEnum.SIX_LEAGUE:
+    case EventCategoryEnum.LEAGUE:
       return "/images/posters/match-poster.jpg";
     case EventCategoryEnum.SPORT_FIELD:
       return "/images/posters/pitch-poster.jpg";
@@ -29,7 +29,7 @@ export const generateMapIcon = (category: EventCategoryEnum) => {
       return "/icons/pins/school-pin.svg";
     case EventCategoryEnum.CAMP:
       return "/icons/pins/camp-pin.svg";
-    case EventCategoryEnum.SIX_LEAGUE:
+    case EventCategoryEnum.LEAGUE:
       return "/icons/pins/six-league-pin.svg";
     case EventCategoryEnum.SPORT_FIELD:
       return "/icons/pins/pitch-pin.svg";
@@ -40,7 +40,7 @@ export const generateMapIcon = (category: EventCategoryEnum) => {
   }
 };
 
-export const generateEventEndDate = (
+export const generateEventVisibilityEndDate = (
   category: EventCategoryEnum,
   eventData: AddEventInputs
 ): Date => {
@@ -51,7 +51,7 @@ export const generateEventEndDate = (
       return add(new Date(), { months: 6 });
     case EventCategoryEnum.CAMP:
       return eventData.dateRange?.[0] ?? add(new Date(), { months: 6 });
-    case EventCategoryEnum.SIX_LEAGUE:
+    case EventCategoryEnum.LEAGUE:
       return add(new Date(), { months: 6 });
     case EventCategoryEnum.SPORT_FIELD:
       return add(new Date(), { months: 6 });
