@@ -21,7 +21,9 @@ export const generateDummyPoster = (category: EventCategoryEnum) => {
   }
 };
 
-export const generateMapIcon = (category: EventCategoryEnum) => {
+export type CategoryOrCluster = EventCategoryEnum | "cluster";
+
+export const generateMapIcon = (category: CategoryOrCluster) => {
   switch (category) {
     case EventCategoryEnum.TOURNAMENT:
       return "/icons/pins/trophy-pin.svg";
@@ -35,6 +37,8 @@ export const generateMapIcon = (category: EventCategoryEnum) => {
       return "/icons/pins/pitch-pin.svg";
     case EventCategoryEnum.SERVICE:
       return "/icons/pins/service-pin.svg";
+    case "cluster":
+      return "/icons/pins/ball-pin.svg";
     default:
       return "/icons/pins/ball-pin.svg";
   }

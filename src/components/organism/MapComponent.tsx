@@ -1,5 +1,5 @@
 "use client";
-import { GoogleMap, Marker } from "@react-google-maps/api";
+import { GoogleMap, Marker, MarkerClusterer } from "@react-google-maps/api";
 import { PageWrapper } from "../atoms";
 import { generateMapIcon } from "@/utils";
 import { mockedEvents } from "@/constants/mocks";
@@ -110,31 +110,72 @@ const MapComponent = () => {
           mapRef.current = map;
         }}
       >
-        {events.map((event) => {
-          //TODO: Add default pin instead
-          if (!event.location.latitude || !event.location.longitude)
-            return null;
-          return (
-            <Marker
-              key={event.id}
-              position={{
-                lat: event.location.latitude,
-                lng: event.location.longitude,
-              }}
-              icon={{
-                url: generateMapIcon(event.category),
-                ...googlePinIconConfig,
-              }}
-              onClick={() => setCurrentEventId(event.id)}
-            >
-              <MapInfoBox
-                event={event}
-                resetCurrent={() => setCurrentEventId(null)}
-                currentId={currentEventId}
-              />
-            </Marker>
-          );
-        })}
+        <MarkerClusterer
+          options={{
+            minimumClusterSize: 3,
+            styles: [
+              {
+                url: generateMapIcon("cluster"),
+                width: 45,
+                height: 45,
+                textColor: "black",
+                textSize: 13,
+                anchorText: [1, 0],
+              },
+              {
+                url: generateMapIcon("cluster"),
+                width: 65,
+                height: 65,
+                textColor: "black",
+                textSize: 14,
+                anchorText: [1, -1],
+              },
+            ],
+            calculator: (markers) => {
+              const clusterSize = markers.length;
+              let index = 0;
+              if (clusterSize > 8) {
+                index = 1;
+              }
+              return {
+                text: String(clusterSize),
+                index: index + 1,
+              };
+            },
+          }}
+        >
+          {(clusterer) => (
+            <>
+              {events.map((event) => {
+                //TODO: Add default pin instead
+                if (!event.location.latitude || !event.location.longitude)
+                  return null;
+                return (
+                  <Marker
+                    key={event.id}
+                    clusterer={clusterer}
+                    position={{
+                      lat: event.location.latitude,
+                      lng: event.location.longitude,
+                    }}
+                    animation={google.maps.Animation.DROP}
+                    icon={{
+                      url: generateMapIcon(event.category),
+                      ...googlePinIconConfig,
+                    }}
+                    onClick={() => setCurrentEventId(event.id)}
+                  >
+                    <MapInfoBox
+                      event={event}
+                      resetCurrent={() => setCurrentEventId(null)}
+                      currentId={currentEventId}
+                    />
+                  </Marker>
+                );
+              })}
+            </>
+          )}
+        </MarkerClusterer>
       </GoogleMap>
     </PageWrapper>
   );
