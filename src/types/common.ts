@@ -34,6 +34,12 @@ export type LocationInputState = {
   location: string;
 };
 
+//MAP BULK EVENTS
+export type BulkEvents = {
+  position: google.maps.LatLng | undefined;
+  items: Events;
+};
+
 //MAP FILTERS
 export type MapFilters = {
   categories: EventCategoryEnum[] | undefined;

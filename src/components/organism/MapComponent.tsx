@@ -1,12 +1,15 @@
 "use client";
-import { GoogleMap, Marker, MarkerClusterer } from "@react-google-maps/api";
+import { GoogleMap, MarkerF, MarkerClustererF } from "@react-google-maps/api";
 import { PageWrapper } from "../atoms";
 import { generateMapIcon } from "@/utils";
 import { mockedEvents } from "@/constants/mocks";
 import { useEffect, useRef, useState } from "react";
-import { MapInfoBox } from "../molecules";
-import { EventCategoryEnum, Events } from "@/types/common";
+import { MapInfoBox, MapInfoBoxExtended } from "../molecules";
+import { BulkEvents, Events } from "@/types/common";
 import { useEventsStore } from "@/stores";
+import { clusterConfig } from "@/configs/googleApi";
+import { useMap } from "@/hooks";
+import { Cluster } from "@react-google-maps/marker-clusterer";
 
 const containerStyle = {
   width: "100%",
@@ -15,6 +18,7 @@ const containerStyle = {
   borderRadius: "0.125rem",
 };
 
+//TODO: make it dynamic based on user location
 const center = {
   lat: 52.229676,
   lng: 21.017532,
@@ -23,71 +27,20 @@ const center = {
 const MapComponent = () => {
   const filters = useEventsStore((state) => state.filters);
   const mapRef = useRef<google.maps.Map | null>(null);
+
+  const [bulkEvents, setBulkEvents] = useState<BulkEvents>({
+    position: undefined,
+    items: [],
+  });
+
+  const { filterEvents, onClusterClick } = useMap(mapRef);
+
   //TEMPORARY EVENTS STATE
   const [events, setEvents] = useState<Events>(mockedEvents);
-
-  const moveMapToCoords = (coords: { latitude: number; longitude: number }) => {
-    if (mapRef.current) {
-      mapRef.current.panTo(
-        new google.maps.LatLng(coords.latitude, coords.longitude)
-      );
-    }
-  };
-
   useEffect(() => {
-    const filteredEvents = mockedEvents.filter((event) => {
-      //CATEGORIES CHECK
-      if (filters.categories && !filters.categories.includes(event.category)) {
-        return false;
-      }
-      //SEARCH CHECK
-      if (filters.search) {
-        const search = filters.search.toLowerCase();
-        const matchesSearch =
-          event.name.toLowerCase().includes(search) ||
-          event.description.toLowerCase().includes(search) ||
-          (event.location.addressName ?? "").toLowerCase().includes(search);
-        if (!matchesSearch) {
-          return false;
-        }
-      }
-      //DATES CHECK
-      if (filters.dateRange) {
-        const [startDate, endDate] = filters.dateRange.map((date) =>
-          (date as Date).getTime()
-        );
-
-        if (event.category === EventCategoryEnum.TOURNAMENT) {
-          const eventDate = (event.date as Date).getTime();
-          if (eventDate < startDate || eventDate > endDate) {
-            return false;
-          }
-        }
-
-        if (event.category === EventCategoryEnum.CAMP) {
-          const [eventStart, eventEnd] = (event.dateRange as [Date, Date]).map(
-            (date) => date.getTime()
-          );
-          const overlaps =
-            (eventStart >= startDate && eventStart <= endDate) ||
-            (eventEnd >= startDate && eventEnd <= endDate);
-          if (!overlaps) {
-            return false;
-          }
-        }
-      }
-      //LOCATION CHANGE
-      if (!!filters.coords?.latitude && !!filters.coords?.longitude) {
-        moveMapToCoords({
-          latitude: filters.coords.latitude,
-          longitude: filters.coords.longitude,
-        });
-      }
-
-      return true;
-    });
-
+    const filteredEvents = filterEvents(mockedEvents);
     setEvents(filteredEvents);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const [currentEventId, setCurrentEventId] = useState<string | number | null>(
@@ -100,6 +53,23 @@ const MapComponent = () => {
     anchor: new window.google.maps.Point(10, 20),
   };
 
+  const handleEventClick = (id: string | number) => {
+    setBulkEvents({ items: [], position: undefined });
+    setCurrentEventId(id);
+  };
+
+  const onBulkEventsSetCallback = (
+    newPosition: google.maps.LatLng,
+    eventsData: Events
+  ) => {
+    setCurrentEventId(null);
+    setBulkEvents({ position: newPosition, items: eventsData });
+  };
+
+  const onClusterClickAction = (cluster: Cluster) => {
+    onClusterClick(cluster, onBulkEventsSetCallback, events);
+  };
+
   return (
     <PageWrapper>
       <GoogleMap
@@ -110,39 +80,10 @@ const MapComponent = () => {
           mapRef.current = map;
         }}
       >
-        <MarkerClusterer
-          options={{
-            minimumClusterSize: 3,
-            styles: [
-              {
-                url: generateMapIcon("cluster"),
-                width: 45,
-                height: 45,
-                textColor: "black",
-                textSize: 13,
-                anchorText: [1, 0],
-              },
-              {
-                url: generateMapIcon("cluster"),
-                width: 65,
-                height: 65,
-                textColor: "black",
-                textSize: 14,
-                anchorText: [1, -1],
-              },
-            ],
-            calculator: (markers) => {
-              const clusterSize = markers.length;
-              let index = 0;
-              if (clusterSize > 8) {
-                index = 1;
-              }
-              return {
-                text: String(clusterSize),
-                index: index + 1,
-              };
-            },
-          }}
+        <MarkerClustererF
+          options={clusterConfig}
+          onClick={onClusterClickAction}
+          zoomOnClick={false}
         >
           {(clusterer) => (
             <>
@@ -151,9 +92,10 @@ const MapComponent = () => {
                 if (!event.location.latitude || !event.location.longitude)
                   return null;
                 return (
-                  <Marker
+                  <MarkerF
                     key={event.id}
                     clusterer={clusterer}
+                    title={event.id}
                     position={{
                       lat: event.location.latitude,
                       lng: event.location.longitude,
@@ -163,19 +105,26 @@ const MapComponent = () => {
                       url: generateMapIcon(event.category),
                       ...googlePinIconConfig,
                     }}
-                    onClick={() => setCurrentEventId(event.id)}
+                    onClick={() => handleEventClick(event.id)}
                   >
                     <MapInfoBox
                       event={event}
                       resetCurrent={() => setCurrentEventId(null)}
                       currentId={currentEventId}
                     />
-                  </Marker>
+                  </MarkerF>
                 );
               })}
             </>
           )}
-        </MarkerClusterer>
+        </MarkerClustererF>
+        {bulkEvents.items.length > 0 ? (
+          <MapInfoBoxExtended
+            events={bulkEvents}
+            mapRef={mapRef}
+            close={() => setBulkEvents({ items: [], position: undefined })}
+          />
+        ) : null}
       </GoogleMap>
     </PageWrapper>
   );
