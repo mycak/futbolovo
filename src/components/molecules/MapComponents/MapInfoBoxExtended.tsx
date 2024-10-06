@@ -1,14 +1,14 @@
 "use client";
 import { MutableRefObject, useEffect, useRef, useState } from "react";
 import { InfoBox } from "@react-google-maps/api";
-import { generateMapIcon, translateEventType } from "@/utils";
+import { generateMapIcon } from "@/utils";
 import { format } from "date-fns";
 import { BulkEvents, EventCategoryEnum } from "@/types/common";
 import { currentCurrencySign, DATE_FORMAT } from "@/constants/common";
 import clsx from "clsx";
 import Image from "next/image";
 import { paths } from "@/constants/paths";
-import { Button } from "@/components/atoms";
+import { Button, Divider } from "@/components/atoms";
 
 const MapInfoBoxExtended = ({
   events,
@@ -22,6 +22,14 @@ const MapInfoBoxExtended = ({
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isRendered, setIsRendered] = useState<boolean>(false);
   const timeoutId = useRef<ReturnType<typeof setTimeout>>();
+
+  const categories = [...new Set(events.items.map((item) => item.category))];
+  const [activeCategory, setActiveCategory] = useState<EventCategoryEnum>(
+    categories[0]
+  );
+  const eventsToRender = events.items.filter(
+    (event) => event.category === activeCategory
+  );
 
   // InfoBox options for positioning and disabling default close button
   const boxOptions = {
@@ -47,21 +55,14 @@ const MapInfoBoxExtended = ({
     setIsVisible(false);
     timeoutId.current = setTimeout(() => {
       close();
+      handleScrollWheel(true);
       setIsRendered(false);
     }, 300);
   };
 
-  const handleMouseEnter = () => {
-    // Disable map dragging when mouse is over the infobox
+  const handleScrollWheel = (disabled: boolean) => {
     mapRef.current?.setOptions({
-      scrollwheel: false,
-    });
-  };
-
-  const handleMouseLeave = () => {
-    // Enable map dragging when mouse leaves the infobox
-    mapRef.current?.setOptions({
-      scrollwheel: true,
+      scrollwheel: disabled,
     });
   };
 
@@ -70,123 +71,134 @@ const MapInfoBoxExtended = ({
   return (
     <InfoBox
       position={new google.maps.LatLng(events.position as google.maps.LatLng)}
-      options={boxOptions}
+      options={{ ...boxOptions, pixelOffset: new google.maps.Size(-150, -350) }}
       onCloseClick={handleClose}
     >
       <div
-        className="max-h-96 overflow-auto"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseEnter={() => handleScrollWheel(false)}
+        onMouseLeave={() => handleScrollWheel(true)}
         aria-labelledby="infoBox-title"
         role="dialog"
+        className={clsx(
+          "max-h-full relative border border-grass-50 rounded-sm bg-emerald-900 text-ivory-150 w-80",
+          "hover:cursor-pointer focus:outline-none focus:border-grass-40",
+          "transition-all duration-300 ease-out",
+          isVisible ? "opacity-95 " : "opacity-0"
+        )}
       >
-        <div
-          className={clsx(
-            "relative flex flex-col gap-1 border border-grass-50 rounded-sm bg-emerald-900 p-4 w-80 text-ivory-150 ",
-            "hover:cursor-pointer focus:outline-none focus:border-grass-40",
-            "transition-all duration-300 ease-out",
-            isVisible ? "opacity-95 " : "opacity-0"
-          )}
+        <button
+          className="absolute top-2 right-6 text-ivory-150 hover:text-grass-30 z-50"
+          onClick={handleClose}
         >
-          <button
-            className="absolute top-2 right-2 text-ivory-150 hover:text-grass-30"
-            onClick={handleClose}
-          >
-            &#10005;
-          </button>
-          <div>
-            {events.items.map((event) => (
-              <div key={event.id}>
-                <div className="flex justify-center">
-                  <Image
-                    src={generateMapIcon(event.category)}
-                    alt="Event icon"
-                    width={40}
-                    height={40}
-                  />
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold text-center text-grass-50">
-                    {event.name}
-                  </h1>
-                  <p className="text-center text-sm text-grass-30 mb-1">
-                    ({translateEventType(event.category)})
-                  </p>
-                </div>
-
-                {event.category === EventCategoryEnum.TOURNAMENT && (
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 flex flex-col items-center">
-                      <i className="fa-solid fa-calendar-days text-grass-50" />
-                    </div>
-                    <p className="text-sm">
-                      {event.date
-                        ? format(new Date(event.date), DATE_FORMAT)
-                        : "-"}
-                    </p>
-                  </div>
-                )}
-                {event.category === EventCategoryEnum.CAMP && (
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 flex flex-col items-center">
-                      <i className="fa-solid fa-calendar-days text-grass-50" />
-                    </div>
-                    <p className="text-sm">
-                      {event.dateRange
-                        ? `${format(
-                            new Date(event.dateRange[0] as Date),
-                            DATE_FORMAT
-                          )} - ${format(
-                            new Date(event.dateRange[1] as Date),
-                            DATE_FORMAT
-                          )}`
-                        : "-"}
-                    </p>
-                  </div>
-                )}
-                {[
-                  EventCategoryEnum.CAMP,
-                  EventCategoryEnum.TOURNAMENT,
-                  EventCategoryEnum.SCHOOL,
-                ].includes(event.category) && (
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 flex flex-col items-center">
-                      <i className="fa-solid fa-child-reaching text-grass-50" />
-                    </div>
-
-                    <p className="text-sm">
-                      {event.ageCategories
-                        ? event.ageCategories.join(", ").replace("9999", "Open")
-                        : "-"}
-                    </p>
-                  </div>
-                )}
+          &#10005;
+        </button>
+        {/* TAB MENU */}
+        <div className="flex justify-center gap-2 p-1 mt-4">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={clsx(
+                "border border-emerald-900 p-1 rounded-sm transition-all duration-200 ease-in-out", // animation
+                category === activeCategory &&
+                  "border !border-grass-20 bg-grass-45",
+                "hover:border-grass-30 hover:bg-grass-40" //hover
+              )}
+            >
+              <Image
+                src={generateMapIcon(category)}
+                alt="Event icon"
+                className="object-cover"
+                width={35}
+                height={35}
+              />
+            </button>
+          ))}
+        </div>
+        <Divider classNames="!mt-2 !mb-3" contained />
+        <div className="max-h-96 overflow-y-auto overflow-x-hidden px-4 flex flex-col scrollbar-grass">
+          {eventsToRender.map((event, index) => (
+            <div key={event.id}>
+              <h1 className="text-xl font-bold text-center text-grass-50">
+                {event.name}
+              </h1>
+              {event.category === EventCategoryEnum.TOURNAMENT && (
                 <div className="flex items-center gap-3">
                   <div className="w-3 flex flex-col items-center">
-                    <i className="fa-solid fa-coins text-grass-50" />
+                    <i className="fa-solid fa-calendar-days text-grass-50" />
                   </div>
                   <p className="text-sm">
-                    {event.price} {currentCurrencySign}
+                    {event.date
+                      ? format(new Date(event.date), DATE_FORMAT)
+                      : "-"}
                   </p>
                 </div>
+              )}
+              {event.category === EventCategoryEnum.CAMP && (
                 <div className="flex items-center gap-3">
                   <div className="w-3 flex flex-col items-center">
-                    <i className="fa-solid fa-location-dot text-grass-50" />
+                    <i className="fa-solid fa-calendar-days text-grass-50" />
                   </div>
-                  <p className="text-sm">{event?.location.addressName}</p>
+                  <p className="text-sm">
+                    {event.dateRange
+                      ? `${format(
+                          new Date(event.dateRange[0] as Date),
+                          DATE_FORMAT
+                        )} - ${format(
+                          new Date(event.dateRange[1] as Date),
+                          DATE_FORMAT
+                        )}`
+                      : "-"}
+                  </p>
                 </div>
+              )}
+              {[
+                EventCategoryEnum.CAMP,
+                EventCategoryEnum.TOURNAMENT,
+                EventCategoryEnum.SCHOOL,
+              ].includes(event.category) && (
+                <div className="flex items-center gap-3">
+                  <div className="w-3 flex flex-col items-center">
+                    <i className="fa-solid fa-child-reaching text-grass-50" />
+                  </div>
 
-                <div className="flex justify-center">
-                  <Button
-                    asLink
-                    href={paths.Map}
-                    text="Więcej!"
-                    classNames="mt-2 text-sm px-2 py-0 bg-grass-40"
-                  />
+                  <p className="text-sm">
+                    {event.ageCategories
+                      ? event.ageCategories.join(", ").replace("9999", "Open")
+                      : "-"}
+                  </p>
                 </div>
+              )}
+              <div className="flex items-center gap-3">
+                <div className="w-3 flex flex-col items-center">
+                  <i className="fa-solid fa-coins text-grass-50" />
+                </div>
+                <p className="text-sm">
+                  {event.price} {currentCurrencySign}
+                </p>
               </div>
-            ))}
-          </div>
+              <div className="flex items-center gap-3">
+                <div className="w-3 flex flex-col items-center">
+                  <i className="fa-solid fa-location-dot text-grass-50" />
+                </div>
+                <p className="text-sm">{event?.location.addressName}</p>
+              </div>
+
+              <div className="flex justify-center">
+                <Button
+                  asLink
+                  href={paths.Map}
+                  text="Więcej!"
+                  classNames="mt-2 text-sm px-2 py-0 bg-grass-40"
+                />
+              </div>
+              {index !== eventsToRender.length - 1 ? (
+                <Divider contained classNames="!my-4 " />
+              ) : (
+                <div className="mb-4" />
+              )}
+            </div>
+          ))}
         </div>
       </div>
     </InfoBox>
