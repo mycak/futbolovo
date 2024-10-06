@@ -80,14 +80,16 @@ const MapInfoBoxExtended = ({
         aria-labelledby="infoBox-title"
         role="dialog"
         className={clsx(
-          "max-h-full relative border border-grass-50 rounded-sm bg-emerald-900 text-ivory-150 w-80",
+          "max-h-full relative border border-grass-50 rounded-lg bg-emerald-900 text-ivory-150 w-80",
           "hover:cursor-pointer focus:outline-none focus:border-grass-40",
           "transition-all duration-300 ease-out",
           isVisible ? "opacity-95 " : "opacity-0"
         )}
       >
         <button
-          className="absolute top-2 right-6 text-ivory-150 hover:text-grass-30 z-50"
+          className={
+            "absolute top-2 right-2 text-ivory-150 hover:text-grass-30 z-50"
+          }
           onClick={handleClose}
         >
           &#10005;
@@ -119,7 +121,7 @@ const MapInfoBoxExtended = ({
         <div className="max-h-96 overflow-y-auto overflow-x-hidden px-4 flex flex-col scrollbar-grass">
           {eventsToRender.map((event, index) => (
             <div key={event.id}>
-              <h1 className="text-xl font-bold text-center text-grass-50">
+              <h1 className="text-xl font-bold text-center text-grass-30 mb-1">
                 {event.name}
               </h1>
               {event.category === EventCategoryEnum.TOURNAMENT && (

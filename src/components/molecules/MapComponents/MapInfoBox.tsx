@@ -1,14 +1,17 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { InfoBox } from "@react-google-maps/api";
-import { generateMapIcon, translateEventType } from "@/utils";
+import {
+  generateMapIcon,
+  // translateEventType
+} from "@/utils";
 import { format } from "date-fns";
 import { EventCategoryEnum, Event } from "@/types/common";
 import { currentCurrencySign, DATE_FORMAT } from "@/constants/common";
 import clsx from "clsx";
 import Image from "next/image";
 import { paths } from "@/constants/paths";
-import { Button } from "@/components/atoms";
+import { Button, Divider } from "@/components/atoms";
 
 const MapInfoBox = ({
   event,
@@ -66,7 +69,7 @@ const MapInfoBox = ({
     >
       <div
         className={clsx(
-          "relative flex flex-col gap-1 border border-grass-50 rounded-sm bg-emerald-900 p-4 w-80 text-ivory-150",
+          "relative flex flex-col gap-1 border border-grass-50 rounded-lg bg-emerald-900 p-4 w-80 text-ivory-150",
           "hover:cursor-pointer focus:outline-none focus:border-grass-40",
           "transition-all duration-300 ease-out",
           isVisible ? "opacity-95 " : "opacity-0"
@@ -87,12 +90,14 @@ const MapInfoBox = ({
           />
         </div>
         <div>
-          <h1 className="text-xl font-bold text-center text-grass-50">
+          <h1 className="text-xl font-bold text-center text-grass-30">
             {event.name}
           </h1>
-          <p className="text-center text-sm text-grass-30 mb-1">
+          <Divider contained classNames="!my-3" />
+          {/* TODO: USE IT ON MORE CLICK */}
+          {/* <p className="text-center text-sm text-grass-30 mb-1">
             ({translateEventType(event.category)})
-          </p>
+          </p> */}
         </div>
 
         {event.category === EventCategoryEnum.TOURNAMENT && (
