@@ -47,3 +47,9 @@ export const clusterConfig: ClustererOptions = {
     };
   },
 };
+
+export const initialMapCords = {
+  // Gdańsk cords
+  lat: 54.352025,
+  lng: 18.646638,
+};

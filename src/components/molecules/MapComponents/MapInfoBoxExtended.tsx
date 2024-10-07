@@ -62,7 +62,9 @@ const MapInfoBoxExtended = ({
 
   const handleScrollWheel = (disabled: boolean) => {
     mapRef.current?.setOptions({
-      scrollwheel: disabled,
+      scaleControl: disabled,
+      mapTypeControl: disabled,
+      draggable: disabled,
     });
   };
 

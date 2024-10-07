@@ -18,13 +18,11 @@ const containerStyle = {
   borderRadius: "0.125rem",
 };
 
-//TODO: make it dynamic based on user location
-const center = {
-  lat: 52.229676,
-  lng: 21.017532,
-};
-
-const MapComponent = () => {
+const MapComponent = ({
+  mapInitialPosition,
+}: {
+  mapInitialPosition: { lng: number; lat: number };
+}) => {
   const filters = useEventsStore((state) => state.filters);
   const mapRef = useRef<google.maps.Map | null>(null);
 
@@ -32,7 +30,6 @@ const MapComponent = () => {
     position: undefined,
     items: [],
   });
-
   const { filterEvents, onClusterClick } = useMap(mapRef);
 
   //TEMPORARY EVENTS STATE
@@ -74,7 +71,7 @@ const MapComponent = () => {
     <PageWrapper>
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={center}
+        center={mapInitialPosition}
         zoom={10}
         onLoad={(map) => {
           mapRef.current = map;

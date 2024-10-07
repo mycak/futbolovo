@@ -6,7 +6,8 @@ import { Cluster } from "@react-google-maps/marker-clusterer";
 const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
   const filters = useEventsStore((state) => state.filters);
 
-  //MAP BEHAVIORS
+  //MARK: MAP BEHAVIORS
+  //Move to cords
   const moveMapToCoords = (coords: { latitude: number; longitude: number }) => {
     if (mapRef.current) {
       mapRef.current.panTo(
@@ -14,6 +15,8 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
       );
     }
   };
+
+  //On cluster click
   const onClusterClick = (
     cluster: Cluster,
     onBulkEventsSetCallback: (
@@ -89,7 +92,11 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
       return true;
     });
 
-  return { moveMapToCoords, filterEvents, onClusterClick };
+  return {
+    moveMapToCoords,
+    filterEvents,
+    onClusterClick,
+  };
 };
 
 export { useMap };
