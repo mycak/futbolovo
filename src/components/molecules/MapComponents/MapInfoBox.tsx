@@ -12,6 +12,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import { paths } from "@/constants/paths";
 import { Button, Divider } from "@/components/atoms";
+import EventImage from "../Events/EventImage";
 
 const MapInfoBox = ({
   event,
@@ -29,7 +30,7 @@ const MapInfoBox = ({
   // InfoBox options for positioning and disabling default close button
   const boxOptions = {
     enableEventPropagation: true,
-    pixelOffset: new google.maps.Size(-150, -50),
+    pixelOffset: new google.maps.Size(-150, -150),
     closeBoxURL: "", // Remove default close icon
   };
 
@@ -69,109 +70,104 @@ const MapInfoBox = ({
     >
       <div
         className={clsx(
-          "relative flex flex-col gap-1 border border-grass-50 rounded-lg bg-emerald-900 p-4 w-80 text-ivory-150",
+          "relative flex flex-row border border-grass-50 rounded-lg bg-emerald-900 p-5 text-ivory-150",
           "hover:cursor-pointer focus:outline-none focus:border-grass-40",
           "transition-all duration-300 ease-out",
           isVisible ? "opacity-95 " : "opacity-0"
         )}
       >
+        <EventImage eventData={event} classNames="w-48 mr-4" />
         <button
           className="absolute top-2 right-2 text-ivory-150 hover:text-grass-30"
           onClick={handleClose}
         >
           &#10005;
         </button>
-        <div className="flex justify-center">
-          <Image
-            src={generateMapIcon(event.category)}
-            alt="Event icon"
-            width={40}
-            height={40}
-          />
-        </div>
-        <div>
-          <h1 className="text-xl font-bold text-center text-grass-30">
-            {event.name}
-          </h1>
-          <Divider contained classNames="!my-3" />
-          {/* TODO: USE IT ON MORE CLICK */}
-          {/* <p className="text-center text-sm text-grass-30 mb-1">
-            ({translateEventType(event.category)})
-          </p> */}
-        </div>
+        <div className="flex flex-col gap-1 w-80">
+          <div className="flex justify-center">
+            <Image
+              src={generateMapIcon(event.category)}
+              alt="Event icon"
+              width={40}
+              height={40}
+            />
+          </div>
+          <div>
+            <h1 className="text-xl font-bold text-center text-grass-30">
+              {event.name}
+            </h1>
+            <Divider contained classNames="!my-3" />
+          </div>
 
-        {event.category === EventCategoryEnum.TOURNAMENT && (
-          <div className="flex items-center gap-3">
-            <div className="w-3 flex flex-col items-center">
-              <i className="fa-solid fa-calendar-days text-grass-50" />
+          <div className="flex flex-col gap-1">
+            {event.category === EventCategoryEnum.TOURNAMENT && (
+              <div className="flex items-center gap-3">
+                <div className="w-3 flex flex-col items-center">
+                  <i className="fa-solid fa-calendar-days text-grass-50" />
+                </div>
+                <p className="text-sm">
+                  {event.date ? format(new Date(event.date), DATE_FORMAT) : "-"}
+                </p>
+              </div>
+            )}
+            {event.category === EventCategoryEnum.CAMP && (
+              <div className="flex items-center gap-3">
+                <div className="w-3 flex flex-col items-center">
+                  <i className="fa-solid fa-calendar-days text-grass-50" />
+                </div>
+                <p className="text-sm">
+                  {event.dateRange
+                    ? `${format(
+                        new Date(event.dateRange[0] as Date),
+                        DATE_FORMAT
+                      )} - ${format(
+                        new Date(event.dateRange[1] as Date),
+                        DATE_FORMAT
+                      )}`
+                    : "-"}
+                </p>
+              </div>
+            )}
+            {[
+              EventCategoryEnum.CAMP,
+              EventCategoryEnum.TOURNAMENT,
+              EventCategoryEnum.SCHOOL,
+            ].includes(event.category) && (
+              <div className="flex items-center gap-3">
+                <div className="w-3 flex flex-col items-center">
+                  <i className="fa-solid fa-child-reaching text-grass-50" />
+                </div>
+                <p className="text-sm">
+                  {event.ageCategories
+                    ? event.ageCategories.join(", ").replace("9999", "Open")
+                    : "-"}
+                </p>
+              </div>
+            )}
+            <div className="flex items-center gap-3">
+              <div className="w-3 flex flex-col items-center">
+                <i className="fa-solid fa-coins text-grass-50" />
+              </div>
+              <p className="text-sm">
+                {event.price} {currentCurrencySign}
+              </p>
             </div>
-            <p className="text-sm">
-              {event.date ? format(new Date(event.date), DATE_FORMAT) : "-"}
-            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-3 flex flex-col items-center">
+                <i className="fa-solid fa-location-dot text-grass-50" />
+              </div>
+              <p className="text-sm">{event?.location.addressName}</p>
+            </div>
           </div>
-        )}
-        {event.category === EventCategoryEnum.CAMP && (
-          <div className="flex items-center gap-3">
-            <div className="w-3 flex flex-col items-center">
-              <i className="fa-solid fa-calendar-days text-grass-50" />
-            </div>
-            <p className="text-sm">
-              {event.dateRange
-                ? `${format(
-                    new Date(event.dateRange[0] as Date),
-                    DATE_FORMAT
-                  )} - ${format(
-                    new Date(event.dateRange[1] as Date),
-                    DATE_FORMAT
-                  )}`
-                : "-"}
-            </p>
-          </div>
-        )}
-        {[
-          EventCategoryEnum.CAMP,
-          EventCategoryEnum.TOURNAMENT,
-          EventCategoryEnum.SCHOOL,
-        ].includes(event.category) && (
-          <div className="flex items-center gap-3">
-            <div className="w-3 flex flex-col items-center">
-              <i className="fa-solid fa-child-reaching text-grass-50" />
-            </div>
 
-            <p className="text-sm">
-              {event.ageCategories
-                ? event.ageCategories.join(", ").replace("9999", "Open")
-                : "-"}
-            </p>
+          <div className="mt-auto self-center mb-2">
+            <Button
+              asLink
+              href={paths.Event(event.id)}
+              text="Więcej!"
+              classNames="text-sm px-2 py-0 bg-grass-40 "
+            />
           </div>
-        )}
-        <div className="flex items-center gap-3">
-          <div className="w-3 flex flex-col items-center">
-            <i className="fa-solid fa-coins text-grass-50" />
-          </div>
-          <p className="text-sm">
-            {event.price} {currentCurrencySign}
-          </p>
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="w-3 flex flex-col items-center">
-            <i className="fa-solid fa-location-dot text-grass-50" />
-          </div>
-          <p className="text-sm">{event?.location.addressName}</p>
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="w-3 flex flex-col items-center">
-            <i className="fa-regular fa-comment text-grass-50" />
-          </div>
-          <p className="text-sm">{event.description}</p>
-        </div>
-        <div className="flex justify-center">
-          <Button
-            asLink
-            href={paths.Map}
-            text="Więcej!"
-            classNames="mt-2 text-sm px-2 py-0 bg-grass-40"
-          />
         </div>
       </div>
     </InfoBox>

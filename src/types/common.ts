@@ -76,3 +76,23 @@ export enum EventCategoryEnum {
   LEAGUE = "league",
   SERVICE = "service",
 }
+
+export enum AgeCategoryCategoryEnum {
+  OPEN = "Open",
+  U21 = "U21",
+  U20 = "U20",
+  U19 = "U19",
+  U18 = "U18",
+  U17 = "U17",
+  U16 = "U16",
+  U15 = "U15",
+  U14 = "U14",
+  U13 = "U13",
+  U12 = "U12",
+  U11 = "U11",
+  U10 = "U10",
+  U9 = "U9",
+  U8 = "U8",
+  U7 = "U7",
+  U6 = "U6",
+}

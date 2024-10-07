@@ -32,6 +32,16 @@ type ButtonProps =
       href?: never;
       icon: string;
       type?: "button" | "submit" | "reset";
+    }
+  | {
+      text?: string;
+      variant?: "text";
+      onClick?: (() => void) | SubmitHandler<FieldValues>;
+      classNames?: string;
+      asLink?: false;
+      href?: never;
+      icon?: string;
+      type?: "button" | "submit" | "reset";
     };
 
 const Button = ({
@@ -50,6 +60,7 @@ const Button = ({
       onClick={onClick}
       className={clsx(
         "bg-grass-150 px-3 py-1 transition-all duration-300 opacity-90 rounded-sm flex items-center hover:opacity-100",
+        variant === "text" && "text-grass-30 bg-transparent",
         classNames
       )}
     >

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { EventCategoryEnum } from "@/types/common";
+import { AgeCategoryCategoryEnum, EventCategoryEnum } from "@/types/common";
 import { phoneRegex } from "@/constants/common";
 
 export const addEventSchema = z
@@ -13,7 +13,7 @@ export const addEventSchema = z
       longitude: z.number().nullable().optional(),
       addressName: z.string().nullable().optional(),
     }),
-    ageCategories: z.array(z.string()).optional(),
+    ageCategories: z.array(z.nativeEnum(AgeCategoryCategoryEnum)).optional(),
 
     date: z.date().nullable().optional(),
 

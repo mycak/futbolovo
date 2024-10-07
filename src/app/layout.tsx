@@ -27,20 +27,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const [libraries] = useState<Libraries>([
-  //   "places",
-  //   "routes",
-  //   "maps",
-  //   "marker",
-  // ]);
-  // const { isLoaded } = useJsApiLoader({
-  //   id: "futbolovo",
-  //   googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY as string,
-  //   language: "pl",
-  //   region: "PL",
-  //   version: "weekly",
-  //   libraries,
-  // });
   return (
     <html lang="en">
       <Script

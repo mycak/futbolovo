@@ -5,12 +5,19 @@ import Image from "next/image";
 import { Loader } from "@/components/atoms";
 import { generateDummyPoster } from "@/utils";
 import { AddEventInputs } from "@/schemas/addEventSchema";
+import clsx from "clsx";
 
-const EventImage = ({ eventData }: { eventData: AddEventInputs }) => {
+const EventImage = ({
+  eventData,
+  classNames,
+}: {
+  eventData: AddEventInputs;
+  classNames?: string;
+}) => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className="relative mx-auto w-max">
+    <div className={clsx("relative mx-auto max-w-full border", classNames)}>
       {isLoading && eventData.image && (
         <div className="absolute inset-0 flex items-center justify-center">
           <Loader />
@@ -22,13 +29,16 @@ const EventImage = ({ eventData }: { eventData: AddEventInputs }) => {
           width="424"
           height="600"
           src={eventData?.image}
-          sizes="100vw"
           alt={eventData?.name}
           onLoad={() => setIsLoading(false)}
           onError={() => setIsLoading(false)}
           className={`transition-opacity duration-300 ${
             isLoading ? "opacity-0" : "opacity-100"
           }`}
+          style={{
+            width: "100%",
+            height: "auto",
+          }}
         />
       ) : (
         <Image
@@ -37,6 +47,10 @@ const EventImage = ({ eventData }: { eventData: AddEventInputs }) => {
           height={610}
           alt="Tournament"
           onLoad={() => setIsLoading(false)}
+          style={{
+            width: "100%",
+            height: "auto",
+          }}
         />
       )}
     </div>

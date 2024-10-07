@@ -167,9 +167,7 @@ const MapInfoBoxExtended = ({
                   </div>
 
                   <p className="text-sm">
-                    {event.ageCategories
-                      ? event.ageCategories.join(", ").replace("9999", "Open")
-                      : "-"}
+                    {event.ageCategories ? event.ageCategories.join(", ") : "-"}
                   </p>
                 </div>
               )}
@@ -191,9 +189,9 @@ const MapInfoBoxExtended = ({
               <div className="flex justify-center">
                 <Button
                   asLink
-                  href={paths.Map}
+                  href={paths.Event(event.id)}
                   text="Więcej!"
-                  classNames="mt-2 text-sm px-2 py-0 bg-grass-40"
+                  classNames="mt-2 text-sm px-2 py-0 bg-grass-40 "
                 />
               </div>
               {index !== eventsToRender.length - 1 ? (
