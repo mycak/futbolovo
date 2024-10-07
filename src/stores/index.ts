@@ -1,4 +1,5 @@
 import { useAddEventWizardStore } from "./addEventWizardStore";
 import { useEventsStore } from "./eventsStore";
+import { useMapStore } from "./mapStore";
 
-export { useAddEventWizardStore, useEventsStore };
+export { useAddEventWizardStore, useEventsStore, useMapStore };

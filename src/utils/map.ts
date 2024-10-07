@@ -1,13 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
-
 export const generateMapCoordsFromCurrentLocation = (
   coords: GeolocationPosition,
-  callback: Dispatch<
-    SetStateAction<{
-      lat: number;
-      lng: number;
-    } | null>
-  >
+  callback: (coords: { lat: number; lng: number }) => void
 ) => {
   const parsedCoords = {
     lat: coords.coords.latitude,

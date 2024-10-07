@@ -1,11 +1,23 @@
-import { useEventsStore } from "@/stores";
+import { useEventsStore, useMapStore } from "@/stores";
 import { EventCategoryEnum, Events } from "@/types/common";
 import { MutableRefObject } from "react";
 import { Cluster } from "@react-google-maps/marker-clusterer";
 
 const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
   const filters = useEventsStore((state) => state.filters);
+  const setMapZoom = useMapStore((state) => state.setZoom);
+  const setMapCenter = useMapStore((state) => state.setCenter);
 
+  const saveMapData = () => {
+    const zoom = mapRef.current?.getZoom();
+    setMapZoom(zoom ?? 20);
+    const center = mapRef.current?.getCenter();
+    if (center) {
+      const lat = center.lat();
+      const lng = center.lng();
+      setMapCenter({ lat, lng });
+    }
+  };
   //MARK: MAP BEHAVIORS
   //Move to cords
   const moveMapToCoords = (coords: { latitude: number; longitude: number }) => {
@@ -96,6 +108,7 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
     moveMapToCoords,
     filterEvents,
     onClusterClick,
+    saveMapData,
   };
 };
 

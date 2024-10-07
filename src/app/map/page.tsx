@@ -10,26 +10,25 @@ import { AddPlaceSection } from "@/components/molecules";
 import { Filters, MapComponent } from "@/components/organism/";
 import { useJsApiLoader } from "@react-google-maps/api";
 import { googleApiConfig, initialMapCords } from "@/configs/googleApi";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { generateMapCoordsFromCurrentLocation } from "@/utils";
+import { useMapStore } from "@/stores";
 
 const MapPage = () => {
   const { isLoaded } = useJsApiLoader(googleApiConfig);
-  const [mapInitialPosition, setMapInitialPosition] = useState<{
-    lat: number;
-    lng: number;
-  } | null>(null);
+  const mapCenter = useMapStore((state) => state.center);
+  const setMapCenter = useMapStore((state) => state.setCenter);
 
   //GET USER LOCATION
   useEffect(() => {
+    if (mapCenter) return;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        (data) =>
-          generateMapCoordsFromCurrentLocation(data, setMapInitialPosition),
+        (data) => generateMapCoordsFromCurrentLocation(data, setMapCenter),
         () => console.log("Geolocation not supported")
       );
     } else {
-      setMapInitialPosition(initialMapCords);
+      setMapCenter(initialMapCords);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -37,10 +36,10 @@ const MapPage = () => {
   return (
     <PageContainer>
       <Divider />
-      {isLoaded && mapInitialPosition ? (
+      {isLoaded && mapCenter ? (
         <div>
           <Filters />
-          <MapComponent mapInitialPosition={mapInitialPosition} />
+          <MapComponent mapInitialPosition={mapCenter} />
         </div>
       ) : (
         <PageWrapper>

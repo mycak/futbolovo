@@ -1,10 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { InfoBox } from "@react-google-maps/api";
-import {
-  generateMapIcon,
-  // translateEventType
-} from "@/utils";
+import { generateMapIcon } from "@/utils";
 import { format } from "date-fns";
 import { EventCategoryEnum, Event } from "@/types/common";
 import { currentCurrencySign, DATE_FORMAT } from "@/constants/common";
@@ -18,10 +15,12 @@ const MapInfoBox = ({
   event,
   resetCurrent,
   currentId,
+  saveMapData,
 }: {
   currentId: string | number | null;
   event: Event;
   resetCurrent: () => void;
+  saveMapData: () => void;
 }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isRendered, setIsRendered] = useState<boolean>(false);
@@ -164,6 +163,7 @@ const MapInfoBox = ({
             <Button
               asLink
               href={paths.Event(event.id)}
+              onClick={saveMapData}
               text="Więcej!"
               classNames="text-sm px-2 py-0 bg-grass-40 "
             />

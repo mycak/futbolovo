@@ -6,7 +6,7 @@ import { mockedEvents } from "@/constants/mocks";
 import { useEffect, useRef, useState } from "react";
 import { MapInfoBox, MapInfoBoxExtended } from "../molecules";
 import { BulkEvents, Events } from "@/types/common";
-import { useEventsStore } from "@/stores";
+import { useEventsStore, useMapStore } from "@/stores";
 import { clusterConfig } from "@/configs/googleApi";
 import { useMap } from "@/hooks";
 import { Cluster } from "@react-google-maps/marker-clusterer";
@@ -25,12 +25,13 @@ const MapComponent = ({
 }) => {
   const filters = useEventsStore((state) => state.filters);
   const mapRef = useRef<google.maps.Map | null>(null);
+  const mapZoom = useMapStore((state) => state.mapZoom);
 
   const [bulkEvents, setBulkEvents] = useState<BulkEvents>({
     position: undefined,
     items: [],
   });
-  const { filterEvents, onClusterClick } = useMap(mapRef);
+  const { filterEvents, onClusterClick, saveMapData } = useMap(mapRef);
 
   //TEMPORARY EVENTS STATE
   const [events, setEvents] = useState<Events>(mockedEvents);
@@ -72,7 +73,7 @@ const MapComponent = ({
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapInitialPosition}
-        zoom={10}
+        zoom={mapZoom}
         onLoad={(map) => {
           mapRef.current = map;
         }}
@@ -107,6 +108,7 @@ const MapComponent = ({
                     <MapInfoBox
                       event={event}
                       resetCurrent={() => setCurrentEventId(null)}
+                      saveMapData={saveMapData}
                       currentId={currentEventId}
                     />
                   </MarkerF>
