@@ -22,9 +22,13 @@ export const navigationItems: (
   ],
   auth: isSignIn
     ? [
+        // {
+        //   text: "Wyloguj",
+        //   to: "/signout",
+        // },
         {
-          text: "Wyloguj",
-          to: "/signout",
+          text: "Kontakt",
+          to: "/contact",
         },
       ]
     : [

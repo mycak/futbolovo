@@ -1,5 +1,6 @@
 import {
   DashboardHeading,
+  Divider,
   PageContainer,
   SiteDescription,
 } from "@/components/atoms/";
@@ -10,6 +11,7 @@ const DashboardPage = () => {
   return (
     <PageContainer>
       <DashboardHeading classNames="my-4" />
+      <Divider />
       <Hero />
       <IconsSection
         title="Dla Piłkarskich Entuzjastów"

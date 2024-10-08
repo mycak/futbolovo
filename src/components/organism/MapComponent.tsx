@@ -103,7 +103,12 @@ const MapComponent = ({
                       url: generateMapIcon(event.category),
                       ...googlePinIconConfig,
                     }}
-                    onClick={() => handleEventClick(event.id)}
+                    onClick={(marker) => {
+                      mapRef.current?.panTo(
+                        marker.latLng as google.maps.LatLng
+                      );
+                      handleEventClick(event.id);
+                    }}
                   >
                     <MapInfoBox
                       event={event}

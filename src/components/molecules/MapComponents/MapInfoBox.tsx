@@ -29,7 +29,7 @@ const MapInfoBox = ({
   // InfoBox options for positioning and disabling default close button
   const boxOptions = {
     enableEventPropagation: true,
-    pixelOffset: new google.maps.Size(-150, -150),
+    pixelOffset: new google.maps.Size(-285, -250),
     closeBoxURL: "", // Remove default close icon
   };
 

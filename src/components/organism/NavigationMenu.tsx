@@ -35,7 +35,7 @@ const NavigationMenu = () => {
 
       <div
         ref={dropdownRef}
-        className={`absolute right-0 z-10 mt-6 w-56 origin-top-right rounded-md bg-grass-45 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none
+        className={`absolute right-0 mt-6 w-56 origin-top-right rounded-md bg-grass-45 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none
         transition-all duration-300 ease-out transform ${
           isOpen ? "opacity-100 scale-100 z-50" : "opacity-0 scale-95 -z-10"
         }`}
