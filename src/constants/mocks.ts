@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 import { EventCategoryEnum, Events } from "@/types/common";
 
 export const mockedEvents: Events = [
