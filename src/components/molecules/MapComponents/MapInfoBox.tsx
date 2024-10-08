@@ -109,7 +109,8 @@ const MapInfoBox = ({
                 </p>
               </div>
             )}
-            {event.category === EventCategoryEnum.CAMP && (
+            {(event.category === EventCategoryEnum.CAMP ||
+              event.category === EventCategoryEnum.MATCH) && (
               <div className="flex items-center gap-3">
                 <div className="w-3 flex flex-col items-center">
                   <i className="fa-solid fa-calendar-days text-grass-50" />
@@ -129,6 +130,7 @@ const MapInfoBox = ({
             )}
             {[
               EventCategoryEnum.CAMP,
+              EventCategoryEnum.MATCH,
               EventCategoryEnum.TOURNAMENT,
               EventCategoryEnum.SCHOOL,
             ].includes(event.category) && (

@@ -16,6 +16,8 @@ export const generateDummyPoster = (category: EventCategoryEnum) => {
       return "/images/posters/pitch-poster.jpg";
     case EventCategoryEnum.SERVICE:
       return "/images/posters/service-poster.jpg";
+    case EventCategoryEnum.MATCH:
+      return "/images/posters/match-2-poster.jpg";
     default:
       return "/images/posters/tournament-poster.jpg";
   }
@@ -37,6 +39,8 @@ export const generateMapIcon = (category: CategoryOrCluster) => {
       return "/icons/pins/pitch-pin.svg";
     case EventCategoryEnum.SERVICE:
       return "/icons/pins/service-pin.svg";
+    case EventCategoryEnum.MATCH:
+      return "/icons/pins/match-pin.svg";
     case "cluster":
       return "/icons/pins/ball-pin.svg";
     default:
@@ -51,16 +55,15 @@ export const generateEventVisibilityEndDate = (
   switch (category) {
     case EventCategoryEnum.TOURNAMENT:
       return eventData.date as Date;
-    case EventCategoryEnum.SCHOOL:
-      return add(new Date(), { months: 6 });
+    case EventCategoryEnum.MATCH:
     case EventCategoryEnum.CAMP:
       return eventData.dateRange?.[0] ?? add(new Date(), { months: 6 });
+    case EventCategoryEnum.SCHOOL:
     case EventCategoryEnum.LEAGUE:
-      return add(new Date(), { months: 6 });
     case EventCategoryEnum.SPORT_FIELD:
-      return add(new Date(), { months: 6 });
     case EventCategoryEnum.SERVICE:
       return add(new Date(), { months: 6 });
+
     default:
       return add(new Date(), { months: 6 });
   }

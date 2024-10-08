@@ -89,7 +89,10 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
           }
         }
 
-        if (event.category === EventCategoryEnum.CAMP) {
+        if (
+          event.category === EventCategoryEnum.CAMP ||
+          event.category === EventCategoryEnum.MATCH
+        ) {
           const [eventStart, eventEnd] = (event.dateRange as [Date, Date]).map(
             (date) => date.getTime()
           );

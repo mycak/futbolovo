@@ -7,4 +7,5 @@ export const descriptionHints: Record<EventCategoryEnum, string> = {
   [EventCategoryEnum.LEAGUE]: "Ramy czasowe, zasady, itp.",
   [EventCategoryEnum.SERVICE]: "Opis usługi",
   [EventCategoryEnum.SPORT_FIELD]: "Opis obiektu",
+  [EventCategoryEnum.MATCH]: "Ramy czasowe, zasady, itp.",
 };

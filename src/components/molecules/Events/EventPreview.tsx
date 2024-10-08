@@ -41,7 +41,8 @@ const EventPreview = ({
             </p>
           </div>
         )}
-        {eventData.category === EventCategoryEnum.CAMP && (
+        {(eventData.category === EventCategoryEnum.CAMP ||
+          eventData.category === EventCategoryEnum.MATCH) && (
           <div className="flex items-center gap-3">
             <i className="fa-solid fa-calendar-days text-grass-50" />
             <p>
@@ -58,6 +59,7 @@ const EventPreview = ({
           </div>
         )}
         {[
+          EventCategoryEnum.MATCH,
           EventCategoryEnum.CAMP,
           EventCategoryEnum.TOURNAMENT,
           EventCategoryEnum.SCHOOL,

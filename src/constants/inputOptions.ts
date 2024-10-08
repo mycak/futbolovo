@@ -11,6 +11,7 @@ export const categoryOptions: SelectOptions = [
   { value: EventCategoryEnum.CAMP, label: "Obóz" },
   { value: EventCategoryEnum.LEAGUE, label: "Liga szóstek" },
   { value: EventCategoryEnum.SERVICE, label: "Usługa" },
+  { value: EventCategoryEnum.MATCH, label: "Mecz" },
 ];
 
 export const ageCategoryOptions: SelectOptions = (

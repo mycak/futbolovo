@@ -37,6 +37,7 @@ const Filters = () => {
     const rangeCategories: EventCategoryEnum[] = [
       EventCategoryEnum.TOURNAMENT,
       EventCategoryEnum.CAMP,
+      EventCategoryEnum.MATCH,
     ];
     const subscription = watch(({ categories }) => {
       if (
@@ -93,7 +94,7 @@ const Filters = () => {
           />
           {dateRangeDisabled && (
             <p className="absolute top-16 text-sm text-grass-50">
-              Dotyczy jedynie kategorii obozów lub turniejów.
+              Dotyczy jedynie kategorii obozów, meczy lub turniejów.
             </p>
           )}
         </div>

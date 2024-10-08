@@ -75,6 +75,7 @@ export enum EventCategoryEnum {
   SPORT_FIELD = "sportField",
   LEAGUE = "league",
   SERVICE = "service",
+  MATCH = "Match",
 }
 
 export enum AgeCategoryCategoryEnum {

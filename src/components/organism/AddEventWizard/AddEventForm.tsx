@@ -87,6 +87,7 @@ const AddEventForm = () => {
           </>
         );
       case EventCategoryEnum.CAMP:
+      case EventCategoryEnum.MATCH:
         return (
           <>
             <DateRangeInput

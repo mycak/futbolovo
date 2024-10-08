@@ -40,6 +40,7 @@ export const addEventSchema = z
         EventCategoryEnum.CAMP,
         EventCategoryEnum.TOURNAMENT,
         EventCategoryEnum.SCHOOL,
+        EventCategoryEnum.MATCH,
       ];
       return (
         !requiresAgeCategories.includes(data.category) ||
@@ -54,7 +55,8 @@ export const addEventSchema = z
   .refine(
     (data) => {
       return (
-        data.category !== EventCategoryEnum.CAMP ||
+        (data.category !== EventCategoryEnum.CAMP &&
+          data.category !== EventCategoryEnum.MATCH) ||
         (!!data.dateRange && data.dateRange[0] && data.dateRange[1])
       );
     },

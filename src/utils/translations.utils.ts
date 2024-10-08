@@ -14,6 +14,8 @@ export const translateEventType = (event: EventCategoryEnum) => {
       return "Liga";
     case EventCategoryEnum.SERVICE:
       return "Usługa";
+    case EventCategoryEnum.MATCH:
+      return "Mecz";
     default:
       return "Nieznany";
   }
