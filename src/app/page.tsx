@@ -11,7 +11,7 @@ const DashboardPage = () => {
   return (
     <PageContainer>
       <DashboardHeading classNames="my-4" />
-      <Divider />
+      <Divider wrapperClassNames="mb-11 !mt-0 pt-0" />
       <Hero />
       <IconsSection
         title="Dla Piłkarskich Entuzjastów"
