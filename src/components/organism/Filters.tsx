@@ -87,6 +87,7 @@ const Filters = () => {
           <DateRangeInput
             name="dateRange"
             label="Zakres dat"
+            placeholder="Wybierz"
             startDate={new Date()}
             endDate={addDays(new Date(), 14)}
             disabled={dateRangeDisabled}
@@ -94,7 +95,7 @@ const Filters = () => {
           />
           {dateRangeDisabled && (
             <p className="absolute top-16 text-sm text-grass-50">
-              Dotyczy jedynie kategorii obozów, meczy lub turniejów.
+              Dotyczy kategorii obozów, meczy lub turniejów.
             </p>
           )}
         </div>

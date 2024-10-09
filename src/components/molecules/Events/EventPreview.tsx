@@ -2,9 +2,9 @@ import { Event, EventCategoryEnum } from "@/types/common";
 import React from "react";
 import { Divider } from "../../atoms";
 import EventImage from "./EventImage";
-import { translateEventType } from "@/utils";
+import { formatPhoneNumber, translateEventType } from "@/utils";
 import { currentCurrencySign, DATE_FORMAT } from "@/constants/common";
-import { format } from "date-fns";
+import { differenceInDays, format } from "date-fns";
 import { AddEventInputs } from "@/schemas/addEventSchema";
 
 const EventPreview = ({
@@ -58,6 +58,20 @@ const EventPreview = ({
             </p>
           </div>
         )}
+        {eventData.category === EventCategoryEnum.CAMP && (
+          <div className="flex items-center gap-3">
+            <i className="fa-solid fa-calendar-plus text-grass-50" />
+            <p>
+              {eventData.dateRange
+                ? differenceInDays(
+                    new Date(eventData.dateRange[1] as Date),
+                    new Date(eventData.dateRange[0] as Date)
+                  )
+                : "-"}{" "}
+              dni
+            </p>
+          </div>
+        )}
         {[
           EventCategoryEnum.MATCH,
           EventCategoryEnum.CAMP,
@@ -85,7 +99,7 @@ const EventPreview = ({
         </div>
         <div className="flex items-center gap-3">
           <i className="fa-solid fa-phone-flip text-grass-50" />
-          <p>{eventData.phoneNumber}</p>
+          <p>{formatPhoneNumber(eventData.phoneNumber)}</p>
         </div>
         <div className="flex items-center gap-3 col-span-2">
           <i className="fa-solid fa-location-dot text-grass-50" />

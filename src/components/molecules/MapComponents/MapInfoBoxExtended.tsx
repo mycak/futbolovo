@@ -111,9 +111,10 @@ const MapInfoBoxExtended = ({
             >
               <Image
                 src={generateMapIcon(category)}
-                alt="Event icon"
+                alt={category}
                 className="object-cover"
                 width={35}
+                priority
                 height={35}
               />
             </button>

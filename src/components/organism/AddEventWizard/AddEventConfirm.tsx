@@ -33,9 +33,10 @@ const AddEventConfirm = () => {
           <span className="text-grass-40">{endDate}</span>
         </p>
         <p className="text-center">
-          Na adres <span className="text-grass-40">{email}</span> zostanie
-          wysłane potwierdzenie publikacji wydarzenia po jego akceptacji. Jeśli
-          masz jakiekolwiek pytania, skontaktuj się z nami.
+          W ciągu 24 goidzn na adres{" "}
+          <span className="text-grass-40">{email}</span> zostanie wysłane
+          potwierdzenie publikacji wydarzenia po jego akceptacji. Jeśli masz
+          jakiekolwiek pytania, skontaktuj się z nami.
         </p>
         <p className="text-center text-xl text-grass-50 pt-4">Stay tuned!</p>
       </div>

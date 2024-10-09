@@ -37,6 +37,7 @@ const SiteDescription = () => {
       <Image
         src="/images/map-overview.png"
         alt="overview"
+        priority
         width={1920}
         height={1080}
         className="h-full mr-auto w-2/3"

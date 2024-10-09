@@ -42,6 +42,7 @@ const DateRangeInput = ({
             return (
               <DatePicker
                 disabled={disabled}
+                isClearable
                 selectsRange={true}
                 startDate={startDate ?? undefined}
                 endDate={endDate ?? undefined}
@@ -51,6 +52,7 @@ const DateRangeInput = ({
                 dayClassName={() =>
                   "!hover:cursor-pointer !hover:bg-emerald-900 !rounded-sm !text-ivory-150"
                 }
+                clearButtonClassName="after:!bg-transparent after:!text-3xl"
                 locale="pl"
                 placeholderText={placeholder}
               />

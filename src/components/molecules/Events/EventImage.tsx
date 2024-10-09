@@ -27,6 +27,7 @@ const EventImage = ({
       {eventData.image ? (
         <CldImage
           width="424"
+          priority
           height="600"
           src={eventData?.image}
           alt={eventData?.name}
@@ -45,8 +46,10 @@ const EventImage = ({
           src={generateDummyPoster(eventData.category)}
           width={400}
           height={610}
-          alt="Tournament"
+          priority
+          alt={eventData?.name}
           onLoad={() => setIsLoading(false)}
+          onError={() => setIsLoading(false)}
           style={{
             width: "100%",
             height: "auto",

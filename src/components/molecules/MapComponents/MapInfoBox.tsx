@@ -86,9 +86,10 @@ const MapInfoBox = ({
           <div className="flex justify-center">
             <Image
               src={generateMapIcon(event.category)}
-              alt="Event icon"
+              alt={event.name}
               width={40}
               height={40}
+              priority
             />
           </div>
           <div>
