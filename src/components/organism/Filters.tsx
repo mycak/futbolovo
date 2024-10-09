@@ -1,7 +1,6 @@
 "use client";
 import "react-datepicker/dist/react-datepicker.css";
-import { categoryOptions } from "@/constants/inputOptions";
-import { addDays } from "date-fns";
+import { ageCategoryOptions, categoryOptions } from "@/constants/inputOptions";
 
 import {
   SelectInput,
@@ -16,7 +15,8 @@ import {
   FieldValues,
   SubmitHandler,
   useForm,
-  UseFormSetValue,
+  UseFormRegister,
+  useWatch,
 } from "react-hook-form";
 import { useEffect, useState } from "react";
 import {
@@ -29,9 +29,12 @@ import { useEventsStore } from "@/stores";
 
 const Filters = () => {
   const setFilters = useEventsStore((state) => state.setFilters);
-
-  const { handleSubmit, watch, control, setValue } = useForm<MapFilters>();
+  const filters = useEventsStore((state) => state.filters);
+  const { handleSubmit, control, setValue, register } = useForm<MapFilters>({
+    values: filters,
+  });
   const [dateRangeDisabled, setDateRangeDisabled] = useState<boolean>(false);
+  const currentCategories = useWatch({ control, name: "categories" });
 
   useEffect(() => {
     const rangeCategories: EventCategoryEnum[] = [
@@ -39,20 +42,20 @@ const Filters = () => {
       EventCategoryEnum.CAMP,
       EventCategoryEnum.MATCH,
     ];
-    const subscription = watch(({ categories }) => {
-      if (
-        rangeCategories.some((rangeCategory) =>
-          categories?.map((item) => item).includes(rangeCategory)
-        ) ||
-        categories?.length === 0
-      ) {
-        setDateRangeDisabled(false);
-      } else {
-        setDateRangeDisabled(true);
-      }
-    });
-    return () => subscription.unsubscribe();
-  }, [watch]);
+
+    if (
+      rangeCategories.some((rangeCategory) =>
+        currentCategories?.map((item) => item).includes(rangeCategory)
+      ) ||
+      !currentCategories?.length
+    ) {
+      setDateRangeDisabled(false);
+    } else {
+      setDateRangeDisabled(true);
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentCategories]);
 
   const onSubmit: SubmitHandler<MapFilters> = (data) => setFilters(data);
 
@@ -65,47 +68,60 @@ const Filters = () => {
     <PageWrapper classNames="mb-8">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex justify-center gap-x-8 gap-y-2 flex-wrap"
+        className="flex flex-col justify-center"
       >
-        <SelectInput
-          control={control as unknown as Control<FieldValues>}
-          label="Kategoria"
-          id="categories"
-          name="categories"
-          isMulti
-          closeMenuOnSelect={false}
-          placeholder="Wybierz kategorię"
-          options={categoryOptions}
-        />
-        <LocalizationInput
-          label="Lokalizacja"
-          placeholder="Miasto, województwo, ulica"
-          onChangeCallback={onLocationChange}
-        />
-
-        <div className="relative">
-          <DateRangeInput
-            name="dateRange"
-            label="Zakres dat"
-            placeholder="Wybierz"
-            startDate={new Date()}
-            endDate={addDays(new Date(), 14)}
-            disabled={dateRangeDisabled}
+        <div className="flex justify-center gap-x-8 gap-y-2 flex-wrap">
+          <SelectInput
             control={control as unknown as Control<FieldValues>}
+            label="Kategoria"
+            id="categories"
+            name="categories"
+            isMulti
+            closeMenuOnSelect={false}
+            placeholder="Wybierz kategorię"
+            options={categoryOptions}
           />
-          {dateRangeDisabled && (
-            <p className="absolute top-16 text-sm text-grass-50">
-              Dotyczy kategorii obozów, meczy lub turniejów.
-            </p>
-          )}
+          <LocalizationInput
+            label="Lokalizacja"
+            placeholder="Miasto, województwo, ulica"
+            onChangeCallback={onLocationChange}
+            currentCoords={filters.coords}
+          />
+
+          <div className="relative">
+            <DateRangeInput
+              name="dateRange"
+              label="Zakres dat"
+              placeholder="Wybierz"
+              disabled={dateRangeDisabled}
+              control={control as unknown as Control<FieldValues>}
+            />
+            {dateRangeDisabled && (
+              <p className="absolute top-16 text-sm text-grass-50">
+                Dotyczy kategorii obozów, meczy lub turniejów.
+              </p>
+            )}
+          </div>
+          <div className="relative">
+            <SelectInput
+              control={control as unknown as Control<FieldValues>}
+              label="Kategoria wiekowa"
+              id="ageCategories"
+              name="ageCategories"
+              isMulti
+              closeMenuOnSelect={false}
+              placeholder="Wybierz"
+              options={ageCategoryOptions}
+            />
+          </div>
+          <SearchInput
+            label="Szukaj"
+            placeholder="Wpisz frazę"
+            register={register as unknown as UseFormRegister<FieldValues>}
+            name="search"
+          />
         </div>
-        <SearchInput
-          label="Szukaj"
-          placeholder="Wpisz frazę"
-          setValue={setValue as unknown as UseFormSetValue<FieldValues>}
-          name="search"
-        />
-        <div className="flex gap-4">
+        <div className="flex gap-4 mx-auto">
           <Button
             classNames="h-[38px] mt-6 text-xl pl-3 pr-5 bg-red-400"
             variant="icon"

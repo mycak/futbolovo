@@ -20,15 +20,35 @@ const LocalizationInput = ({
   onChangeCallback,
   error,
   displayValue,
+  currentCoords,
 }: {
   label: string;
   placeholder: string;
   onChangeCallback: (data: LocationInputState) => void;
   error?: string;
   displayValue?: string | null;
+  currentCoords?:
+    | {
+        latitude: number | undefined;
+        longitude: number | undefined;
+      }
+    | undefined;
 }) => {
   const [input, setInput] = useState<LocationInputState>(initialInputState);
   const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (
+      currentCoords?.latitude &&
+      currentCoords?.longitude &&
+      !input.location
+    ) {
+      getPlaceNameFromCoords(currentCoords.latitude, currentCoords.longitude);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentCoords]);
+
+  console.log(input.location, displayValue);
 
   useEffect(() => {
     const options = {
@@ -66,6 +86,23 @@ const LocalizationInput = ({
       return;
     }
     formData(place);
+  };
+
+  const getPlaceNameFromCoords = (lat: number, lng: number) => {
+    const geocoder = new google.maps.Geocoder();
+
+    geocoder.geocode({ location: { lat, lng } }, (results, status) => {
+      if (status === "OK" && results?.[0]) {
+        setInput((values) => ({
+          ...values,
+          location: results[0].formatted_address,
+          latitude: lat,
+          longitude: lng,
+        }));
+      } else {
+        console.error("Geocoding failed: " + status);
+      }
+    });
   };
 
   const formData = (data: google.maps.places.PlaceResult) => {

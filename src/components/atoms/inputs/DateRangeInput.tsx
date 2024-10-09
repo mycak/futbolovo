@@ -38,7 +38,6 @@ const DateRangeInput = ({
           defaultValue={[initialStartDate, initialEndDate]}
           render={({ field: { onChange, value } }) => {
             const [startDate, endDate] = value || [null, null];
-
             return (
               <DatePicker
                 disabled={disabled}
@@ -48,6 +47,7 @@ const DateRangeInput = ({
                 endDate={endDate ?? undefined}
                 onChange={(dates) => onChange(dates)}
                 className={customStyles({ disabled, error: !!error })}
+                shouldCloseOnSelect
                 calendarClassName="!p-1 !border !border-grass-50 !bg-emerald-600 !rounded-sm max-w-80"
                 dayClassName={() =>
                   "!hover:cursor-pointer !hover:bg-emerald-900 !rounded-sm !text-ivory-150"

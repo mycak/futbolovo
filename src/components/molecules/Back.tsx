@@ -2,8 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import { Button } from "../atoms";
+import clsx from "clsx";
 
-const Back = () => {
+const Back = ({ classNames }: { classNames?: string }) => {
   const router = useRouter();
 
   const handleBack = () => {
@@ -14,7 +15,7 @@ const Back = () => {
     <Button
       text="Wróć"
       onClick={handleBack}
-      classNames="text-2xl"
+      classNames={clsx("text-2xl", classNames)}
       variant="text"
     />
   );

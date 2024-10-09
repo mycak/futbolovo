@@ -76,8 +76,23 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
           return false;
         }
       }
+      //AGE CATEGORIES CHECK
+      if (filters.ageCategories) {
+        if (
+          (event.category === EventCategoryEnum.CAMP ||
+            event.category === EventCategoryEnum.TOURNAMENT ||
+            event.category === EventCategoryEnum.MATCH) &&
+          event.ageCategories?.some((ageCategory) =>
+            filters.ageCategories?.includes(ageCategory)
+          )
+        ) {
+          return false;
+        }
+      }
       //DATES CHECK
-      if (filters.dateRange) {
+      if (
+        filters.dateRange?.every((item) => item !== null && item !== undefined)
+      ) {
         const [startDate, endDate] = filters.dateRange.map((date) =>
           (date as Date).getTime()
         );

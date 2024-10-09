@@ -38,6 +38,14 @@ const MapComponent = ({
   useEffect(() => {
     const filteredEvents = filterEvents(mockedEvents);
     setEvents(filteredEvents);
+    if (filters.coords?.latitude && filters.coords?.longitude) {
+      mapRef.current?.panTo(
+        new google.maps.LatLng(
+          filters.coords.latitude,
+          filters.coords.longitude
+        )
+      );
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 

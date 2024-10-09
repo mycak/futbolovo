@@ -47,9 +47,15 @@ const SelectInput = <
             //USEFUL FOR FORM ONLY-VALUE POPULATION
             const selectValue =
               !currentSelectValues && value
-                ? (props.options as unknown as SelectOption[]).find(
-                    (option) => option.value === value
-                  )
+                ? Array.isArray(value)
+                  ? value.map((val) =>
+                      (props.options as unknown as SelectOption[]).find(
+                        (option) => option.value === val
+                      )
+                    )
+                  : (props.options as unknown as SelectOption[]).find(
+                      (option) => option.value === value
+                    )
                 : currentSelectValues;
 
             return (

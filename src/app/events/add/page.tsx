@@ -9,6 +9,7 @@ import {
 import { AddEventWizard } from "@/components/organism";
 import { useJsApiLoader } from "@react-google-maps/api";
 import { googleApiConfig } from "@/configs/googleApi";
+import { Back } from "@/components/molecules";
 
 const DashboardPage = () => {
   const { isLoaded } = useJsApiLoader(googleApiConfig);
@@ -26,6 +27,7 @@ const DashboardPage = () => {
           </h2>
           {isLoaded ? <AddEventWizard /> : <Loader />}
         </div>
+        <Back classNames="mx-auto mt-8" />
       </PageWrapper>
     </PageContainer>
   );

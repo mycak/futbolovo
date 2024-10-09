@@ -51,6 +51,7 @@ export type MapFilters = {
     | undefined;
   search: string | undefined;
   dateRange: [Date | null, Date | null] | undefined;
+  ageCategories: AgeCategoryCategoryEnum[] | undefined;
 };
 
 //EVENTS
