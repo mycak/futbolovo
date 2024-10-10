@@ -48,8 +48,6 @@ const LocalizationInput = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentCoords]);
 
-  console.log(input.location, displayValue);
-
   useEffect(() => {
     const options = {
       componentRestrictions: { country: "pl" },

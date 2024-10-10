@@ -23,9 +23,22 @@ const MapPage = () => {
   useEffect(() => {
     if (mapCenter) return;
     if (navigator.geolocation) {
+      //SET 3 SEC TIMEOUT FOR GEOLOCATION REQUEST TO PREVENT INFINITE LOADING
+      const timeoutId = setTimeout(() => {
+        console.log("Geolocation request timed out");
+        setMapCenter(initialMapCords);
+      }, 3000);
+
       navigator.geolocation.getCurrentPosition(
-        (data) => generateMapCoordsFromCurrentLocation(data, setMapCenter),
-        () => console.log("Geolocation not supported")
+        (data) => {
+          clearTimeout(timeoutId);
+          generateMapCoordsFromCurrentLocation(data, setMapCenter);
+        },
+        () => {
+          clearTimeout(timeoutId);
+          console.log("Geolocation not supported");
+          setMapCenter(initialMapCords);
+        }
       );
     } else {
       setMapCenter(initialMapCords);

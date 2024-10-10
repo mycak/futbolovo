@@ -39,7 +39,7 @@ const AddEventPreview = () => {
         const fullPath = `${paths.EventAddConfirm}?${params}`;
         router.push(fullPath);
       })
-      .catch(() => console.log("Error"));
+      .catch((err) => console.error(err));
   };
 
   if (!eventData || isLoading) return <Loader />;
