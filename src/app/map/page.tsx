@@ -48,14 +48,13 @@ const MapPage = () => {
 
   return (
     <PageContainer>
-      <Divider />
       {isLoaded && mapCenter ? (
         <div>
           <Filters />
           <MapComponent mapInitialPosition={mapCenter} />
         </div>
       ) : (
-        <PageWrapper>
+        <PageWrapper classNames="min-h-96 pt-16">
           <Loader />
         </PageWrapper>
       )}

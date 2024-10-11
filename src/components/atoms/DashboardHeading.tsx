@@ -13,7 +13,7 @@ const DashboardHeading = ({ classNames }: { classNames?: string }) => {
     >
       {mainTopics.map((topic, index) => (
         <Link href={paths.Map} key={topic}>
-          <p className="text-2xl text-grass-50">
+          <p className="text-xl text-grass-50">
             {topic}
             <span
               className={clsx(

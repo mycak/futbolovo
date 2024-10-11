@@ -1,9 +1,4 @@
-import {
-  DashboardHeading,
-  PageWrapper,
-  Divider,
-  PageContainer,
-} from "@/components/atoms/";
+import { PageWrapper, PageContainer } from "@/components/atoms/";
 import { Back, EventPreview, NotFound } from "@/components/molecules";
 import { mockedEvents } from "@/constants/mocks";
 
@@ -11,9 +6,7 @@ const EventPage = ({ params }: { params: { id: string } }) => {
   const eventData = mockedEvents.find((event) => event.id === params.id);
   return (
     <PageContainer>
-      <DashboardHeading classNames="my-4" />
-      <Divider />
-      <PageWrapper>
+      <PageWrapper classNames="grow flex flex-col">
         {eventData ? (
           <EventPreview eventData={eventData}>
             <div className="mx-auto w-max">
@@ -21,7 +14,7 @@ const EventPage = ({ params }: { params: { id: string } }) => {
             </div>
           </EventPreview>
         ) : (
-          <NotFound is404={false} classNames="mt-12" />
+          <NotFound is404={false} classNames="h-full" />
         )}
       </PageWrapper>
     </PageContainer>

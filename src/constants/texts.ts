@@ -5,13 +5,7 @@ export const heroTexts = [
   "Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!",
 ];
 
-export const mainTopics = [
-  "Turnieje",
-  "Boiska",
-  "Szkółki",
-  "Trenerzy",
-  "Usługi",
-];
+export const mainTopics = ["Turnieje", "Boiska", "Szkółki", "Mecze", "Usługi"];
 
 export const usersIconsTexts: IconText[] = [
   {

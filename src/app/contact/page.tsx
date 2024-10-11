@@ -1,19 +1,12 @@
-import {
-  PageContainer,
-  Divider,
-  DashboardHeading,
-  PageWrapper,
-} from "@/components/atoms/";
+import { PageContainer, PageWrapper } from "@/components/atoms/";
 
 import { Back } from "@/components/molecules";
 import { contactEmail, contactPhone } from "@/constants/common";
 
-const DashboardPage = () => {
+const ContactPage = () => {
   return (
     <PageContainer>
-      <DashboardHeading classNames="my-4" />
-      <Divider />
-      <PageWrapper classNames="pt-4">
+      <PageWrapper>
         <div className='aspect-video bg-[url("/images/football-pitch.jpg")] bg-cover max-w-screen-2xl mx-auto rounded-lg'>
           <div className="h-full inset-0 bg-gray-900 opacity-[97%] rounded-lg flex flex-col justify-around">
             <div className="text-center text-white flex flex-col items-center">
@@ -53,4 +46,4 @@ const DashboardPage = () => {
   );
 };
 
-export default DashboardPage;
+export default ContactPage;

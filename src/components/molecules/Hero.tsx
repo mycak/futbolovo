@@ -21,7 +21,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className='relative aspect-video bg-[url("/images/football-pitch.jpg")] bg-cover max-w-screen-2xl mx-auto'>
+    <div className='relative aspect-video bg-[url("/images/football-pitch.jpg")] bg-cover max-w-screen-2xl w-full mx-auto rounded-lg'>
       <div className="absolute inset-0 ">
         <div className="w-full h-full bg-gray-900 opacity-80 hero-clip-diagonal relative" />
         <div
