@@ -3,7 +3,8 @@ import { paths } from "./paths";
 
 export const navigationItems: (
   isSignIn: boolean
-) => Record<NavigationKey, NavigationItem[]> = (isSignIn) => ({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+) => Record<NavigationKey, NavigationItem[]> = (_isSignIn) => ({
   mainPage: [
     {
       text: "Strona główna",
@@ -20,25 +21,31 @@ export const navigationItems: (
       to: paths.EventAdd,
     },
   ],
-  auth: isSignIn
-    ? [
-        // {
-        //   text: "Wyloguj",
-        //   to: "/signout",
-        // },
-        {
-          text: "Kontakt",
-          to: "/contact",
-        },
-      ]
-    : [
-        {
-          text: "Zaloguj",
-          to: "/login",
-        },
-        {
-          text: "Zarejestruj",
-          to: "/register",
-        },
-      ],
+  other: [
+    {
+      text: "Kontakt",
+      to: paths.Contact,
+    },
+    {
+      text: "Współpraca",
+      to: paths.Cooperation,
+    },
+  ],
+  // auth: isSignIn
+  //   ? [
+  //       {
+  //         text: "Wyloguj",
+  //         to: "/signout",
+  //       },
+  //     ]
+  //   : [
+  //       {
+  //         text: "Zaloguj",
+  //         to: "/login",
+  //       },
+  //       {
+  //         text: "Zarejestruj",
+  //         to: "/register",
+  //       },
+  //     ],
 });

@@ -1,10 +1,10 @@
 import {
-  PageContainer,
-  Loader,
   DashboardHeading,
   PageWrapper,
+  Divider,
+  PageContainer,
 } from "@/components/atoms/";
-import { Back, EventPreview } from "@/components/molecules";
+import { Back, EventPreview, NotFound } from "@/components/molecules";
 import { mockedEvents } from "@/constants/mocks";
 
 const EventPage = ({ params }: { params: { id: string } }) => {
@@ -12,6 +12,7 @@ const EventPage = ({ params }: { params: { id: string } }) => {
   return (
     <PageContainer>
       <DashboardHeading classNames="my-4" />
+      <Divider />
       <PageWrapper>
         {eventData ? (
           <EventPreview eventData={eventData}>
@@ -20,7 +21,7 @@ const EventPage = ({ params }: { params: { id: string } }) => {
             </div>
           </EventPreview>
         ) : (
-          <Loader />
+          <NotFound is404={false} classNames="mt-12" />
         )}
       </PageWrapper>
     </PageContainer>

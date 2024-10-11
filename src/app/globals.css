@@ -18,6 +18,16 @@ body {
   color: var(--foreground);
   background: var(--background);
 }
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fbf5df;
+}
 /* SCROLLBAR */
 .scrollbar-grass::-webkit-scrollbar {
   width: 4px;

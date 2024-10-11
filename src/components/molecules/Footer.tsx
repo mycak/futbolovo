@@ -1,19 +1,20 @@
+import { paths } from "@/constants/paths";
 import Link from "next/link";
 
 const Footer = () => {
   const footerItems = [
     {
-      title: "Kontakt",
+      title: "Portal",
       items: [
-        { name: "O mnie", href: "#" },
-        { name: "Współpraca", href: "#" },
+        { name: "Mapa", href: paths.Map },
+        { name: "Dodaj Event", href: paths.EventAdd },
       ],
     },
     {
-      title: "Portal",
+      title: "Inne",
       items: [
-        { name: "Mapa", href: "#" },
-        { name: "Panel", href: "#" },
+        { name: "Kontakt", href: paths.Contact },
+        { name: "Współpraca", href: paths.Cooperation },
       ],
     },
   ];

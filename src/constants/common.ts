@@ -6,3 +6,10 @@ export const DATE_FORMAT = "dd.MM.yyyy";
 
 //MAIN SETTINGS
 export const currentCurrencySign = "zł";
+
+//CONTACT DATA
+export const contactPhone: {
+  label: string;
+  value: string;
+} = { label: "+48 505 184 510", value: "+48505184510" };
+export const contactEmail: string = "p.myszkiewicz@interia.pl";

@@ -1,5 +1,5 @@
 "use client";
-import { Button, Divider, Loader } from "@/components/atoms";
+import { Button, Loader } from "@/components/atoms";
 import { paths } from "@/constants/paths";
 import React, { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
@@ -19,7 +19,6 @@ const AddEventConfirm = () => {
 
   return (
     <div>
-      <Divider />
       <h1 className="mt-8 text-3xl font-bold text-center text-grass-50 mb-6">
         Dziękujemy za dodanie wydarzenia!
       </h1>

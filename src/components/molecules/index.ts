@@ -6,6 +6,8 @@ import Header from "./Header";
 import EventImage from "./Events/EventImage";
 import EventPreview from "./Events/EventPreview";
 import Back from "./Back";
+import NotFound from "./NotFound";
+
 export * from "./MapComponents";
 export * from "./Events";
 
@@ -18,4 +20,5 @@ export {
   EventImage,
   EventPreview,
   Back,
+  NotFound,
 };

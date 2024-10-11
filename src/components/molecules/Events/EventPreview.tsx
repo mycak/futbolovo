@@ -16,8 +16,7 @@ const EventPreview = ({
 }) => {
   return (
     <div>
-      <Divider />
-      <h1 className="mt-8 text-3xl font-bold text-center text-grass-30 mb-6">
+      <h1 className="text-3xl font-bold text-center text-grass-30 mb-6">
         {eventData.name}
       </h1>
       <div className="mx-auto w-max max-w-96">

@@ -60,7 +60,7 @@ const Button = ({
       onClick={onClick}
       className={clsx(
         "bg-grass-150 px-3 py-1 transition-all duration-300 opacity-90 rounded-sm flex items-center hover:opacity-100",
-        variant === "text" && "text-grass-30 bg-transparent",
+        variant === "text" && "text-grass-20 bg-transparent",
         classNames
       )}
     >
