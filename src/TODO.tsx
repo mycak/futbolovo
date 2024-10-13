@@ -1,10 +1,7 @@
 //TODO: MAJOR
-
 // RESPONSIVE DESIGN
-// METATAGS AND OGS
 
 //TODO: MINOR
-
 // i18n
 // ADD TYPES TO PAGES
 // CONSIDER MIGRATION TO @vis.gl/react-google-maps or Migrate from Marker to Advanced Marker

@@ -4,6 +4,7 @@ import clsx from "clsx";
 import "./globals.css";
 import Script from "next/script";
 import { Footer, Header } from "@/components/molecules";
+import { mainPagesMetadata } from "@/constants/metadata";
 
 const protestGuerilla = Protest_Guerrilla({
   weight: "400",
@@ -13,8 +14,7 @@ const protestGuerilla = Protest_Guerrilla({
 });
 
 export const metadata: Metadata = {
-  title: "Futbolovo - find football everywhere",
-  description: "By mycak",
+  ...mainPagesMetadata,
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
