@@ -13,7 +13,7 @@ const Header = () => {
         </div>
       </PageWrapper>
       <DashboardHeading classNames="my-4" />
-      <Divider classNames="!mt-0 mb-12" />
+      <Divider classNames="!mt-0 mb-6 md:mb-12" />
     </>
   );
 };

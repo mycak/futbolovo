@@ -133,6 +133,11 @@ body::-webkit-scrollbar {
 .hero-clip-diagonal {
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 36% 100%);
 }
+@media (max-width: 800px) {
+  .hero-clip-diagonal {
+    clip-path: polygon(33% 0, 100% 0, 100% 100%, 28% 100%);
+  }
+}
 
 /* REACT SELECT ADDITIONAL CLASSES TO KEEP ONLY ONE LINE */
 .react-select__value-container {

@@ -7,7 +7,7 @@ const DashboardHeading = ({ classNames }: { classNames?: string }) => {
   return (
     <div
       className={clsx(
-        "flex gap-8 justify-center items-center container",
+        "flex gap-1 md:gap-8 justify-center items-center container",
         classNames
       )}
     >
@@ -18,7 +18,7 @@ const DashboardHeading = ({ classNames }: { classNames?: string }) => {
             <span
               className={clsx(
                 mainTopics.length === index + 1 && "hidden",
-                "ml-8"
+                "ml-1 md:ml-8"
               )}
             >
               •

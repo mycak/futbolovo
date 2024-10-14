@@ -4,7 +4,7 @@ import { usersIconsTexts, ownersIconsTexts } from "@/constants/texts";
 
 const DashboardPage = () => {
   return (
-    <PageContainer>
+    <PageContainer classNames="pb-0">
       <Hero />
       <IconsSection
         title="Dla Piłkarskich Entuzjastów"
