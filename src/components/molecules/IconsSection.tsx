@@ -10,7 +10,7 @@ const IconsSection = ({
 }) => {
   return (
     <PageWrapper classNames="py-8 max-w-screen-xl mx-auto bg-slate-950">
-      <h3 className="text-4xl md:text-5xl text-center pb-8 text-grass-50">
+      <h3 className="text-3xl md:text-5xl text-center pb-8 text-grass-50">
         {title}
       </h3>
       <div className="flex flex-col items-center md:flex-row justify-between gap-8">

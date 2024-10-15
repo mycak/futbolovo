@@ -16,15 +16,15 @@ const EventPreview = ({
 }) => {
   return (
     <div>
-      <h1 className="text-3xl font-bold text-center text-grass-30 mb-6">
+      <h1 className="text-2xl md:text-3xl font-bold text-center text-grass-30 mb-6">
         {eventData.name}
       </h1>
-      <div className="mx-auto w-max max-w-96">
+      <div className="mx-auto max-w-96">
         <EventImage eventData={eventData} />
       </div>
       <Divider />
 
-      <div className="grid grid-cols-2 gap-y-4 gap-x-8 justify-center max-w-lg mx-auto mt-8">
+      <div className="grid grid-cols-2 gap-y-4 gap-x-8 justify-center max-w-lg mx-auto mt-4 md:mt-8">
         <div className="flex items-center gap-3">
           <i className="fa-solid fa-futbol text-grass-50" />
           <p>{translateEventType(eventData.category)}</p>

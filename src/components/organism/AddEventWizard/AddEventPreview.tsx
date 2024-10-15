@@ -47,14 +47,14 @@ const AddEventPreview = () => {
     <EventPreview eventData={eventData}>
       <div className="flex justify-between">
         <Button
-          classNames="h-[38px] text-xl pl-3 pr-5 bg-red-400"
+          classNames="h-[38px] md:text-xl pl-3 pr-5 bg-red-400"
           variant="icon"
           text="Popraw"
           icon="pen-to-square"
           onClick={prevStep}
         />
         <Button
-          classNames="h-[38px] bg-grass-45 text-xl pl-3 pr-5"
+          classNames="h-[38px] bg-grass-45 md:text-xl pl-3 pr-5"
           variant="icon"
           icon="futbol"
           text="Akceptuj"

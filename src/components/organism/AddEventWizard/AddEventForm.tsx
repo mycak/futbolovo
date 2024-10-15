@@ -132,7 +132,7 @@ const AddEventForm = () => {
       <Divider />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="grid grid-cols-2 gap-y-4 gap-x-8 justify-center max-w-max mx-auto mt-8"
+        className="flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-y-4 md:gap-x-8 justify-center max-w-max mx-auto mt-4 md:mt-8"
       >
         <SelectInput
           control={control as unknown as Control<FieldValues>}

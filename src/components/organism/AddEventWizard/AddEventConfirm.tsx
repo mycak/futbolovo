@@ -19,7 +19,7 @@ const AddEventConfirm = () => {
 
   return (
     <div>
-      <h1 className="mt-8 text-3xl font-bold text-center text-grass-50 mb-6">
+      <h1 className="mt-4 md:mt-8 text-2xl md:text-3xl font-bold text-center text-grass-50 mb-6">
         Dziękujemy za dodanie wydarzenia!
       </h1>
       <div className="max-w-80 mx-auto">
@@ -41,7 +41,7 @@ const AddEventConfirm = () => {
       </div>
       <div className="flex justify-between mt-8">
         <Button
-          classNames="h-[38px] text-xl bg-grass-45"
+          classNames="h-[38px] md:text-xl bg-grass-45"
           variant="icon"
           icon="plus"
           text="Dodaj kolejne"
@@ -49,7 +49,7 @@ const AddEventConfirm = () => {
           href={paths.EventAdd}
         />
         <Button
-          classNames="h-[38px] bg-red-400 text-xl"
+          classNames="h-[38px] bg-red-400 md:text-xl"
           text="Zakończ"
           variant="icon"
           icon="map"

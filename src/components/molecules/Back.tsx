@@ -15,7 +15,7 @@ const Back = ({ classNames }: { classNames?: string }) => {
     <Button
       text="Wróć"
       onClick={handleBack}
-      classNames={clsx("text-2xl", classNames)}
+      classNames={clsx("text-xl md:text-2xl", classNames)}
       variant="text"
     />
   );

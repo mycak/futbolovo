@@ -30,15 +30,16 @@ const Hero = () => {
         >
           <p
             className="text-grass-20"
-            style={{ fontSize: "clamp(1.5rem, 3vw, 4rem)" }}
+            style={{ fontSize: "clamp(1.2rem, 3vw, 4rem)" }}
           >
             {heroTexts[currentTextIndex]}
           </p>
           <Button
             asLink
+            size="lg"
             href={paths.Map}
             text="Dołącz do gry!"
-            classNames="px-2 py-1 md:px-5 md:py-3 text-xl md:text-2xl lg:text-3xl mt-8 mr-auto animate-shake"
+            classNames="mt-8 mr-auto animate-shake"
           />
         </div>
       </div>

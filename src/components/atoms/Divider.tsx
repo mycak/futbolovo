@@ -14,7 +14,7 @@ const Divider = ({
     <PageWrapper classNames={wrapperClassNames}>
       <div
         className={clsx(
-          "border border-b border-grass-50 my-8 w-11/12 mx-auto",
+          "border border-b border-grass-50 my-4 md:my-8 w-11/12 mx-auto",
           classNames
         )}
       />
@@ -22,7 +22,7 @@ const Divider = ({
   ) : (
     <div
       className={clsx(
-        "border border-b border-grass-50 my-8 w-11/12 mx-auto",
+        "border border-b border-grass-50 my-4 md:my-8 w-11/12 mx-auto",
         classNames
       )}
     />

@@ -17,7 +17,7 @@ const EventImage = ({
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <div className={clsx("relative mx-auto max-w-full border", classNames)}>
+    <div className={clsx("relative mx-auto max-w-full", classNames)}>
       {isLoading && eventData.image && (
         <div className="absolute inset-0 flex items-center justify-center">
           <Loader />
