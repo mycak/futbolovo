@@ -1,46 +1,69 @@
 import { IconText } from "@/types/common";
+import { TFunction } from "i18next";
 
-export const heroTexts = [
-  "Odkryj interaktywną mapę, która otwiera przed Tobą świat futbolowych możliwości!.",
-  "Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!",
+export const heroTexts = (t: TFunction<"translation", undefined>): string[] => [
+  t("hero.option1"),
+  t("hero.option2"),
 ];
 
-export const mainTopics = ["Turnieje", "Boiska", "Szkółki", "Mecze", "Usługi"];
+export const mainTopics = (
+  t: TFunction<"translation", undefined>
+): string[] => [
+  t("tournaments"),
+  t("fields"),
+  t("kidsSchools"),
+  t("matches"),
+  t("services"),
+];
 
-export const usersIconsTexts: IconText[] = [
+export const usersIconsTexts = (
+  t: TFunction<"translation", undefined>
+): IconText[] => [
   {
-    text: "Bądź na bieżąco z wydarzeniami piłkarskimi w Twojej okolicy i dołącz do lokalnych turniejów!",
+    text: t("iconsSection.users.desc1"),
     icon: "trophy",
-    title: "Turnieje",
+    title: t("tournaments"),
   },
   {
-    text: "Łatwo znajdź miejsca, gdzie Twoje dzieci mogą rozwijać swoje umiejętności pod okiem profesjonalnych trenerów.",
+    text: t("iconsSection.users.desc2"),
     icon: "chalkboard-user",
-    title: "Szkółki",
+    title: t("kidsSchools"),
   },
 
   {
-    text: "Wynajmij boisko na mecz z przyjaciółmi lub trening.",
+    text: t("iconsSection.users.desc3"),
     icon: "user-group",
-    title: "Boiska",
+    title: t("fields"),
   },
 ];
 
-export const ownersIconsTexts: IconText[] = [
+export const ownersIconsTexts = (
+  t: TFunction<"translation", undefined>
+): IconText[] => [
   {
-    text: "Dodawaj ogłoszenia o swoich wydarzeniach piłkarskich, aby przyciągnąć większą liczbę uczestników i widzów.",
+    text: t("iconsSection.owners.desc1"),
     icon: "newspaper",
-    title: "Eventy",
+    title: t("events"),
   },
   {
-    text: "Zwiększ wykorzystanie swoich obiektów, udostępniając informacje o dostępnych terminach na mapie.",
+    text: t("iconsSection.owners.desc2"),
     icon: "futbol",
-    title: "Obiekty",
+    title: t("objects"),
   },
 
   {
-    text: "Przyciągnij nowych uczniów, dodając szczegóły o swojej ofercie szkoleniowej i lokalizacji.",
+    text: t("iconsSection.owners.desc3"),
     icon: "school",
-    title: "Usługi",
+    title: t("services"),
   },
 ];
+
+export const siteDescriptionTexts = (
+  t: TFunction<"translation", undefined>
+) => ({
+  title: t("siteDescription.title"),
+  description1: t("siteDescription.desc1"),
+  description2: t("siteDescription.desc2"),
+  firstButton: t("check"),
+  secondButton: t("addPoint"),
+});

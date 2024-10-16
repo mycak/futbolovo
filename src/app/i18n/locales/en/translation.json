@@ -1,0 +1,52 @@
+{
+  "back": "Back",
+  "check": "Check!",
+  "addPoint": "Add a point!",
+  "tournaments": "Tournaments",
+  "tournament": "Tournament",
+  "kidsSchools": "Kids' Football Schools",
+  "fields": "Fields",
+  "events": "Events",
+  "objects": "Facilities",
+  "services": "Services",
+  "matches": "Matches",
+  "notFound": {
+    "smallDesc": "Oops! Unsuccessful dribble...",
+    "error404": "Error 404",
+    "error": "Something went wrong ;("
+  },
+  "navigation": {
+    "contact": "Contact",
+    "cooperation": "Cooperation",
+    "mainPage": "Home Page",
+    "map": "Map",
+    "addPoint": "Add a point on the map",
+    "addEvent": "Add Event",
+    "portal": "Portal",
+    "others": "Others"
+  },
+  "hero": {
+    "option1": "Discover an interactive map that opens up a world of football opportunities for you!",
+    "option2": "Check what's happening in your area and join the game!",
+    "buttonTitle": "Join the game!"
+  },
+  "siteDescription": {
+    "desc1": "Here you will find all the important information about tournaments, six-a-side leagues, kids' football schools, fields for rent, and football-related services.",
+    "desc2": "Check what's happening in your area and join the game!",
+    "title": "Discover an interactive map that opens up a world of football opportunities!"
+  },
+  "iconsSection": {
+    "forFootballEnthusiasts": "For Football Enthusiasts",
+    "forOwners": "For Organizers and Owners",
+    "users": {
+      "desc1": "Stay up to date with football events in your area and join local tournaments!",
+      "desc2": "Easily find places where your kids can improve their skills under the guidance of professional coaches.",
+      "desc3": "Rent a field for a game with friends or for training."
+    },
+    "owners": {
+      "desc1": "Post announcements about your football events to attract more participants and spectators.",
+      "desc2": "Increase the use of your facilities by sharing information about available times on the map.",
+      "desc3": "Attract new students by adding details about your training offer and location."
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "back": "Wróć",
+  "check": "Sprawdź!",
+  "addPoint": "Dodaj punkt!",
+  "tournaments": "Turnieje",
+  "tournament": "Turniej",
+  "kidsSchools": "Szkółki",
+  "fields": "Boiska",
+  "events": "Eventy",
+  "objects": "Obiekty",
+  "services": "Usługi",
+  "matches": "Mecze",
+  "notFound": {
+    "smallDesc": "Ups! Nieudana kiwka...",
+    "error404": "Błąd 404",
+    "error": "Coś poszło nie tak ;("
+  },
+  "navigation": {
+    "contact": "Kontakt",
+    "cooperation": "Współpraca",
+    "mainPage": "Strona Główna",
+    "map": "Mapa",
+    "addPoint": "Dodaj punkt na mapie",
+    "addEvent": "Dodaj Event",
+    "portal": "Portal",
+    "others": "Inne"
+  },
+  "hero": {
+    "option1": "Odkryj interaktywną mapę, która otwiera przed Tobą świat futbolowych możliwości!.",
+    "option2": "Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!",
+    "buttonTitle": "Dołącz do gry!"
+  },
+  "siteDescription": {
+    "desc1": "Znajdziesz tutaj wszystkie najważniejsze informacje o turniejach, ligach szóstek, szkółkach piłkarskich dla dzieci, boiskach do wynajęcia oraz usługach piłkarskich.",
+    "desc2": "Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!",
+    "title": "Odkryj interaktywną mapę, która otwiera przed Tobą świat futbolowych możliwości!"
+  },
+  "iconsSection": {
+    "forFootballEnthusiasts": "Dla Piłkarskich Entuzjastów",
+    "forOwners": "Dla Organizatorów i Właścicieli",
+    "users": {
+      "desc1": "Bądź na bieżąco z wydarzeniami piłkarskimi w Twojej okolicy i dołącz do lokalnych turniejów!",
+      "desc2": "Łatwo znajdź miejsca, gdzie Twoje dzieci mogą rozwijać swoje umiejętności pod okiem profesjonalnych trenerów.",
+      "desc3": "Wynajmij boisko na mecz z przyjaciółmi lub trening."
+    },
+    "owners": {
+      "desc1": "Dodawaj ogłoszenia o swoich wydarzeniach piłkarskich, aby przyciągnąć większą liczbę uczestników i widzów.",
+      "desc2": "Zwiększ wykorzystanie swoich obiektów, udostępniając informacje o dostępnych terminach na mapie.",
+      "desc3": "Przyciągnij nowych uczniów, dodając szczegóły o swojej ofercie szkoleniowej i lokalizacji."
+    }
+  }
+}

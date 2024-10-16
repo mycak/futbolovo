@@ -3,35 +3,44 @@ import Button from "./Button";
 import { paths } from "@/constants/paths";
 import PageWrapper from "./PageWrapper";
 
-const SiteDescription = () => {
+const SiteDescription = ({
+  siteDescriptionTexts,
+  lng,
+}: {
+  siteDescriptionTexts: {
+    title: string;
+    description1: string;
+    description2: string;
+    firstButton: string;
+    secondButton: string;
+  };
+  lng: string;
+}) => {
   return (
     <PageWrapper classNames="bg-gray-900 py-12 flex flex-col-reverse md:flex-row justify-between gap-6 lg:gap-12">
       <div className="flex flex-col justify-center">
         <h3 className="text-center md:text-right text-3xl lg:text-5xl text-grass-20">
-          Odkryj interaktywną mapę, która otwiera przed Tobą świat futbolowych
-          możliwości!
+          {siteDescriptionTexts.title}
         </h3>
         <p className="text-center md:text-right md:text-xl mt-6">
-          Znajdziesz tutaj wszystkie najważniejsze informacje o turniejach,
-          ligach szóstek, szkółkach piłkarskich dla dzieci, boiskach do
-          wynajęcia oraz usługach piłkarskich.{" "}
+          {siteDescriptionTexts.description1}{" "}
           <span className="text-grass-50">
-            Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!
+            {siteDescriptionTexts.description2}
           </span>
         </p>
         <div className="flex items-end gap-8 mx-auto md:ml-auto md:mr-0">
           <Button
             asLink
-            href={paths.Map}
-            text="Sprawdź!"
+            href={`/${lng}/${paths.Map}`}
+            text={siteDescriptionTexts.firstButton}
             size="lg"
             classNames="md:ml-auto mt-8 animate-shake"
           />
           <Button
             asLink
             size="lg"
-            href={paths.EventAdd}
-            text="Dodaj punkt!"
+            href={`/${lng}/${paths.EventAdd}`}
+            text={siteDescriptionTexts.secondButton}
             classNames="mt-8 animate-shake bg-red-400 delay-1"
           />
         </div>

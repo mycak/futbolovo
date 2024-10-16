@@ -1,10 +1,17 @@
 "use client";
-import { heroTexts } from "@/constants/texts";
 import { useEffect, useState } from "react";
 import Button from "../atoms/Button";
 import { paths } from "@/constants/paths";
 
-const Hero = () => {
+const Hero = ({
+  heroTexts,
+  lng,
+  buttonTitle,
+}: {
+  heroTexts: string[];
+  lng: string;
+  buttonTitle: string;
+}) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [textOpacity, setTextOpacity] = useState<number>(1);
   const CHANGE_TEXT_INTERVAL = 9000;
@@ -18,6 +25,7 @@ const Hero = () => {
       }, 500);
     }, CHANGE_TEXT_INTERVAL);
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -37,8 +45,8 @@ const Hero = () => {
           <Button
             asLink
             size="lg"
-            href={paths.Map}
-            text="Dołącz do gry!"
+            href={`/${lng}/${paths.Map}`}
+            text={buttonTitle}
             classNames="mt-8 mr-auto animate-shake"
           />
         </div>

@@ -1,20 +1,23 @@
+import { useTranslation } from "@/app/i18n";
 import { paths } from "@/constants/paths";
 import Link from "next/link";
 
-const Footer = () => {
+const Footer = async ({ lng }: { lng: string }) => {
+  const { t } = await useTranslation(lng);
+
   const footerItems = [
     {
-      title: "Portal",
+      title: t("navigation.portal"),
       items: [
-        { name: "Mapa", href: paths.Map },
-        { name: "Dodaj Event", href: paths.EventAdd },
+        { name: t("navigation.map"), href: paths.Map },
+        { name: t("navigation.addEvent"), href: paths.EventAdd },
       ],
     },
     {
-      title: "Inne",
+      title: t("navigation.others"),
       items: [
-        { name: "Kontakt", href: paths.Contact },
-        { name: "Współpraca", href: paths.Cooperation },
+        { name: t("navigation.contact"), href: paths.Contact },
+        { name: t("navigation.cooperation"), href: paths.Cooperation },
       ],
     },
   ];
