@@ -83,7 +83,7 @@ const Filters = () => {
             isMulti
             closeMenuOnSelect={false}
             placeholder={t("chooseCategory")}
-            options={categoryOptions}
+            options={categoryOptions(t)}
           />
           <LocalizationInput
             label={t("location")}

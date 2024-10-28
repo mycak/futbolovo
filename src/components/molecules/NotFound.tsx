@@ -38,7 +38,7 @@ const NotFound = async ({
             href={paths.Dashboard}
           />
         ) : (
-          <Back />
+          <Back lng={lng} />
         )}
       </div>
     </div>

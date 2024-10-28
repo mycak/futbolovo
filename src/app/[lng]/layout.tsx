@@ -29,13 +29,12 @@ export async function generateMetadata({
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await useTranslation(lng);
   return {
-    ...mainPagesMetadata,
+    ...mainPagesMetadata(t),
     icons: {
       icon: "/favicon.png",
       shortcut: "/favicon.png",
       apple: "/favicon.png",
     },
-    title: t("title"),
   };
 }
 

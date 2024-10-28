@@ -2,11 +2,14 @@
 import { Button, Loader } from "@/components/atoms";
 import { paths } from "@/constants/paths";
 import React, { useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { useAddEventWizardStore } from "@/stores";
+import { TFunction } from "i18next";
 
-const AddEventConfirm = () => {
+const AddEventConfirm = ({ t }: { t: TFunction<"translation", undefined> }) => {
   const params = useSearchParams();
+  const urlParams = useParams();
+
   const clearState = useAddEventWizardStore((state) => state.clearState);
 
   const endDate = params.get("endDate");
@@ -15,28 +18,20 @@ const AddEventConfirm = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => clearState(), []);
 
-  if (!endDate && !email) return <Loader />;
+  if (!endDate && !email) return <Loader lng={urlParams.lng as string} />;
 
   return (
     <div>
       <h1 className="mt-4 md:mt-8 text-2xl md:text-3xl font-bold text-center text-grass-50 mb-6">
-        Dziękujemy za dodanie wydarzenia!
+        {t("eventConfirmation.title")}
       </h1>
       <div className="max-w-80 mx-auto">
-        <p className="text-center">
-          Twoje wydarzenie zostało pomyślnie zapisane w naszej bazie danych.
-          Zostanie ono opublikowane po zatwierdzeniu przez administratora.
-        </p>
+        <p className="text-center">{t("eventConfirmation.text1")}</p>
         <p className="text-center py-4">
-          Data wygaśnięcia wydarzenia:{" "}
+          {t("eventConfirmation.endDateText")}{" "}
           <span className="text-grass-40">{endDate}</span>
         </p>
-        <p className="text-center">
-          W ciągu 24 goidzn na adres{" "}
-          <span className="text-grass-40">{email}</span> zostanie wysłane
-          potwierdzenie publikacji wydarzenia po jego akceptacji. Jeśli masz
-          jakiekolwiek pytania, skontaktuj się z nami.
-        </p>
+        <p className="text-center">{t("eventConfirmation.text2")}</p>
         <p className="text-center text-xl text-grass-50 pt-4">Stay tuned!</p>
       </div>
       <div className="flex justify-between mt-8">
@@ -44,13 +39,13 @@ const AddEventConfirm = () => {
           classNames="h-[38px] md:text-xl bg-grass-45"
           variant="icon"
           icon="plus"
-          text="Dodaj kolejne"
+          text={t("eventConfirmation.addNext")}
           asLink
           href={paths.EventAdd}
         />
         <Button
           classNames="h-[38px] bg-red-400 md:text-xl"
-          text="Zakończ"
+          text={t("eventConfirmation.end")}
           variant="icon"
           icon="map"
           asLink

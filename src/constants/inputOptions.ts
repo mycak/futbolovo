@@ -3,15 +3,18 @@ import {
   EventCategoryEnum,
   SelectOptions,
 } from "@/types/common";
+import { TFunction } from "i18next";
 
-export const categoryOptions: SelectOptions = [
-  { value: EventCategoryEnum.TOURNAMENT, label: "Turniej" },
-  { value: EventCategoryEnum.SCHOOL, label: "Szkółka lub akademia" },
-  { value: EventCategoryEnum.SPORT_FIELD, label: "Boisko lub hala na wynajem" },
-  { value: EventCategoryEnum.CAMP, label: "Obóz" },
-  { value: EventCategoryEnum.LEAGUE, label: "Liga szóstek" },
-  { value: EventCategoryEnum.SERVICE, label: "Usługa" },
-  { value: EventCategoryEnum.MATCH, label: "Mecz" },
+export const categoryOptions = (
+  t: TFunction<"translation", undefined>
+): SelectOptions => [
+  { value: EventCategoryEnum.TOURNAMENT, label: t("tournament") },
+  { value: EventCategoryEnum.SCHOOL, label: t("academyOrSchool") },
+  { value: EventCategoryEnum.SPORT_FIELD, label: t("pitchOrIndoor") },
+  { value: EventCategoryEnum.CAMP, label: t("camp") },
+  { value: EventCategoryEnum.LEAGUE, label: t("league") },
+  { value: EventCategoryEnum.SERVICE, label: t("service") },
+  { value: EventCategoryEnum.MATCH, label: t("match") },
 ];
 
 export const ageCategoryOptions: SelectOptions = (

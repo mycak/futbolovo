@@ -1,3 +1,5 @@
+"use client";
+
 import { Event, EventCategoryEnum } from "@/types/common";
 import React from "react";
 import { Divider } from "../../atoms";
@@ -6,14 +8,18 @@ import { formatPhoneNumber, translateEventType } from "@/utils";
 import { currentCurrencySign, DATE_FORMAT } from "@/constants/common";
 import { differenceInDays, format } from "date-fns";
 import { AddEventInputs } from "@/schemas/addEventSchema";
+import { useTranslation } from "@/app/i18n/client";
 
 const EventPreview = ({
   eventData,
   children,
+  lng,
 }: {
   eventData: Event | AddEventInputs;
   children: React.ReactNode;
+  lng: string;
 }) => {
+  const { t } = useTranslation(lng);
   return (
     <div>
       <h1 className="text-2xl md:text-3xl font-bold text-center text-grass-30 mb-6">
@@ -27,7 +33,7 @@ const EventPreview = ({
       <div className="grid grid-cols-2 gap-y-4 gap-x-8 justify-center max-w-lg mx-auto mt-4 md:mt-8">
         <div className="flex items-center gap-3">
           <i className="fa-solid fa-futbol text-grass-50" />
-          <p>{translateEventType(eventData.category)}</p>
+          <p>{translateEventType(eventData.category, t)}</p>
         </div>
 
         {eventData.category === EventCategoryEnum.TOURNAMENT && (

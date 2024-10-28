@@ -1,7 +1,8 @@
 import { CloudinaryUploadWidgetOptions } from "next-cloudinary";
 
 export const cloudinaryWidgetConfig = (
-  fileName: string
+  fileName: string,
+  lng: string
 ): CloudinaryUploadWidgetOptions => ({
   sources: ["local"],
   multiple: false,
@@ -17,7 +18,7 @@ export const cloudinaryWidgetConfig = (
   showSkipCropButton: false,
   croppingValidateDimensions: true,
   publicId: fileName,
-  language: "pl",
+  language: lng,
   styles: {
     palette: {
       window: "#48bb78",

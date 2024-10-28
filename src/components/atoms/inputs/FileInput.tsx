@@ -5,6 +5,8 @@ import { customStyles } from "./styles";
 import clsx from "clsx";
 import { CldUploadWidget, CloudinaryUploadWidgetInfo } from "next-cloudinary";
 import { cloudinaryWidgetConfig } from "@/configs/cloudinary";
+import { useParams } from "next/navigation";
+import { useTranslation } from "@/app/i18n/client";
 
 const FileInput = ({
   label,
@@ -26,6 +28,9 @@ const FileInput = ({
     `id-${Date.now()}-${Math.random()}`
   );
 
+  const { lng } = useParams();
+  const { t } = useTranslation(lng);
+
   return (
     <div className="flex flex-col relative">
       {type === "image" ? (
@@ -35,7 +40,7 @@ const FileInput = ({
           render={({ field: { onChange } }) => (
             <CldUploadWidget
               uploadPreset="futbolovo-beta-v1"
-              options={cloudinaryWidgetConfig(fileUniqueId)}
+              options={cloudinaryWidgetConfig(fileUniqueId, lng as string)}
               onError={(error) => console.error("Upload error:", error)}
               onSuccess={(results) => {
                 const uploadedFileName = (
@@ -69,12 +74,12 @@ const FileInput = ({
                         "mt-0! pt-[7px] truncate"
                       )}
                     >
-                      {fileName?.length ? fileName : "Wybierz plik"}
+                      {fileName?.length ? fileName : t("chooseFile")}
                     </p>
 
                     {!fileName && (
                       <span className="absolute text-gray-500 text-sm">
-                        Brak wybranego pliku
+                        {t("noFile")}
                       </span>
                     )}
                   </label>
@@ -89,7 +94,7 @@ const FileInput = ({
                         //TODO: Add delete image from cloudinary
                       }}
                     >
-                      Wyczyść
+                      {t("clear")}
                     </button>
                   )}
 
@@ -129,12 +134,12 @@ const FileInput = ({
                     "mt-0! pt-[7px]"
                   )}
                 >
-                  {fileName?.length ? fileName : "Wybierz plik"}
+                  {fileName?.length ? fileName : t("chooseFile")}
                 </p>
 
                 {!fileName && (
                   <span className="absolute text-gray-500 text-sm">
-                    Brak wybranego pliku
+                    {t("noFile")}
                   </span>
                 )}
               </label>
@@ -148,7 +153,7 @@ const FileInput = ({
                     onChange(null);
                   }}
                 >
-                  Wyczyść
+                  {t("clear")}
                 </button>
               )}
               {error && (
