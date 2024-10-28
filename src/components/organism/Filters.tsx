@@ -26,8 +26,12 @@ import {
 } from "@/types/common";
 import { paths } from "@/constants/paths";
 import { useEventsStore } from "@/stores";
+import { useParams } from "next/navigation";
+import { useTranslation } from "@/app/i18n/client";
 
 const Filters = () => {
+  const { lng } = useParams();
+  const { t } = useTranslation(lng);
   const setFilters = useEventsStore((state) => state.setFilters);
   const filters = useEventsStore((state) => state.filters);
   const { handleSubmit, control, setValue, register } = useForm<MapFilters>({
@@ -73,17 +77,17 @@ const Filters = () => {
         <div className="flex justify-center gap-x-8 gap-y-2 flex-wrap">
           <SelectInput
             control={control as unknown as Control<FieldValues>}
-            label="Kategoria"
+            label={t("category")}
             id="categories"
             name="categories"
             isMulti
             closeMenuOnSelect={false}
-            placeholder="Wybierz kategorię"
+            placeholder={t("chooseCategory")}
             options={categoryOptions}
           />
           <LocalizationInput
-            label="Lokalizacja"
-            placeholder="Miasto, województwo, ulica"
+            label={t("location")}
+            placeholder={t("cityAndPlace")}
             onChangeCallback={onLocationChange}
             currentCoords={filters.coords}
           />
@@ -91,32 +95,32 @@ const Filters = () => {
           <div className="relative">
             <DateRangeInput
               name="dateRange"
-              label="Zakres dat"
-              placeholder="Wybierz"
+              label={t("dateRange")}
+              placeholder={t("choose")}
               disabled={dateRangeDisabled}
               control={control as unknown as Control<FieldValues>}
             />
             {dateRangeDisabled && (
               <p className="absolute top-16 text-sm text-grass-50">
-                Dotyczy kategorii obozów, meczy lub turniejów.
+                {t("rangeDisabledInfo")}
               </p>
             )}
           </div>
           <div className="relative">
             <SelectInput
               control={control as unknown as Control<FieldValues>}
-              label="Kategoria wiekowa"
+              label={t("ageCategory")}
               id="ageCategories"
               name="ageCategories"
               isMulti
               closeMenuOnSelect={false}
-              placeholder="Wybierz"
+              placeholder={t("choose")}
               options={ageCategoryOptions}
             />
           </div>
           <SearchInput
-            label="Szukaj"
-            placeholder="Wpisz frazę"
+            label={t("search")}
+            placeholder={t("writePhrase")}
             register={register as unknown as UseFormRegister<FieldValues>}
             name="search"
           />
@@ -126,7 +130,7 @@ const Filters = () => {
             classNames="h-[38px] mt-6 text-xl pl-3 pr-5 bg-red-400"
             variant="icon"
             icon="add"
-            text="Dodaj"
+            text={t("add")}
             asLink
             href={paths.EventAdd}
           />
@@ -134,7 +138,7 @@ const Filters = () => {
             classNames="h-[38px] mt-6 bg-grass-45 text-xl pl-3 pr-5"
             variant="icon"
             icon="search"
-            text="Szukaj"
+            text={t("search")}
             type="submit"
           />
         </div>

@@ -14,7 +14,14 @@ import { useEffect } from "react";
 import { generateMapCoordsFromCurrentLocation } from "@/utils";
 import { useMapStore } from "@/stores";
 
-const MapPage = () => {
+const MapPage = ({
+  params,
+}: {
+  params: {
+    lng: string;
+  };
+}) => {
+  const lng = params.lng;
   const { isLoaded } = useJsApiLoader(googleApiConfig);
   const mapCenter = useMapStore((state) => state.center);
   const setMapCenter = useMapStore((state) => state.setCenter);
@@ -55,11 +62,11 @@ const MapPage = () => {
         </div>
       ) : (
         <PageWrapper classNames="min-h-96 pt-16">
-          <Loader />
+          <Loader lng={lng} />
         </PageWrapper>
       )}
       <Divider />
-      <AddPlaceSection />
+      <AddPlaceSection lng={lng} />
     </PageContainer>
   );
 };

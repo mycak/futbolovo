@@ -9,11 +9,31 @@
   "events": "Events",
   "objects": "Facilities",
   "services": "Services",
+  "category": "Category",
+  "location": "Location",
+  "date": "Date",
+  "more": "More",
+  "dateRange": "Date Range",
+  "rangeDisabledInfo": "Applies to camps, matches or tournaments categories.",
+  "ageCategory": "Age Category",
+  "choose": "Choose",
+  "search": "Search",
+  "chooseCategory": "Choose category",
+  "cityAndPlace": "City, region, street",
+  "writePhrase": "Write a phrase",
+  "add": "Add",
+  "wait": "Wait",
   "matches": "Matches",
   "notFound": {
     "smallDesc": "Oops! Unsuccessful dribble...",
     "error404": "Error 404",
     "error": "Something went wrong ;("
+  },
+  "addPlace": {
+    "title": "Want to Make Your Mark on the Map?",
+    "text1": "Add your field, organize a tournament, offer your services, or create a football camp! Share a place that awaits athletes and teams from all around. Promote your offer,",
+    "text2": "get noticed, and attract new participants!",
+    "addPlaceButton": "Add a place!"
   },
   "navigation": {
     "contact": "Contact",
