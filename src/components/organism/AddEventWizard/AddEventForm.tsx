@@ -44,7 +44,7 @@ const AddEventForm = () => {
     register,
     formState: { errors },
   } = useForm<AddEventInputs>({
-    resolver: zodResolver(addEventSchema),
+    resolver: zodResolver(addEventSchema(t)),
     defaultValues: addData,
   });
   const currentCategory = watch("category");

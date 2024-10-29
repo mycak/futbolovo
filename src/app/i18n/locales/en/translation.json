@@ -23,6 +23,11 @@
   "service": "Service",
   "match": "Match",
   "unknown": "Unknown",
+  "fieldIsRequired": "Field is required",
+  "validation": {
+    "incorrectPhone": "Incorrect phone number",
+    "min3": "Minimum 3 characters"
+  },
   "typeName": "Type name",
   "events": "Events",
   "chooseFile": "Choose a file",
@@ -52,6 +57,14 @@
     "text2": "Your event will be reviewed by an administrator within 24 hours and, once approved, will be visible on the map. If you have any questions, feel free to contact us.",
     "addNext": "Add next",
     "end": "End"
+  },
+  "contactPage": {
+    "title": "Contact with us!",
+    "text1": "If you have an interesting <1>idea</1> that could help improve our platform, reach out to us! <1>Experiencing issues</1> on the site? We’re here to help. Contact us, and we’ll do our best to resolve the problem as quickly as possible."
+  },
+  "cooperationPage": {
+    "title": "Contact with us!",
+    "text1": "Would you like to <1>promote</1> your company or product on our platform? Or maybe you have an idea on how we can <1>develop</1> our site together and create new, innovative solutions? We are also open to <1>collaborating with patrons</1> who would like to support our activities and become part of our growth. Reach out to us, and let's discuss opportunities for collaboration!"
   },
   "typeEmail": "Type email",
   "imageInputLabel": "Photo/graphic/logo",

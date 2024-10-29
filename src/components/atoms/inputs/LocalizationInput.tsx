@@ -2,6 +2,8 @@
 import { LocationInputState } from "@/types/common";
 import React, { useEffect, useState, useRef } from "react";
 import { customStyles } from "./styles";
+import { useParams } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 const initialInputState = {
   streetAddress: "",
@@ -36,6 +38,8 @@ const LocalizationInput = ({
 }) => {
   const [input, setInput] = useState<LocationInputState>(initialInputState);
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const { lng } = useParams();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (
@@ -50,7 +54,7 @@ const LocalizationInput = ({
 
   useEffect(() => {
     const options = {
-      componentRestrictions: { country: "pl" },
+      ...(lng === "pl" && { componentRestrictions: { country: "pl" } }),
       fields: ["address_components", "geometry"],
     };
 
@@ -159,7 +163,7 @@ const LocalizationInput = ({
       </label>
       {error && (
         <span className="absolute text-red-500 text-xs -bottom-4 right-0">
-          {error === "Required" ? "Pole jest wymagane" : error}
+          {error === "Required" ? t("fieldIsRequired") : error}
         </span>
       )}
     </div>

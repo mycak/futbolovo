@@ -15,6 +15,19 @@
     "addNext": "Dodaj kolejne",
     "end": "Zakończ"
   },
+  "contactPage": {
+    "title": "Skontaktuj się z nami!",
+    "text1": "Jeśli masz ciekawy <1>pomysł</1>, który może pomóc w rozwoju naszej platformy, napisz do nas! <1>Doświadczasz błędów</1> na stronie? Jesteśmy tutaj, aby pomóc. Skontaktuj się z nami, a postaramy się rozwiązać problem jak najszybciej."
+  },
+  "cooperationPage": {
+    "title": "Chcesz nawiązać współpracę?",
+    "text1": "Chciałbyś <1>zareklamować</1> swoją firmę lub produkt na naszej platformie? A może masz pomysł, jak razem możemy <1>rozwijać</1> naszą stronę i tworzyć nowe, innowacyjne rozwiązania? Jesteśmy również otwarci na <1>współpracę z patronami</1>, którzy chcieliby wesprzeć naszą działalność i stać się częścią naszego rozwoju. Skontaktuj się z nami i omówmy możliwości wspólnej współpracy!"
+  },
+  "fieldIsRequired": "To pole jest wymagane",
+  "validation": {
+    "incorrectPhone": "Nieprawidłowy numer telefonu",
+    "min3": "Minimum 3 znaki"
+  },
   "check": "Sprawdź!",
   "camp": "Obóz",
   "league": "Liga",

@@ -4,6 +4,7 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import { pl } from "date-fns/locale";
 import { Control, Controller, FieldValues } from "react-hook-form";
 import { customStyles } from "./styles";
+import { useParams } from "next/navigation";
 
 registerLocale("pl", pl);
 
@@ -28,6 +29,7 @@ const DateRangeInput = ({
 }) => {
   const initialStartDate = startDate ?? new Date();
   const initialEndDate = endDate ?? new Date();
+  const { lng } = useParams();
   return (
     <div className="relative">
       <label className="flex flex-col">
@@ -53,7 +55,7 @@ const DateRangeInput = ({
                   "!hover:cursor-pointer !hover:bg-emerald-900 !rounded-sm !text-ivory-150"
                 }
                 clearButtonClassName="after:!bg-transparent after:!text-3xl"
-                locale="pl"
+                locale={lng as string}
                 placeholderText={placeholder}
               />
             );

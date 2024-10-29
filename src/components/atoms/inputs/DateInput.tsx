@@ -4,6 +4,7 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import { pl } from "date-fns/locale";
 import { Control, Controller, FieldValues } from "react-hook-form";
 import { customStyles } from "./styles";
+import { useParams } from "next/navigation";
 
 registerLocale("pl", pl);
 
@@ -22,6 +23,8 @@ const DateInput = ({
   error?: string;
   placeholder: string;
 }) => {
+  const { lng } = useParams();
+
   return (
     <div className="relative">
       <label className="flex flex-col">
@@ -39,7 +42,7 @@ const DateInput = ({
               dayClassName={() =>
                 "!hover:cursor-pointer !hover:bg-emerald-900 !rounded-sm !text-ivory-150"
               }
-              locale="pl"
+              locale={lng as string}
               placeholderText={placeholder}
             />
           )}
