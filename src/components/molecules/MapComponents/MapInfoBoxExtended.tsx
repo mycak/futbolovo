@@ -9,6 +9,8 @@ import clsx from "clsx";
 import Image from "next/image";
 import { paths } from "@/constants/paths";
 import { Button, Divider } from "@/components/atoms";
+import { useParams } from "next/navigation";
+import { useTranslation } from "@/app/i18n/client";
 
 const MapInfoBoxExtended = ({
   events,
@@ -19,6 +21,8 @@ const MapInfoBoxExtended = ({
   close: () => void;
   mapRef: MutableRefObject<google.maps.Map | null>;
 }) => {
+  const { lng } = useParams();
+  const { t } = useTranslation(lng);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isRendered, setIsRendered] = useState<boolean>(false);
   const timeoutId = useRef<ReturnType<typeof setTimeout>>();
@@ -193,7 +197,7 @@ const MapInfoBoxExtended = ({
                 <Button
                   asLink
                   href={paths.Event(event.id)}
-                  text="Więcej!"
+                  text={t("more")}
                   classNames="mt-2 text-sm px-2 py-0 bg-grass-40 "
                 />
               </div>

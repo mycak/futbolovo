@@ -1,22 +1,26 @@
 import { EventCategoryEnum } from "@/types/common";
+import { TFunction } from "i18next";
 
-export const translateEventType = (event: EventCategoryEnum) => {
+export const translateEventType = (
+  event: EventCategoryEnum,
+  t: TFunction<"translation", undefined>
+) => {
   switch (event) {
     case EventCategoryEnum.TOURNAMENT:
-      return "Turniej";
+      return t("tournament");
     case EventCategoryEnum.SCHOOL:
-      return "Szkoła/Akademia";
+      return t("academyOrSchool");
     case EventCategoryEnum.SPORT_FIELD:
-      return "Boisko";
+      return t("field");
     case EventCategoryEnum.CAMP:
-      return "Obóz";
+      return t("camp");
     case EventCategoryEnum.LEAGUE:
-      return "Liga";
+      return t("league");
     case EventCategoryEnum.SERVICE:
-      return "Usługa";
+      return t("service");
     case EventCategoryEnum.MATCH:
-      return "Mecz";
+      return t("match");
     default:
-      return "Nieznany";
+      return t("unknown");
   }
 };

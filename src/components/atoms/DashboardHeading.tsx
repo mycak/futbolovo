@@ -1,9 +1,14 @@
 import { paths } from "@/constants/paths";
-import { mainTopics } from "@/constants/texts";
 import clsx from "clsx";
 import Link from "next/link";
 
-const DashboardHeading = ({ classNames }: { classNames?: string }) => {
+const DashboardHeading = ({
+  classNames,
+  mainTopics,
+}: {
+  classNames?: string;
+  mainTopics: string[];
+}) => {
   return (
     <div
       className={clsx(

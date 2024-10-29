@@ -1,20 +1,13 @@
 "use client";
-
-import {
-  PageContainer,
-  Divider,
-  PageWrapper,
-  Loader,
-} from "@/components/atoms/";
-import { AddPlaceSection } from "@/components/molecules";
-import { Filters, MapComponent } from "@/components/organism/";
 import { useJsApiLoader } from "@react-google-maps/api";
 import { googleApiConfig, initialMapCords } from "@/configs/googleApi";
 import { useEffect } from "react";
 import { generateMapCoordsFromCurrentLocation } from "@/utils";
 import { useMapStore } from "@/stores";
+import { Filters, MapComponent } from "@/components/organism/";
+import { PageWrapper, Loader } from "@/components/atoms/";
 
-const MapPage = () => {
+const MapSet = ({ lng }: { lng: string }) => {
   const { isLoaded } = useJsApiLoader(googleApiConfig);
   const mapCenter = useMapStore((state) => state.center);
   const setMapCenter = useMapStore((state) => state.setCenter);
@@ -45,9 +38,8 @@ const MapPage = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
-    <PageContainer>
+    <div>
       {isLoaded && mapCenter ? (
         <div>
           <Filters />
@@ -55,13 +47,11 @@ const MapPage = () => {
         </div>
       ) : (
         <PageWrapper classNames="min-h-96 pt-16">
-          <Loader />
+          <Loader lng={lng} />
         </PageWrapper>
       )}
-      <Divider />
-      <AddPlaceSection />
-    </PageContainer>
+    </div>
   );
 };
 
-export default MapPage;
+export default MapSet;

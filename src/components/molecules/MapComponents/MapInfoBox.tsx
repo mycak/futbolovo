@@ -10,6 +10,8 @@ import Image from "next/image";
 import { paths } from "@/constants/paths";
 import { Button, Divider } from "@/components/atoms";
 import EventImage from "../Events/EventImage";
+import { useParams } from "next/navigation";
+import { useTranslation } from "@/app/i18n/client";
 
 const MapInfoBox = ({
   event,
@@ -22,6 +24,8 @@ const MapInfoBox = ({
   resetCurrent: () => void;
   saveMapData: () => void;
 }) => {
+  const { lng } = useParams();
+  const { t } = useTranslation(lng);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isRendered, setIsRendered] = useState<boolean>(false);
   const timeoutId = useRef<ReturnType<typeof setTimeout>>();
@@ -167,7 +171,7 @@ const MapInfoBox = ({
               asLink
               href={paths.Event(event.id)}
               onClick={saveMapData}
-              text="Więcej!"
+              text={t("more")}
               classNames="text-sm px-2 py-0 bg-grass-40 "
             />
           </div>

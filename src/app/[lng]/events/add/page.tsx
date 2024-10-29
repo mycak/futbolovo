@@ -1,12 +1,18 @@
-"use client";
-import { PageContainer, PageWrapper, Loader } from "@/components/atoms/";
+import { PageContainer, PageWrapper } from "@/components/atoms/";
 import { AddEventWizard } from "@/components/organism";
-import { useJsApiLoader } from "@react-google-maps/api";
-import { googleApiConfig } from "@/configs/googleApi";
-import { Back } from "@/components/molecules";
 
-const AddEventPage = () => {
-  const { isLoaded } = useJsApiLoader(googleApiConfig);
+import { Back } from "@/components/molecules";
+import { useTranslation } from "@/app/i18n";
+
+const AddEventPage = async ({
+  params,
+}: {
+  params: {
+    lng: string;
+  };
+}) => {
+  const { t } = await useTranslation(params.lng);
+
   return (
     <PageContainer>
       <PageWrapper>
@@ -15,11 +21,11 @@ const AddEventPage = () => {
             <i className="fa-solid fa-map-location-dot fa-5x text-ivory-150 mx-auto" />
           </div>
           <h2 className="text-2xl md:text-3xl text-center text-grass-20 mt-4 md:mt-8">
-            Dodaj punkt na mapie
+            {t("navigation.addPoint")}
           </h2>
-          {isLoaded ? <AddEventWizard /> : <Loader />}
+          <AddEventWizard lng={params.lng} />
         </div>
-        <Back classNames="mx-auto mt-8" />
+        <Back classNames="mx-auto mt-8" lng={params.lng} />
       </PageWrapper>
     </PageContainer>
   );

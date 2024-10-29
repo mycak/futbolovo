@@ -1,9 +1,19 @@
+import { useTranslation } from "@/app/i18n";
 import { PageContainer, PageWrapper } from "@/components/atoms/";
 
 import { Back } from "@/components/molecules";
 import { contactEmail } from "@/constants/common";
+import { Trans } from "react-i18next/TransWithoutContext";
 
-const CooperationPage = () => {
+const CooperationPage = async ({
+  params,
+}: {
+  params: {
+    lng: string;
+  };
+}) => {
+  const { t } = await useTranslation(params.lng);
+
   return (
     <PageContainer>
       <PageWrapper>
@@ -14,18 +24,27 @@ const CooperationPage = () => {
                 <i className="fa-solid fa-user-group fa-6x text-ivory-150 mx-auto" />
               </div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl text-center text-grass-20 mt-4 md:mt-8">
-                Chcesz nawiązać współpracę?{" "}
+                {t("cooperationPage.title")}
               </h1>
               <p className="max-w-xl text-lg md:text-xl mt-4">
-                Chciałbyś <span className="text-grass-50">zareklamować</span>{" "}
-                swoją firmę lub produkt na naszej platformie? A może masz
-                pomysł, jak razem możemy{" "}
-                <span className="text-grass-50">rozwijać</span> naszą stronę i
-                tworzyć nowe, innowacyjne rozwiązania? Jesteśmy również otwarci
-                na <span className="text-grass-50">współpracę z patronami</span>
-                , którzy chcieliby wesprzeć naszą działalność i stać się częścią
-                naszego rozwoju. Skontaktuj się z nami i omówmy możliwości
-                wspólnej współpracy!
+                <Trans
+                  t={t}
+                  i18nKey="cooperationPage.text1"
+                  components={{
+                    1: <span className="text-grass-50" />,
+                  }}
+                >
+                  Chciałbyś <span className="text-grass-50">zareklamować</span>{" "}
+                  swoją firmę lub produkt na naszej platformie? A może masz
+                  pomysł, jak razem możemy{" "}
+                  <span className="text-grass-50">rozwijać</span> naszą stronę i
+                  tworzyć nowe, innowacyjne rozwiązania? Jesteśmy również
+                  otwarci na{" "}
+                  <span className="text-grass-50">współpracę z patronami</span>,
+                  którzy chcieliby wesprzeć naszą działalność i stać się częścią
+                  naszego rozwoju. Skontaktuj się z nami i omówmy możliwości
+                  wspólnej współpracy!
+                </Trans>
               </p>
               <div className="text-xl flex flex-col gap-2 mt-4 md:mt-8">
                 <div className="flex items-center gap-3">
@@ -42,7 +61,7 @@ const CooperationPage = () => {
             </div>
           </div>
         </div>
-        <Back classNames="mx-auto mt-8" />
+        <Back lng={params.lng} classNames="mx-auto mt-8" />
       </PageWrapper>
     </PageContainer>
   );

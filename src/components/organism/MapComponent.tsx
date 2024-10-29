@@ -94,7 +94,6 @@ const MapComponent = ({
           {(clusterer) => (
             <>
               {events.map((event) => {
-                //TODO: Add default pin instead
                 if (!event.location.latitude || !event.location.longitude)
                   return null;
                 return (

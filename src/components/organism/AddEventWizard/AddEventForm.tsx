@@ -26,11 +26,15 @@ import {
   UseFormRegister,
 } from "react-hook-form";
 import { useAddEventWizardStore } from "@/stores";
+import { useParams } from "next/navigation";
+import { useTranslation } from "@/app/i18n/client";
 
 const AddEventForm = () => {
   const nextStep = useAddEventWizardStore((state) => state.nextStep);
   const setAddData = useAddEventWizardStore((state) => state.setAddData);
   const addData = useAddEventWizardStore((state) => state.addData);
+  const { lng } = useParams();
+  const { t } = useTranslation(lng);
 
   const {
     handleSubmit,
@@ -40,7 +44,7 @@ const AddEventForm = () => {
     register,
     formState: { errors },
   } = useForm<AddEventInputs>({
-    resolver: zodResolver(addEventSchema),
+    resolver: zodResolver(addEventSchema(t)),
     defaultValues: addData,
   });
   const currentCategory = watch("category");
@@ -68,19 +72,19 @@ const AddEventForm = () => {
           <>
             <DateInput
               name="date"
-              label="Data"
+              label={t("date")}
               control={control as unknown as Control<FieldValues>}
               error={errors.date?.message}
-              placeholder="Wybierz datę"
+              placeholder={t("chooseDate")}
             />
             <SelectInput
               control={control as unknown as Control<FieldValues>}
-              label="Kategoria wiekowa"
+              label={t("ageCategory")}
               id="ageCategories"
               name="ageCategories"
               isMulti
               closeMenuOnSelect={false}
-              placeholder="Wybierz"
+              placeholder={t("choose")}
               options={ageCategoryOptions}
               error={errors.ageCategories?.message}
             />
@@ -92,19 +96,19 @@ const AddEventForm = () => {
           <>
             <DateRangeInput
               name="dateRange"
-              label="Zakres dat"
-              placeholder="Wybierz daty"
+              label={t("dateRange")}
+              placeholder={t("chooseDates")}
               control={control as unknown as Control<FieldValues>}
               error={errors.dateRange?.message}
             />
             <SelectInput
               control={control as unknown as Control<FieldValues>}
-              label="Kategoria wiekowa"
+              label={t("ageCategory")}
               id="ageCategories"
               name="ageCategories"
               isMulti
               closeMenuOnSelect={false}
-              placeholder="Wybierz"
+              placeholder={t("choose")}
               options={ageCategoryOptions}
               error={errors.ageCategories?.message}
             />
@@ -114,12 +118,12 @@ const AddEventForm = () => {
         return (
           <SelectInput
             control={control as unknown as Control<FieldValues>}
-            label="Kategoria wiekowa"
+            label={t("ageCategory")}
             id="ageCategories"
             name="ageCategories"
             isMulti
             closeMenuOnSelect={false}
-            placeholder="Wybierz"
+            placeholder={t("choose")}
             options={ageCategoryOptions}
             error={errors.image?.message}
           />
@@ -136,24 +140,24 @@ const AddEventForm = () => {
       >
         <SelectInput
           control={control as unknown as Control<FieldValues>}
-          label="Kategoria"
+          label={t("category")}
           id="category"
           name="category"
           closeMenuOnSelect={true}
-          placeholder="Wybierz kategorię"
-          options={categoryOptions}
+          placeholder={t("chooseCategory")}
+          options={categoryOptions(t)}
           error={errors.category?.message}
         />
         <LocalizationInput
-          label="Lokalizacja"
-          placeholder="Miasto, województwo, ulica"
+          label={t("location")}
+          placeholder={t("cityAndPlace")}
           onChangeCallback={onLocationChange}
           error={errors.location?.message}
           displayValue={addData?.location?.addressName}
         />
         <TextInput
-          label="Nazwa"
-          placeholder="Wpisz nazwę"
+          label={t("name")}
+          placeholder={t("typeName")}
           name="name"
           register={register as unknown as UseFormRegister<FieldValues>}
           error={errors.name?.message}
@@ -161,14 +165,14 @@ const AddEventForm = () => {
         {generateCategoryFieldsSet()}
         {/* CONTACT AND DESCRIPTION */}
         <NumberInput
-          label="Cena"
-          placeholder="Podaj kwotę"
+          label={t("price")}
+          placeholder={t("givePrice")}
           name="price"
           control={control as unknown as Control<FieldValues>}
           error={errors.price?.message}
         />
         <PhoneNumberInput
-          label="Numer kontaktowy"
+          label={t("contactNumber")}
           placeholder="+48XXXXXXXXX"
           name="phoneNumber"
           register={register as unknown as UseFormRegister<FieldValues>}
@@ -176,23 +180,25 @@ const AddEventForm = () => {
         />
         <EmailInput
           label="Email"
-          placeholder="Wpisz email"
+          placeholder={t("typeEmail")}
           name="email"
           register={register as unknown as UseFormRegister<FieldValues>}
           error={errors.email?.message}
         />
         <FileInput
-          label="Zdjęcie/grafika/logo"
-          placeholder="Umieść zdjęcie lub grafikę"
+          label={t("imageInputLabel")}
+          placeholder={t("imageInputPlaceholder")}
           name="image"
           type="image"
           control={control as unknown as Control<FieldValues>}
           error={errors.image?.message}
         />
         <TextAreaInput
-          label="Opis"
+          label={t("description")}
           placeholder={
-            currentCategory ? descriptionHints[currentCategory] : "Dodaj opis"
+            currentCategory
+              ? descriptionHints(t)[currentCategory]
+              : t("addDescription")
           }
           name="description"
           error={errors.description?.message}
@@ -204,7 +210,7 @@ const AddEventForm = () => {
           classNames="h-[38px] bg-grass-45 text-xl pl-3 pr-5 col-span-2 max-w-max mx-auto"
           variant="icon"
           icon="location-dot"
-          text="Dodaj"
+          text={t("add")}
           type="submit"
         />
       </form>

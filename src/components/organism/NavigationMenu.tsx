@@ -2,12 +2,15 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import { navigationItems } from "@/constants/navigation";
-import { NavigationKey } from "@/types/common";
+import { NavigationItem, NavigationKey } from "@/types/common";
 import { useOutsideClick } from "@/hooks";
 import { usePathname } from "next/navigation";
 
-const NavigationMenu = () => {
+const NavigationMenu = ({
+  navigationItems,
+}: {
+  navigationItems: Record<NavigationKey, NavigationItem[]>;
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const pathname = usePathname();
 
@@ -45,19 +48,17 @@ const NavigationMenu = () => {
         tabIndex={-1}
       >
         <div className="py-1" role="none">
-          {Object.keys(navigationItems(true)).map((key, index) => (
+          {Object.keys(navigationItems).map((key, index) => (
             <div key={key}>
-              {navigationItems(true)[key as NavigationKey].map(
-                ({ text, to }) => (
-                  <Link
-                    href={to}
-                    key={text}
-                    className="block px-4 py-2 md:text-xl transition-all duration-300 hover:bg-grass-40"
-                  >
-                    {text}
-                  </Link>
-                )
-              )}
+              {navigationItems[key as NavigationKey].map(({ text, to }) => (
+                <Link
+                  href={to}
+                  key={text}
+                  className="block px-4 py-2 md:text-xl transition-all duration-300 hover:bg-grass-40"
+                >
+                  {text}
+                </Link>
+              ))}
               {index !== 2 && (
                 <div className="border-b border-grass-40 mx-2 my-2" />
               )}

@@ -6,6 +6,7 @@ import { Loader } from "@/components/atoms";
 import { generateDummyPoster } from "@/utils";
 import { AddEventInputs } from "@/schemas/addEventSchema";
 import clsx from "clsx";
+import { useParams } from "next/navigation";
 
 const EventImage = ({
   eventData,
@@ -15,12 +16,13 @@ const EventImage = ({
   classNames?: string;
 }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const { lng } = useParams();
 
   return (
     <div className={clsx("relative mx-auto max-w-full", classNames)}>
       {isLoading && eventData.image && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <Loader />
+          <Loader lng={lng as string} />
         </div>
       )}
 

@@ -1,0 +1,128 @@
+{
+  "metatags": {
+    "title": "Futbolowa mapa Polski",
+    "description": "Bierz udział w piłkarskich wydarzeniach w Twojej okolicy."
+  },
+  "chooseDate": "Wybierz datę",
+  "chooseDates": "Wybierz daty",
+  "back": "Wróć",
+  "academyOrSchool": "Akademia/Szkółka",
+  "eventConfirmation": {
+    "title": "Dziękujemy za dodanie wydarzenia!",
+    "text1": "Twoje wydarzenie zostało pomyślnie zapisane w naszej bazie danych. Zostanie ono opublikowane po zatwierdzeniu przez administratora.",
+    "endDateText": "Data wygaśnięcia wydarzenia:",
+    "text2": "Twoje wydarzenie zostanie zweryfikowane przez administratora w ciągu 24 godzin i po akceptacji będzie widoczne na mapie. Jeśli masz jakiekolwiek pytania, skontaktuj się z nami.",
+    "addNext": "Dodaj kolejne",
+    "end": "Zakończ"
+  },
+  "contactPage": {
+    "title": "Skontaktuj się z nami!",
+    "text1": "Jeśli masz ciekawy <1>pomysł</1>, który może pomóc w rozwoju naszej platformy, napisz do nas! <1>Doświadczasz błędów</1> na stronie? Jesteśmy tutaj, aby pomóc. Skontaktuj się z nami, a postaramy się rozwiązać problem jak najszybciej."
+  },
+  "cooperationPage": {
+    "title": "Chcesz nawiązać współpracę?",
+    "text1": "Chciałbyś <1>zareklamować</1> swoją firmę lub produkt na naszej platformie? A może masz pomysł, jak razem możemy <1>rozwijać</1> naszą stronę i tworzyć nowe, innowacyjne rozwiązania? Jesteśmy również otwarci na <1>współpracę z patronami</1>, którzy chcieliby wesprzeć naszą działalność i stać się częścią naszego rozwoju. Skontaktuj się z nami i omówmy możliwości wspólnej współpracy!"
+  },
+  "fieldIsRequired": "To pole jest wymagane",
+  "validation": {
+    "incorrectPhone": "Nieprawidłowy numer telefonu",
+    "min3": "Minimum 3 znaki"
+  },
+  "check": "Sprawdź!",
+  "camp": "Obóz",
+  "league": "Liga",
+  "pitchOrIndoor": "Boisko lub hala na wynajem",
+  "service": "Usługa",
+  "match": "Mecz",
+  "unknown": "Nieznany",
+  "fix": "Popraw",
+  "accept": "Akceptuj",
+  "addPoint": "Dodaj punkt!",
+  "tournaments": "Turnieje",
+  "tournament": "Turniej",
+  "kidsSchools": "Szkółki",
+  "fields": "Boiska",
+  "field": "Boisko",
+  "events": "Eventy",
+  "name": "Nazwa",
+  "typeName": "Wpisz nazwę",
+  "objects": "Obiekty",
+  "services": "Usługi",
+  "matches": "Mecze",
+  "category": "Kategoria",
+  "noFile": "Nie wybrano pliku",
+  "clear": "Wyczyść",
+  "location": "Lokalizacja",
+  "price": "Cena",
+  "description": "Opis",
+  "addDescription": "Dodaj opis",
+  "chooseFile": "Wybierz plik",
+  "descriptionHints": {
+    "option1": "Ramy czasowe, zasady, itp.",
+    "option2": "Istotne informacje",
+    "option3": "Opis usługi",
+    "option4": "Opis obiektu"
+  },
+  "imageInputLabel": "Zdjęcie/grafika/logo",
+  "imageInputPlaceholder": "Umieść zdjęcie lub grafikę",
+  "typeEmail": "Wpisz email",
+  "givePrice": "Podaj cenę",
+  "contactNumber": "Numer kontaktowy",
+  "more": "Więcej",
+  "date": "Data",
+  "dateRange": "Zakres dat",
+  "rangeDisabledInfo": "Dotyczy kategorii obozów, meczy lub turniejów.",
+  "ageCategory": "Kategoria wiekowa",
+  "choose": "Wybierz",
+  "chooseCategory": "Wybierz kategorię",
+  "search": "Szukaj",
+  "writePhrase": "Wpisz frazę",
+  "cityAndPlace": "Miasto, województwo, ulica",
+  "wait": "Czekaj",
+  "add": "Dodaj",
+  "addPlace": {
+    "title": " Chcesz zaistnieć na mapie?",
+    "text1": "Dodaj swoje boisko, zorganizuj turniej, zaproponuj usługi lub stwórz obóz piłkarski! Udostępnij miejsce, które czeka na sportowców i drużyny z całej okolicy. Zareklamuj swoją ofertę,",
+    "text2": "daj się znaleźć i przyciągnij nowych uczestników!",
+    "addPlaceButton": "Dodaj miejsce!"
+  },
+  "notFound": {
+    "smallDesc": "Ups! Nieudana kiwka...",
+    "error404": "Błąd 404",
+    "error": "Coś poszło nie tak ;("
+  },
+  "navigation": {
+    "contact": "Kontakt",
+    "cooperation": "Współpraca",
+    "mainPage": "Strona Główna",
+    "map": "Mapa",
+    "addPoint": "Dodaj punkt na mapie",
+    "addEvent": "Dodaj Event",
+    "portal": "Portal",
+    "others": "Inne"
+  },
+  "hero": {
+    "option1": "Odkryj interaktywną mapę, która otwiera przed Tobą świat futbolowych możliwości!.",
+    "option2": "Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!",
+    "buttonTitle": "Dołącz do gry!"
+  },
+  "siteDescription": {
+    "desc1": "Znajdziesz tutaj wszystkie najważniejsze informacje o turniejach, ligach szóstek, szkółkach piłkarskich dla dzieci, boiskach do wynajęcia oraz usługach piłkarskich.",
+    "desc2": "Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!",
+    "title": "Odkryj interaktywną mapę, która otwiera przed Tobą świat futbolowych możliwości!"
+  },
+  "iconsSection": {
+    "forFootballEnthusiasts": "Dla Piłkarskich Entuzjastów",
+    "forOwners": "Dla Organizatorów i Właścicieli",
+    "users": {
+      "desc1": "Bądź na bieżąco z wydarzeniami piłkarskimi w Twojej okolicy i dołącz do lokalnych turniejów!",
+      "desc2": "Łatwo znajdź miejsca, gdzie Twoje dzieci mogą rozwijać swoje umiejętności pod okiem profesjonalnych trenerów.",
+      "desc3": "Wynajmij boisko na mecz z przyjaciółmi lub trening."
+    },
+    "owners": {
+      "desc1": "Dodawaj ogłoszenia o swoich wydarzeniach piłkarskich, aby przyciągnąć większą liczbę uczestników i widzów.",
+      "desc2": "Zwiększ wykorzystanie swoich obiektów, udostępniając informacje o dostępnych terminach na mapie.",
+      "desc3": "Przyciągnij nowych uczniów, dodając szczegóły o swojej ofercie szkoleniowej i lokalizacji."
+    }
+  }
+}

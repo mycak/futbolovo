@@ -5,15 +5,20 @@ import { Button, Loader } from "@/components/atoms";
 import { generateEventVisibilityEndDate } from "@/utils";
 import { format } from "date-fns";
 import { DATE_FORMAT } from "@/constants/common";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { paths } from "@/constants/paths";
 import { EventPreview } from "@/components/molecules";
+import { useTranslation } from "@/app/i18n/client";
 
 const AddEventPreview = () => {
   const router = useRouter();
+  const { lng } = useParams();
+  const { t } = useTranslation(lng);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const eventData = useAddEventWizardStore((state) => state.addData);
   const prevStep = useAddEventWizardStore((state) => state.prevStep);
+
+  //TODO: CHECK AFTER BACKEND IMPLEMENTATION IF IT CAN BE SERVR COMPONENT (USESTATE WILL BE DELETED)
 
   useEffect(() => setIsLoading(false), []);
 
@@ -42,14 +47,14 @@ const AddEventPreview = () => {
       .catch((err) => console.error(err));
   };
 
-  if (!eventData || isLoading) return <Loader />;
+  if (!eventData || isLoading) return <Loader lng={lng as string} />;
   return (
-    <EventPreview eventData={eventData}>
+    <EventPreview eventData={eventData} lng={lng as string}>
       <div className="flex justify-between">
         <Button
           classNames="h-[38px] md:text-xl pl-3 pr-5 bg-red-400"
           variant="icon"
-          text="Popraw"
+          text={t("fix")}
           icon="pen-to-square"
           onClick={prevStep}
         />
@@ -57,7 +62,7 @@ const AddEventPreview = () => {
           classNames="h-[38px] bg-grass-45 md:text-xl pl-3 pr-5"
           variant="icon"
           icon="futbol"
-          text="Akceptuj"
+          text={t("accept")}
           onClick={onAddEvent}
         />
       </div>
