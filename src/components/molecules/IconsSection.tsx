@@ -13,7 +13,7 @@ const IconsSection = ({
       <h3 className="text-3xl md:text-5xl text-center pb-8 text-grass-50">
         {title}
       </h3>
-      <div className="flex flex-col items-center md:flex-row justify-between gap-8">
+      <div className="flex flex-col items-center md:flex-row md:items-start justify-between gap-8">
         {items.map((item) => (
           <div
             key={item.icon}

@@ -19,7 +19,7 @@ const steps: {
 ] as const;
 
 const AddEventWizard = ({ lng }: { lng: string }) => {
-  const { isLoaded } = useJsApiLoader(googleApiConfig);
+  const { isLoaded } = useJsApiLoader(googleApiConfig(lng));
 
   const currentStep = useAddEventWizardStore((state) => state.currentStep);
   const { Component } = steps[currentStep];

@@ -8,7 +8,7 @@ import { Filters, MapComponent } from "@/components/organism/";
 import { PageWrapper, Loader } from "@/components/atoms/";
 
 const MapSet = ({ lng }: { lng: string }) => {
-  const { isLoaded } = useJsApiLoader(googleApiConfig);
+  const { isLoaded } = useJsApiLoader(googleApiConfig(lng));
   const mapCenter = useMapStore((state) => state.center);
   const setMapCenter = useMapStore((state) => state.setCenter);
 

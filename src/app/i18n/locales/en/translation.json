@@ -7,11 +7,11 @@
   "chooseDates": "Choose a dates",
   "back": "Back",
   "check": "Check!",
-  "pitchOrIndoor": "Pitch or Indoor Hall for Rent",
+  "pitchOrIndoor": "Pitch or indoor hall for rent",
   "addPoint": "Add a point!",
   "tournaments": "Tournaments",
   "tournament": "Tournament",
-  "kidsSchools": "Kids' Football Schools",
+  "kidsSchools": "Football schools",
   "fix": "Fix",
   "accept": "Accept",
   "fields": "Fields",
@@ -86,7 +86,7 @@
     "error": "Something went wrong ;("
   },
   "addPlace": {
-    "title": "Want to Make Your Mark on the Map?",
+    "title": "Want to make your mark on the map?",
     "text1": "Add your field, organize a tournament, offer your services, or create a football camp! Share a place that awaits athletes and teams from all around. Promote your offer,",
     "text2": "get noticed, and attract new participants!",
     "addPlaceButton": "Add a place!"

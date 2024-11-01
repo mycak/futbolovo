@@ -12,13 +12,13 @@ const DashboardHeading = ({
   return (
     <div
       className={clsx(
-        "flex gap-1 md:gap-8 justify-center items-center container",
+        "flex gap-1 md:gap-8 justify-center items-center container px-0",
         classNames
       )}
     >
       {mainTopics.map((topic, index) => (
         <Link href={paths.Map} key={topic}>
-          <p className="text-xl text-grass-50">
+          <p className="md:text-xl text-grass-50">
             {topic}
             <span
               className={clsx(
