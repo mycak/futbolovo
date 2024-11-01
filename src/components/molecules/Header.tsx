@@ -16,29 +16,21 @@ const Header = ({ lng }: { lng: string }) => {
   return (
     <>
       <PageWrapper classNames="grid grid-cols-[60px_auto_60px] items-center w-full pt-4">
-        <div />
+        <div className="flex items-center mr-6">
+          {["en", "pl"].map((lang) => (
+            <React.Fragment key={lang}>
+              <button
+                onClick={() => (window.location.href = `/${lang}/${pathname}`)}
+                className={clsx(lng === lang && "hidden", "text-sm opacity-45")}
+              >
+                {lang.toUpperCase()}
+              </button>
+            </React.Fragment>
+          ))}
+        </div>
         <Logo />
         <div className="justify-self-end">
-          <div className="flex items-center">
-            <div className="flex items-center mr-6">
-              {["en", "pl"].map((lang) => (
-                <React.Fragment key={lang}>
-                  <button
-                    onClick={() =>
-                      (window.location.href = `/${lang}/${pathname}`)
-                    }
-                    className={clsx(
-                      lng === lang && "hidden",
-                      "text-sm opacity-45"
-                    )}
-                  >
-                    {lang.toUpperCase()}
-                  </button>
-                </React.Fragment>
-              ))}
-            </div>
-            <NavigationMenu navigationItems={navigationItems(true, t)} />
-          </div>
+          <NavigationMenu navigationItems={navigationItems(true, t)} />
         </div>
       </PageWrapper>
       <DashboardHeading mainTopics={mainTopics(t)} classNames="my-4" />

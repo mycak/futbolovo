@@ -14,7 +14,7 @@ const Logo = () => {
       className="max-w-max mx-auto flex flex-col items-center"
     >
       <Image
-        src="/icons/logo-futbolovo2.png"
+        src="/icons/logo-futbolovo.svg"
         width={320}
         height={60}
         alt="football field"
