@@ -73,7 +73,7 @@ const MapInfoBox = ({
     >
       <div
         className={clsx(
-          "relative flex flex-col md:flex-row border border-grass-50 rounded-lg bg-emerald-900 p-5 text-ivory-150",
+          "relative flex flex-col max-w-[90%] md:max-w-full md:flex-row border border-grass-50 rounded-lg bg-emerald-900 p-5 text-ivory-150",
           "hover:cursor-pointer focus:outline-none focus:border-grass-40",
           "transition-all duration-300 ease-out",
           isVisible ? "opacity-95 " : "opacity-0"

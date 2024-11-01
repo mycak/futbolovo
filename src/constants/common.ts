@@ -13,3 +13,6 @@ export const contactPhone: {
   value: string;
 } = { label: "+48 505 184 510", value: "+48505184510" };
 export const contactEmail: string = "p.myszkiewicz@interia.pl";
+
+//GOOGLE PLACES
+export const MAX_ZOOM_LEVEL = 16;

@@ -2,6 +2,7 @@ import { useEventsStore, useMapStore } from "@/stores";
 import { EventCategoryEnum, Events } from "@/types/common";
 import { MutableRefObject } from "react";
 import { Cluster } from "@react-google-maps/marker-clusterer";
+import { MAX_ZOOM_LEVEL } from "@/constants/common";
 
 const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
   const filters = useEventsStore((state) => state.filters);
@@ -43,7 +44,7 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
       mapRef.current?.panTo(center);
     }
 
-    if (currentZoom > 16) {
+    if (currentZoom > MAX_ZOOM_LEVEL - 1) {
       const markers = cluster.getMarkers();
       //HERE WE WANT TO SHOW EVENTS DETAILS LIST
       const markersIds = markers.map((marker) => marker.getTitle());

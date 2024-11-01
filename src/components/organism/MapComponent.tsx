@@ -10,6 +10,7 @@ import { useEventsStore, useMapStore } from "@/stores";
 import { clusterConfig } from "@/configs/googleApi";
 import { useMap } from "@/hooks";
 import { Cluster } from "@react-google-maps/marker-clusterer";
+import { MAX_ZOOM_LEVEL } from "@/constants/common";
 
 const containerStyle = {
   width: "100%",
@@ -81,7 +82,7 @@ const MapComponent = ({
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapInitialPosition}
-        options={{ clickableIcons: false }}
+        options={{ clickableIcons: false, maxZoom: MAX_ZOOM_LEVEL }}
         zoom={mapZoom}
         onLoad={(map) => {
           mapRef.current = map;

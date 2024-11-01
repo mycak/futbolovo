@@ -18,7 +18,7 @@ const Logo = () => {
         width={320}
         height={60}
         alt="football field"
-        className="w-[60%] min-w-[200px] md:w-[320px]"
+        className="w-[60%] min-w-[200px] md:w-[320px] md:h-[60px]"
       />
     </Link>
   );
