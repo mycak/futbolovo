@@ -81,6 +81,7 @@ const MapComponent = ({
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={mapInitialPosition}
+        options={{ clickableIcons: false }}
         zoom={mapZoom}
         onLoad={(map) => {
           mapRef.current = map;

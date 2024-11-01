@@ -73,20 +73,20 @@ const MapInfoBox = ({
     >
       <div
         className={clsx(
-          "relative flex flex-row border border-grass-50 rounded-lg bg-emerald-900 p-5 text-ivory-150",
+          "relative flex flex-col md:flex-row border border-grass-50 rounded-lg bg-emerald-900 p-5 text-ivory-150",
           "hover:cursor-pointer focus:outline-none focus:border-grass-40",
           "transition-all duration-300 ease-out",
           isVisible ? "opacity-95 " : "opacity-0"
         )}
       >
-        <EventImage eventData={event} classNames="w-48 mr-4" />
+        <EventImage eventData={event} classNames="w-3/5 md:w-48 md:mr-4" />
         <button
           className="absolute top-2 right-2 text-ivory-150 hover:text-grass-30"
           onClick={handleClose}
         >
           &#10005;
         </button>
-        <div className="flex flex-col gap-1 w-80">
+        <div className="flex flex-col gap-1 md:w-80 mt-4 md:mt-0">
           <div className="flex justify-center">
             <Image
               src={generateMapIcon(event.category)}

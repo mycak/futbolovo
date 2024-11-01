@@ -15,7 +15,7 @@ const Header = ({ lng }: { lng: string }) => {
   // Window.location.href is used to achieve full page reload (google elements - apiJsLoader issue with language change)
   return (
     <>
-      <PageWrapper classNames="grid grid-cols-[60px_auto_60px] items-center w-full pt-4">
+      <PageWrapper classNames="grid grid-cols-[30px_auto_30px] items-center w-full pt-4">
         <div className="flex items-center mr-6">
           {["en", "pl"].map((lang) => (
             <React.Fragment key={lang}>

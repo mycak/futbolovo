@@ -30,14 +30,14 @@ const EventPreview = ({
       </div>
       <Divider />
 
-      <div className="grid grid-cols-2 gap-y-4 gap-x-8 justify-center max-w-lg mx-auto mt-4 md:mt-8">
-        <div className="flex items-center gap-3">
+      <div className="grid md:grid-cols-2 gap-y-4 gap-x-8 justify-center max-w-lg mx-auto mt-4 md:mt-8">
+        <div className="flex items-center gap-3 col-span-2 md:col-span-1">
           <i className="fa-solid fa-futbol text-grass-50" />
           <p>{translateEventType(eventData.category, t)}</p>
         </div>
 
         {eventData.category === EventCategoryEnum.TOURNAMENT && (
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 col-span-2 md:col-span-1">
             <i className="fa-solid fa-calendar-days text-grass-50" />
             <p>
               {eventData.date
@@ -48,7 +48,7 @@ const EventPreview = ({
         )}
         {(eventData.category === EventCategoryEnum.CAMP ||
           eventData.category === EventCategoryEnum.MATCH) && (
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 col-span-2 md:col-span-1">
             <i className="fa-solid fa-calendar-days text-grass-50" />
             <p>
               {eventData.dateRange
@@ -64,7 +64,7 @@ const EventPreview = ({
           </div>
         )}
         {eventData.category === EventCategoryEnum.CAMP && (
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 col-span-2 md:col-span-1">
             <i className="fa-solid fa-calendar-plus text-grass-50" />
             <p>
               {eventData.dateRange
@@ -83,7 +83,7 @@ const EventPreview = ({
           EventCategoryEnum.TOURNAMENT,
           EventCategoryEnum.SCHOOL,
         ].includes(eventData.category) && (
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 col-span-2 md:col-span-1">
             <i className="fa-solid fa-child-reaching text-grass-50" />
             <p>
               {eventData.ageCategories
@@ -92,17 +92,17 @@ const EventPreview = ({
             </p>
           </div>
         )}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 col-span-2 md:col-span-1">
           <i className="fa-solid fa-coins text-grass-50" />
           <p>
             {eventData.price} {currentCurrencySign}
           </p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 col-span-2 md:col-span-1">
           <i className="fa-regular fa-envelope text-grass-50" />
           <p>{eventData.email}</p>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 col-span-2 md:col-span-1">
           <i className="fa-solid fa-phone-flip text-grass-50" />
           <p>{formatPhoneNumber(eventData.phoneNumber)}</p>
         </div>
