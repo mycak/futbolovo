@@ -86,22 +86,20 @@ const MapInfoBoxExtended = ({
         aria-labelledby="infoBox-title"
         role="dialog"
         className={clsx(
-          "max-h-full relative border border-grass-50 rounded-lg bg-emerald-900 text-ivory-150 w-80",
+          "max-h-full relative border border-grass-50 rounded-lg bg-emerald-900 text-ivory-150 w-72 md:w-80",
           "hover:cursor-pointer focus:outline-none focus:border-grass-40",
           "transition-all duration-300 ease-out",
           isVisible ? "opacity-95 " : "opacity-0"
         )}
       >
         <button
-          className={
-            "absolute top-2 right-2 text-ivory-150 hover:text-grass-30 z-50"
-          }
+          className="absolute top-2 right-2 text-ivory-150 hover:text-grass-30 text-lg md:text-base"
           onClick={handleClose}
         >
           &#10005;
         </button>
         {/* TAB MENU */}
-        <div className="flex justify-center gap-2 p-1 mt-4">
+        <div className="flex justify-center gap-2 p-1 mt-4 md:mt-7">
           {categories.map((category) => (
             <button
               key={category}
