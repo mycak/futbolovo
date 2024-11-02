@@ -1,13 +1,27 @@
+"use client";
 import { useEventsStore, useMapStore } from "@/stores";
-import { EventCategoryEnum, Events } from "@/types/common";
-import { MutableRefObject } from "react";
+import { Events, MapFilters } from "@/types/common";
+import { MutableRefObject, useEffect } from "react";
 import { Cluster } from "@react-google-maps/marker-clusterer";
 import { MAX_ZOOM_LEVEL } from "@/constants/common";
+import { getEvents } from "@/app/actions";
 
 const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
   const filters = useEventsStore((state) => state.filters);
+  const events = useEventsStore((state) => state.events);
+  const setEvents = useEventsStore((state) => state.setEvents);
+
   const setMapZoom = useMapStore((state) => state.setZoom);
   const setMapCenter = useMapStore((state) => state.setCenter);
+
+  useEffect(() => {
+    const fetchEvents = async (filters: MapFilters) => {
+      const res = await getEvents(filters);
+      setEvents(res as unknown as Events);
+    };
+    fetchEvents(filters);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters]);
 
   const saveMapData = () => {
     const zoom = mapRef.current?.getZoom();
@@ -59,75 +73,11 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
     }
   };
 
-  //MAP FILTER
-  const filterEvents = (events: Events) =>
-    events.filter((event) => {
-      //CATEGORIES CHECK
-      if (filters.categories && !filters.categories.includes(event.category)) {
-        return false;
-      }
-      //SEARCH CHECK
-      if (filters.search) {
-        const search = filters.search.toLowerCase();
-        const matchesSearch =
-          event.name.toLowerCase().includes(search) ||
-          event.description.toLowerCase().includes(search) ||
-          (event.location.addressName ?? "").toLowerCase().includes(search);
-        if (!matchesSearch) {
-          return false;
-        }
-      }
-      //AGE CATEGORIES CHECK
-      if (filters.ageCategories) {
-        if (
-          (event.category === EventCategoryEnum.CAMP ||
-            event.category === EventCategoryEnum.TOURNAMENT ||
-            event.category === EventCategoryEnum.MATCH) &&
-          event.ageCategories?.some((ageCategory) =>
-            filters.ageCategories?.includes(ageCategory)
-          )
-        ) {
-          return false;
-        }
-      }
-      //DATES CHECK
-      if (
-        filters.dateRange?.every((item) => item !== null && item !== undefined)
-      ) {
-        const [startDate, endDate] = filters.dateRange.map((date) =>
-          (date as Date).getTime()
-        );
-
-        if (event.category === EventCategoryEnum.TOURNAMENT) {
-          const eventDate = (event.date as Date).getTime();
-          if (eventDate < startDate || eventDate > endDate) {
-            return false;
-          }
-        }
-
-        if (
-          event.category === EventCategoryEnum.CAMP ||
-          event.category === EventCategoryEnum.MATCH
-        ) {
-          const [eventStart, eventEnd] = (event.dateRange as [Date, Date]).map(
-            (date) => date.getTime()
-          );
-          const overlaps =
-            (eventStart >= startDate && eventStart <= endDate) ||
-            (eventEnd >= startDate && eventEnd <= endDate);
-          if (!overlaps) {
-            return false;
-          }
-        }
-      }
-      return true;
-    });
-
   return {
     moveMapToCoords,
-    filterEvents,
     onClusterClick,
     saveMapData,
+    events,
   };
 };
 

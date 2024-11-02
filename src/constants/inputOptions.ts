@@ -1,8 +1,6 @@
-import {
-  AgeCategoryCategoryEnum,
-  EventCategoryEnum,
-  SelectOptions,
-} from "@/types/common";
+import { SelectOptions } from "@/types/common";
+import { AgeCategoryCategoryEnum, EventCategoryEnum } from "@prisma/client";
+
 import { TFunction } from "i18next";
 
 export const categoryOptions = (

@@ -18,7 +18,8 @@ const initialState: EventsState = {
     categories: undefined,
     coords: undefined,
     search: undefined,
-    dateRange: [new Date(), addMonths(new Date(), 1)],
+    startDate: new Date(),
+    endDate: addMonths(new Date(), 2),
     ageCategories: undefined,
   },
 };

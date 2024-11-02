@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Event {
+  id             String                     @id @default(uuid())
+  category       EventCategoryEnum
+  ageCategories  AgeCategoryCategoryEnum[]
+  location       Json?
+  startDate      DateTime?
+  endDate        DateTime?
+  date           DateTime?
+  name           String
+  price          Float
+  description    String
+  phoneNumber    String
+  email          String
+  isPublished    Boolean                    @default(false)
+  image          String?
+  createdAt      DateTime                   @default(now())
+  updatedAt      DateTime                   @updatedAt
+  author         User?                      @relation(fields: [authorId], references: [id])
+  authorId       String?
+}
+
+model User {
+  id             String                     @id @default(uuid())
+  userName       String
+  password       String
+  phoneNumber    String
+  email          String                     @unique
+  events         Event[]
+}
+
+enum EventCategoryEnum {
+  TOURNAMENT
+  SCHOOL
+  CAMP
+  SPORT_FIELD
+  LEAGUE
+  SERVICE
+  MATCH
+}
+
+enum AgeCategoryCategoryEnum {
+  OPEN
+  OLDBOYS
+  VETERAN
+  U21
+  U20
+  U19
+  U18
+  U17
+  U16
+  U15
+  U14
+  U13
+  U12
+  U11
+  U10
+  U9
+  U8
+  U7
+  U6
+}

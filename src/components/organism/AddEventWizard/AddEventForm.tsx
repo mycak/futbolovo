@@ -17,17 +17,20 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { descriptionHints } from "@/constants/addEvents";
 import { ageCategoryOptions, categoryOptions } from "@/constants/inputOptions";
 import { AddEventInputs, addEventSchema } from "@/schemas/addEventSchema";
-import { EventCategoryEnum, LocationInputState } from "@/types/common";
+import { LocationInputState } from "@/types/common";
 import {
   Control,
   FieldValues,
   SubmitHandler,
   useForm,
   UseFormRegister,
+  UseFormSetValue,
+  useWatch,
 } from "react-hook-form";
 import { useAddEventWizardStore } from "@/stores";
 import { useParams } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client";
+import { EventCategoryEnum } from "@prisma/client";
 
 const AddEventForm = () => {
   const nextStep = useAddEventWizardStore((state) => state.nextStep);
@@ -38,7 +41,6 @@ const AddEventForm = () => {
 
   const {
     handleSubmit,
-    watch,
     control,
     setValue,
     register,
@@ -47,7 +49,9 @@ const AddEventForm = () => {
     resolver: zodResolver(addEventSchema(t)),
     defaultValues: addData,
   });
-  const currentCategory = watch("category");
+  const currentCategory = useWatch({ control, name: "category" });
+  const startDate = useWatch({ control, name: "startDate" });
+  const endDate = useWatch({ control, name: "endDate" });
 
   const onSubmit: SubmitHandler<AddEventInputs> = (data) => {
     setAddData(data);
@@ -72,6 +76,7 @@ const AddEventForm = () => {
           <>
             <DateInput
               name="date"
+              minDate
               label={t("date")}
               control={control as unknown as Control<FieldValues>}
               error={errors.date?.message}
@@ -95,11 +100,13 @@ const AddEventForm = () => {
         return (
           <>
             <DateRangeInput
-              name="dateRange"
+              minDate
+              startDate={startDate}
+              endDate={endDate}
               label={t("dateRange")}
               placeholder={t("chooseDates")}
-              control={control as unknown as Control<FieldValues>}
-              error={errors.dateRange?.message}
+              error={errors.startDate?.message}
+              setValue={setValue as unknown as UseFormSetValue<FieldValues>}
             />
             <SelectInput
               control={control as unknown as Control<FieldValues>}

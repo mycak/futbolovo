@@ -24,10 +24,10 @@ const NotFound = async ({
     >
       <div className="flex flex-col items-center justify-center border border-grass-40 p-12">
         <i className="fa-solid fa-bomb fa-6x text-ivory-150 mb-8" />
-        <h1 className="text-3xl text-center mb-4 text-red-400">
+        <h1 className="text-2xl md:text-3xl text-center mb-4 text-red-400">
           {t("notFound.smallDesc")}
         </h1>
-        <p className="text-8xl text-center text-grass-50 mb-5">
+        <p className="text-4xl md:text-8xl text-center text-grass-50 mb-5">
           {is404 ? t("notFound.error404") : t("notFound.error")}
         </p>
         {is404 ? (

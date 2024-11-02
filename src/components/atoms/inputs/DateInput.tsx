@@ -15,6 +15,7 @@ const DateInput = ({
   control,
   name,
   error,
+  minDate,
 }: {
   label: string;
   disabled?: boolean;
@@ -22,6 +23,7 @@ const DateInput = ({
   name: string;
   error?: string;
   placeholder: string;
+  minDate?: boolean;
 }) => {
   const { lng } = useParams();
 
@@ -36,6 +38,7 @@ const DateInput = ({
             <DatePicker
               disabled={disabled}
               selected={value ?? null}
+              minDate={minDate ? new Date() : undefined}
               onChange={(date) => onChange(date)}
               className={customStyles({ disabled, error: !!error })}
               calendarClassName="!p-1 !border !border-grass-50 !bg-emerald-600 !rounded-sm max-w-80"

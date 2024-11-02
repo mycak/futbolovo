@@ -2,7 +2,7 @@ import { PageContainer, Divider } from "@/components/atoms/";
 import { AddPlaceSection } from "@/components/molecules";
 import MapSet from "@/components/organism/MapSet";
 
-const MapPage = ({
+const MapPage = async ({
   params,
 }: {
   params: {

@@ -2,7 +2,6 @@
 import { GoogleMap, MarkerF, MarkerClustererF } from "@react-google-maps/api";
 import { PageWrapper } from "../atoms";
 import { generateMapIcon } from "@/utils";
-import { mockedEvents } from "@/constants/mocks";
 import { useEffect, useRef, useState } from "react";
 import { MapInfoBox, MapInfoBoxExtended } from "../molecules";
 import { BulkEvents, Events } from "@/types/common";
@@ -32,13 +31,9 @@ const MapComponent = ({
     position: undefined,
     items: [],
   });
-  const { filterEvents, onClusterClick, saveMapData } = useMap(mapRef);
+  const { onClusterClick, saveMapData, events } = useMap(mapRef);
 
-  //TEMPORARY EVENTS STATE
-  const [events, setEvents] = useState<Events>(mockedEvents);
   useEffect(() => {
-    const filteredEvents = filterEvents(mockedEvents);
-    setEvents(filteredEvents);
     if (filters.coords?.latitude && filters.coords?.longitude) {
       mapRef.current?.panTo(
         new google.maps.LatLng(

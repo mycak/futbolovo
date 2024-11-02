@@ -1,12 +1,11 @@
 import { z } from "zod";
-import { AgeCategoryCategoryEnum, EventCategoryEnum } from "@/types/common";
+import { AgeCategoryCategoryEnum, EventCategoryEnum } from "@prisma/client";
 import { phoneRegex } from "@/constants/common";
 import { TFunction } from "i18next";
 
 export const addEventSchema = (t: TFunction<"translation", undefined>) =>
   z
     .object({
-      dateRange: z.tuple([z.date().nullable(), z.date().nullable()]).optional(),
       category: z.nativeEnum(EventCategoryEnum, {
         errorMap: () => ({ message: t("fieldIsRequired") }),
       }),
@@ -16,9 +15,9 @@ export const addEventSchema = (t: TFunction<"translation", undefined>) =>
         addressName: z.string().nullable().optional(),
       }),
       ageCategories: z.array(z.nativeEnum(AgeCategoryCategoryEnum)).optional(),
-
       date: z.date().nullable().optional(),
-
+      startDate: z.date().nullable().optional(),
+      endDate: z.date().nullable().optional(),
       name: z
         .string()
         .min(1, { message: t("fieldIsRequired") })
@@ -35,10 +34,12 @@ export const addEventSchema = (t: TFunction<"translation", undefined>) =>
 
       email: z.string().min(1, { message: t("fieldIsRequired") }),
       image: z.string().nullable().optional(),
+      isPublished: z.boolean().default(false),
+      authorId: z.string().optional(),
     })
     .refine(
       (data) => {
-        const requiresAgeCategories = [
+        const requiresAgeCategories: EventCategoryEnum[] = [
           EventCategoryEnum.CAMP,
           EventCategoryEnum.TOURNAMENT,
           EventCategoryEnum.SCHOOL,
@@ -59,12 +60,12 @@ export const addEventSchema = (t: TFunction<"translation", undefined>) =>
         return (
           (data.category !== EventCategoryEnum.CAMP &&
             data.category !== EventCategoryEnum.MATCH) ||
-          (!!data.dateRange && data.dateRange[0] && data.dateRange[1])
+          (data.startDate && data.endDate)
         );
       },
       {
         message: t("fieldIsRequired"),
-        path: ["dateRange"],
+        path: ["startDate"],
       }
     )
     .refine(

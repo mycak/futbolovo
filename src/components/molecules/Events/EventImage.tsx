@@ -4,15 +4,16 @@ import { CldImage } from "next-cloudinary";
 import Image from "next/image";
 import { Loader } from "@/components/atoms";
 import { generateDummyPoster } from "@/utils";
-import { AddEventInputs } from "@/schemas/addEventSchema";
 import clsx from "clsx";
 import { useParams } from "next/navigation";
+import { Event } from "@prisma/client";
+import { AddEventInputs } from "@/schemas/addEventSchema";
 
 const EventImage = ({
   eventData,
   classNames,
 }: {
-  eventData: AddEventInputs;
+  eventData: Event | AddEventInputs;
   classNames?: string;
 }) => {
   const [isLoading, setIsLoading] = useState(true);

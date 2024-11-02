@@ -11,9 +11,9 @@ const PageContainer = ({
     <div
       className={clsx(
         "flex flex-col min-w-full max-w-full box-border overflow-y-auto pb-12 h-full",
+        "min-h-[calc(100vh-248px)] md:min-h-[calc(100vh-286px)]",
         classNames
       )}
-      style={{ minHeight: "calc(100vh - 300px)" }}
     >
       {children}
     </div>
@@ -21,3 +21,5 @@ const PageContainer = ({
 };
 
 export default PageContainer;
+//md: 100px (footer) + 76px (logo) + 60px (subheading) + 50px (padding) => 286px
+//mobile: 100px (footer) + 66px (logo) + 56px (subheading) + 26px (padding) => 248px

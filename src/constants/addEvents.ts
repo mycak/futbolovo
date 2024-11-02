@@ -1,4 +1,4 @@
-import { EventCategoryEnum } from "@/types/common";
+import { EventCategoryEnum } from "@prisma/client";
 import { TFunction } from "i18next";
 
 export const descriptionHints = (

@@ -1,5 +1,5 @@
 import { AddEventInputs } from "@/schemas/addEventSchema";
-import { EventCategoryEnum } from "@/types/common";
+import { EventCategoryEnum } from "@prisma/client";
 import { add } from "date-fns";
 
 export const generateDummyPoster = (category: EventCategoryEnum) => {
@@ -57,7 +57,7 @@ export const generateEventVisibilityEndDate = (
       return eventData.date as Date;
     case EventCategoryEnum.MATCH:
     case EventCategoryEnum.CAMP:
-      return eventData.dateRange?.[0] ?? add(new Date(), { months: 6 });
+      return eventData.startDate ?? add(new Date(), { months: 6 });
     case EventCategoryEnum.SCHOOL:
     case EventCategoryEnum.LEAGUE:
     case EventCategoryEnum.SPORT_FIELD:
