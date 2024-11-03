@@ -9,19 +9,25 @@ export const mainPagesMetadata = (t: TFunction<"translation", undefined>) => ({
     url: "https://futbolovo.netlify.app/",
     images: [
       {
-        url: "/images/media.jpg",
+        url: "https://i.ibb.co/ZmQGdGD/media.jpg",
         width: 1200,
         height: 630,
         alt: t("metatags.title"),
       },
     ],
-    type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: t("metatags.title"),
     description: t("metatags.description"),
-    images: ["/images/media.jpg"],
+    images: [
+      {
+        url: "https://i.ibb.co/ZmQGdGD/media.jpg",
+        width: 1200,
+        height: 630,
+        alt: t("metatags.title"),
+      },
+    ],
   },
   robots: {
     follow: true,
