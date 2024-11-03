@@ -1,4 +1,4 @@
-import { useTranslation } from "@/app/i18n";
+import { translate } from "@/app/i18n";
 import { PageContainer, PageWrapper } from "@/components/atoms/";
 
 import { Back } from "@/components/molecules";
@@ -12,7 +12,7 @@ const CooperationPage = async ({
     lng: string;
   };
 }) => {
-  const { t } = await useTranslation(params.lng);
+  const { t } = await translate(params.lng);
 
   return (
     <PageContainer>

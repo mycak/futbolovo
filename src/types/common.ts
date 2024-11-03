@@ -1,4 +1,5 @@
 import { AddEventInputs } from "@/schemas/addEventSchema";
+import { AgeCategoryCategoryEnum, EventCategoryEnum } from "@prisma/client";
 
 export type IconText = {
   icon: string;
@@ -50,14 +51,14 @@ export type MapFilters = {
       }
     | undefined;
   search: string | undefined;
-  dateRange: [Date | null, Date | null] | undefined;
+  startDate: Date | undefined;
+  endDate: Date | undefined;
   ageCategories: AgeCategoryCategoryEnum[] | undefined;
 };
 
 //EVENTS
 export type Event = AddEventInputs & {
   id: string;
-  dateRange?: [Date | null, Date | null] | Date[];
 };
 export type Events = Event[];
 
@@ -69,32 +70,8 @@ export type NavigationItem = {
   to: string;
 };
 
-export enum EventCategoryEnum {
-  TOURNAMENT = "tournament",
-  SCHOOL = "school",
-  CAMP = "camp",
-  SPORT_FIELD = "sportField",
-  LEAGUE = "league",
-  SERVICE = "service",
-  MATCH = "Match",
-}
-
-export enum AgeCategoryCategoryEnum {
-  OPEN = "Open",
-  U21 = "U21",
-  U20 = "U20",
-  U19 = "U19",
-  U18 = "U18",
-  U17 = "U17",
-  U16 = "U16",
-  U15 = "U15",
-  U14 = "U14",
-  U13 = "U13",
-  U12 = "U12",
-  U11 = "U11",
-  U10 = "U10",
-  U9 = "U9",
-  U8 = "U8",
-  U7 = "U7",
-  U6 = "U6",
-}
+export type Location = {
+  latitude: number;
+  longitude: number;
+  addressName: string;
+};

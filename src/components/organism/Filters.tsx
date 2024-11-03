@@ -19,15 +19,12 @@ import {
   useWatch,
 } from "react-hook-form";
 import { useEffect, useState } from "react";
-import {
-  EventCategoryEnum,
-  LocationInputState,
-  MapFilters,
-} from "@/types/common";
+import { LocationInputState, MapFilters } from "@/types/common";
 import { paths } from "@/constants/paths";
 import { useEventsStore } from "@/stores";
 import { useParams } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client";
+import { EventCategoryEnum } from "@prisma/client";
 
 const Filters = () => {
   const { lng } = useParams();
@@ -39,6 +36,8 @@ const Filters = () => {
   });
   const [dateRangeDisabled, setDateRangeDisabled] = useState<boolean>(false);
   const currentCategories = useWatch({ control, name: "categories" });
+  const startDate = useWatch({ control, name: "startDate" });
+  const endDate = useWatch({ control, name: "endDate" });
 
   useEffect(() => {
     const rangeCategories: EventCategoryEnum[] = [
@@ -94,11 +93,13 @@ const Filters = () => {
 
           <div className="relative">
             <DateRangeInput
-              name="dateRange"
+              setValue={setValue as unknown as UseFormRegister<FieldValues>}
+              startDate={startDate}
+              endDate={endDate}
               label={t("dateRange")}
+              minDate
               placeholder={t("choose")}
               disabled={dateRangeDisabled}
-              control={control as unknown as Control<FieldValues>}
             />
             {dateRangeDisabled && (
               <p className="absolute top-16 text-sm text-grass-50">

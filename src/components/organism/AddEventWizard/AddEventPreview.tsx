@@ -1,6 +1,6 @@
 "use client";
 import { useAddEventWizardStore } from "@/stores";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Loader } from "@/components/atoms";
 import { generateEventVisibilityEndDate } from "@/utils";
 import { format } from "date-fns";
@@ -9,6 +9,8 @@ import { useParams, useRouter } from "next/navigation";
 import { paths } from "@/constants/paths";
 import { EventPreview } from "@/components/molecules";
 import { useTranslation } from "@/app/i18n/client";
+import { addEvent } from "@/app/actions";
+import { Prisma } from "@prisma/client";
 
 const AddEventPreview = () => {
   const router = useRouter();
@@ -18,21 +20,11 @@ const AddEventPreview = () => {
   const eventData = useAddEventWizardStore((state) => state.addData);
   const prevStep = useAddEventWizardStore((state) => state.prevStep);
 
-  //TODO: CHECK AFTER BACKEND IMPLEMENTATION IF IT CAN BE SERVR COMPONENT (USESTATE WILL BE DELETED)
-
-  useEffect(() => setIsLoading(false), []);
-
-  const onAddEvent = () => {
+  const onAddEvent = async () => {
     if (eventData === undefined) return;
     setIsLoading(true);
-    //BACKEND ACTION - for now just promise resolved after 2 sec
-    new Promise((resolve) => {
-      setTimeout(() => {
-        resolve("Event added");
-      }, 2000);
-    })
+    await addEvent({ ...eventData } as unknown as Prisma.EventCreateInput)
       .then(() => {
-        console.log("Add event");
         const successPageQuery = {
           email: eventData.email,
           endDate: format(
@@ -44,7 +36,10 @@ const AddEventPreview = () => {
         const fullPath = `${paths.EventAddConfirm}?${params}`;
         router.push(fullPath);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        setIsLoading(false);
+      });
   };
 
   if (!eventData || isLoading) return <Loader lng={lng as string} />;

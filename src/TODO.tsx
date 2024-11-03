@@ -6,3 +6,4 @@
 // CONSIDER MIGRATION TO @vis.gl/react-google-maps or Migrate from Marker to Advanced Marker
 // CONSIDER DATE_FNS DELETION
 // ADD TYPE RELATED TRANSLATIONS
+// REMOVE BARREL IMPORTS

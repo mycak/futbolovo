@@ -1,6 +1,5 @@
 "use client";
 
-import { Event, EventCategoryEnum } from "@/types/common";
 import React from "react";
 import { Divider } from "../../atoms";
 import EventImage from "./EventImage";
@@ -9,19 +8,24 @@ import { currentCurrencySign, DATE_FORMAT } from "@/constants/common";
 import { differenceInDays, format } from "date-fns";
 import { AddEventInputs } from "@/schemas/addEventSchema";
 import { useTranslation } from "@/app/i18n/client";
+import { Event, EventCategoryEnum } from "@prisma/client";
+import { Location } from "@/types/common";
 
 const EventPreview = ({
   eventData,
   children,
   lng,
+  isEventPage,
 }: {
   eventData: Event | AddEventInputs;
   children: React.ReactNode;
   lng: string;
+  isEventPage?: boolean;
 }) => {
   const { t } = useTranslation(lng);
   return (
     <div>
+      {!isEventPage ? <Divider /> : null}
       <h1 className="text-2xl md:text-3xl font-bold text-center text-grass-30 mb-6">
         {eventData.name}
       </h1>
@@ -51,14 +55,11 @@ const EventPreview = ({
           <div className="flex items-center gap-3 col-span-2 md:col-span-1">
             <i className="fa-solid fa-calendar-days text-grass-50" />
             <p>
-              {eventData.dateRange
+              {eventData.startDate && eventData.endDate
                 ? `${format(
-                    new Date(eventData.dateRange[0] as Date),
+                    new Date(eventData.startDate),
                     DATE_FORMAT
-                  )} - ${format(
-                    new Date(eventData.dateRange[1] as Date),
-                    DATE_FORMAT
-                  )}`
+                  )} - ${format(new Date(eventData.endDate), DATE_FORMAT)}`
                 : "-"}
             </p>
           </div>
@@ -67,22 +68,24 @@ const EventPreview = ({
           <div className="flex items-center gap-3 col-span-2 md:col-span-1">
             <i className="fa-solid fa-calendar-plus text-grass-50" />
             <p>
-              {eventData.dateRange
+              {eventData.startDate && eventData.endDate
                 ? differenceInDays(
-                    new Date(eventData.dateRange[1] as Date),
-                    new Date(eventData.dateRange[0] as Date)
+                    new Date(eventData.startDate),
+                    new Date(eventData.endDate)
                   )
                 : "-"}{" "}
               dni
             </p>
           </div>
         )}
-        {[
-          EventCategoryEnum.MATCH,
-          EventCategoryEnum.CAMP,
-          EventCategoryEnum.TOURNAMENT,
-          EventCategoryEnum.SCHOOL,
-        ].includes(eventData.category) && (
+        {(
+          [
+            EventCategoryEnum.MATCH,
+            EventCategoryEnum.CAMP,
+            EventCategoryEnum.TOURNAMENT,
+            EventCategoryEnum.SCHOOL,
+          ] as EventCategoryEnum[]
+        ).includes(eventData.category) && (
           <div className="flex items-center gap-3 col-span-2 md:col-span-1">
             <i className="fa-solid fa-child-reaching text-grass-50" />
             <p>
@@ -108,7 +111,7 @@ const EventPreview = ({
         </div>
         <div className="flex items-center gap-3 col-span-2">
           <i className="fa-solid fa-location-dot text-grass-50" />
-          <p>{eventData?.location.addressName}</p>
+          <p>{(eventData?.location as Location)?.addressName ?? "-"}</p>
         </div>
         <div className="flex items-center gap-3 col-span-2">
           <i className="fa-regular fa-comment text-grass-50" />

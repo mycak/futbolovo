@@ -7,7 +7,7 @@ import {
   siteDescriptionTexts,
 } from "@/constants/texts";
 import { languages, fallbackLng } from "../i18n/settings";
-import { useTranslation } from "../i18n";
+import { translate } from "../i18n";
 
 export default async function DashboardPage({
   params: { lng },
@@ -15,7 +15,7 @@ export default async function DashboardPage({
   params: { lng: string };
 }>) {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
-  const { t } = await useTranslation(lng);
+  const { t } = await translate(lng);
   return (
     <PageContainer classNames="pb-0">
       <Hero

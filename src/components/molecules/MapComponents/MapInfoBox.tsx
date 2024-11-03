@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { InfoBox } from "@react-google-maps/api";
 import { generateMapIcon } from "@/utils";
 import { format } from "date-fns";
-import { EventCategoryEnum, Event } from "@/types/common";
+import { Event } from "@/types/common";
 import { currentCurrencySign, DATE_FORMAT } from "@/constants/common";
 import clsx from "clsx";
 import Image from "next/image";
@@ -12,6 +12,7 @@ import { Button, Divider } from "@/components/atoms";
 import EventImage from "../Events/EventImage";
 import { useParams } from "next/navigation";
 import { useTranslation } from "@/app/i18n/client";
+import { EventCategoryEnum } from "@prisma/client";
 
 const MapInfoBox = ({
   event,
@@ -124,24 +125,23 @@ const MapInfoBox = ({
                   <i className="fa-solid fa-calendar-days text-grass-50" />
                 </div>
                 <p className="text-sm">
-                  {event.dateRange
+                  {event.startDate && event.endDate
                     ? `${format(
-                        new Date(event.dateRange[0] as Date),
+                        new Date(event.startDate),
                         DATE_FORMAT
-                      )} - ${format(
-                        new Date(event.dateRange[1] as Date),
-                        DATE_FORMAT
-                      )}`
+                      )} - ${format(new Date(event.endDate), DATE_FORMAT)}`
                     : "-"}
                 </p>
               </div>
             )}
-            {[
-              EventCategoryEnum.CAMP,
-              EventCategoryEnum.MATCH,
-              EventCategoryEnum.TOURNAMENT,
-              EventCategoryEnum.SCHOOL,
-            ].includes(event.category) && (
+            {(
+              [
+                EventCategoryEnum.CAMP,
+                EventCategoryEnum.MATCH,
+                EventCategoryEnum.TOURNAMENT,
+                EventCategoryEnum.SCHOOL,
+              ] as EventCategoryEnum[]
+            ).includes(event.category) && (
               <div className="flex items-center gap-3">
                 <div className="w-3 flex flex-col items-center">
                   <i className="fa-solid fa-child-reaching text-grass-50" />

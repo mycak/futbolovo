@@ -13,6 +13,7 @@ type ButtonProps =
       icon?: string;
       type?: "button" | "submit" | "reset";
       size?: "sm" | "md" | "lg";
+      isLoading?: boolean;
     }
   | {
       text?: string;
@@ -24,6 +25,7 @@ type ButtonProps =
       icon?: string;
       type?: "button" | "submit" | "reset";
       size?: "sm" | "md" | "lg";
+      isLoading?: boolean;
     }
   | {
       text?: string;
@@ -35,6 +37,7 @@ type ButtonProps =
       icon: string;
       type?: "button" | "submit" | "reset";
       size?: "sm" | "md" | "lg";
+      isLoading?: boolean;
     }
   | {
       text?: string;
@@ -46,6 +49,7 @@ type ButtonProps =
       icon?: string;
       type?: "button" | "submit" | "reset";
       size?: "sm" | "md" | "lg";
+      isLoading?: boolean;
     };
 
 const Button = ({
@@ -58,23 +62,33 @@ const Button = ({
   icon,
   type,
   size = "md",
+  isLoading = false,
 }: ButtonProps) => {
   return (
     <button
       type={type ?? "button"}
       onClick={onClick}
+      disabled={isLoading}
       className={clsx(
-        "bg-grass-150 px-3 py-1 transition-all duration-300 opacity-90 rounded-sm flex items-center hover:opacity-100",
+        "bg-grass-150 px-3 py-1 transition-all duration-300 opacity-90 rounded-sm flex items-center hover:opacity-100 relative",
         variant === "text" && "text-grass-20 bg-transparent",
         size === "lg" &&
           "px-2 py-1 md:px-5 md:py-3 text-xl md:text-2xl lg:text-3xl",
+        isLoading && "cursor-wait opacity-75",
         classNames
       )}
     >
-      {variant === "icon" && (
-        <i className={`fa-solid fa-${icon} fa-sm text-ivory-150 mr-3`} />
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="animate-spin rounded-full h-5 w-5 border-2 border-ivory-150 border-t-transparent" />
+        </div>
       )}
-      {asLink ? <Link href={href}>{text}</Link> : text}
+      <div className={clsx(isLoading && "invisible")}>
+        {variant === "icon" && (
+          <i className={`fa-solid fa-${icon} fa-sm text-ivory-150 mr-3`} />
+        )}
+        {asLink ? <Link href={href}>{text}</Link> : text}
+      </div>
     </button>
   );
 };
