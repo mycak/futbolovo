@@ -21,9 +21,9 @@ const EventImage = ({
 
   return (
     <div className={clsx("relative mx-auto max-w-full", classNames)}>
-      {isLoading && eventData.image && (
+      {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <Loader lng={lng as string} />
+          <Loader lng={lng as string} small />
         </div>
       )}
 
