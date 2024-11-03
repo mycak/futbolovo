@@ -2,7 +2,7 @@ import { PageContainer, PageWrapper } from "@/components/atoms/";
 import { AddEventWizard } from "@/components/organism";
 
 import { Back } from "@/components/molecules";
-import { useTranslation } from "@/app/i18n";
+import { translate } from "@/app/i18n";
 
 const AddEventPage = async ({
   params,
@@ -11,7 +11,7 @@ const AddEventPage = async ({
     lng: string;
   };
 }) => {
-  const { t } = await useTranslation(params.lng);
+  const { t } = await translate(params.lng);
 
   return (
     <PageContainer>

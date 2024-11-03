@@ -1,9 +1,9 @@
-import { useTranslation } from "@/app/i18n";
+import { translate } from "@/app/i18n";
 import { paths } from "@/constants/paths";
 import Link from "next/link";
 
 const Footer = async ({ lng }: { lng: string }) => {
-  const { t } = await useTranslation(lng);
+  const { t } = await translate(lng);
 
   const footerItems = [
     {

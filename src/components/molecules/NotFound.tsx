@@ -3,7 +3,7 @@ import { paths } from "@/constants/paths";
 import { Button } from "../atoms";
 import Back from "./Back";
 import clsx from "clsx";
-import { useTranslation } from "@/app/i18n";
+import { translate } from "@/app/i18n";
 
 const NotFound = async ({
   is404,
@@ -14,7 +14,7 @@ const NotFound = async ({
   classNames?: string;
   lng: string;
 }) => {
-  const { t } = await useTranslation(lng);
+  const { t } = await translate(lng);
   return (
     <div
       className={clsx(

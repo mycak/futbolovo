@@ -7,7 +7,7 @@ import { Footer, Header } from "@/components/molecules";
 import { mainPagesMetadata } from "@/constants/metadata";
 import { dir } from "i18next";
 import { languages, fallbackLng } from "../i18n/settings";
-import { useTranslation } from "../i18n";
+import { translate } from "../i18n";
 
 const protestGuerilla = Protest_Guerrilla({
   weight: "400",
@@ -27,7 +27,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { t } = await useTranslation(lng);
+  const { t } = await translate(lng);
   return {
     ...mainPagesMetadata(t),
     icons: {
