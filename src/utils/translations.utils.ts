@@ -3,7 +3,7 @@ import { TFunction } from "i18next";
 
 export const translateEventType = (
   event: EventCategoryEnum,
-  t: TFunction<"translation", undefined>
+  t: TFunction<"translation", undefined>,
 ) => {
   switch (event) {
     case EventCategoryEnum.TOURNAMENT:

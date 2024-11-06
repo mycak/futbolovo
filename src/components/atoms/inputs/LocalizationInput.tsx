@@ -60,10 +60,10 @@ const LocalizationInput = ({
 
     const autocomplete = new google.maps.places.Autocomplete(
       inputRef.current as HTMLInputElement,
-      options
+      options,
     );
     autocomplete.addListener("place_changed", () =>
-      handlePlaceChanged(autocomplete)
+      handlePlaceChanged(autocomplete),
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -79,7 +79,7 @@ const LocalizationInput = ({
   };
 
   const handlePlaceChanged = async (
-    address: google.maps.places.Autocomplete
+    address: google.maps.places.Autocomplete,
   ) => {
     const place = address.getPlace();
 
@@ -157,7 +157,7 @@ const LocalizationInput = ({
           name="localization"
           className={customStyles({ error: !!error })}
           onChange={handleChange}
-          value={input.location ? input.location : displayValue ?? ""}
+          value={input.location ? input.location : (displayValue ?? "")}
           placeholder={placeholder}
         />
       </label>

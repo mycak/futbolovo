@@ -58,7 +58,7 @@ const EventPreview = ({
               {eventData.startDate && eventData.endDate
                 ? `${format(
                     new Date(eventData.startDate),
-                    DATE_FORMAT
+                    DATE_FORMAT,
                   )} - ${format(new Date(eventData.endDate), DATE_FORMAT)}`
                 : "-"}
             </p>
@@ -71,7 +71,7 @@ const EventPreview = ({
               {eventData.startDate && eventData.endDate
                 ? differenceInDays(
                     new Date(eventData.startDate),
-                    new Date(eventData.endDate)
+                    new Date(eventData.endDate),
                   )
                 : "-"}{" "}
               dni

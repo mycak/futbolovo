@@ -8,7 +8,7 @@ import { SelectOption } from "@/types/common";
 interface ExtendedProps<
   Option,
   IsMulti extends boolean = false,
-  Group extends GroupBase<Option> = GroupBase<Option>
+  Group extends GroupBase<Option> = GroupBase<Option>,
 > extends Props<Option, IsMulti, Group> {
   label: string;
   control: Control<FieldValues>;
@@ -18,7 +18,7 @@ interface ExtendedProps<
 const SelectInput = <
   Option,
   IsMulti extends boolean = false,
-  Group extends GroupBase<Option> = GroupBase<Option>
+  Group extends GroupBase<Option> = GroupBase<Option>,
 >({
   label,
   control,
@@ -50,11 +50,11 @@ const SelectInput = <
                 ? Array.isArray(value)
                   ? value.map((val) =>
                       (props.options as unknown as SelectOption[]).find(
-                        (option) => option.value === val
-                      )
+                        (option) => option.value === val,
+                      ),
                     )
                   : (props.options as unknown as SelectOption[]).find(
-                      (option) => option.value === value
+                      (option) => option.value === value,
                     )
                 : currentSelectValues;
 
@@ -73,7 +73,7 @@ const SelectInput = <
                     ? (newValue as SelectOption[]).map((item) => item.value)
                     : (newValue as SelectOption).value;
                   setCurrentSelectValues(
-                    newValue as SelectOption | SelectOption[]
+                    newValue as SelectOption | SelectOption[],
                   );
                   onChange(valueOnlyArray);
                 }}

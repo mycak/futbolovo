@@ -1,8 +1,8 @@
-'use server';
+"use server";
 
-import { prisma } from '@/configs/prisma';
-import { MapFilters } from '@/types/common';
-import { EventCategoryEnum, Prisma } from '@prisma/client';
+import { prisma } from "@/configs/prisma";
+import { MapFilters } from "@/types/common";
+import { EventCategoryEnum, Prisma } from "@prisma/client";
 
 export async function getEvents(filters: MapFilters) {
   // Build the where clause based on filters
@@ -20,11 +20,11 @@ export async function getEvents(filters: MapFilters) {
   if (filters.search) {
     const search = filters.search;
     whereClause.OR = [
-      { name: { contains: search, mode: 'insensitive' } },
-      { description: { contains: search, mode: 'insensitive' } },
+      { name: { contains: search, mode: "insensitive" } },
+      { description: { contains: search, mode: "insensitive" } },
       {
         location: {
-          addressName: { contains: search, mode: 'insensitive' },
+          addressName: { contains: search, mode: "insensitive" },
         },
       },
     ];

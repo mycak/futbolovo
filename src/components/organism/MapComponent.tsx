@@ -38,15 +38,15 @@ const MapComponent = ({
       mapRef.current?.panTo(
         new google.maps.LatLng(
           filters.coords.latitude,
-          filters.coords.longitude
-        )
+          filters.coords.longitude,
+        ),
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const [currentEventId, setCurrentEventId] = useState<string | number | null>(
-    null
+    null,
   );
 
   const googlePinIconConfig = {
@@ -62,7 +62,7 @@ const MapComponent = ({
 
   const onBulkEventsSetCallback = (
     newPosition: google.maps.LatLng,
-    eventsData: Events
+    eventsData: Events,
   ) => {
     setCurrentEventId(null);
     setBulkEvents({ position: newPosition, items: eventsData });
@@ -109,7 +109,7 @@ const MapComponent = ({
                     }}
                     onClick={(marker) => {
                       mapRef.current?.panTo(
-                        marker.latLng as google.maps.LatLng
+                        marker.latLng as google.maps.LatLng,
                       );
                       handleEventClick(event.id);
                     }}

@@ -31,7 +31,7 @@ const MapSet = ({ lng }: { lng: string }) => {
           clearTimeout(timeoutId);
           console.log("Geolocation not supported");
           setMapCenter(initialMapCords);
-        }
+        },
       );
     } else {
       setMapCenter(initialMapCords);

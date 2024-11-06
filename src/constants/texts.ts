@@ -7,7 +7,7 @@ export const heroTexts = (t: TFunction<"translation", undefined>): string[] => [
 ];
 
 export const mainTopics = (
-  t: TFunction<"translation", undefined>
+  t: TFunction<"translation", undefined>,
 ): string[] => [
   t("tournaments"),
   t("fields"),
@@ -17,7 +17,7 @@ export const mainTopics = (
 ];
 
 export const usersIconsTexts = (
-  t: TFunction<"translation", undefined>
+  t: TFunction<"translation", undefined>,
 ): IconText[] => [
   {
     text: t("iconsSection.users.desc1"),
@@ -38,7 +38,7 @@ export const usersIconsTexts = (
 ];
 
 export const ownersIconsTexts = (
-  t: TFunction<"translation", undefined>
+  t: TFunction<"translation", undefined>,
 ): IconText[] => [
   {
     text: t("iconsSection.owners.desc1"),
@@ -59,7 +59,7 @@ export const ownersIconsTexts = (
 ];
 
 export const siteDescriptionTexts = (
-  t: TFunction<"translation", undefined>
+  t: TFunction<"translation", undefined>,
 ) => ({
   title: t("siteDescription.title"),
   description1: t("siteDescription.desc1"),

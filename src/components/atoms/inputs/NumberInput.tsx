@@ -24,7 +24,7 @@ const NumberInput = ({
           control={control}
           defaultValue={undefined} // Ensure defaultValue is set to avoid uncontrolled warning
           render={(
-            { field: { onChange, onBlur, value = "", ref } } // Default value to empty string
+            { field: { onChange, onBlur, value = "", ref } }, // Default value to empty string
           ) => (
             <input
               type="number"

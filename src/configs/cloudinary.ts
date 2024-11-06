@@ -2,7 +2,7 @@ import { CloudinaryUploadWidgetOptions } from "next-cloudinary";
 
 export const cloudinaryWidgetConfig = (
   fileName: string,
-  lng: string
+  lng: string,
 ): CloudinaryUploadWidgetOptions => ({
   sources: ["local"],
   multiple: false,
