@@ -28,7 +28,7 @@ import { EventCategoryEnum } from "@prisma/client";
 
 const Filters = () => {
   const { lng } = useParams();
-  const { t } = useTranslation(lng);
+  const { t } = useTranslation(lng as string);
   const setFilters = useEventsStore((state) => state.setFilters);
   const filters = useEventsStore((state) => state.filters);
   const { handleSubmit, control, setValue, register } = useForm<MapFilters>({
@@ -48,7 +48,7 @@ const Filters = () => {
 
     if (
       rangeCategories.some((rangeCategory) =>
-        currentCategories?.map((item) => item).includes(rangeCategory)
+        currentCategories?.map((item) => item).includes(rangeCategory),
       ) ||
       !currentCategories?.length
     ) {

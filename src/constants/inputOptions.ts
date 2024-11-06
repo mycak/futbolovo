@@ -4,7 +4,7 @@ import { AgeCategoryCategoryEnum, EventCategoryEnum } from "@prisma/client";
 import { TFunction } from "i18next";
 
 export const categoryOptions = (
-  t: TFunction<"translation", undefined>
+  t: TFunction<"translation", undefined>,
 ): SelectOptions => [
   { value: EventCategoryEnum.TOURNAMENT, label: t("tournament") },
   { value: EventCategoryEnum.SCHOOL, label: t("academyOrSchool") },

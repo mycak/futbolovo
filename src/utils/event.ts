@@ -50,7 +50,7 @@ export const generateMapIcon = (category: CategoryOrCluster) => {
 
 export const generateEventVisibilityEndDate = (
   category: EventCategoryEnum,
-  eventData: AddEventInputs
+  eventData: AddEventInputs,
 ): Date => {
   switch (category) {
     case EventCategoryEnum.TOURNAMENT:
@@ -77,23 +77,23 @@ export const formatPhoneNumber = (phoneNumber: string): string => {
     const number = cleaned.slice(3);
     if (number.length === 9) {
       return `+48 ${number.slice(0, 3)} ${number.slice(3, 6)} ${number.slice(
-        6
+        6,
       )}`;
     }
   } else {
     const length = cleaned.length;
     if (length === 7) {
       return `${cleaned.slice(0, 3)} ${cleaned.slice(3, 5)} ${cleaned.slice(
-        5
+        5,
       )}`;
     } else if (length === 9) {
       return `${cleaned.slice(0, 3)} ${cleaned.slice(3, 6)} ${cleaned.slice(
-        6
+        6,
       )}`;
     } else if (length === 10) {
       return `${cleaned.slice(0, 3)} ${cleaned.slice(3, 6)} ${cleaned.slice(
         6,
-        8
+        8,
       )} ${cleaned.slice(8)}`;
     }
   }

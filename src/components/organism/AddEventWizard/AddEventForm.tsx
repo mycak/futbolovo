@@ -37,7 +37,7 @@ const AddEventForm = () => {
   const setAddData = useAddEventWizardStore((state) => state.setAddData);
   const addData = useAddEventWizardStore((state) => state.addData);
   const { lng } = useParams();
-  const { t } = useTranslation(lng);
+  const { t } = useTranslation(lng as string);
 
   const {
     handleSubmit,
@@ -64,7 +64,7 @@ const AddEventForm = () => {
     setValue(
       "location",
       { latitude, longitude, addressName: location },
-      { shouldValidate: true }
+      { shouldValidate: true },
     );
   };
 

@@ -26,7 +26,7 @@ const MapInfoBox = ({
   saveMapData: () => void;
 }) => {
   const { lng } = useParams();
-  const { t } = useTranslation(lng);
+  const { t } = useTranslation(lng as string);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isRendered, setIsRendered] = useState<boolean>(false);
   const timeoutId = useRef<ReturnType<typeof setTimeout>>();
@@ -66,7 +66,7 @@ const MapInfoBox = ({
       position={
         new google.maps.LatLng(
           event.location.latitude as number,
-          event.location.longitude as number
+          event.location.longitude as number,
         )
       }
       options={boxOptions}
@@ -77,7 +77,7 @@ const MapInfoBox = ({
           "relative flex flex-col w-72 md:w-full md:max-w-full md:flex-row border border-grass-50 rounded-lg bg-emerald-900 p-5 text-ivory-150",
           "hover:cursor-pointer focus:outline-none focus:border-grass-40",
           "transition-all duration-300 ease-out",
-          isVisible ? "opacity-95 " : "opacity-0"
+          isVisible ? "opacity-95 " : "opacity-0",
         )}
       >
         <EventImage
@@ -128,7 +128,7 @@ const MapInfoBox = ({
                   {event.startDate && event.endDate
                     ? `${format(
                         new Date(event.startDate),
-                        DATE_FORMAT
+                        DATE_FORMAT,
                       )} - ${format(new Date(event.endDate), DATE_FORMAT)}`
                     : "-"}
                 </p>

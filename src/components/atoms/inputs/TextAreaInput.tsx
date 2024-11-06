@@ -22,7 +22,7 @@ const TextAreaInput = ({
           id="textarea"
           className={clsx(
             "h-[80px] border border-grass-50 rounded-sm bg-emerald-900 w-80 p-1 pl-2 text-ivory-150 placeholder:text-ivory-150 hover:cursor-pointer hover:border-grass-40 active:outline-none focus:outline-none focus:border-grass-40",
-            error && "border-red-500 focus:border-red-400 hover:border-red-400"
+            error && "border-red-500 focus:border-red-400 hover:border-red-400",
           )}
           placeholder={placeholder}
           {...register(name)}

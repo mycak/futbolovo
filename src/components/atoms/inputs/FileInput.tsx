@@ -25,11 +25,11 @@ const FileInput = ({
 }) => {
   const [fileName, setFileName] = useState<string | null>(null);
   const [fileUniqueId, setFileUniqueId] = useState<string>(
-    `id-${Date.now()}-${Math.random()}`
+    `id-${Date.now()}-${Math.random()}`,
   );
 
   const { lng } = useParams();
-  const { t } = useTranslation(lng);
+  const { t } = useTranslation(lng as string);
 
   return (
     <div className="flex flex-col relative">
@@ -71,7 +71,7 @@ const FileInput = ({
                     <p
                       className={clsx(
                         customStyles({ error: !!error }),
-                        "mt-0! pt-[7px] truncate"
+                        "mt-0! pt-[7px] truncate",
                       )}
                     >
                       {fileName?.length ? fileName : t("chooseFile")}
@@ -131,7 +131,7 @@ const FileInput = ({
                 <p
                   className={clsx(
                     customStyles({ error: !!error }),
-                    "mt-0! pt-[7px]"
+                    "mt-0! pt-[7px]",
                   )}
                 >
                   {fileName?.length ? fileName : t("chooseFile")}

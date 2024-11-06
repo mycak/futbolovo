@@ -12,7 +12,7 @@ const PageContainer = ({
       className={clsx(
         "flex flex-col min-w-full max-w-full box-border overflow-y-auto pb-12 h-full",
         "min-h-[calc(100vh-248px)] md:min-h-[calc(100vh-286px)]",
-        classNames
+        classNames,
       )}
     >
       {children}

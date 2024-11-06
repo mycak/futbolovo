@@ -38,7 +38,7 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
   const moveMapToCoords = (coords: { latitude: number; longitude: number }) => {
     if (mapRef.current) {
       mapRef.current.panTo(
-        new google.maps.LatLng(coords.latitude, coords.longitude)
+        new google.maps.LatLng(coords.latitude, coords.longitude),
       );
     }
   };
@@ -48,9 +48,9 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
     cluster: Cluster,
     onBulkEventsSetCallback: (
       newPosition: google.maps.LatLng,
-      eventsData: Events
+      eventsData: Events,
     ) => void,
-    events: Events
+    events: Events,
   ) => {
     const currentZoom = mapRef.current?.getZoom() ?? 20;
     const center = cluster.getCenter();
@@ -63,7 +63,7 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
       //HERE WE WANT TO SHOW EVENTS DETAILS LIST
       const markersIds = markers.map((marker) => marker.getTitle());
       const eventsData = events.filter((event) =>
-        markersIds.includes(event.id)
+        markersIds.includes(event.id),
       );
       const newPosition = cluster.getCenter() as google.maps.LatLng;
       onBulkEventsSetCallback(newPosition, eventsData);

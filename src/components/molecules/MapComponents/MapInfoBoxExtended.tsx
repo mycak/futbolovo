@@ -23,17 +23,17 @@ const MapInfoBoxExtended = ({
   mapRef: MutableRefObject<google.maps.Map | null>;
 }) => {
   const { lng } = useParams();
-  const { t } = useTranslation(lng);
+  const { t } = useTranslation(lng as string);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isRendered, setIsRendered] = useState<boolean>(false);
   const timeoutId = useRef<ReturnType<typeof setTimeout>>();
 
   const categories = [...new Set(events.items.map((item) => item.category))];
   const [activeCategory, setActiveCategory] = useState<EventCategoryEnum>(
-    categories[0]
+    categories[0],
   );
   const eventsToRender = events.items.filter(
-    (event) => event.category === activeCategory
+    (event) => event.category === activeCategory,
   );
 
   // InfoBox options for positioning and disabling default close button
@@ -90,7 +90,7 @@ const MapInfoBoxExtended = ({
           "max-h-full relative border border-grass-50 rounded-lg bg-emerald-900 text-ivory-150 w-72 md:w-80",
           "hover:cursor-pointer focus:outline-none focus:border-grass-40",
           "transition-all duration-300 ease-out",
-          isVisible ? "opacity-95 " : "opacity-0"
+          isVisible ? "opacity-95 " : "opacity-0",
         )}
       >
         <button
@@ -109,7 +109,7 @@ const MapInfoBoxExtended = ({
                 "border border-emerald-900 p-1 rounded-sm transition-all duration-200 ease-in-out", // animation
                 category === activeCategory &&
                   "border !border-grass-20 bg-grass-45",
-                "hover:border-grass-30 hover:bg-grass-40" //hover
+                "hover:border-grass-30 hover:bg-grass-40", //hover
               )}
             >
               <Image
@@ -152,7 +152,7 @@ const MapInfoBoxExtended = ({
                     {event.startDate && event.endDate
                       ? `${format(
                           new Date(event.startDate),
-                          DATE_FORMAT
+                          DATE_FORMAT,
                         )} - ${format(new Date(event.endDate), DATE_FORMAT)}`
                       : "-"}
                   </p>

@@ -24,7 +24,8 @@ const groupHeadingStyles = "ml-3 mt-2 mb-1 text-ivory-100 text-sm";
 const optionStyles = {
   base: "hover:cursor-pointer px-3 py-2 rounded-sm transition-all duration-300",
   focus: "bg-emerald-500 active:bg-emerald-400",
-  selected: "after:content-['✔'] after:ml-2 after:text-green-500 text-grass-30",
+  selected:
+    "after:content-['✔'] after:ml-2 after:text-green-500 text-grass-30",
 };
 const noOptionsMessageStyles =
   "text-ivory-100 text-sm p-2 bbg-emerald-500 border border-grass-50 rounded-sm";
@@ -35,9 +36,9 @@ export const generateClassNames = (error?: boolean) => ({
       error
         ? controlStyles.error
         : isFocused
-        ? controlStyles.focus
-        : controlStyles.nonFocus,
-      controlStyles.base
+          ? controlStyles.focus
+          : controlStyles.nonFocus,
+      controlStyles.base,
     ),
   placeholder: () => placeholderStyles,
   valueContainer: () => valueContainerStyles,
@@ -60,7 +61,7 @@ export const generateClassNames = (error?: boolean) => ({
     clsx(
       isFocused && optionStyles.focus,
       isSelected && optionStyles.selected,
-      optionStyles.base
+      optionStyles.base,
     ),
   noOptionsMessage: () => noOptionsMessageStyles,
 });
@@ -75,5 +76,5 @@ export const customStyles = ({
   clsx(
     "h-[38px] border border-grass-50 rounded-sm bg-emerald-900 w-80 p-1 pl-2 text-ivory-150 placeholder:text-ivory-150 hover:cursor-pointer hover:border-grass-40 active:outline-none focus:outline-none focus:border-grass-40",
     disabled && "opacity-75",
-    error && "border-red-500 focus:border-red-400 hover:border-red-400"
+    error && "border-red-500 focus:border-red-400 hover:border-red-400",
   );

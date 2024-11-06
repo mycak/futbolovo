@@ -45,28 +45,36 @@ export async function getEvents(filters: MapFilters) {
   // Dates filter
   if (filters.startDate && filters.endDate) {
     const { startDate, endDate } = filters;
-    whereClause.AND = [
+    whereClause.NOT = [
       {
-        OR: [
-          {
-            category: EventCategoryEnum.TOURNAMENT,
-            date: {
-              gte: startDate,
-              lte: endDate,
-            },
-          },
-          {
-            category: { in: [EventCategoryEnum.CAMP, EventCategoryEnum.MATCH] },
-            OR: [
-              {
-                startDate: { gte: startDate, lte: endDate },
-              },
-              {
-                endDate: { gte: startDate, lte: endDate },
-              },
-            ],
-          },
-        ],
+        category: EventCategoryEnum.TOURNAMENT,
+        date: {
+          lt: startDate,
+        },
+      },
+      {
+        category: EventCategoryEnum.TOURNAMENT,
+        date: {
+          gt: endDate,
+        },
+      },
+      {
+        category: { in: [EventCategoryEnum.CAMP, EventCategoryEnum.MATCH] },
+        startDate: {
+          gt: endDate,
+        },
+        endDate: {
+          gt: endDate,
+        },
+      },
+      {
+        category: { in: [EventCategoryEnum.CAMP, EventCategoryEnum.MATCH] },
+        startDate: {
+          lt: startDate,
+        },
+        endDate: {
+          lt: startDate,
+        },
       },
     ];
   }

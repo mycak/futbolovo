@@ -19,7 +19,7 @@ const NotFound = async ({
     <div
       className={clsx(
         "flex flex-col items-center justify-center grow",
-        classNames
+        classNames,
       )}
     >
       <div className="flex flex-col items-center justify-center border border-grass-40 p-12">

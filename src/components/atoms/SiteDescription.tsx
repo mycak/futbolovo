@@ -48,9 +48,8 @@ const SiteDescription = ({
       <Image
         src="/images/map-overview.png"
         alt="overview"
-        priority
-        width={1920}
-        height={1080}
+        width={510}
+        height={600}
         className="h-full w-5/6 md:w-2/3 mx-auto md:mr-auto md:ml-0"
         style={{
           maxHeight: "600px",

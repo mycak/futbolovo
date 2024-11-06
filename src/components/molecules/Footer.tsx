@@ -29,13 +29,14 @@ const Footer = async ({ lng }: { lng: string }) => {
           <h3 className="text-lg text-ivory-100">{item.title}</h3>
           <ul>
             {item.items.map((subItem) => (
-              <Link
-                href={subItem.href}
-                key={subItem.name}
-                className="text-grass-100 text-sm block"
-              >
-                {subItem.name}
-              </Link>
+              <li key={subItem.name}>
+                <Link
+                  href={subItem.href}
+                  className="text-grass-100 text-sm block"
+                >
+                  {subItem.name}
+                </Link>
+              </li>
             ))}
           </ul>
         </div>

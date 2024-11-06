@@ -15,7 +15,7 @@ import { Prisma } from "@prisma/client";
 const AddEventPreview = () => {
   const router = useRouter();
   const { lng } = useParams();
-  const { t } = useTranslation(lng);
+  const { t } = useTranslation(lng as string);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const eventData = useAddEventWizardStore((state) => state.addData);
   const prevStep = useAddEventWizardStore((state) => state.prevStep);
@@ -29,7 +29,7 @@ const AddEventPreview = () => {
           email: eventData.email,
           endDate: format(
             generateEventVisibilityEndDate(eventData.category, eventData),
-            DATE_FORMAT
+            DATE_FORMAT,
           ),
         };
         const params = new URLSearchParams(successPageQuery).toString();

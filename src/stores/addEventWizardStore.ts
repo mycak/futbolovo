@@ -27,5 +27,5 @@ export const useAddEventWizardStore = create<AddEventState & AddEventAction>(
     prevStep: () => set((state) => ({ currentStep: state.currentStep - 1 })),
     setStep: (currentStep) => set({ currentStep }),
     clearState: () => set({ ...initialState }),
-  })
+  }),
 );

@@ -75,7 +75,7 @@ const Button = ({
         size === "lg" &&
           "px-2 py-1 md:px-5 md:py-3 text-xl md:text-2xl lg:text-3xl",
         isLoading && "cursor-wait opacity-75",
-        classNames
+        classNames,
       )}
     >
       {isLoading && (

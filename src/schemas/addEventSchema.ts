@@ -53,7 +53,7 @@ export const addEventSchema = (t: TFunction<"translation", undefined>) =>
       {
         message: t("fieldIsRequired"),
         path: ["ageCategories"],
-      }
+      },
     )
     .refine(
       (data) => {
@@ -66,7 +66,7 @@ export const addEventSchema = (t: TFunction<"translation", undefined>) =>
       {
         message: t("fieldIsRequired"),
         path: ["startDate"],
-      }
+      },
     )
     .refine(
       (data) => {
@@ -75,7 +75,7 @@ export const addEventSchema = (t: TFunction<"translation", undefined>) =>
       {
         message: t("fieldIsRequired"),
         path: ["date"],
-      }
+      },
     );
 
 export type AddEventInputs = z.infer<ReturnType<typeof addEventSchema>>;

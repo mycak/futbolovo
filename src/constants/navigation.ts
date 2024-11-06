@@ -4,7 +4,7 @@ import { TFunction } from "i18next";
 
 export const navigationItems: (
   isSignIn: boolean,
-  t: TFunction<"translation", undefined>
+  t: TFunction<"translation", undefined>,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 ) => Record<NavigationKey, NavigationItem[]> = (_isSignIn, t) => ({
   mainPage: [

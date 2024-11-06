@@ -8,7 +8,6 @@ import {
 } from "react-i18next";
 import { useCookies } from "react-cookie";
 import resourcesToBackend from "i18next-resources-to-backend";
-// import LocizeBackend from 'i18next-locize-backend'
 import LanguageDetector from "i18next-browser-languagedetector";
 import { getOptions, languages, cookieName } from "./settings";
 
@@ -19,11 +18,11 @@ i18next
   .use(initReactI18next)
   .use(LanguageDetector)
   .use(
-    resourcesToBackend((language, namespace) =>
-      import(`./locales/${language}/${namespace}.json`)
-    )
+    resourcesToBackend(
+      (language: string, namespace: string) =>
+        import(`./locales/${language}/${namespace}.json`),
+    ),
   )
-  // .use(LocizeBackend) // locize backend could be used on client side, but prefer to keep it in sync with server side
   .init({
     ...getOptions(),
     lng: undefined, // let detect the language on client side
@@ -33,7 +32,7 @@ i18next
     preload: runsOnServerSide ? languages : [],
   });
 
-export function useTranslation(lng, ns, options) {
+export function useTranslation(lng: string, ns?: string, options?: object) {
   const [cookies, setCookie] = useCookies([cookieName]);
   const ret = useTranslationOrg(ns, options);
   const { i18n } = ret;
