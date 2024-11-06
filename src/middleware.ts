@@ -11,6 +11,11 @@ export const config = {
 
 import { NextRequest, NextResponse } from 'next/server';
 
+// Function to format URL by replacing double slashes with a single slash
+function formatUrl(url: string): string {
+  return url.replace(/\/{2,}/g, '/');
+}
+
 export function middleware(req: NextRequest) {
   if (
     req.nextUrl.pathname.indexOf('icon') > -1 ||
@@ -42,9 +47,8 @@ export function middleware(req: NextRequest) {
     const pathname = req.nextUrl.pathname.endsWith('/')
       ? req.nextUrl.pathname.slice(0, -1)
       : req.nextUrl.pathname;
-    return NextResponse.redirect(
-      new URL(`/${lng}${pathname}${req.nextUrl.search}`, req.url)
-    );
+    const formattedUrl = formatUrl(`/${lng}${pathname}${req.nextUrl.search}`);
+    return NextResponse.redirect(new URL(formattedUrl, req.url));
   }
 
   if (req.headers.has('referer')) {
