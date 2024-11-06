@@ -1,8 +1,8 @@
-"use server";
+'use server';
 
-import { prisma } from "@/configs/prisma";
-import { MapFilters } from "@/types/common";
-import { EventCategoryEnum, Prisma } from "@prisma/client";
+import { prisma } from '@/configs/prisma';
+import { MapFilters } from '@/types/common';
+import { EventCategoryEnum, Prisma } from '@prisma/client';
 
 export async function getEvents(filters: MapFilters) {
   // Build the where clause based on filters
@@ -20,11 +20,11 @@ export async function getEvents(filters: MapFilters) {
   if (filters.search) {
     const search = filters.search;
     whereClause.OR = [
-      { name: { contains: search, mode: "insensitive" } },
-      { description: { contains: search, mode: "insensitive" } },
+      { name: { contains: search, mode: 'insensitive' } },
+      { description: { contains: search, mode: 'insensitive' } },
       {
         location: {
-          addressName: { contains: search, mode: "insensitive" },
+          addressName: { contains: search, mode: 'insensitive' },
         },
       },
     ];
@@ -45,28 +45,36 @@ export async function getEvents(filters: MapFilters) {
   // Dates filter
   if (filters.startDate && filters.endDate) {
     const { startDate, endDate } = filters;
-    whereClause.AND = [
+    whereClause.NOT = [
       {
-        OR: [
-          {
-            category: EventCategoryEnum.TOURNAMENT,
-            date: {
-              gte: startDate,
-              lte: endDate,
-            },
-          },
-          {
-            category: { in: [EventCategoryEnum.CAMP, EventCategoryEnum.MATCH] },
-            OR: [
-              {
-                startDate: { gte: startDate, lte: endDate },
-              },
-              {
-                endDate: { gte: startDate, lte: endDate },
-              },
-            ],
-          },
-        ],
+        category: EventCategoryEnum.TOURNAMENT,
+        date: {
+          lt: startDate,
+        },
+      },
+      {
+        category: EventCategoryEnum.TOURNAMENT,
+        date: {
+          gt: endDate,
+        },
+      },
+      {
+        category: { in: [EventCategoryEnum.CAMP, EventCategoryEnum.MATCH] },
+        startDate: {
+          gt: endDate,
+        },
+        endDate: {
+          gt: endDate,
+        },
+      },
+      {
+        category: { in: [EventCategoryEnum.CAMP, EventCategoryEnum.MATCH] },
+        startDate: {
+          lt: startDate,
+        },
+        endDate: {
+          lt: startDate,
+        },
       },
     ];
   }
