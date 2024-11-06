@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import PageWrapper from "./PageWrapper";
+import clsx from 'clsx';
+import PageWrapper from './PageWrapper';
 
 const Divider = ({
   classNames,
@@ -14,16 +14,16 @@ const Divider = ({
     <PageWrapper classNames={wrapperClassNames}>
       <div
         className={clsx(
-          "border border-b border-grass-50 my-4 md:my-8 w-11/12 mx-auto",
-          classNames,
+          'border border-b border-grass-50 my-4 md:my-8 w-11/12 mx-auto',
+          classNames
         )}
       />
     </PageWrapper>
   ) : (
     <div
       className={clsx(
-        "border border-b border-grass-50 my-4 md:my-8 w-11/12 mx-auto",
-        classNames,
+        'border border-b border-grass-50 my-4 md:my-8 w-11/12 mx-auto',
+        classNames
       )}
     />
   );
