@@ -26,16 +26,19 @@ const EventPreview = ({
   return (
     <div>
       {!isEventPage ? <Divider /> : null}
-      <h1 className='text-2xl md:text-3xl font-bold text-center text-grass-30 mb-6'>
+      <h1 className='text-2xl md:text-3xl font-bold text-center text-grass-30 mb-6 md:mb-12'>
         {eventData.name}
       </h1>
       <div className='flex flex-col lg:flex-row'>
         <div className='mx-auto max-w-96 lg:ml-auto lg:mr-0'>
           <EventImage eventData={eventData} />
         </div>
-        <Divider classNames='block lg:hidden' wrapperClassNames='lg:hidden' />
+        <Divider
+          classNames='block md:mt-8 lg:mt-12 lg:hidden'
+          wrapperClassNames='lg:hidden'
+        />
 
-        <div className='grid md:grid-cols-2 gap-y-4 gap-x-8 justify-center max-w-lg mx-auto mt-4 lg:mt-0 lg:mr-auto lg:ml-12 lg:h-max'>
+        <div className='grid md:grid-cols-2 gap-y-4 gap-x-8 justify-center max-w-lg mx-auto lg:mt-4 lg:mr-auto lg:ml-12 lg:h-max'>
           <div className='flex items-center gap-3 col-span-2'>
             <i className='fa-solid fa-futbol text-grass-50' />
             <p>{translateEventType(eventData.category, t)}</p>
@@ -121,10 +124,7 @@ const EventPreview = ({
         </div>
       </div>
 
-      <Divider />
-
-      {/* class="border-b w-11/12 my-4 md:my-8 mx-auto border border-grass-50" */}
-      {/* border-b w-11/12 my-4 md:my-8 mx-auto border border-grass-50 !mt-0 mb-6 md:mb-12 */}
+      <Divider classNames='md:mt-8 lg:mt-12' />
       {children}
     </div>
   );
