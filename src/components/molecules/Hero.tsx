@@ -34,10 +34,6 @@ const Hero = ({
     <>
       <Head>
         <link rel='preload' as='image' href='/images/football-pitch.jpg' />
-        <meta
-          name='google-site-verification'
-          content='dAI8EDPV-YcgL-Y67csG4n06zMXekj9MESY-Ywbl1lM'
-        />
       </Head>
       <div className='relative aspect-video bg-[url("/images/football-pitch.jpg")] bg-cover max-w-screen-2xl w-full mx-auto md:rounded-lg'>
         <div className='absolute inset-0 '>
