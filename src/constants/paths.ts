@@ -9,4 +9,8 @@ export const paths = {
   Contact: '/contact',
   //COOPERATION
   Cooperation: '/cooperation',
+  //PRIVACY POLICY
+  PrivacyPolicy: '/privacy-policy',
+  //STATUTE
+  Statute: '/statute',
 } as const;

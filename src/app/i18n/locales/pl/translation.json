@@ -128,5 +128,47 @@
       "desc2": "Zwiększ wykorzystanie swoich obiektów, udostępniając informacje o dostępnych terminach na mapie.",
       "desc3": "Przyciągnij nowych uczniów, dodając szczegóły o swojej ofercie szkoleniowej i lokalizacji."
     }
+  },
+  "statutePage": {
+    "title": "Regulamin",
+    "responsibilityTitle": "Odpowiedzialność za treści",
+    "responsibilityText": "Każdy użytkownik dodający ogłoszenie ponosi pełną odpowiedzialność za zamieszczone treści. Ogłoszenia muszą być zgodne z obowiązującym prawem oraz nie mogą naruszać praw osób trzecich.",
+    "dataUsageTitle": "Zakaz wykorzystywania cudzych danych",
+    "dataUsageText": "Zabrania się wykorzystywania cudzych danych osobowych, w tym nazwisk, adresów e-mail czy numerów telefonów, bez zgody ich właścicieli. Niedozwolone jest także używanie cudzych znaków firmowych, w tym logotypów, bez odpowiedniej autoryzacji.",
+    "accurateInfoTitle": "Podanie rzetelnych informacji",
+    "accurateInfoText": "Ogłoszeniodawca zobowiązuje się do podania rzetelnych i prawdziwych informacji w ogłoszeniu. Każda niezgodność lub wprowadzenie w błąd może skutkować usunięciem ogłoszenia.",
+    "logoUsageTitle": "Zakaz wykorzystywania loga oraz rozwiązań strony Futbolovo",
+    "logoUsageText": "Zabrania się wykorzystywania logotypu, nazw, grafiki oraz jakichkolwiek rozwiązań technologicznych zastosowanych na stronie Futbolovo bez zgody administratorów.",
+    "illegalContentTitle": "Treści niezgodne z prawem",
+    "illegalContentText": "Zabrania się dodawania treści, które naruszają prawa autorskie, dobra osobiste, zasady netykiety, bądź promują nielegalne działania.",
+    "dataVerificationTitle": "Weryfikacja danych",
+    "dataVerificationText": "Administratorzy platformy mogą wymagać weryfikacji danych kontaktowych użytkowników i ogłoszeniodawców.",
+    "complaintsTitle": "Reklamacje i usunięcie ogłoszenia",
+    "complaintsText": "Administrator ma prawo do usunięcia ogłoszenia, które nie spełnia wymagań regulaminu, lub jest zgłoszone jako naruszające prawo.",
+    "changesTitle": "Zmiany w regulaminie",
+    "changesText": "Administratorzy zastrzegają sobie prawo do zmiany regulaminu w każdym momencie. Użytkownicy zostaną poinformowani o wprowadzonych zmianach.",
+    "contactTitle": "Kontakt",
+    "contactText": "Wszystkie pytania i reklamacje dotyczące ogłoszeń należy kierować na adres kontaktowy platformy."
+  },
+  "privacyPolicyPage": {
+    "title": "Polityka prywatności",
+    "adminTitle": "Administrator danych osobowych",
+    "adminText": "Administratorem danych osobowych jest Piotr Myszkiewicz, z siedzibą w Warszawie ul. Radziwie 3/2. Kontakt z administratorem możliwy jest pod adresem e-mail: piotr.myszkiewicz@interia.pl.",
+    "dataScopeTitle": "Zakres zbieranych danych",
+    "dataScopeText": "Zbieramy dane osobowe, takie jak imię, nazwisko, adres e-mail, numer telefonu, IP, a także dane dotyczące aktywności na stronie, w tym dane związane z ogłoszeniami dodanymi przez użytkowników.",
+    "dataPurposeTitle": "Cel przetwarzania danych",
+    "dataPurposeText": "Dane osobowe są przetwarzane w celu świadczenia usług oferowanych na platformie, kontaktu z użytkownikami, obsługi ogłoszeń, a także dla celów analitycznych i marketingowych.",
+    "dataSharingTitle": "Udostępnianie danych",
+    "dataSharingText": "Dane osobowe nie są udostępniane osobom trzecim, chyba że jest to konieczne do wykonania umowy lub wymagane przez prawo.",
+    "dataSecurityTitle": "Bezpieczeństwo danych",
+    "dataSecurityText": "Stosujemy odpowiednie środki techniczne i organizacyjne w celu zapewnienia bezpieczeństwa danych osobowych, w tym szyfrowanie danych oraz dostęp ograniczony do upoważnionych pracowników.",
+    "userRightsTitle": "Prawa użytkowników",
+    "userRightsText": "Użytkownicy mają prawo do dostępu do swoich danych osobowych, ich poprawiania, usunięcia, ograniczenia przetwarzania, przenoszenia danych, a także do wniesienia sprzeciwu wobec ich przetwarzania.",
+    "dataRetentionTitle": "Okres przechowywania danych",
+    "dataRetentionText": "Dane osobowe będą przechowywane przez okres niezbędny do realizacji celów wskazanych powyżej, a po tym czasie zostaną usunięte lub zanonimizowane.",
+    "policyChangesTitle": "Zmiany w polityce prywatności",
+    "policyChangesText": "Administrator zastrzega sobie prawo do zmiany polityki prywatności. Wszelkie zmiany będą publikowane na tej stronie.",
+    "contactTitle": "Kontakt",
+    "contactText": "W sprawach związanych z danymi osobowymi prosimy o kontakt pod adresem: piotr.myszkiewicz@interia.pl."
   }
 }
