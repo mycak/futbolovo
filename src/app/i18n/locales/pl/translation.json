@@ -6,6 +6,8 @@
   "chooseDate": "Wybierz datę",
   "chooseDates": "Wybierz daty",
   "back": "Wróć",
+  "cancel": "Anuluj",
+  "remove": "Usuń",
   "academyOrSchool": "Akademia/Szkółka",
   "eventConfirmation": {
     "title": "Dziękujemy za dodanie wydarzenia!",
@@ -35,6 +37,8 @@
   "service": "Usługa",
   "match": "Mecz",
   "unknown": "Nieznany",
+  "addMore": "Dodaj więcej",
+  "addMoreLocations": "Dodaj więcej lokalizacji",
   "fix": "Popraw",
   "accept": "Akceptuj",
   "addPoint": "Dodaj punkt!",

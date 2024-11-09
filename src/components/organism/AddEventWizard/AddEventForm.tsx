@@ -22,6 +22,7 @@ import {
   Control,
   FieldValues,
   SubmitHandler,
+  useFieldArray,
   useForm,
   UseFormRegister,
   UseFormSetValue,
@@ -31,11 +32,17 @@ import { useAddEventWizardStore } from '@/stores';
 import { useParams } from 'next/navigation';
 import { useTranslation } from '@/app/i18n/client';
 import { EventCategoryEnum } from '@prisma/client';
+import { useState } from 'react';
+import Modal from '@/components/molecules/Modal';
 
 const AddEventForm = () => {
   const nextStep = useAddEventWizardStore((state) => state.nextStep);
   const setAddData = useAddEventWizardStore((state) => state.setAddData);
   const addData = useAddEventWizardStore((state) => state.addData);
+
+  const [isMultipleModalOpened, setIsMultipleModalOpened] =
+    useState<boolean>(false);
+
   const { lng } = useParams();
   const { t } = useTranslation(lng as string);
 
@@ -49,20 +56,44 @@ const AddEventForm = () => {
     resolver: zodResolver(addEventSchema(t)),
     defaultValues: addData,
   });
+
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: 'additionalLocations',
+  });
+
   const currentCategory = useWatch({ control, name: 'category' });
   const startDate = useWatch({ control, name: 'startDate' });
   const endDate = useWatch({ control, name: 'endDate' });
 
   const onSubmit: SubmitHandler<AddEventInputs> = (data) => {
-    setAddData(data);
+    setAddData({
+      ...data,
+      additionalLocations:
+        data.additionalLocations?.filter(
+          (item) => item.latitude && item.longitude
+        ) ?? [],
+    });
     nextStep();
   };
 
-  const onLocationChange = (data: LocationInputState) => {
+  const onAddMoreLocation = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIsMultipleModalOpened(true);
+  };
+  const onAcceptLocationsModal = () => {
+    setIsMultipleModalOpened(false);
+  };
+
+  const onLocationChange = (
+    data: LocationInputState,
+    key: keyof AddEventInputs
+  ) => {
     const { latitude, longitude, location } = data;
     if (!latitude || !longitude) return;
+
     setValue(
-      'location',
+      key,
       { latitude, longitude, addressName: location },
       { shouldValidate: true }
     );
@@ -158,10 +189,54 @@ const AddEventForm = () => {
         <LocalizationInput
           label={t('location')}
           placeholder={t('cityAndPlace')}
-          onChangeCallback={onLocationChange}
+          onChangeCallback={(data) => onLocationChange(data, 'location')}
           error={errors.location?.message}
           displayValue={addData?.location?.addressName}
+          multiple
+          onAddMore={onAddMoreLocation}
         />
+        <Modal
+          isOpen={isMultipleModalOpened}
+          onClose={() => setIsMultipleModalOpened(false)}
+          title={t('addMoreLocations')}
+          onAccept={onAcceptLocationsModal}
+        >
+          {fields.map((field, index) => (
+            <div key={field.id} className='flex flex-col justify-center gap-2'>
+              <LocalizationInput
+                label={`${t('location')} ${index + 2}`}
+                placeholder={t('cityAndPlace')}
+                onChangeCallback={(data) =>
+                  onLocationChange(
+                    data,
+                    `additionalLocations.${index}` as never
+                  )
+                }
+                error={
+                  errors.additionalLocations?.[index]?.addressName?.message
+                }
+                displayValue={field.addressName}
+              />
+              <button
+                type='button'
+                className='text-red-500'
+                onClick={() => remove(index)}
+              >
+                {t('remove')}
+              </button>
+            </div>
+          ))}
+          <button
+            type='button'
+            className='text-grass-50 mx-auto'
+            onClick={() =>
+              append({ latitude: null, longitude: null, addressName: '' })
+            }
+          >
+            <i className='fa-solid fa-plus mr-1' />
+            {t('add')}
+          </button>
+        </Modal>
         <TextInput
           label={t('name')}
           placeholder={t('typeName')}

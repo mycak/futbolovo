@@ -17,12 +17,13 @@ const EventPreview = ({
   lng,
   isEventPage,
 }: {
-  eventData: Event | AddEventInputs;
+  eventData: AddEventInputs | Event;
   children: React.ReactNode;
   lng: string;
   isEventPage?: boolean;
 }) => {
   const { t } = useTranslation(lng);
+
   return (
     <div>
       {!isEventPage ? <Divider /> : null}
@@ -117,6 +118,22 @@ const EventPreview = ({
             <i className='fa-solid fa-location-dot text-grass-50' />
             <p>{(eventData?.location as Location)?.addressName ?? '-'}</p>
           </div>
+          {(eventData as AddEventInputs)?.additionalLocations.length ??
+          0 > 1 ? (
+            <>
+              {(eventData as AddEventInputs).additionalLocations.map(
+                (location, index) => (
+                  <div
+                    className='flex items-center gap-3 col-span-2'
+                    key={`${index}-${location.addressName}`}
+                  >
+                    <i className='fa-solid fa-location-dot text-grass-50' />
+                    <p>{(location as Location)?.addressName ?? '-'}</p>
+                  </div>
+                )
+              )}
+            </>
+          ) : null}
           <div className='flex items-center gap-3 col-span-2'>
             <i className='fa-regular fa-comment text-grass-50' />
             <p>{eventData.description}</p>

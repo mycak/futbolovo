@@ -10,7 +10,6 @@ import { paths } from '@/constants/paths';
 import { EventPreview } from '@/components/molecules';
 import { useTranslation } from '@/app/i18n/client';
 import { addEvent } from '@/app/actions';
-import { Prisma } from '@prisma/client';
 
 const AddEventPreview = () => {
   const router = useRouter();
@@ -23,7 +22,18 @@ const AddEventPreview = () => {
   const onAddEvent = async () => {
     if (eventData === undefined) return;
     setIsLoading(true);
-    await addEvent({ ...eventData } as unknown as Prisma.EventCreateInput)
+
+    const payload = { ...eventData };
+    const allLocations = [...eventData.additionalLocations, eventData.location];
+
+    // @ts-expect-error - Remove additionalLocations from payload to fit payload type
+    delete payload.additionalLocations;
+
+    const addEventPromises = allLocations.map((location) =>
+      addEvent({ ...payload, location })
+    );
+
+    await Promise.all(addEventPromises)
       .then(() => {
         const successPageQuery = {
           email: eventData.email,

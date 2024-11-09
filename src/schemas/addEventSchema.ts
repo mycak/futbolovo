@@ -1,38 +1,45 @@
-import { z } from "zod";
-import { AgeCategoryCategoryEnum, EventCategoryEnum } from "@prisma/client";
-import { phoneRegex } from "@/constants/common";
-import { TFunction } from "i18next";
+import { z } from 'zod';
+import { AgeCategoryCategoryEnum, EventCategoryEnum } from '@prisma/client';
+import { phoneRegex } from '@/constants/common';
+import { TFunction } from 'i18next';
 
-export const addEventSchema = (t: TFunction<"translation", undefined>) =>
+export const addEventSchema = (t: TFunction<'translation', undefined>) =>
   z
     .object({
       category: z.nativeEnum(EventCategoryEnum, {
-        errorMap: () => ({ message: t("fieldIsRequired") }),
+        errorMap: () => ({ message: t('fieldIsRequired') }),
       }),
       location: z.object({
         latitude: z.number().nullable().optional(),
         longitude: z.number().nullable().optional(),
         addressName: z.string().nullable().optional(),
       }),
+      additionalLocations: z.array(
+        z.object({
+          latitude: z.number().nullable().optional(),
+          longitude: z.number().nullable().optional(),
+          addressName: z.string().nullable().optional(),
+        })
+      ),
       ageCategories: z.array(z.nativeEnum(AgeCategoryCategoryEnum)).optional(),
       date: z.date().nullable().optional(),
       startDate: z.date().nullable().optional(),
       endDate: z.date().nullable().optional(),
       name: z
         .string()
-        .min(1, { message: t("fieldIsRequired") })
-        .min(3, { message: t("validation.min3") }),
+        .min(1, { message: t('fieldIsRequired') })
+        .min(3, { message: t('validation.min3') }),
 
-      price: z.number({ message: t("fieldIsRequired") }),
+      price: z.number({ message: t('fieldIsRequired') }),
 
-      description: z.string().min(1, { message: t("fieldIsRequired") }),
+      description: z.string().min(1, { message: t('fieldIsRequired') }),
 
       phoneNumber: z
         .string()
-        .min(1, { message: t("fieldIsRequired") })
-        .regex(phoneRegex, t("validation.incorrectPhone")),
+        .min(1, { message: t('fieldIsRequired') })
+        .regex(phoneRegex, t('validation.incorrectPhone')),
 
-      email: z.string().min(1, { message: t("fieldIsRequired") }),
+      email: z.string().min(1, { message: t('fieldIsRequired') }),
       image: z.string().nullable().optional(),
       isPublished: z.boolean().default(false),
       authorId: z.string().optional(),
@@ -51,9 +58,9 @@ export const addEventSchema = (t: TFunction<"translation", undefined>) =>
         );
       },
       {
-        message: t("fieldIsRequired"),
-        path: ["ageCategories"],
-      },
+        message: t('fieldIsRequired'),
+        path: ['ageCategories'],
+      }
     )
     .refine(
       (data) => {
@@ -64,18 +71,18 @@ export const addEventSchema = (t: TFunction<"translation", undefined>) =>
         );
       },
       {
-        message: t("fieldIsRequired"),
-        path: ["startDate"],
-      },
+        message: t('fieldIsRequired'),
+        path: ['startDate'],
+      }
     )
     .refine(
       (data) => {
         return data.category !== EventCategoryEnum.TOURNAMENT || !!data.date;
       },
       {
-        message: t("fieldIsRequired"),
-        path: ["date"],
-      },
+        message: t('fieldIsRequired'),
+        path: ['date'],
+      }
     );
 
 export type AddEventInputs = z.infer<ReturnType<typeof addEventSchema>>;

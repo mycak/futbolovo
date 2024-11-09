@@ -18,13 +18,16 @@ const initialInputState = {
 
 const LocalizationInput = ({
   label,
+  multiple,
   placeholder,
   onChangeCallback,
   error,
   displayValue,
   currentCoords,
+  onAddMore,
 }: {
   label: string;
+  multiple?: boolean;
   placeholder: string;
   onChangeCallback: (data: LocationInputState) => void;
   error?: string;
@@ -35,8 +38,10 @@ const LocalizationInput = ({
         longitude: number | undefined;
       }
     | undefined;
+  onAddMore?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) => {
   const [input, setInput] = useState<LocationInputState>(initialInputState);
+
   const inputRef = useRef<HTMLInputElement | null>(null);
   const { lng } = useParams();
   const { t } = useTranslation();
@@ -151,19 +156,29 @@ const LocalizationInput = ({
     <div className='relative'>
       <label className='flex flex-col'>
         <span className='text-grass-20'>{label}</span>
-        <input
-          ref={inputRef}
-          type='text'
-          name='localization'
-          className={customStyles({ error: !!error })}
-          onChange={handleChange}
-          value={input.location ? input.location : displayValue ?? ''}
-          placeholder={placeholder}
-        />
+        <div className='flex flex-row gap-2'>
+          <input
+            ref={inputRef}
+            type='text'
+            name='localization'
+            className={customStyles({ error: !!error })}
+            onChange={handleChange}
+            value={input.location ? input.location : displayValue ?? ''}
+            placeholder={placeholder}
+          />
+        </div>
       </label>
       {error && (
         <span className='absolute text-red-500 text-xs -bottom-4 right-0'>
           {error === 'Required' ? t('fieldIsRequired') : error}
+        </span>
+      )}
+      {multiple && (
+        <span className='absolute text-grass-50 text-sm bottom-10 right-0'>
+          <button onClick={onAddMore}>
+            <i className='fa-solid fa-plus mr-1' />
+            {t('addMore')}
+          </button>
         </span>
       )}
     </div>
