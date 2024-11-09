@@ -1,10 +1,11 @@
 'use client';
 import { useEventsStore, useMapStore } from '@/stores';
-import { Events, MapFilters } from '@/types/common';
+import { Events } from '@/types/common';
 import { MutableRefObject, useEffect } from 'react';
 import { Cluster } from '@react-google-maps/marker-clusterer';
 import { MAX_ZOOM_LEVEL } from '@/constants/common';
 import { getEvents } from '@/app/actions';
+import { useQuery } from '@tanstack/react-query';
 
 const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
   const filters = useEventsStore((state) => state.filters);
@@ -14,14 +15,17 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
   const setMapZoom = useMapStore((state) => state.setZoom);
   const setMapCenter = useMapStore((state) => state.setCenter);
 
+  const { data } = useQuery({
+    queryKey: ['events', JSON.stringify(filters)],
+    queryFn: () => getEvents(filters),
+  });
+
   useEffect(() => {
-    const fetchEvents = async (filters: MapFilters) => {
-      const res = await getEvents(filters);
-      setEvents(res as unknown as Events);
-    };
-    fetchEvents(filters);
+    if (data) {
+      setEvents(data as unknown as Events);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filters]);
+  }, [data]);
 
   const saveMapData = () => {
     const zoom = mapRef.current?.getZoom();
