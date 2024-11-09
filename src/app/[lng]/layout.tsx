@@ -9,6 +9,7 @@ import { languages, fallbackLng } from '../i18n/settings';
 import { translate } from '../i18n';
 import Header from '@/components/molecules/Header';
 import Footer from '@/components/molecules/Footer';
+import Providers from '../providers';
 
 const protestGuerilla = Protest_Guerrilla({
   weight: '400',
@@ -66,9 +67,11 @@ export default function RootLayout({
           } as React.CSSProperties
         }
       >
-        <Header lng={lng} />
-        {children}
-        <Footer lng={lng} />
+        <Providers>
+          <Header lng={lng} />
+          {children}
+          <Footer lng={lng} />
+        </Providers>
       </body>
     </html>
   );
