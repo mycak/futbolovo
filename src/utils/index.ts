@@ -1,3 +1,3 @@
-export * from "./translations.utils";
-export * from "./event";
-export * from "./map";
+export * from './translations.utils';
+export * from './event';
+export * from './map';

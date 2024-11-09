@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 const PageWrapper = ({
   children,
@@ -11,7 +11,7 @@ const PageWrapper = ({
     <div
       className={clsx(
         classNames,
-        "px-4 sm:px-8 lg:px-12 2xl:mx-auto 2xl:max-w-screen-2xl w-full",
+        'px-4 sm:px-8 lg:px-12 2xl:mx-auto 2xl:max-w-screen-2xl w-full'
       )}
     >
       {children}

@@ -1,12 +1,12 @@
 export const paths = {
-  Dashboard: "/",
-  Map: "/map",
+  Dashboard: '/',
+  Map: '/map',
   //EVENTS
   Event: (id: string) => `/events/${id}`,
-  EventAdd: "/events/add",
-  EventAddConfirm: "/events/add/confirm",
+  EventAdd: '/events/add',
+  EventAddConfirm: '/events/add/confirm',
   //CONTACT
-  Contact: "/contact",
+  Contact: '/contact',
   //COOPERATION
-  Cooperation: "/cooperation",
+  Cooperation: '/cooperation',
 } as const;

@@ -1,5 +1,5 @@
-import { FieldValues, UseFormRegister } from "react-hook-form";
-import { customStyles } from "./styles";
+import { FieldValues, UseFormRegister } from 'react-hook-form';
+import { customStyles } from './styles';
 
 const EmailInput = ({
   label,
@@ -15,19 +15,19 @@ const EmailInput = ({
   error?: string;
 }) => {
   return (
-    <div className="relative">
-      <label className="flex flex-col">
-        <span className="text-grass-20">{label}</span>
+    <div className='relative'>
+      <label className='flex flex-col'>
+        <span className='text-grass-20'>{label}</span>
         <input
-          type="email"
-          id="email"
+          type='email'
+          id='email'
           className={customStyles({ error: !!error })}
           placeholder={placeholder}
           {...register(name)}
         />
       </label>
       {error && (
-        <span className="absolute text-red-500 text-xs -bottom-4 right-0">
+        <span className='absolute text-red-500 text-xs -bottom-4 right-0'>
           {error}
         </span>
       )}

@@ -1,17 +1,17 @@
-"use client";
-import { LocationInputState } from "@/types/common";
-import React, { useEffect, useState, useRef } from "react";
-import { customStyles } from "./styles";
-import { useParams } from "next/navigation";
-import { useTranslation } from "react-i18next";
+'use client';
+import { LocationInputState } from '@/types/common';
+import React, { useEffect, useState, useRef } from 'react';
+import { customStyles } from './styles';
+import { useParams } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 
 const initialInputState = {
-  streetAddress: "",
-  country: "",
-  zipCode: "",
-  city: "",
-  state: "",
-  location: "",
+  streetAddress: '',
+  country: '',
+  zipCode: '',
+  city: '',
+  state: '',
+  location: '',
   latitude: undefined,
   longitude: undefined,
 };
@@ -54,16 +54,16 @@ const LocalizationInput = ({
 
   useEffect(() => {
     const options = {
-      ...(lng === "pl" && { componentRestrictions: { country: "pl" } }),
-      fields: ["address_components", "geometry"],
+      ...(lng === 'pl' && { componentRestrictions: { country: 'pl' } }),
+      fields: ['address_components', 'geometry'],
     };
 
     const autocomplete = new google.maps.places.Autocomplete(
       inputRef.current as HTMLInputElement,
-      options,
+      options
     );
-    autocomplete.addListener("place_changed", () =>
-      handlePlaceChanged(autocomplete),
+    autocomplete.addListener('place_changed', () =>
+      handlePlaceChanged(autocomplete)
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -79,7 +79,7 @@ const LocalizationInput = ({
   };
 
   const handlePlaceChanged = async (
-    address: google.maps.places.Autocomplete,
+    address: google.maps.places.Autocomplete
   ) => {
     const place = address.getPlace();
 
@@ -94,7 +94,7 @@ const LocalizationInput = ({
     const geocoder = new google.maps.Geocoder();
 
     geocoder.geocode({ location: { lat, lng } }, (results, status) => {
-      if (status === "OK" && results?.[0]) {
+      if (status === 'OK' && results?.[0]) {
         setInput((values) => ({
           ...values,
           location: results[0].formatted_address,
@@ -102,7 +102,7 @@ const LocalizationInput = ({
           longitude: lng,
         }));
       } else {
-        console.error("Geocoding failed: " + status);
+        console.error('Geocoding failed: ' + status);
       }
     });
   };
@@ -111,14 +111,14 @@ const LocalizationInput = ({
     const addressComponents = data?.address_components;
 
     const componentMap = {
-      subPremise: "",
-      premise: "",
-      street_number: "",
-      route: "",
-      country: "",
-      postal_code: "",
-      administrative_area_level_2: "",
-      administrative_area_level_1: "",
+      subPremise: '',
+      premise: '',
+      street_number: '',
+      route: '',
+      country: '',
+      postal_code: '',
+      administrative_area_level_2: '',
+      administrative_area_level_1: '',
     };
     if (!addressComponents) return;
     for (const component of addressComponents) {
@@ -148,22 +148,22 @@ const LocalizationInput = ({
   };
 
   return (
-    <div className="relative">
-      <label className="flex flex-col">
-        <span className="text-grass-20">{label}</span>
+    <div className='relative'>
+      <label className='flex flex-col'>
+        <span className='text-grass-20'>{label}</span>
         <input
           ref={inputRef}
-          type="text"
-          name="localization"
+          type='text'
+          name='localization'
           className={customStyles({ error: !!error })}
           onChange={handleChange}
-          value={input.location ? input.location : (displayValue ?? "")}
+          value={input.location ? input.location : displayValue ?? ''}
           placeholder={placeholder}
         />
       </label>
       {error && (
-        <span className="absolute text-red-500 text-xs -bottom-4 right-0">
-          {error === "Required" ? t("fieldIsRequired") : error}
+        <span className='absolute text-red-500 text-xs -bottom-4 right-0'>
+          {error === 'Required' ? t('fieldIsRequired') : error}
         </span>
       )}
     </div>

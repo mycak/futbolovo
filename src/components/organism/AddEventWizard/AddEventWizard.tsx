@@ -1,19 +1,19 @@
-"use client";
-import React from "react";
-import AddEventForm from "./AddEventForm";
-import { useAddEventWizardStore } from "@/stores";
-import AddEventPreview from "./AddEventPreview";
-import { useJsApiLoader } from "@react-google-maps/api";
-import { googleApiConfig } from "@/configs/googleApi";
-import { Loader } from "@/components/atoms/";
+'use client';
+import React from 'react';
+import AddEventForm from './AddEventForm';
+import { useAddEventWizardStore } from '@/stores';
+import AddEventPreview from './AddEventPreview';
+import { useJsApiLoader } from '@react-google-maps/api';
+import { googleApiConfig } from '@/configs/googleApi';
+import { Loader } from '@/components/atoms/';
 
 const steps: {
-  key: "addEventForm" | "preview" | "confirmMessage";
+  key: 'addEventForm' | 'preview' | 'confirmMessage';
   Component: () => JSX.Element;
 }[] = [
-  { key: "addEventForm", Component: AddEventForm },
+  { key: 'addEventForm', Component: AddEventForm },
   {
-    key: "preview",
+    key: 'preview',
     Component: AddEventPreview,
   },
 ] as const;

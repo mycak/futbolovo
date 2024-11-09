@@ -1,6 +1,6 @@
-"use client";
-import { FieldValues, Control, Controller } from "react-hook-form";
-import { customStyles } from "./styles";
+'use client';
+import { FieldValues, Control, Controller } from 'react-hook-form';
+import { customStyles } from './styles';
 
 const NumberInput = ({
   label,
@@ -16,18 +16,18 @@ const NumberInput = ({
   error?: string;
 }) => {
   return (
-    <div className="relative">
-      <label className="flex flex-col price">
-        <span className="text-grass-20">{label}</span>
+    <div className='relative'>
+      <label className='flex flex-col price'>
+        <span className='text-grass-20'>{label}</span>
         <Controller
           name={name}
           control={control}
           defaultValue={undefined} // Ensure defaultValue is set to avoid uncontrolled warning
           render={(
-            { field: { onChange, onBlur, value = "", ref } }, // Default value to empty string
+            { field: { onChange, onBlur, value = '', ref } } // Default value to empty string
           ) => (
             <input
-              type="number"
+              type='number'
               id={name}
               className={customStyles({ error: !!error })}
               placeholder={placeholder}
@@ -42,7 +42,7 @@ const NumberInput = ({
         />
       </label>
       {error && (
-        <span className="absolute text-red-500 text-xs -bottom-4 right-0">
+        <span className='absolute text-red-500 text-xs -bottom-4 right-0'>
           {error}
         </span>
       )}

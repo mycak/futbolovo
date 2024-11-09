@@ -1,6 +1,6 @@
-import { Events, MapFilters } from "@/types/common";
-import { addMonths } from "date-fns";
-import { create } from "zustand";
+import { Events, MapFilters } from '@/types/common';
+import { addMonths } from 'date-fns';
+import { create } from 'zustand';
 
 export interface EventsState {
   events: Events;
@@ -19,7 +19,7 @@ const initialState: EventsState = {
     coords: undefined,
     search: undefined,
     startDate: new Date(),
-    endDate: addMonths(new Date(), 2),
+    endDate: addMonths(new Date(), 6),
     ageCategories: undefined,
   },
 };

@@ -1,12 +1,12 @@
-"use client";
-import React from "react";
-import DatePicker, { registerLocale } from "react-datepicker";
-import { pl } from "date-fns/locale";
-import { Control, Controller, FieldValues } from "react-hook-form";
-import { customStyles } from "./styles";
-import { useParams } from "next/navigation";
+'use client';
+import React from 'react';
+import DatePicker, { registerLocale } from 'react-datepicker';
+import { pl } from 'date-fns/locale';
+import { Control, Controller, FieldValues } from 'react-hook-form';
+import { customStyles } from './styles';
+import { useParams } from 'next/navigation';
 
-registerLocale("pl", pl);
+registerLocale('pl', pl);
 
 const DateInput = ({
   label,
@@ -28,9 +28,9 @@ const DateInput = ({
   const { lng } = useParams();
 
   return (
-    <div className="relative">
-      <label className="flex flex-col">
-        <span className="text-grass-20">{label}</span>
+    <div className='relative'>
+      <label className='flex flex-col'>
+        <span className='text-grass-20'>{label}</span>
         <Controller
           control={control}
           name={name}
@@ -41,19 +41,19 @@ const DateInput = ({
               minDate={minDate ? new Date() : undefined}
               onChange={(date) => onChange(date)}
               className={customStyles({ disabled, error: !!error })}
-              calendarClassName="!p-1 !border !border-grass-50 !bg-emerald-600 !rounded-sm max-w-80"
+              calendarClassName='!p-1 !border !border-grass-50 !bg-emerald-600 !rounded-sm max-w-80'
               dayClassName={() =>
-                "!hover:cursor-pointer !hover:bg-emerald-900 !rounded-sm !text-ivory-150"
+                '!hover:cursor-pointer !hover:bg-emerald-900 !rounded-sm !text-ivory-150'
               }
               locale={lng as string}
               placeholderText={placeholder}
             />
           )}
         />
-        {error && <span className="text-red-500">{error}</span>}
+        {error && <span className='text-red-500'>{error}</span>}
       </label>
       {error && (
-        <span className="absolute text-red-500 text-xs -bottom-4 right-0">
+        <span className='absolute text-red-500 text-xs -bottom-4 right-0'>
           {error}
         </span>
       )}

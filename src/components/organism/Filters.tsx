@@ -1,6 +1,6 @@
-"use client";
-import "react-datepicker/dist/react-datepicker.css";
-import { ageCategoryOptions, categoryOptions } from "@/constants/inputOptions";
+'use client';
+import 'react-datepicker/dist/react-datepicker.css';
+import { ageCategoryOptions, categoryOptions } from '@/constants/inputOptions';
 
 import {
   SelectInput,
@@ -9,7 +9,7 @@ import {
   DateRangeInput,
   PageWrapper,
   Button,
-} from "../atoms";
+} from '../atoms';
 import {
   Control,
   FieldValues,
@@ -17,14 +17,14 @@ import {
   useForm,
   UseFormRegister,
   useWatch,
-} from "react-hook-form";
-import { useEffect, useState } from "react";
-import { LocationInputState, MapFilters } from "@/types/common";
-import { paths } from "@/constants/paths";
-import { useEventsStore } from "@/stores";
-import { useParams } from "next/navigation";
-import { useTranslation } from "@/app/i18n/client";
-import { EventCategoryEnum } from "@prisma/client";
+} from 'react-hook-form';
+import { useEffect, useState } from 'react';
+import { LocationInputState, MapFilters } from '@/types/common';
+import { paths } from '@/constants/paths';
+import { useEventsStore } from '@/stores';
+import { useParams } from 'next/navigation';
+import { useTranslation } from '@/app/i18n/client';
+import { EventCategoryEnum } from '@prisma/client';
 
 const Filters = () => {
   const { lng } = useParams();
@@ -35,9 +35,9 @@ const Filters = () => {
     values: filters,
   });
   const [dateRangeDisabled, setDateRangeDisabled] = useState<boolean>(false);
-  const currentCategories = useWatch({ control, name: "categories" });
-  const startDate = useWatch({ control, name: "startDate" });
-  const endDate = useWatch({ control, name: "endDate" });
+  const currentCategories = useWatch({ control, name: 'categories' });
+  const startDate = useWatch({ control, name: 'startDate' });
+  const endDate = useWatch({ control, name: 'endDate' });
 
   useEffect(() => {
     const rangeCategories: EventCategoryEnum[] = [
@@ -48,7 +48,7 @@ const Filters = () => {
 
     if (
       rangeCategories.some((rangeCategory) =>
-        currentCategories?.map((item) => item).includes(rangeCategory),
+        currentCategories?.map((item) => item).includes(rangeCategory)
       ) ||
       !currentCategories?.length
     ) {
@@ -64,83 +64,83 @@ const Filters = () => {
 
   const onLocationChange = (data: LocationInputState) => {
     const { latitude, longitude } = data;
-    setValue("coords", { latitude, longitude });
+    setValue('coords', { latitude, longitude });
   };
 
   return (
-    <PageWrapper classNames="mb-8">
+    <PageWrapper classNames='mb-8'>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col justify-center"
+        className='flex flex-col justify-center'
       >
-        <div className="flex justify-center gap-x-8 gap-y-2 flex-wrap">
+        <div className='flex justify-center gap-x-8 gap-y-2 flex-wrap'>
           <SelectInput
             control={control as unknown as Control<FieldValues>}
-            label={t("category")}
-            id="categories"
-            name="categories"
+            label={t('category')}
+            id='categories'
+            name='categories'
             isMulti
             closeMenuOnSelect={false}
-            placeholder={t("chooseCategory")}
+            placeholder={t('chooseCategory')}
             options={categoryOptions(t)}
           />
           <LocalizationInput
-            label={t("location")}
-            placeholder={t("cityAndPlace")}
+            label={t('location')}
+            placeholder={t('cityAndPlace')}
             onChangeCallback={onLocationChange}
             currentCoords={filters.coords}
           />
 
-          <div className="relative">
+          <div className='relative'>
             <DateRangeInput
               setValue={setValue as unknown as UseFormRegister<FieldValues>}
               startDate={startDate}
               endDate={endDate}
-              label={t("dateRange")}
+              label={t('dateRange')}
               minDate
-              placeholder={t("choose")}
+              placeholder={t('choose')}
               disabled={dateRangeDisabled}
             />
             {dateRangeDisabled && (
-              <p className="absolute top-16 text-sm text-grass-50">
-                {t("rangeDisabledInfo")}
+              <p className='absolute top-16 text-sm text-grass-50'>
+                {t('rangeDisabledInfo')}
               </p>
             )}
           </div>
-          <div className="relative">
+          <div className='relative'>
             <SelectInput
               control={control as unknown as Control<FieldValues>}
-              label={t("ageCategory")}
-              id="ageCategories"
-              name="ageCategories"
+              label={t('ageCategory')}
+              id='ageCategories'
+              name='ageCategories'
               isMulti
               closeMenuOnSelect={false}
-              placeholder={t("choose")}
+              placeholder={t('choose')}
               options={ageCategoryOptions}
             />
           </div>
           <SearchInput
-            label={t("search")}
-            placeholder={t("writePhrase")}
+            label={t('search')}
+            placeholder={t('writePhrase')}
             register={register as unknown as UseFormRegister<FieldValues>}
-            name="search"
+            name='search'
           />
         </div>
-        <div className="flex gap-4 mx-auto">
+        <div className='flex gap-4 mx-auto'>
           <Button
-            classNames="h-[38px] mt-6 text-xl pl-3 pr-5 bg-red-400"
-            variant="icon"
-            icon="add"
-            text={t("add")}
+            classNames='h-[38px] mt-6 text-xl pl-3 pr-5 bg-red-400'
+            variant='icon'
+            icon='add'
+            text={t('add')}
             asLink
             href={paths.EventAdd}
           />
           <Button
-            classNames="h-[38px] mt-6 bg-grass-45 text-xl pl-3 pr-5"
-            variant="icon"
-            icon="search"
-            text={t("search")}
-            type="submit"
+            classNames='h-[38px] mt-6 bg-grass-45 text-xl pl-3 pr-5'
+            variant='icon'
+            icon='search'
+            text={t('search')}
+            type='submit'
           />
         </div>
       </form>

@@ -1,35 +1,35 @@
-import { NavigationItem, NavigationKey } from "@/types/common";
-import { paths } from "./paths";
-import { TFunction } from "i18next";
+import { NavigationItem, NavigationKey } from '@/types/common';
+import { paths } from './paths';
+import { TFunction } from 'i18next';
 
 export const navigationItems: (
   isSignIn: boolean,
-  t: TFunction<"translation", undefined>,
+  t: TFunction<'translation', undefined>
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 ) => Record<NavigationKey, NavigationItem[]> = (_isSignIn, t) => ({
   mainPage: [
     {
-      text: t("navigation.mainPage"),
+      text: t('navigation.mainPage'),
       to: paths.Dashboard,
     },
   ],
   map: [
     {
-      text: t("navigation.map"),
+      text: t('navigation.map'),
       to: paths.Map,
     },
     {
-      text: t("navigation.addPoint"),
+      text: t('navigation.addPoint'),
       to: paths.EventAdd,
     },
   ],
   other: [
     {
-      text: t("navigation.contact"),
+      text: t('navigation.contact'),
       to: paths.Contact,
     },
     {
-      text: t("navigation.cooperation"),
+      text: t('navigation.cooperation'),
       to: paths.Cooperation,
     },
   ],
