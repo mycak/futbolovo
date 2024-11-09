@@ -1,7 +1,8 @@
 import { translate } from '@/app/i18n';
-import { PageContainer, PageWrapper } from '@/components/atoms/';
+import PageContainer from '@/components/atoms/PageContainer';
+import PageWrapper from '@/components/atoms/PageWrapper';
+import Back from '@/components/molecules/Back';
 
-import { Back } from '@/components/molecules';
 import { contactEmail } from '@/constants/common';
 import { Trans } from 'react-i18next/TransWithoutContext';
 

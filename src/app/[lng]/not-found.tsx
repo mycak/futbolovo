@@ -1,8 +1,8 @@
-import { PageContainer } from '@/components/atoms';
-import { NotFound } from '@/components/molecules';
 import { translate } from '../i18n';
 import { cookies } from 'next/headers';
 import { cookieName } from '../i18n/settings';
+import PageContainer from '@/components/atoms/PageContainer';
+import NotFound from '@/components/molecules/NotFound';
 
 const NotFoundPage = async () => {
   const cookieStore = cookies();

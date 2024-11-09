@@ -1,18 +1,5 @@
 'use client';
-import {
-  SelectInput,
-  LocalizationInput,
-  DateInput,
-  TextInput,
-  NumberInput,
-  TextAreaInput,
-  PhoneNumberInput,
-  EmailInput,
-  FileInput,
-  DateRangeInput,
-  Button,
-  Divider,
-} from '@/components/atoms/';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 import { descriptionHints } from '@/constants/addEvents';
 import { ageCategoryOptions, categoryOptions } from '@/constants/inputOptions';
@@ -34,6 +21,18 @@ import { useTranslation } from '@/app/i18n/client';
 import { EventCategoryEnum } from '@prisma/client';
 import { useState } from 'react';
 import Modal from '@/components/molecules/Modal';
+import SelectInput from '@/components/atoms/inputs/SelectInput';
+import Divider from '@/components/atoms/Divider';
+import DateRangeInput from '@/components/atoms/inputs/DateRangeInput';
+import LocalizationInput from '@/components/atoms/inputs/LocalizationInput';
+import FileInput from '@/components/atoms/inputs/FileInput';
+import EmailInput from '@/components/atoms/inputs/EmailInput';
+import PhoneNumberInput from '@/components/atoms/inputs/PhoneNumberInput';
+import NumberInput from '@/components/atoms/inputs/NumberInput';
+import TextInput from '@/components/atoms/inputs/TextInput';
+import Button from '@/components/atoms/Button';
+import TextAreaInput from '@/components/atoms/inputs/TextAreaInput';
+import DateInput from '@/components/atoms/inputs/DateInput';
 
 const AddEventForm = () => {
   const nextStep = useAddEventWizardStore((state) => state.nextStep);

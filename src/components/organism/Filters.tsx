@@ -3,14 +3,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { ageCategoryOptions, categoryOptions } from '@/constants/inputOptions';
 
 import {
-  SelectInput,
-  LocalizationInput,
-  SearchInput,
-  DateRangeInput,
-  PageWrapper,
-  Button,
-} from '../atoms';
-import {
   Control,
   FieldValues,
   SubmitHandler,
@@ -25,6 +17,12 @@ import { useEventsStore } from '@/stores';
 import { useParams } from 'next/navigation';
 import { useTranslation } from '@/app/i18n/client';
 import { EventCategoryEnum } from '@prisma/client';
+import SelectInput from '../atoms/inputs/SelectInput';
+import LocalizationInput from '../atoms/inputs/LocalizationInput';
+import DateRangeInput from '../atoms/inputs/DateRangeInput';
+import PageWrapper from '../atoms/PageWrapper';
+import SearchInput from '../atoms/inputs/SearchInput';
+import Button from '../atoms/Button';
 
 const Filters = () => {
   const { lng } = useParams();

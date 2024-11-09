@@ -4,8 +4,10 @@ import { googleApiConfig, initialMapCords } from '@/configs/googleApi';
 import { useEffect } from 'react';
 import { generateMapCoordsFromCurrentLocation } from '@/utils';
 import { useMapStore } from '@/stores';
-import { Filters, MapComponent } from '@/components/organism/';
-import { PageWrapper, Loader } from '@/components/atoms/';
+import Filters from './Filters';
+import MapComponent from './MapComponent';
+import PageWrapper from '../atoms/PageWrapper';
+import Loader from '../atoms/Loader';
 
 const MapSet = ({ lng }: { lng: string }) => {
   const { isLoaded } = useJsApiLoader(googleApiConfig(lng));

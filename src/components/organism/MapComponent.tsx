@@ -1,15 +1,16 @@
 'use client';
 import { GoogleMap, MarkerF, MarkerClustererF } from '@react-google-maps/api';
-import { PageWrapper } from '../atoms';
 import { generateMapIcon } from '@/utils';
 import { useEffect, useRef, useState } from 'react';
-import { MapInfoBox, MapInfoBoxExtended } from '../molecules';
 import { BulkEvents, Events } from '@/types/common';
 import { useEventsStore, useMapStore } from '@/stores';
 import { clusterConfig } from '@/configs/googleApi';
 import { useMap } from '@/hooks';
 import { Cluster } from '@react-google-maps/marker-clusterer';
 import { MAX_ZOOM_LEVEL } from '@/constants/common';
+import PageWrapper from '../atoms/PageWrapper';
+import MapInfoBox from '../molecules/MapComponents/MapInfoBox';
+import MapInfoBoxExtended from '../molecules/MapComponents/MapInfoBoxExtended';
 
 const containerStyle = {
   width: '100%',

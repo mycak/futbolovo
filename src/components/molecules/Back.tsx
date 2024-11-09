@@ -1,9 +1,9 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Button } from '../atoms';
 import clsx from 'clsx';
 import { useTranslation } from '@/app/i18n/client';
+import Button from '../atoms/Button';
 
 const Back = ({ classNames, lng }: { classNames?: string; lng: string }) => {
   const router = useRouter();

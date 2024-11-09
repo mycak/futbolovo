@@ -1,8 +1,8 @@
-import { PageContainer, PageWrapper } from '@/components/atoms/';
-import { AddEventWizard } from '@/components/organism';
-
-import { Back } from '@/components/molecules';
 import { translate } from '@/app/i18n';
+import PageContainer from '@/components/atoms/PageContainer';
+import PageWrapper from '@/components/atoms/PageWrapper';
+import Back from '@/components/molecules/Back';
+import AddEventWizard from '@/components/organism/AddEventWizard/AddEventWizard';
 
 const AddEventPage = async ({
   params,

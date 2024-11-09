@@ -1,6 +1,9 @@
 import { getEventById } from '@/app/actions';
-import { PageWrapper, PageContainer } from '@/components/atoms/';
-import { Back, EventPreview, NotFound } from '@/components/molecules';
+import PageContainer from '@/components/atoms/PageContainer';
+import PageWrapper from '@/components/atoms/PageWrapper';
+import Back from '@/components/molecules/Back';
+import EventPreview from '@/components/molecules/Events/EventPreview';
+import NotFound from '@/components/molecules/NotFound';
 
 const EventPage = async ({
   params,

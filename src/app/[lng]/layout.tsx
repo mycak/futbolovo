@@ -3,11 +3,12 @@ import { Protest_Guerrilla } from 'next/font/google';
 import clsx from 'clsx';
 import './globals.css';
 import Script from 'next/script';
-import { Footer, Header } from '@/components/molecules';
 import { mainPagesMetadata } from '@/constants/metadata';
 import { dir } from 'i18next';
 import { languages, fallbackLng } from '../i18n/settings';
 import { translate } from '../i18n';
+import Header from '@/components/molecules/Header';
+import Footer from '@/components/molecules/Footer';
 
 const protestGuerilla = Protest_Guerrilla({
   weight: '400',

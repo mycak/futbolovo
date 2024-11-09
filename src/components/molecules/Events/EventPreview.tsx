@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import { Divider } from '../../atoms';
 import EventImage from './EventImage';
 import { formatPhoneNumber, translateEventType } from '@/utils';
 import { currentCurrencySign, DATE_FORMAT } from '@/constants/common';
@@ -10,6 +9,7 @@ import { AddEventInputs } from '@/schemas/addEventSchema';
 import { useTranslation } from '@/app/i18n/client';
 import { Event, EventCategoryEnum } from '@prisma/client';
 import { Location } from '@/types/common';
+import Divider from '@/components/atoms/Divider';
 
 const EventPreview = ({
   eventData,
@@ -118,7 +118,7 @@ const EventPreview = ({
             <i className='fa-solid fa-location-dot text-grass-50' />
             <p>{(eventData?.location as Location)?.addressName ?? '-'}</p>
           </div>
-          {(eventData as AddEventInputs)?.additionalLocations.length ??
+          {(eventData as AddEventInputs)?.additionalLocations?.length ??
           0 > 1 ? (
             <>
               {(eventData as AddEventInputs).additionalLocations.map(

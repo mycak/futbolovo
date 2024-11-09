@@ -1,9 +1,9 @@
 'use Client';
 import { paths } from '@/constants/paths';
-import { Button } from '../atoms';
 import Back from './Back';
 import clsx from 'clsx';
 import { translate } from '@/app/i18n';
+import Button from '../atoms/Button';
 
 const NotFound = async ({
   is404,

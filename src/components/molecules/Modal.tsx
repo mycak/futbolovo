@@ -2,7 +2,8 @@
 
 import React, { FC } from 'react';
 import clsx from 'clsx';
-import { Button, Divider } from '../atoms';
+import Divider from '../atoms/Divider';
+import Button from '../atoms/Button';
 
 interface ModalProps {
   children: React.ReactNode;

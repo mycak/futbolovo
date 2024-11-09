@@ -2,12 +2,12 @@
 import React, { useState } from 'react';
 import { CldImage } from 'next-cloudinary';
 import Image from 'next/image';
-import { Loader } from '@/components/atoms';
 import { generateDummyPoster } from '@/utils';
 import clsx from 'clsx';
 import { useParams } from 'next/navigation';
 import { Event } from '@prisma/client';
 import { AddEventInputs } from '@/schemas/addEventSchema';
+import Loader from '@/components/atoms/Loader';
 
 const EventImage = ({
   eventData,

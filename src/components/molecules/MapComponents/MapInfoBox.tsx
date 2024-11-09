@@ -8,11 +8,12 @@ import { currentCurrencySign, DATE_FORMAT } from '@/constants/common';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { paths } from '@/constants/paths';
-import { Button, Divider } from '@/components/atoms';
 import EventImage from '../Events/EventImage';
 import { useParams } from 'next/navigation';
 import { useTranslation } from '@/app/i18n/client';
 import { EventCategoryEnum } from '@prisma/client';
+import Button from '@/components/atoms/Button';
+import Divider from '@/components/atoms/Divider';
 
 const MapInfoBox = ({
   event,

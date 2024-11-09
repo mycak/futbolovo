@@ -1,10 +1,11 @@
 'use client';
-import { Button, Loader } from '@/components/atoms';
 import { paths } from '@/constants/paths';
 import React, { useEffect } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
 import { useAddEventWizardStore } from '@/stores';
 import { TFunction } from 'i18next';
+import Loader from '@/components/atoms/Loader';
+import Button from '@/components/atoms/Button';
 
 const AddEventConfirm = ({ t }: { t: TFunction<'translation', undefined> }) => {
   const params = useSearchParams();

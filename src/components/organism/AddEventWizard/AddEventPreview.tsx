@@ -1,15 +1,16 @@
 'use client';
 import { useAddEventWizardStore } from '@/stores';
 import React, { useState } from 'react';
-import { Button, Loader } from '@/components/atoms';
 import { generateEventVisibilityEndDate } from '@/utils';
 import { format } from 'date-fns';
 import { DATE_FORMAT } from '@/constants/common';
 import { useParams, useRouter } from 'next/navigation';
 import { paths } from '@/constants/paths';
-import { EventPreview } from '@/components/molecules';
 import { useTranslation } from '@/app/i18n/client';
 import { addEvent } from '@/app/actions';
+import Loader from '@/components/atoms/Loader';
+import EventPreview from '@/components/molecules/Events/EventPreview';
+import Button from '@/components/atoms/Button';
 
 const AddEventPreview = () => {
   const router = useRouter();

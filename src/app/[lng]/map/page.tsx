@@ -1,6 +1,7 @@
-import { PageContainer, Divider } from "@/components/atoms/";
-import { AddPlaceSection } from "@/components/molecules";
-import MapSet from "@/components/organism/MapSet";
+import Divider from '@/components/atoms/Divider';
+import PageContainer from '@/components/atoms/PageContainer';
+import AddPlaceSection from '@/components/molecules/AddPlaceSection';
+import MapSet from '@/components/organism/MapSet';
 
 const MapPage = async ({
   params,

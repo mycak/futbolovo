@@ -5,7 +5,7 @@ import { useAddEventWizardStore } from '@/stores';
 import AddEventPreview from './AddEventPreview';
 import { useJsApiLoader } from '@react-google-maps/api';
 import { googleApiConfig } from '@/configs/googleApi';
-import { Loader } from '@/components/atoms/';
+import Loader from '@/components/atoms/Loader';
 
 const steps: {
   key: 'addEventForm' | 'preview' | 'confirmMessage';

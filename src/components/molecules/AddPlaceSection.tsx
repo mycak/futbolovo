@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, PageWrapper } from '../atoms';
 import { paths } from '@/constants/paths';
 import { translate } from '@/app/i18n';
+import PageWrapper from '../atoms/PageWrapper';
+import Button from '../atoms/Button';
 
 const AddPlaceSection = async ({ lng }: { lng: string }) => {
   const { t } = await translate(lng);

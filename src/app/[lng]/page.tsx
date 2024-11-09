@@ -1,5 +1,3 @@
-import { PageContainer, SiteDescription } from '@/components/atoms/';
-import { IconsSection, Hero } from '@/components/molecules';
 import {
   usersIconsTexts,
   ownersIconsTexts,
@@ -8,6 +6,10 @@ import {
 } from '@/constants/texts';
 import { languages, fallbackLng } from '../i18n/settings';
 import { translate } from '../i18n';
+import PageContainer from '@/components/atoms/PageContainer';
+import Hero from '@/components/molecules/Hero';
+import IconsSection from '@/components/molecules/IconsSection';
+import SiteDescription from '@/components/atoms/SiteDescription';
 
 export default async function DashboardPage({
   params: { lng },

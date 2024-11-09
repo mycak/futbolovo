@@ -1,8 +1,10 @@
 'use client';
 
 import { useTranslation } from '@/app/i18n/client';
-import { PageContainer, PageWrapper, Loader } from '@/components/atoms/';
-import { AddEventConfirm } from '@/components/organism';
+import Loader from '@/components/atoms/Loader';
+import PageContainer from '@/components/atoms/PageContainer';
+import PageWrapper from '@/components/atoms/PageWrapper';
+import AddEventConfirm from '@/components/organism/AddEventWizard/AddEventConfirm';
 import { useParams } from 'next/navigation';
 import { Suspense } from 'react';
 

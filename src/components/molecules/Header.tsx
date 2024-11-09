@@ -1,13 +1,16 @@
 'use client';
 
 import React from 'react';
-import { DashboardHeading, Divider, Logo, PageWrapper } from '../atoms';
 import NavigationMenu from '@/components/organism/NavigationMenu';
 import { useTranslation } from '@/app/i18n/client';
 import { mainTopics } from '@/constants/texts';
 import { navigationItems } from '@/constants/navigation';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
+import PageWrapper from '../atoms/PageWrapper';
+import Logo from '../atoms/Logo';
+import DashboardHeading from '../atoms/DashboardHeading';
+import Divider from '../atoms/Divider';
 
 const Header = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
