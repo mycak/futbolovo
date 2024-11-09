@@ -1,21 +1,21 @@
-"use client";
-import { GoogleMap, MarkerF, MarkerClustererF } from "@react-google-maps/api";
-import { PageWrapper } from "../atoms";
-import { generateMapIcon } from "@/utils";
-import { useEffect, useRef, useState } from "react";
-import { MapInfoBox, MapInfoBoxExtended } from "../molecules";
-import { BulkEvents, Events } from "@/types/common";
-import { useEventsStore, useMapStore } from "@/stores";
-import { clusterConfig } from "@/configs/googleApi";
-import { useMap } from "@/hooks";
-import { Cluster } from "@react-google-maps/marker-clusterer";
-import { MAX_ZOOM_LEVEL } from "@/constants/common";
+'use client';
+import { GoogleMap, MarkerF, MarkerClustererF } from '@react-google-maps/api';
+import { PageWrapper } from '../atoms';
+import { generateMapIcon } from '@/utils';
+import { useEffect, useRef, useState } from 'react';
+import { MapInfoBox, MapInfoBoxExtended } from '../molecules';
+import { BulkEvents, Events } from '@/types/common';
+import { useEventsStore, useMapStore } from '@/stores';
+import { clusterConfig } from '@/configs/googleApi';
+import { useMap } from '@/hooks';
+import { Cluster } from '@react-google-maps/marker-clusterer';
+import { MAX_ZOOM_LEVEL } from '@/constants/common';
 
 const containerStyle = {
-  width: "100%",
-  height: "65vh",
-  minHeight: "600px",
-  borderRadius: "0.125rem",
+  width: '100%',
+  height: '65vh',
+  minHeight: '600px',
+  borderRadius: '0.125rem',
 };
 
 const MapComponent = ({
@@ -38,15 +38,15 @@ const MapComponent = ({
       mapRef.current?.panTo(
         new google.maps.LatLng(
           filters.coords.latitude,
-          filters.coords.longitude,
-        ),
+          filters.coords.longitude
+        )
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const [currentEventId, setCurrentEventId] = useState<string | number | null>(
-    null,
+    null
   );
 
   const googlePinIconConfig = {
@@ -62,7 +62,7 @@ const MapComponent = ({
 
   const onBulkEventsSetCallback = (
     newPosition: google.maps.LatLng,
-    eventsData: Events,
+    eventsData: Events
   ) => {
     setCurrentEventId(null);
     setBulkEvents({ position: newPosition, items: eventsData });
@@ -109,7 +109,7 @@ const MapComponent = ({
                     }}
                     onClick={(marker) => {
                       mapRef.current?.panTo(
-                        marker.latLng as google.maps.LatLng,
+                        marker.latLng as google.maps.LatLng
                       );
                       handleEventClick(event.id);
                     }}

@@ -1,13 +1,13 @@
-"use client";
-import React, { useState } from "react";
-import { CldImage } from "next-cloudinary";
-import Image from "next/image";
-import { Loader } from "@/components/atoms";
-import { generateDummyPoster } from "@/utils";
-import clsx from "clsx";
-import { useParams } from "next/navigation";
-import { Event } from "@prisma/client";
-import { AddEventInputs } from "@/schemas/addEventSchema";
+'use client';
+import React, { useState } from 'react';
+import { CldImage } from 'next-cloudinary';
+import Image from 'next/image';
+import { Loader } from '@/components/atoms';
+import { generateDummyPoster } from '@/utils';
+import clsx from 'clsx';
+import { useParams } from 'next/navigation';
+import { Event } from '@prisma/client';
+import { AddEventInputs } from '@/schemas/addEventSchema';
 
 const EventImage = ({
   eventData,
@@ -20,28 +20,28 @@ const EventImage = ({
   const { lng } = useParams();
 
   return (
-    <div className={clsx("relative mx-auto max-w-full", classNames)}>
+    <div className={clsx('relative mx-auto max-w-full', classNames)}>
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className='flex items-center justify-center mx-auto w-28'>
           <Loader lng={lng as string} small />
         </div>
       )}
 
       {eventData.image ? (
         <CldImage
-          width="424"
+          width='424'
           priority
-          height="600"
+          height='600'
           src={eventData?.image}
           alt={eventData?.name}
           onLoad={() => setIsLoading(false)}
           onError={() => setIsLoading(false)}
           className={`transition-opacity duration-300 ${
-            isLoading ? "opacity-0" : "opacity-100"
+            isLoading ? 'opacity-0' : 'opacity-100'
           }`}
           style={{
-            width: "100%",
-            height: "auto",
+            width: '100%',
+            height: 'auto',
           }}
         />
       ) : (
@@ -54,8 +54,8 @@ const EventImage = ({
           onLoad={() => setIsLoading(false)}
           onError={() => setIsLoading(false)}
           style={{
-            width: "100%",
-            height: "auto",
+            width: '100%',
+            height: 'auto',
           }}
         />
       )}

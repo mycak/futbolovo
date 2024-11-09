@@ -1,4 +1,4 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 export interface MapState {
   mapZoom: number;
@@ -14,7 +14,7 @@ export interface MapAction {
 }
 
 const initialState: MapState = {
-  mapZoom: 10,
+  mapZoom: 6,
   center: null,
 };
 
