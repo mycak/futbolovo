@@ -32,6 +32,14 @@ export const navigationItems: (
       text: t('navigation.cooperation'),
       to: paths.Cooperation,
     },
+    {
+      text: t('privacyPolicyPage.title'),
+      to: paths.PrivacyPolicy,
+    },
+    {
+      text: t('statutePage.title'),
+      to: paths.Statute,
+    },
   ],
   // auth: isSignIn
   //   ? [

@@ -128,5 +128,47 @@
       "desc2": "Increase the use of your facilities by sharing information about available times on the map.",
       "desc3": "Attract new students by adding details about your training offer and location."
     }
+  },
+  "statutePage": {
+    "title": "Terms and Conditions",
+    "responsibilityTitle": "Responsibility for Content",
+    "responsibilityText": "Each user who posts an advertisement is fully responsible for the content posted. Advertisements must comply with applicable law and must not infringe the rights of third parties.",
+    "dataUsageTitle": "Prohibition of Using Others' Data",
+    "dataUsageText": "It is forbidden to use other people's personal data, including names, email addresses, or phone numbers, without the consent of their owners. It is also prohibited to use other people's trademarks, including logos, without proper authorization.",
+    "accurateInfoTitle": "Providing Accurate Information",
+    "accurateInfoText": "The advertiser is obliged to provide accurate and truthful information in the advertisement. Any discrepancy or misleading information may result in the removal of the advertisement.",
+    "logoUsageTitle": "Prohibition of Using Futbolovo's Logo and Solutions",
+    "logoUsageText": "It is forbidden to use the logo, names, graphics, and any technological solutions used on the Futbolovo website without the consent of the administrators.",
+    "illegalContentTitle": "Illegal Content",
+    "illegalContentText": "It is forbidden to add content that violates copyrights, personal rights, netiquette rules, or promotes illegal activities.",
+    "dataVerificationTitle": "Data Verification",
+    "dataVerificationText": "Platform administrators may require verification of users' and advertisers' contact details.",
+    "complaintsTitle": "Complaints and Advertisement Removal",
+    "complaintsText": "The administrator has the right to remove an advertisement that does not meet the requirements of the regulations or is reported as violating the law.",
+    "changesTitle": "Changes to the Regulations",
+    "changesText": "Administrators reserve the right to change the regulations at any time. Users will be informed about the changes made.",
+    "contactTitle": "Contact",
+    "contactText": "All questions and complaints regarding advertisements should be directed to the platform's contact address."
+  },
+  "privacyPolicyPage": {
+    "title": "Privacy Policy",
+    "adminTitle": "Personal Data Administrator",
+    "adminText": "The personal data administrator is Piotr Myszkiewicz, located at Warsaw Radziwie 3/2. Contact with the administrator is possible via email: piotr.myszkiewicz@interia.pl.",
+    "dataScopeTitle": "Scope of Collected Data",
+    "dataScopeText": "We collect personal data such as name, surname, email address, phone number, IP, as well as data related to activity on the site, including data related to advertisements added by users.",
+    "dataPurposeTitle": "Purpose of Data Processing",
+    "dataPurposeText": "Personal data is processed for the purpose of providing services offered on the platform, contacting users, handling advertisements, as well as for analytical and marketing purposes.",
+    "dataSharingTitle": "Data Sharing",
+    "dataSharingText": "Personal data is not shared with third parties unless it is necessary to perform the contract or required by law.",
+    "dataSecurityTitle": "Data Security",
+    "dataSecurityText": "We use appropriate technical and organizational measures to ensure the security of personal data, including data encryption and access limited to authorized employees.",
+    "userRightsTitle": "User Rights",
+    "userRightsText": "Users have the right to access their personal data, correct it, delete it, restrict processing, transfer data, and object to its processing.",
+    "dataRetentionTitle": "Data Retention Period",
+    "dataRetentionText": "Personal data will be stored for the period necessary to achieve the purposes indicated above, after which it will be deleted or anonymized.",
+    "policyChangesTitle": "Changes to the Privacy Policy",
+    "policyChangesText": "The administrator reserves the right to change the privacy policy. Any changes will be published on this page.",
+    "contactTitle": "Contact",
+    "contactText": "For matters related to personal data, please contact: piotr.myszkiewicz@interia.pl."
   }
 }

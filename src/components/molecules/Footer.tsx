@@ -18,6 +18,8 @@ const Footer = async ({ lng }: { lng: string }) => {
       items: [
         { name: t('navigation.contact'), href: paths.Contact },
         { name: t('navigation.cooperation'), href: paths.Cooperation },
+        { name: t('privacyPolicyPage.title'), href: paths.PrivacyPolicy },
+        { name: t('statutePage.title'), href: paths.Statute },
       ],
     },
   ];
