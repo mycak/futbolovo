@@ -51,7 +51,7 @@ const Hero = ({
             <Button
               asLink
               size='lg'
-              href={`/${lng}/${paths.Map}`}
+              href={`/${lng}${paths.Map}`}
               text={buttonTitle}
               classNames='mt-8 mr-auto animate-shake'
             />
