@@ -36,7 +36,7 @@ const AddEventConfirm = ({ t }: { t: TFunction<'translation', undefined> }) => {
         <p className='text-center text-xl text-grass-50 pt-4'>Stay tuned!</p>
       </div>
       <div className='flex flex-col justify-center mt-8 gap-4'>
-        <div className='flex items-center gap-4 justify-center'>
+        <div className='flex items-center gap-8 justify-center'>
           <Button
             classNames='h-[38px] md:text-xl bg-grass-45'
             variant='icon'

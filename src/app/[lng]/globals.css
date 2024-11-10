@@ -130,6 +130,10 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.infoBox {
+  font-family: var(--font-guerrilla), sans-serif;
+}
+
 /* HERO IMAGE CLIP */
 .hero-clip-diagonal {
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 36% 100%);

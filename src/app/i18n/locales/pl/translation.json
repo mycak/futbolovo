@@ -109,7 +109,8 @@
   "hero": {
     "option1": "Odkryj interaktywną mapę, która otwiera przed Tobą świat futbolowych możliwości!",
     "option2": "Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!",
-    "buttonTitle": "Dołącz do gry!"
+    "buttonTitle": "Dołącz do gry!",
+    "launchAnnouncement": "Z przyjemnością informujemy, że z dniem 12 listopada 2024 roku nasza platforma oficjalnie rozpoczyna działalność!"
   },
   "siteDescription": {
     "desc1": "Znajdziesz tutaj wszystkie najważniejsze informacje o turniejach, ligach szóstek, szkółkach piłkarskich dla dzieci, boiskach do wynajęcia oraz usługach piłkarskich.",
@@ -143,7 +144,7 @@
     "illegalContentTitle": "Treści niezgodne z prawem",
     "illegalContentText": "Zabrania się dodawania treści, które naruszają prawa autorskie, dobra osobiste, zasady netykiety, bądź promują nielegalne działania.",
     "dataVerificationTitle": "Weryfikacja danych",
-    "dataVerificationText": "Administratorzy platformy mogą wymagać weryfikacji danych kontaktowych użytkowników i ogłoszeniodawc��w.",
+    "dataVerificationText": "Administratorzy platformy mogą wymagać weryfikacji danych kontaktowych użytkowników i ogłoszeniodawców.",
     "complaintsTitle": "Reklamacje i usunięcie ogłoszenia",
     "complaintsText": "Administrator ma prawo do usunięcia ogłoszenia, które nie spełnia wymagań regulaminu, lub jest zgłoszone jako naruszające prawo.",
     "changesTitle": "Zmiany w regulaminie",

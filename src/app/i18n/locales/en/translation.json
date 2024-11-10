@@ -109,7 +109,8 @@
   "hero": {
     "option1": "Discover an interactive map that opens up a world of football opportunities for you!",
     "option2": "Check what's happening in your area and join the game!",
-    "buttonTitle": "Join the game!"
+    "buttonTitle": "Join the game!",
+    "launchAnnouncement": "We are pleased to announce that on November 12, 2024, our platform will officially launch!"
   },
   "siteDescription": {
     "desc1": "Here you will find all the important information about tournaments, six-a-side leagues, kids' football schools, fields for rent, and football-related services.",
