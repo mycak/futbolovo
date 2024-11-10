@@ -36,7 +36,6 @@
   "events": "Events",
   "chooseFile": "Choose a file",
   "clear": "Clear",
-  "noFile": "No file chosen",
   "givePrice": "Give a price",
   "objects": "Facilities",
   "price": "Price",
@@ -148,12 +147,12 @@
     "changesTitle": "Changes to the Regulations",
     "changesText": "Administrators reserve the right to change the regulations at any time. Users will be informed about the changes made.",
     "contactTitle": "Contact",
-    "contactText": "All questions and complaints regarding advertisements should be directed to the platform's contact address."
+    "contactText": "All questions and complaints regarding advertisements should be directed to the platform's contact address "
   },
   "privacyPolicyPage": {
     "title": "Privacy Policy",
     "adminTitle": "Personal Data Administrator",
-    "adminText": "The personal data administrator is Piotr Myszkiewicz, located at Warsaw Radziwie 3/2. Contact with the administrator is possible via email: piotr.myszkiewicz@interia.pl.",
+    "adminText": "The personal data administrator is Piotr Myszkiewicz, located at Warsaw Radziwie 3/2. Contact with the administrator is possible via email:",
     "dataScopeTitle": "Scope of Collected Data",
     "dataScopeText": "We collect personal data such as name, surname, email address, phone number, IP, as well as data related to activity on the site, including data related to advertisements added by users.",
     "dataPurposeTitle": "Purpose of Data Processing",
@@ -169,6 +168,7 @@
     "policyChangesTitle": "Changes to the Privacy Policy",
     "policyChangesText": "The administrator reserves the right to change the privacy policy. Any changes will be published on this page.",
     "contactTitle": "Contact",
-    "contactText": "For matters related to personal data, please contact: piotr.myszkiewicz@interia.pl."
-  }
+    "contactText": "For matters related to personal data, please contact:"
+  },
+  "acceptTermsAndPrivacyLabel": "I accept the <1>Terms and Conditions</1> and <2>Privacy Policy</2>"
 }

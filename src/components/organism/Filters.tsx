@@ -69,9 +69,9 @@ const Filters = () => {
     <PageWrapper classNames='mb-8'>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='flex flex-col justify-center'
+        className='flex flex-col justify-center w-full'
       >
-        <div className='flex justify-center gap-x-8 gap-y-2 flex-wrap'>
+        <div className='flex justify-center gap-x-8 gap-y-2 flex-wrap [&>*]:w-80'>
           <SelectInput
             control={control as unknown as Control<FieldValues>}
             label={t('category')}

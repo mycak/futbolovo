@@ -29,6 +29,8 @@ const AddEventPreview = () => {
 
     // @ts-expect-error - Remove additionalLocations from payload to fit payload type
     delete payload.additionalLocations;
+    // @ts-expect-error - Remove termsAccepted from payload to fit payload type
+    delete payload.termsAccepted;
 
     const addEventPromises = allLocations.map((location) =>
       addEvent({ ...payload, location })

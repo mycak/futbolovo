@@ -2,6 +2,7 @@ import { translate } from '@/app/i18n';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
+import { contactEmail } from '@/constants/common';
 
 const StatutePage = async ({
   params,
@@ -56,7 +57,16 @@ const StatutePage = async ({
               <h2 className={pointTitleClassName}>
                 9. {t('statutePage.contactTitle')}
               </h2>
-              <p>{t('statutePage.contactText')}</p>
+              <p>
+                {t('statutePage.contactText')}
+                <a
+                  href={`mailto:${contactEmail}`}
+                  className='underline text-grass-40'
+                >
+                  {contactEmail}
+                </a>
+                .
+              </p>
             </div>
           </div>
         </div>

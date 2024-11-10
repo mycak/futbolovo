@@ -15,7 +15,7 @@ const EmailInput = ({
   error?: string;
 }) => {
   return (
-    <div className='relative'>
+    <div className='relative max-w-80 w-full'>
       <label className='flex flex-col'>
         <span className='text-grass-20'>{label}</span>
         <input

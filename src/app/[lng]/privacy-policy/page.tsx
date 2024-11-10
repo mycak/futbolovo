@@ -2,6 +2,7 @@ import { translate } from '@/app/i18n';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
+import { contactEmail } from '@/constants/common';
 
 const PrivacyPolicyPage = async ({
   params,
@@ -24,7 +25,16 @@ const PrivacyPolicyPage = async ({
               <h2 className={pointTitleClassName}>
                 1. {t('privacyPolicyPage.adminTitle')}
               </h2>
-              <p>{t('privacyPolicyPage.adminText')}</p>
+              <p>
+                {t('privacyPolicyPage.adminText')}{' '}
+                <a
+                  href={`mailto:${contactEmail}`}
+                  className='underline text-grass-40'
+                >
+                  {contactEmail}
+                </a>
+                .
+              </p>
               <h2 className={pointTitleClassName}>
                 2. {t('privacyPolicyPage.dataScopeTitle')}
               </h2>
