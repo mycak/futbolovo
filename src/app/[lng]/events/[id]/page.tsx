@@ -21,18 +21,18 @@ const EventPage = async ({
     queryKey: ['event', params.id],
     queryFn: () => getEventById(params.id),
   });
-
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <PageContainer>
         <PageWrapper classNames='grow flex flex-col'>
-          <p>asd</p>
           {eventData ? (
-            <EventPreview eventData={eventData} lng={params.lng} isEventPage>
-              <div className='mx-auto w-max'>
-                <Back lng={params.lng} />
-              </div>
-            </EventPreview>
+            <div className='sm:bg-gray-900 rounded-lg py-8 mx-4'>
+              <EventPreview eventData={eventData} lng={params.lng} isEventPage>
+                <div className='mx-auto w-max'>
+                  <Back lng={params.lng} />
+                </div>
+              </EventPreview>
+            </div>
           ) : (
             <NotFound is404={false} classNames='h-full' lng={params.lng} />
           )}
