@@ -76,7 +76,8 @@ body::-webkit-scrollbar {
 .react-datepicker__day--selecting-range-start,
 .react-datepicker__day--selecting-range-end,
 .react-datepicker__day--keyboard-selected,
-.react-datepicker__day:hover {
+.react-datepicker__day:hover,
+.react-datepicker__day--selected {
   background-color: #34d399 !important;
 }
 .react-datepicker__day--in-selecting-range {

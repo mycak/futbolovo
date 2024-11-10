@@ -15,6 +15,7 @@
     "endDateText": "Data wygaśnięcia wydarzenia:",
     "text2": "Twoje wydarzenie zostanie zweryfikowane przez administratora w ciągu 24 godzin i po akceptacji będzie widoczne na mapie. Jeśli masz jakiekolwiek pytania, skontaktuj się z nami.",
     "addNext": "Dodaj kolejne",
+    "addSimilar": "Dodaj podobne",
     "end": "Zakończ"
   },
   "contactPage": {
@@ -28,7 +29,8 @@
   "fieldIsRequired": "To pole jest wymagane",
   "validation": {
     "incorrectPhone": "Nieprawidłowy numer telefonu",
-    "min3": "Minimum 3 znaki"
+    "min3": "Minimum 3 znaki",
+    "imageInfoOnRepeat": "Jeżeli powielasz dane, powtórne wgranie zdjęcia nie jest potrzebne"
   },
   "check": "Sprawdź!",
   "camp": "Obóz",

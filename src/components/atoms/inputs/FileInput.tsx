@@ -14,6 +14,7 @@ const FileInput = ({
   name,
   control,
   error,
+  info,
   type = 'basic',
 }: {
   label: string;
@@ -21,6 +22,7 @@ const FileInput = ({
   name: string;
   control: Control<FieldValues>;
   error?: string;
+  info?: string;
   type?: 'basic' | 'image';
 }) => {
   const [fileName, setFileName] = useState<string | null>(null);
@@ -32,7 +34,12 @@ const FileInput = ({
   const { t } = useTranslation(lng as string);
 
   return (
-    <div className='flex flex-col relative max-w-80 w-full'>
+    <div
+      className={clsx(
+        'flex flex-col relative max-w-80 w-full',
+        info && 'mb-6 md:mb-0'
+      )}
+    >
       {type === 'image' ? (
         <Controller
           control={control}
@@ -92,8 +99,13 @@ const FileInput = ({
                   )}
 
                   {error && (
-                    <span className='absolute text-red-500 text-xs bottom-6 right-0'>
+                    <span className='absolute text-red-500 text-xs top-16 right-0'>
                       {error}
+                    </span>
+                  )}
+                  {info && (
+                    <span className='absolute text-grass-50 text-xs top-16 right-0'>
+                      {info}
                     </span>
                   )}
                 </>

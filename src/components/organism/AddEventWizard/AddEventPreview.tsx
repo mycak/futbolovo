@@ -19,9 +19,13 @@ const AddEventPreview = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const eventData = useAddEventWizardStore((state) => state.addData);
   const prevStep = useAddEventWizardStore((state) => state.prevStep);
+  const setTempAddData = useAddEventWizardStore(
+    (state) => state.setTempAddData
+  );
 
   const onAddEvent = async () => {
     if (eventData === undefined) return;
+    setTempAddData(eventData);
     setIsLoading(true);
 
     const payload = { ...eventData };

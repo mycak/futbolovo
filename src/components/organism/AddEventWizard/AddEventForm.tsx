@@ -16,7 +16,7 @@ import {
   useWatch,
 } from 'react-hook-form';
 import { useAddEventWizardStore } from '@/stores';
-import { useParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 import { useTranslation } from '@/app/i18n/client';
 import { EventCategoryEnum } from '@prisma/client';
 import { useState } from 'react';
@@ -40,15 +40,19 @@ import { paths } from '@/constants/paths';
 
 const AddEventForm = () => {
   const nextStep = useAddEventWizardStore((state) => state.nextStep);
+  const clearTempData = useAddEventWizardStore((state) => state.clearTempData);
   const setAddData = useAddEventWizardStore((state) => state.setAddData);
   const addData = useAddEventWizardStore((state) => state.addData);
+  const tempAddData = useAddEventWizardStore((state) => state.tempAddData);
+
+  const searchParams = useSearchParams();
+  const isRepeatedData = searchParams.get('data') === 'repeated' && tempAddData;
 
   const [isMultipleModalOpened, setIsMultipleModalOpened] =
     useState<boolean>(false);
 
   const { lng } = useParams();
   const { t } = useTranslation(lng as string);
-
   const {
     handleSubmit,
     control,
@@ -57,7 +61,10 @@ const AddEventForm = () => {
     formState: { errors },
   } = useForm<AddEventInputs>({
     resolver: zodResolver(addEventSchema(t)),
-    defaultValues: { ...addData, termsAccepted: true },
+    defaultValues: {
+      ...(isRepeatedData ? tempAddData : addData),
+      termsAccepted: true,
+    },
   });
 
   const { fields, append, remove } = useFieldArray({
@@ -77,6 +84,7 @@ const AddEventForm = () => {
           (item) => item.latitude && item.longitude
         ) ?? [],
     });
+    clearTempData();
     nextStep();
   };
 
@@ -94,7 +102,6 @@ const AddEventForm = () => {
   ) => {
     const { latitude, longitude, location } = data;
     if (!latitude || !longitude) return;
-
     setValue(
       key,
       { latitude, longitude, addressName: location },
@@ -194,7 +201,11 @@ const AddEventForm = () => {
           placeholder={t('cityAndPlace')}
           onChangeCallback={(data) => onLocationChange(data, 'location')}
           error={errors.location?.message}
-          displayValue={addData?.location?.addressName}
+          displayValue={
+            isRepeatedData
+              ? tempAddData.location?.addressName
+              : addData?.location?.addressName
+          }
           multiple
           onAddMore={onAddMoreLocation}
         />
@@ -233,7 +244,7 @@ const AddEventForm = () => {
           ))}
           <button
             type='button'
-            className='text-grass-50 mx-auto'
+            className='text-grass-50 mr-auto max-w-max'
             onClick={() =>
               append({ latitude: null, longitude: null, addressName: '' })
             }
@@ -279,6 +290,7 @@ const AddEventForm = () => {
           type='image'
           control={control as unknown as Control<FieldValues>}
           error={errors.image?.message}
+          info={isRepeatedData ? t('validation.imageInfoOnRepeat') : undefined}
         />
         <TextAreaInput
           label={t('description')}

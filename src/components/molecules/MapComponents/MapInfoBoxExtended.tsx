@@ -40,7 +40,7 @@ const MapInfoBoxExtended = ({
   // InfoBox options for positioning and disabling default close button
   const boxOptions = {
     enableEventPropagation: true,
-    pixelOffset: new google.maps.Size(-150, -250),
+    pixelOffset: new google.maps.Size(-160, -250),
     closeBoxURL: '', // Remove default close icon
   };
 
@@ -88,7 +88,7 @@ const MapInfoBoxExtended = ({
         aria-labelledby='infoBox-title'
         role='dialog'
         className={clsx(
-          'max-h-full relative border border-grass-50 rounded-lg bg-emerald-900 text-ivory-150 w-72 md:w-80',
+          'max-h-full relative border border-grass-50 rounded-lg bg-emerald-900 text-ivory-150 w-80',
           'hover:cursor-pointer focus:outline-none focus:border-grass-40',
           'transition-all duration-300 ease-out',
           isVisible ? 'opacity-95 ' : 'opacity-0'

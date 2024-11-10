@@ -14,6 +14,7 @@ import { useTranslation } from '@/app/i18n/client';
 import { EventCategoryEnum } from '@prisma/client';
 import Button from '@/components/atoms/Button';
 import Divider from '@/components/atoms/Divider';
+import { useClientMediaQuery } from '@/hooks/useClientMediaQuery';
 
 const MapInfoBox = ({
   event,
@@ -31,11 +32,12 @@ const MapInfoBox = ({
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isRendered, setIsRendered] = useState<boolean>(false);
   const timeoutId = useRef<ReturnType<typeof setTimeout>>();
+  const isMobileView = useClientMediaQuery('(max-width: 768px)');
 
   // InfoBox options for positioning and disabling default close button
   const boxOptions = {
     enableEventPropagation: true,
-    pixelOffset: new google.maps.Size(-144, -250),
+    pixelOffset: new google.maps.Size(isMobileView ? -144 : -285, -250),
     closeBoxURL: '', // Remove default close icon
   };
 

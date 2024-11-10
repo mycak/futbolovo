@@ -1,4 +1,5 @@
 'use client';
+import 'react-datepicker/dist/react-datepicker.css'; // Needed to keep styles after refresh
 import React from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import { pl } from 'date-fns/locale';
