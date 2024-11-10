@@ -33,6 +33,10 @@ import TextInput from '@/components/atoms/inputs/TextInput';
 import Button from '@/components/atoms/Button';
 import TextAreaInput from '@/components/atoms/inputs/TextAreaInput';
 import DateInput from '@/components/atoms/inputs/DateInput';
+import SwitchInput from '@/components/atoms/inputs/SwitchInput';
+import { Trans } from 'react-i18next/TransWithoutContext';
+import Link from 'next/link';
+import { paths } from '@/constants/paths';
 
 const AddEventForm = () => {
   const nextStep = useAddEventWizardStore((state) => state.nextStep);
@@ -53,7 +57,7 @@ const AddEventForm = () => {
     formState: { errors },
   } = useForm<AddEventInputs>({
     resolver: zodResolver(addEventSchema(t)),
-    defaultValues: addData,
+    defaultValues: { ...addData, termsAccepted: true },
   });
 
   const { fields, append, remove } = useFieldArray({
@@ -173,7 +177,7 @@ const AddEventForm = () => {
       <Divider />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='flex flex-col gap-4 md:grid md:grid-cols-2 md:gap-y-4 md:gap-x-8 justify-center max-w-max mx-auto mt-4 md:mt-8'
+        className='flex flex-col items-center md:items-start gap-4 md:grid md:grid-cols-[repeat(2,_minmax(auto,_320px))] md:gap-x-8 justify-center mx-auto mt-4 md:mt-8'
       >
         <SelectInput
           control={control as unknown as Control<FieldValues>}
@@ -196,19 +200,21 @@ const AddEventForm = () => {
         />
         <Modal
           isOpen={isMultipleModalOpened}
-          onClose={() => setIsMultipleModalOpened(false)}
           title={t('addMoreLocations')}
           onAccept={onAcceptLocationsModal}
         >
           {fields.map((field, index) => (
-            <div key={field.id} className='flex flex-col justify-center gap-2'>
+            <div
+              key={field.id}
+              className='flex flex-col justify-center gap-2 items-center'
+            >
               <LocalizationInput
                 label={`${t('location')} ${index + 2}`}
                 placeholder={t('cityAndPlace')}
                 onChangeCallback={(data) =>
                   onLocationChange(
                     data,
-                    `additionalLocations.${index}` as never
+                    `additionalLocations.${index}` as keyof AddEventInputs
                   )
                 }
                 error={
@@ -284,6 +290,32 @@ const AddEventForm = () => {
           name='description'
           error={errors.description?.message}
           register={register as unknown as UseFormRegister<FieldValues>}
+        />
+        <SwitchInput
+          label={
+            <Trans
+              t={t}
+              i18nKey='acceptTermsAndPrivacyLabel'
+              components={{
+                1: <Link className='text-grass-50' href={paths.Statute} />,
+                2: (
+                  <Link className='text-grass-50' href={paths.PrivacyPolicy} />
+                ),
+              }}
+            >
+              I accept
+              <Link className='text-grass-50' href={paths.Statute}>
+                terms
+              </Link>{' '}
+              i{' '}
+              <Link className='text-grass-50' href={paths.PrivacyPolicy}>
+                privacy policy
+              </Link>
+            </Trans>
+          }
+          name='termsAccepted'
+          register={register as unknown as UseFormRegister<FieldValues>}
+          error={errors.termsAccepted?.message}
         />
         <Divider contained classNames='col-span-2' />
 

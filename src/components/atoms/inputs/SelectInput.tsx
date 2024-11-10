@@ -37,7 +37,7 @@ const SelectInput = <
   useEffect(() => setIsMounted(true), []);
 
   return isMounted ? (
-    <div className='flex flex-col relative'>
+    <div className='flex flex-col relative max-w-80 w-full'>
       <label className=''>
         <span className='mb-1 text-grass-20'>{label}</span>
         <Controller

@@ -43,6 +43,11 @@ export const addEventSchema = (t: TFunction<'translation', undefined>) =>
       image: z.string().nullable().optional(),
       isPublished: z.boolean().default(false),
       authorId: z.string().optional(),
+      termsAccepted: z.boolean({ required_error: t('fieldIsRequired') }),
+    })
+    .refine((data) => data.termsAccepted === true, {
+      message: t('fieldIsRequired'),
+      path: ['termsAccepted'],
     })
     .refine(
       (data) => {

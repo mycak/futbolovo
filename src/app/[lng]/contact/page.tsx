@@ -52,8 +52,7 @@ const ContactPage = async ({
               </div>
               <div className='flex items-center gap-3 text-xl'>
                 <i className='fa-solid fa-envelope text-grass-50' />
-                <a href='mailto:p.myszkiewicz@interia.pl' className='underline'>
-                  {' '}
+                <a href={`mailto:${contactEmail}`} className='underline'>
                   {contactEmail}
                 </a>
               </div>

@@ -50,11 +50,7 @@ const CooperationPage = async ({
               <div className='text-xl flex flex-col gap-2 mt-4 md:mt-8'>
                 <div className='flex items-center gap-3'>
                   <i className='fa-solid fa-envelope text-grass-50' />
-                  <a
-                    href='mailto:p.myszkiewicz@interia.pl'
-                    className='underline'
-                  >
-                    {' '}
+                  <a href={`mailto:${contactEmail}`} className='underline'>
                     {contactEmail}
                   </a>
                 </div>

@@ -54,7 +54,6 @@
   "services": "Usługi",
   "matches": "Mecze",
   "category": "Kategoria",
-  "noFile": "Nie wybrano pliku",
   "clear": "Wyczyść",
   "location": "Lokalizacja",
   "price": "Cena",
@@ -142,18 +141,18 @@
     "illegalContentTitle": "Treści niezgodne z prawem",
     "illegalContentText": "Zabrania się dodawania treści, które naruszają prawa autorskie, dobra osobiste, zasady netykiety, bądź promują nielegalne działania.",
     "dataVerificationTitle": "Weryfikacja danych",
-    "dataVerificationText": "Administratorzy platformy mogą wymagać weryfikacji danych kontaktowych użytkowników i ogłoszeniodawców.",
+    "dataVerificationText": "Administratorzy platformy mogą wymagać weryfikacji danych kontaktowych użytkowników i ogłoszeniodawc��w.",
     "complaintsTitle": "Reklamacje i usunięcie ogłoszenia",
     "complaintsText": "Administrator ma prawo do usunięcia ogłoszenia, które nie spełnia wymagań regulaminu, lub jest zgłoszone jako naruszające prawo.",
     "changesTitle": "Zmiany w regulaminie",
     "changesText": "Administratorzy zastrzegają sobie prawo do zmiany regulaminu w każdym momencie. Użytkownicy zostaną poinformowani o wprowadzonych zmianach.",
     "contactTitle": "Kontakt",
-    "contactText": "Wszystkie pytania i reklamacje dotyczące ogłoszeń należy kierować na adres kontaktowy platformy."
+    "contactText": "Wszystkie pytania i reklamacje dotyczące ogłoszeń należy kierować na adres kontaktowy platformy "
   },
   "privacyPolicyPage": {
     "title": "Polityka prywatności",
     "adminTitle": "Administrator danych osobowych",
-    "adminText": "Administratorem danych osobowych jest Piotr Myszkiewicz, z siedzibą w Warszawie ul. Radziwie 3/2. Kontakt z administratorem możliwy jest pod adresem e-mail: piotr.myszkiewicz@interia.pl.",
+    "adminText": "Administratorem danych osobowych jest Piotr Myszkiewicz, z siedzibą w Warszawie ul. Radziwie 3/2. Kontakt z administratorem możliwy jest pod adresem e-mail:",
     "dataScopeTitle": "Zakres zbieranych danych",
     "dataScopeText": "Zbieramy dane osobowe, takie jak imię, nazwisko, adres e-mail, numer telefonu, IP, a także dane dotyczące aktywności na stronie, w tym dane związane z ogłoszeniami dodanymi przez użytkowników.",
     "dataPurposeTitle": "Cel przetwarzania danych",
@@ -169,6 +168,7 @@
     "policyChangesTitle": "Zmiany w polityce prywatności",
     "policyChangesText": "Administrator zastrzega sobie prawo do zmiany polityki prywatności. Wszelkie zmiany będą publikowane na tej stronie.",
     "contactTitle": "Kontakt",
-    "contactText": "W sprawach związanych z danymi osobowymi prosimy o kontakt pod adresem: piotr.myszkiewicz@interia.pl."
-  }
+    "contactText": "W sprawach związanych z danymi osobowymi prosimy o kontakt pod adresem:"
+  },
+  "acceptTermsAndPrivacyLabel": "Akceptuje <1>regulamin</1> i <2>politykę prywatności</2>"
 }

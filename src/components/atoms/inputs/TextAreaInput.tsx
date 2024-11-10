@@ -15,13 +15,13 @@ const TextAreaInput = ({
   error?: string;
 }) => {
   return (
-    <div className='relative'>
+    <div className='relative max-w-80 w-full'>
       <label className='flex flex-col'>
         <span className='text-grass-20'>{label}</span>
         <textarea
           id='textarea'
           className={clsx(
-            'h-[80px] border border-grass-50 rounded-sm bg-emerald-900 w-80 p-1 pl-2 text-ivory-150 placeholder:text-ivory-150 hover:cursor-pointer hover:border-grass-40 active:outline-none focus:outline-none focus:border-grass-40',
+            'h-[80px] border border-grass-50 rounded-sm bg-emerald-900 w-full p-1 pl-2 text-ivory-150 placeholder:text-ivory-150 hover:cursor-pointer hover:border-grass-40 active:outline-none focus:outline-none focus:border-grass-40',
             error && 'border-red-500 focus:border-red-400 hover:border-red-400'
           )}
           placeholder={placeholder}

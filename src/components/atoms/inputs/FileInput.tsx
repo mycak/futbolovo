@@ -32,7 +32,7 @@ const FileInput = ({
   const { t } = useTranslation(lng as string);
 
   return (
-    <div className='flex flex-col relative'>
+    <div className='flex flex-col relative max-w-80 w-full'>
       {type === 'image' ? (
         <Controller
           control={control}
@@ -75,12 +75,6 @@ const FileInput = ({
                     >
                       {fileName?.length ? fileName : t('chooseFile')}
                     </p>
-
-                    {!fileName && (
-                      <span className='absolute text-gray-500 text-sm'>
-                        {t('noFile')}
-                      </span>
-                    )}
                   </label>
 
                   {fileName && (
@@ -135,12 +129,6 @@ const FileInput = ({
                 >
                   {fileName?.length ? fileName : t('chooseFile')}
                 </p>
-
-                {!fileName && (
-                  <span className='absolute text-gray-500 text-sm'>
-                    {t('noFile')}
-                  </span>
-                )}
               </label>
 
               {fileName && (
