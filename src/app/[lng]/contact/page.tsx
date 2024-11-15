@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { translate } from '@/app/i18n';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
@@ -6,6 +7,18 @@ import Head from 'next/head';
 
 import { contactEmail, contactPhone } from '@/constants/common';
 import { Trans } from 'react-i18next/TransWithoutContext';
+
+export async function generateMetadata({
+  params: { lng },
+}: {
+  params: { lng: string };
+}): Promise<Metadata> {
+  const { t } = await translate(lng);
+  return {
+    title: t('metatags.contact.title'),
+    description: t('metatags.contact.description'),
+  };
+}
 
 const ContactPage = async ({
   params,

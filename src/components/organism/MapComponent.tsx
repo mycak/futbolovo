@@ -131,6 +131,7 @@ const MapComponent = ({
           <MapInfoBoxExtended
             events={bulkEvents}
             mapRef={mapRef}
+            saveMapData={saveMapData}
             close={() => setBulkEvents({ items: [], position: undefined })}
           />
         ) : null}

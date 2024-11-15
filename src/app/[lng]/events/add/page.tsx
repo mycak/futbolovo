@@ -3,6 +3,19 @@ import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import AddEventWizard from '@/components/organism/AddEventWizard/AddEventWizard';
+import { Metadata } from 'next';
+
+export async function generateMetadata({
+  params: { lng },
+}: {
+  params: { lng: string };
+}): Promise<Metadata> {
+  const { t } = await translate(lng);
+  return {
+    title: t('metatags.events.title'),
+    description: t('metatags.events.description'),
+  };
+}
 
 const AddEventPage = async ({
   params,

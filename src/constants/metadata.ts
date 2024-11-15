@@ -3,10 +3,17 @@ import { TFunction } from 'i18next';
 export const mainPagesMetadata = (t: TFunction<'translation', undefined>) => ({
   title: t('metatags.title'),
   description: t('metatags.description'),
+  metadataBase: new URL('https://futbolovo.net'),
+  alternates: {
+    canonical: 'https://futbolovo.net',
+  },
   openGraph: {
+    type: 'website',
+    siteName: 'Futbolovo',
+    locale: 'pl_PL',
     title: t('metatags.title'),
     description: t('metatags.description'),
-    url: 'https://futbolovo.netlify.app/',
+    url: 'https://futbolovo.net/',
     images: [
       {
         url: 'https://i.ibb.co/ZmQGdGD/media.jpg',
@@ -15,6 +22,7 @@ export const mainPagesMetadata = (t: TFunction<'translation', undefined>) => ({
         alt: t('metatags.title'),
       },
     ],
+    localeAlternates: ['en_US'],
   },
   twitter: {
     card: 'summary_large_image',
@@ -33,4 +41,10 @@ export const mainPagesMetadata = (t: TFunction<'translation', undefined>) => ({
     follow: true,
     index: true,
   },
+  keywords: ['futbol', 'piłka nożna', 'soccer', 'sporty', 'boiska'],
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+  },
+  themeColor: '#000000',
 });

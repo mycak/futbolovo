@@ -1,7 +1,35 @@
 {
   "metatags": {
     "title": "Futbolowa mapa Polski",
-    "description": "Bierz udział w piłkarskich wydarzeniach w Twojej okolicy."
+    "description": "Weź udział w piłkarskich wydarzeniach w Twojej okolicy.",
+    "events": {
+      "title": "Wydarzenia piłkarskie | Futbolovo",
+      "description": "Dodaj lub znajdź wydarzenia piłkarskie w Twojej okolicy. Mecze, turnieje, obozy i więcej!"
+    },
+    "contact": {
+      "title": "Kontakt | Futbolovo",
+      "description": "Masz pytania? Skontaktuj się z nami! Pomożemy Ci w każdej sprawie związanej z platformą Futbolovo."
+    },
+    "cooperation": {
+      "title": "Współpraca | Futbolovo",
+      "description": "Zareklamuj swoją firmę lub produkt na naszej platformie. Rozwijajmy się razem!"
+    },
+    "statute": {
+      "title": "Regulamin | Futbolovo",
+      "description": "Zapoznaj się z regulaminem platformy Futbolovo. Zasady korzystania z serwisu."
+    },
+    "home": {
+      "title": "Futbolovo | Wszystkie wydarzenia piłkarskie w jednym miejscu",
+      "description": "Odkryj piłkarskie wydarzenia w Twojej okolicy. Turnieje, mecze, szkółki piłkarskie, boiska i więcej!"
+    },
+    "event": {
+      "title": "Event | Futbolovo",
+      "description": "Szczegóły wydarzenia piłkarskiego. Sprawdź informacje o terminie, miejscu i warunkach uczestnictwa."
+    },
+    "privacyPolicy": {
+      "title": "Polityka Prywatności | Futbolovo",
+      "description": "Dowiedz się, jak chronimy Twoje dane osobowe. Zasady przetwarzania i ochrony prywatności na platformie Futbolovo."
+    }
   },
   "chooseDate": "Wybierz datę",
   "chooseDates": "Wybierz daty",

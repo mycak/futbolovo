@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import {
   usersIconsTexts,
   ownersIconsTexts,
@@ -10,6 +11,18 @@ import PageContainer from '@/components/atoms/PageContainer';
 import Hero from '@/components/molecules/Hero';
 import IconsSection from '@/components/molecules/IconsSection';
 import SiteDescription from '@/components/atoms/SiteDescription';
+
+export async function generateMetadata({
+  params: { lng },
+}: {
+  params: { lng: string };
+}): Promise<Metadata> {
+  const { t } = await translate(lng);
+  return {
+    title: t('metatags.home.title'),
+    description: t('metatags.home.description'),
+  };
+}
 
 export default async function DashboardPage({
   params: { lng },

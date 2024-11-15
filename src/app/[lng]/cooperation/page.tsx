@@ -3,9 +3,22 @@ import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import Head from 'next/head';
+import { Metadata } from 'next';
 
 import { contactEmail } from '@/constants/common';
 import { Trans } from 'react-i18next/TransWithoutContext';
+
+export async function generateMetadata({
+  params: { lng },
+}: {
+  params: { lng: string };
+}): Promise<Metadata> {
+  const { t } = await translate(lng);
+  return {
+    title: t('metatags.cooperation.title'),
+    description: t('metatags.cooperation.description'),
+  };
+}
 
 const CooperationPage = async ({
   params,

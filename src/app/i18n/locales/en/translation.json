@@ -1,7 +1,35 @@
 {
   "metatags": {
     "title": "Football Map of World",
-    "description": "Join football events in your area."
+    "description": "Join football events in your area.",
+    "events": {
+      "title": "Football Events | Futbolovo",
+      "description": "Add or find football events in your area. Matches, tournaments, camps and more!"
+    },
+    "contact": {
+      "title": "Contact | Futbolovo",
+      "description": "Have questions? Contact us! We'll help you with any Futbolovo platform related matters."
+    },
+    "cooperation": {
+      "title": "Cooperation | Futbolovo",
+      "description": "Advertise your company or product on our platform. Let's grow together!"
+    },
+    "statute": {
+      "title": "Terms & Conditions | Futbolovo",
+      "description": "Read the terms and conditions of the Futbolovo platform. Rules of using the service."
+    },
+    "home": {
+      "title": "Futbolovo | All Football Events in One Place",
+      "description": "Discover football events in your area. Tournaments, matches, football schools, pitches and more!"
+    },
+    "event": {
+      "title": "Event | Futbolovo",
+      "description": "Football event details. Check information about date, location and participation conditions."
+    },
+    "privacyPolicy": {
+      "title": "Privacy Policy | Futbolovo",
+      "description": "Learn how we protect your personal data. Data processing and privacy protection rules on the Futbolovo platform."
+    }
   },
   "chooseDate": "Choose a date",
   "chooseDates": "Choose a dates",

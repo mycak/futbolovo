@@ -4,6 +4,19 @@ import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import { contactEmail } from '@/constants/common';
 import Head from 'next/head';
+import { Metadata } from 'next';
+
+export async function generateMetadata({
+  params: { lng },
+}: {
+  params: { lng: string };
+}): Promise<Metadata> {
+  const { t } = await translate(lng);
+  return {
+    title: t('metatags.statute.title'),
+    description: t('metatags.statute.description'),
+  };
+}
 
 const StatutePage = async ({
   params,

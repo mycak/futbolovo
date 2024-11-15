@@ -1,4 +1,5 @@
 import { getEventById } from '@/app/actions';
+import { translate } from '@/app/i18n';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
@@ -9,6 +10,19 @@ import {
   dehydrate,
   QueryClient,
 } from '@tanstack/react-query';
+import { Metadata } from 'next';
+
+export async function generateMetadata({
+  params: { lng },
+}: {
+  params: { lng: string };
+}): Promise<Metadata> {
+  const { t } = await translate(lng);
+  return {
+    title: t('metatags.event.title'),
+    description: t('metatags.event.description'),
+  };
+}
 
 const EventPage = async ({
   params,
@@ -26,7 +40,7 @@ const EventPage = async ({
       <PageContainer>
         <PageWrapper classNames='grow flex flex-col'>
           {eventData ? (
-            <div className='sm:bg-gray-900 rounded-lg py-8 mx-4'>
+            <div className='sm:bg-gray-900 rounded-lg py-8 md:px-8 mx-4'>
               <EventPreview eventData={eventData} lng={params.lng} isEventPage>
                 <div className='mx-auto w-max'>
                   <Back lng={params.lng} />

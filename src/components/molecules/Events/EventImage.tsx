@@ -21,10 +21,12 @@ const EventImage = ({
 
   return (
     <div className={clsx('relative mx-auto max-w-full', classNames)}>
-      {isLoading && (
-        <div className='flex items-center justify-center mx-auto w-28'>
+      {isLoading ? (
+        <div className='absolute left-[20%] flex items-center justify-center mx-auto w-28'>
           <Loader lng={lng as string} small />
         </div>
+      ) : (
+        <></>
       )}
 
       {eventData.image ? (

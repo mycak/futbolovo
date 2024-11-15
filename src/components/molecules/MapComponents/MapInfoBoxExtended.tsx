@@ -18,9 +18,11 @@ const MapInfoBoxExtended = ({
   events,
   close,
   mapRef,
+  saveMapData,
 }: {
   events: BulkEvents;
   close: () => void;
+  saveMapData: () => void;
   mapRef: MutableRefObject<google.maps.Map | null>;
 }) => {
   const { lng } = useParams();
@@ -196,6 +198,7 @@ const MapInfoBoxExtended = ({
                 <Button
                   asLink
                   href={paths.Event(event.id)}
+                  onClick={saveMapData}
                   text={t('more')}
                   classNames='mt-2 text-sm px-2 py-0 bg-grass-40 '
                 />
