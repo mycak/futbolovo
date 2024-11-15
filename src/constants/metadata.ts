@@ -16,7 +16,7 @@ export const mainPagesMetadata = (t: TFunction<'translation', undefined>) => ({
     url: 'https://futbolovo.net/',
     images: [
       {
-        url: 'https://i.ibb.co/ZmQGdGD/media.jpg',
+        url: 'https://i.ibb.co/kXK2MPN/og-futbolovo.webp',
         width: 1200,
         height: 630,
         alt: t('metatags.title'),
