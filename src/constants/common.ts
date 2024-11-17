@@ -12,7 +12,7 @@ export const contactPhone: {
   label: string;
   value: string;
 } = { label: '+48 505 184 510', value: '+48505184510' };
-export const contactEmail: string = 'futbolove.contact@gmail.com';
+export const contactEmail: string = 'futbolovo.contact@gmail.com';
 
 //GOOGLE PLACES
 export const MAX_ZOOM_LEVEL = 14;
