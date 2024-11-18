@@ -12,21 +12,29 @@ import Loader from '@/components/atoms/Loader';
 const EventImage = ({
   eventData,
   classNames,
+  onPageImage,
 }: {
   eventData: Event | AddEventInputs;
   classNames?: string;
+  onPageImage?: boolean;
 }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const { lng } = useParams();
 
   return (
     <div className={clsx('relative mx-auto max-w-full', classNames)}>
       {isLoading ? (
-        <div className='w-full'>
-          <div className='absolute inset-0 flex items-center justify-center'>
+        !onPageImage ? (
+          <div className='absolute left-[20%] flex items-center justify-center mx-auto w-28'>
             <Loader lng={lng as string} small />
           </div>
-        </div>
+        ) : (
+          <>
+            <div className='flex items-center justify-center mx-auto w-64'>
+              <Loader lng={lng as string} small />
+            </div>
+          </>
+        )
       ) : (
         <></>
       )}

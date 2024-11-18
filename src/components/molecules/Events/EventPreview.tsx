@@ -32,7 +32,7 @@ const EventPreview = ({
       </h1>
       <div className='flex flex-col lg:flex-row'>
         <div className='mx-auto max-w-96 lg:ml-auto lg:mr-0'>
-          <EventImage eventData={eventData} />
+          <EventImage eventData={eventData} onPageImage />
         </div>
         <Divider
           classNames='block md:mt-8 lg:mt-12 lg:hidden'
