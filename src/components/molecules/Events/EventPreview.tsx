@@ -136,7 +136,7 @@ const EventPreview = ({
           ) : null}
           <div className='flex items-center gap-3 col-span-2'>
             <i className='fa-regular fa-comment text-grass-50' />
-            <p>{eventData.description}</p>
+            <p className='whitespace-pre-line'>{eventData.description}</p>
           </div>
         </div>
       </div>
