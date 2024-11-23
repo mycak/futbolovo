@@ -58,6 +58,8 @@ export default function RootLayout({
       <Script
         src='https://kit.fontawesome.com/2cbff78358.js'
         crossOrigin='anonymous'
+        rel='preload'
+        referrerPolicy='no-referrer'
       />
       <body
         className={clsx(protestGuerilla.className, 'text-ivory-150')}

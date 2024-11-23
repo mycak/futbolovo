@@ -1,15 +1,14 @@
 'use client';
 import { paths } from '@/constants/paths';
 import React, { useEffect } from 'react';
-import { useParams, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useAddEventWizardStore } from '@/stores';
 import { TFunction } from 'i18next';
-import Loader from '@/components/atoms/Loader';
 import Button from '@/components/atoms/Button';
+import DynamicLoader from '@/components/atoms/DynamicLoader';
 
 const AddEventConfirm = ({ t }: { t: TFunction<'translation', undefined> }) => {
   const params = useSearchParams();
-  const urlParams = useParams();
 
   const clearState = useAddEventWizardStore((state) => state.clearState);
 
@@ -19,7 +18,7 @@ const AddEventConfirm = ({ t }: { t: TFunction<'translation', undefined> }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => clearState(), []);
 
-  if (!endDate && !email) return <Loader lng={urlParams.lng as string} />;
+  if (!endDate && !email) return <DynamicLoader classNames='mt-4' />;
 
   return (
     <div>

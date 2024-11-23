@@ -8,9 +8,9 @@ import { useParams, useRouter } from 'next/navigation';
 import { paths } from '@/constants/paths';
 import { useTranslation } from '@/app/i18n/client';
 import { addEvent } from '@/app/actions';
-import Loader from '@/components/atoms/Loader';
 import EventPreview from '@/components/molecules/Events/EventPreview';
 import Button from '@/components/atoms/Button';
+import DynamicLoader from '@/components/atoms/DynamicLoader';
 
 const AddEventPreview = () => {
   const router = useRouter();
@@ -59,7 +59,7 @@ const AddEventPreview = () => {
       });
   };
 
-  if (!eventData || isLoading) return <Loader lng={lng as string} />;
+  if (!eventData || isLoading) return <DynamicLoader classNames='mt-16' />;
   return (
     <EventPreview eventData={eventData} lng={lng as string}>
       <div className='flex justify-center gap-8'>

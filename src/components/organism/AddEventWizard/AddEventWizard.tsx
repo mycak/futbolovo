@@ -5,7 +5,7 @@ import { useAddEventWizardStore } from '@/stores';
 import AddEventPreview from './AddEventPreview';
 import { useJsApiLoader } from '@react-google-maps/api';
 import { googleApiConfig } from '@/configs/googleApi';
-import Loader from '@/components/atoms/Loader';
+import DynamicLoader from '@/components/atoms/DynamicLoader';
 
 const steps: {
   key: 'addEventForm' | 'preview' | 'confirmMessage';
@@ -24,7 +24,7 @@ const AddEventWizard = ({ lng }: { lng: string }) => {
   const currentStep = useAddEventWizardStore((state) => state.currentStep);
   const { Component } = steps[currentStep];
 
-  return isLoaded ? <Component /> : <Loader lng={lng} />;
+  return isLoaded ? <Component /> : <DynamicLoader classNames='mt-8' />;
 };
 
 export default AddEventWizard;

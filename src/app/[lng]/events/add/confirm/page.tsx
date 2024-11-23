@@ -1,7 +1,7 @@
 'use client';
 
 import { useTranslation } from '@/app/i18n/client';
-import Loader from '@/components/atoms/Loader';
+import DynamicLoader from '@/components/atoms/DynamicLoader';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import AddEventConfirm from '@/components/organism/AddEventWizard/AddEventConfirm';
@@ -19,7 +19,7 @@ const AddEventConfirmPage = () => {
           <div className='mx-auto max-w-max'>
             <i className='fa-solid fa-map-location-dot fa-5x text-ivory-150 mx-auto' />
           </div>
-          <Suspense fallback={<Loader lng={lng as string} />}>
+          <Suspense fallback={<DynamicLoader classNames='my-16' />}>
             <AddEventConfirm t={t} />
           </Suspense>
         </div>
