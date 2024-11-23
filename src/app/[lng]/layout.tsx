@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Protest_Guerrilla } from 'next/font/google';
 import clsx from 'clsx';
-import './globals.css';
+import '../../globals.css';
 import Script from 'next/script';
 import { mainPagesMetadata } from '@/constants/metadata';
 import { dir } from 'i18next';

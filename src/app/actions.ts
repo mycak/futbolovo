@@ -12,12 +12,12 @@ export async function getEvents(filters: MapFilters) {
   };
 
   // Categories filter
-  if (filters.categories) {
+  if (filters.categories?.length) {
     whereClause.category = { in: filters.categories };
   }
 
   // Search filter
-  if (filters.search) {
+  if (filters.search?.length) {
     const search = filters.search;
     whereClause.OR = [
       { name: { contains: search, mode: 'insensitive' } },
@@ -31,7 +31,7 @@ export async function getEvents(filters: MapFilters) {
   }
 
   // Age categories filter
-  if (filters.ageCategories) {
+  if (filters.ageCategories?.length) {
     whereClause.ageCategories = { hasSome: filters.ageCategories };
     whereClause.category = {
       in: [

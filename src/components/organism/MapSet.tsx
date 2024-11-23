@@ -7,7 +7,7 @@ import { useMapStore } from '@/stores';
 import Filters from './Filters';
 import MapComponent from './MapComponent';
 import PageWrapper from '../atoms/PageWrapper';
-import Loader from '../atoms/Loader';
+import DynamicLoader from '../atoms/DynamicLoader';
 
 const MapSet = ({ lng }: { lng: string }) => {
   const { isLoaded } = useJsApiLoader(googleApiConfig(lng));
@@ -36,7 +36,7 @@ const MapSet = ({ lng }: { lng: string }) => {
         </div>
       ) : (
         <PageWrapper classNames='min-h-96 pt-16'>
-          <Loader lng={lng} />
+          <DynamicLoader />
         </PageWrapper>
       )}
     </div>

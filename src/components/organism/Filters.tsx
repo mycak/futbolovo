@@ -23,6 +23,7 @@ import DateRangeInput from '../atoms/inputs/DateRangeInput';
 import PageWrapper from '../atoms/PageWrapper';
 import SearchInput from '../atoms/inputs/SearchInput';
 import Button from '../atoms/Button';
+import clsx from 'clsx';
 
 const Filters = () => {
   const { lng } = useParams();
@@ -33,6 +34,7 @@ const Filters = () => {
     values: filters,
   });
   const [dateRangeDisabled, setDateRangeDisabled] = useState<boolean>(false);
+  const [showMoreFilters, setShowMoreFilters] = useState<boolean>(false);
   const currentCategories = useWatch({ control, name: 'categories' });
   const startDate = useWatch({ control, name: 'startDate' });
   const endDate = useWatch({ control, name: 'endDate' });
@@ -82,51 +84,83 @@ const Filters = () => {
             placeholder={t('chooseCategory')}
             options={categoryOptions(t)}
           />
-          <LocalizationInput
-            label={t('location')}
-            placeholder={t('cityAndPlace')}
-            onChangeCallback={onLocationChange}
-            currentCoords={filters.coords}
-          />
 
-          <div className='relative'>
-            <DateRangeInput
-              setValue={setValue as unknown as UseFormRegister<FieldValues>}
-              startDate={startDate}
-              endDate={endDate}
-              label={t('dateRange')}
-              minDate
-              placeholder={t('choose')}
-              disabled={dateRangeDisabled}
-            />
-            {dateRangeDisabled && (
-              <p className='absolute top-16 text-sm text-grass-50'>
-                {t('rangeDisabledInfo')}
-              </p>
+          <div
+            style={
+              {
+                interpolateSize: 'allow-keywords',
+              } as React.CSSProperties
+            }
+            className={clsx(
+              'w-full flex gap-y-2 flex-col md:h-auto md:overflow-visible allow-keywords',
+              'transition-[height] duration-500 ease-in-out',
+              {
+                'h-auto': showMoreFilters,
+                'h-0': !showMoreFilters,
+                'overflow-hidden': true,
+                'md:contents [&>*]:w-80': !showMoreFilters,
+              }
             )}
+          >
+            <div className='contents [&>*]:w-80'>
+              <LocalizationInput
+                label={t('location')}
+                placeholder={t('cityAndPlace')}
+                onChangeCallback={onLocationChange}
+                currentCoords={filters.coords}
+              />
+
+              <div className='relative'>
+                <DateRangeInput
+                  setValue={setValue as unknown as UseFormRegister<FieldValues>}
+                  startDate={startDate}
+                  endDate={endDate}
+                  label={t('dateRange')}
+                  minDate
+                  placeholder={t('choose')}
+                  disabled={dateRangeDisabled}
+                />
+                {dateRangeDisabled && (
+                  <p className='absolute top-16 text-sm text-grass-50'>
+                    {t('rangeDisabledInfo')}
+                  </p>
+                )}
+              </div>
+              <div className='relative'>
+                <SelectInput
+                  control={control as unknown as Control<FieldValues>}
+                  label={t('ageCategory')}
+                  id='ageCategories'
+                  name='ageCategories'
+                  isMulti
+                  closeMenuOnSelect={false}
+                  placeholder={t('choose')}
+                  options={ageCategoryOptions}
+                />
+              </div>
+              <SearchInput
+                label={t('search')}
+                placeholder={t('writePhrase')}
+                register={register as unknown as UseFormRegister<FieldValues>}
+                name='search'
+              />
+            </div>
           </div>
-          <div className='relative'>
-            <SelectInput
-              control={control as unknown as Control<FieldValues>}
-              label={t('ageCategory')}
-              id='ageCategories'
-              name='ageCategories'
-              isMulti
-              closeMenuOnSelect={false}
-              placeholder={t('choose')}
-              options={ageCategoryOptions}
-            />
-          </div>
-          <SearchInput
-            label={t('search')}
-            placeholder={t('writePhrase')}
-            register={register as unknown as UseFormRegister<FieldValues>}
-            name='search'
+          <Button
+            onClick={() => setShowMoreFilters(!showMoreFilters)}
+            classNames={clsx(
+              !showMoreFilters ? 'bg-grass-45' : 'bg-red-500 mt-2',
+              'md:hidden h-[26px] text-sm pl-3 pr-5 justify-around'
+            )}
+            variant='icon'
+            icon={showMoreFilters ? 'remove' : 'add'}
+            text={showMoreFilters ? t('lessFilters') : t('moreFilters')}
+            type='button'
           />
         </div>
-        <div className='flex gap-4 mx-auto'>
+        <div className='flex gap-4 mx-auto mt-6'>
           <Button
-            classNames='h-[38px] mt-6 text-xl pl-3 pr-5 bg-red-400'
+            classNames='h-[38px] text-xl pl-3 pr-5 bg-red-400'
             variant='icon'
             icon='add'
             text={t('add')}
@@ -134,7 +168,7 @@ const Filters = () => {
             href={paths.EventAdd}
           />
           <Button
-            classNames='h-[38px] mt-6 bg-grass-45 text-xl pl-3 pr-5'
+            classNames='h-[38px] bg-grass-45 text-xl pl-3 pr-5'
             variant='icon'
             icon='search'
             text={t('search')}

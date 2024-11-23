@@ -24,20 +24,16 @@ const EventImage = ({
   return (
     <div className={clsx('relative mx-auto max-w-full', classNames)}>
       {isLoading ? (
-        !onPageImage ? (
-          <div className='absolute left-[20%] flex items-center justify-center mx-auto w-28'>
-            <Loader lng={lng as string} small />
-          </div>
-        ) : (
-          <>
-            <div className='flex items-center justify-center mx-auto w-64'>
-              <Loader lng={lng as string} small />
-            </div>
-          </>
-        )
-      ) : (
-        <></>
-      )}
+        <div
+          className={clsx(
+            !onPageImage
+              ? 'absolute left-[20%] flex items-center justify-center mx-auto w-28'
+              : 'flex items-center justify-center mx-auto w-64'
+          )}
+        >
+          <Loader lng={lng as string} small />
+        </div>
+      ) : null}
 
       {eventData.image ? (
         <CldImage
