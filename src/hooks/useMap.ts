@@ -15,7 +15,7 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
   const setMapZoom = useMapStore((state) => state.setZoom);
   const setMapCenter = useMapStore((state) => state.setCenter);
 
-  const { data } = useQuery({
+  const { data, isLoading: areEventsLoading } = useQuery({
     queryKey: ['events', JSON.stringify(filters)],
     queryFn: () => getEvents(filters),
   });
@@ -82,6 +82,7 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
     onClusterClick,
     saveMapData,
     events,
+    areEventsLoading,
   };
 };
 

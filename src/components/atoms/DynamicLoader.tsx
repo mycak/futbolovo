@@ -31,7 +31,7 @@ const DynamicLoader = ({ classNames }: { classNames?: string }) => {
               src='/icons/loader/cloud.svg'
               width={48}
               height={48}
-              className='absolute loader-icon-stroke fa-solid fa-cloud text-ivory-150 z-10 fa-3x animate-clouds loader-icon-filter'
+              className='absolute w-12 h-12 loader-icon-stroke fa-solid fa-cloud text-ivory-150 z-10 animate-clouds loader-icon-filter'
               style={getCloudStyle(index)}
               priority
               key={index}
@@ -39,7 +39,7 @@ const DynamicLoader = ({ classNames }: { classNames?: string }) => {
             />
           ))}
         </div>
-        <span className='bg-gray-300 relative w-[250px] h-[250px] rounded-full overflow-hidden border-4 border-gray-900 ball-fence'>
+        <span className='bg-gray-300 relative w-[250px] h-[250px] rounded-full overflow-hidden border-1 border-gray-900 ball-fence'>
           <i className='ball-loader-bg animate-rotate360 rounded-full absolute inset-0'></i>
         </span>
       </div>

@@ -11,6 +11,7 @@ import { MAX_ZOOM_LEVEL } from '@/constants/common';
 import PageWrapper from '../atoms/PageWrapper';
 import MapInfoBox from '../molecules/MapComponents/MapInfoBox';
 import MapInfoBoxExtended from '../molecules/MapComponents/MapInfoBoxExtended';
+import DynamicLoader from '../atoms/DynamicLoader';
 
 const containerStyle = {
   width: '100%',
@@ -32,7 +33,8 @@ const MapComponent = ({
     position: undefined,
     items: [],
   });
-  const { onClusterClick, saveMapData, events } = useMap(mapRef);
+  const { onClusterClick, saveMapData, events, areEventsLoading } =
+    useMap(mapRef);
 
   useEffect(() => {
     if (filters.coords?.latitude && filters.coords?.longitude) {
@@ -84,6 +86,12 @@ const MapComponent = ({
           mapRef.current = map;
         }}
       >
+        {areEventsLoading ? (
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+            <DynamicLoader />
+          </div>
+        ) : null}
+
         <MarkerClustererF
           options={clusterConfig}
           onClick={onClusterClickAction}

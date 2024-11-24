@@ -5,6 +5,7 @@ import { MapFilters } from '@/types/common';
 import { EventCategoryEnum, Prisma } from '@prisma/client';
 
 export async function getEvents(filters: MapFilters) {
+  console.log(filters.search);
   // Build the where clause based on filters
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const whereClause: any = {
@@ -22,11 +23,7 @@ export async function getEvents(filters: MapFilters) {
     whereClause.OR = [
       { name: { contains: search, mode: 'insensitive' } },
       { description: { contains: search, mode: 'insensitive' } },
-      {
-        location: {
-          addressName: { contains: search, mode: 'insensitive' },
-        },
-      },
+      { email: { contains: search, mode: 'insensitive' } },
     ];
   }
 
