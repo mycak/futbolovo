@@ -13,6 +13,7 @@ import { useTranslation } from '@/app/i18n/client';
 import { EventCategoryEnum } from '@prisma/client';
 import Button from '@/components/atoms/Button';
 import Divider from '@/components/atoms/Divider';
+import EventImage from '../Events/EventImage';
 
 const MapInfoBoxExtended = ({
   events,
@@ -90,7 +91,7 @@ const MapInfoBoxExtended = ({
         aria-labelledby='infoBox-title'
         role='dialog'
         className={clsx(
-          'max-h-full relative border border-grass-50 rounded-lg bg-emerald-900 text-ivory-150 w-80',
+          'max-h-full relative border border-grass-50 rounded-lg bg-emerald-900 text-ivory-150 w-80 max-w-80',
           'hover:cursor-pointer focus:outline-none focus:border-grass-40',
           'transition-all duration-300 ease-out',
           isVisible ? 'opacity-95 ' : 'opacity-0'
@@ -133,6 +134,10 @@ const MapInfoBoxExtended = ({
               <h1 className='text-xl font-bold text-center text-grass-30 mb-1'>
                 {event.name}
               </h1>
+              <EventImage
+                eventData={event}
+                classNames='w-3/5 mt-6 md:mt-0 md:w-48 mb-4'
+              />
               {event.category === EventCategoryEnum.TOURNAMENT && (
                 <div className='flex items-center gap-3'>
                   <div className='w-3 flex flex-col items-center'>

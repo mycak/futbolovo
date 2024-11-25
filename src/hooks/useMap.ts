@@ -56,13 +56,22 @@ const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {
     ) => void,
     events: Events
   ) => {
+    const markers = cluster.getMarkers()?.map((marker) => marker.getPosition());
+    const allInOnePlace = markers?.every(
+      (position, _, array) =>
+        position &&
+        array[0] &&
+        position.lat() === array[0].lat() &&
+        position.lng() === array[0].lng()
+    );
+
     const currentZoom = mapRef.current?.getZoom() ?? 20;
     const center = cluster.getCenter();
     if (center) {
       mapRef.current?.panTo(center);
     }
 
-    if (currentZoom > MAX_ZOOM_LEVEL - 1) {
+    if (currentZoom > MAX_ZOOM_LEVEL - 1 || allInOnePlace) {
       const markers = cluster.getMarkers();
       //HERE WE WANT TO SHOW EVENTS DETAILS LIST
       const markersIds = markers.map((marker) => marker.getTitle());
