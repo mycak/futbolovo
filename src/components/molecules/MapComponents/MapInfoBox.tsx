@@ -156,6 +156,28 @@ const MapInfoBox = ({
                 </p>
               </div>
             )}
+            {([EventCategoryEnum.SERVICE] as EventCategoryEnum[]).includes(
+              event.category
+            ) && (
+              <div className='flex items-center gap-3'>
+                <div className='w-3 flex flex-col items-center'>
+                  <i className='fa-regular fa-comment text-grass-50' />
+                </div>
+                <p
+                  className='whitespace-pre-line'
+                  style={{
+                    width: '-webkit-fill-available',
+                    wordBreak: 'break-word',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 15,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                  }}
+                >
+                  {event.description}
+                </p>
+              </div>
+            )}
             <div className='flex items-center gap-3'>
               <div className='w-3 flex flex-col items-center'>
                 <i className='fa-solid fa-coins text-grass-50' />
