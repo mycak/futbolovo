@@ -35,6 +35,8 @@ const Filters = () => {
   });
   const [dateRangeDisabled, setDateRangeDisabled] = useState<boolean>(false);
   const [showMoreFilters, setShowMoreFilters] = useState<boolean>(false);
+  const [overflowHidden, setOverflowHidden] = useState<boolean>(false);
+
   const currentCategories = useWatch({ control, name: 'categories' });
   const startDate = useWatch({ control, name: 'startDate' });
   const endDate = useWatch({ control, name: 'endDate' });
@@ -73,7 +75,7 @@ const Filters = () => {
         onSubmit={handleSubmit(onSubmit)}
         className='flex flex-col justify-center w-full'
       >
-        <div className='flex justify-center gap-x-8 gap-y-2 flex-wrap [&>*]:w-80'>
+        <div className='flex flex-col items-center md:flex-row justify-center gap-x-8 gap-y-2 flex-wrap [&>*]:w-80'>
           <SelectInput
             control={control as unknown as Control<FieldValues>}
             label={t('category')}
@@ -97,7 +99,7 @@ const Filters = () => {
               {
                 'h-auto': showMoreFilters,
                 'h-0': !showMoreFilters,
-                'overflow-hidden': true,
+                'overflow-hidden': overflowHidden ? false : true,
                 'md:contents [&>*]:w-80': !showMoreFilters,
               }
             )}
@@ -147,7 +149,10 @@ const Filters = () => {
             </div>
           </div>
           <Button
-            onClick={() => setShowMoreFilters(!showMoreFilters)}
+            onClick={() => {
+              setShowMoreFilters(!showMoreFilters);
+              setTimeout(() => setOverflowHidden(!showMoreFilters), 300);
+            }}
             classNames={clsx(
               !showMoreFilters ? 'bg-grass-45' : 'bg-red-500 mt-2',
               'md:hidden h-[26px] text-sm pl-3 pr-5 justify-around'

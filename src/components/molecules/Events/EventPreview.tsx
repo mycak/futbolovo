@@ -4,7 +4,7 @@ import React from 'react';
 import EventImage from './EventImage';
 import { formatPhoneNumber, translateEventType } from '@/utils';
 import { currentCurrencySign, DATE_FORMAT } from '@/constants/common';
-import { differenceInDays, format } from 'date-fns';
+import { differenceInDays, format, subHours } from 'date-fns';
 import { AddEventInputs } from '@/schemas/addEventSchema';
 import { useTranslation } from '@/app/i18n/client';
 import { Event, EventCategoryEnum } from '@prisma/client';
@@ -50,7 +50,7 @@ const EventPreview = ({
               <i className='fa-solid fa-calendar-days text-grass-50' />
               <p>
                 {eventData.date
-                  ? format(new Date(eventData.date), DATE_FORMAT)
+                  ? format(subHours(new Date(eventData.date), 3), DATE_FORMAT)
                   : '-'}
               </p>
             </div>
@@ -62,9 +62,12 @@ const EventPreview = ({
               <p>
                 {eventData.startDate && eventData.endDate
                   ? `${format(
-                      new Date(eventData.startDate),
+                      subHours(new Date(eventData.startDate), 3),
                       DATE_FORMAT
-                    )} - ${format(new Date(eventData.endDate), DATE_FORMAT)}`
+                    )} - ${format(
+                      subHours(new Date(eventData.endDate), 3),
+                      DATE_FORMAT
+                    )}`
                   : '-'}
               </p>
             </div>
@@ -79,7 +82,7 @@ const EventPreview = ({
                       new Date(eventData.endDate)
                     )
                   : '-'}{' '}
-                dni
+                ({t('daysNumber')})
               </p>
             </div>
           )}
@@ -138,7 +141,10 @@ const EventPreview = ({
             <i className='fa-regular fa-comment text-grass-50' />
             <p
               className='whitespace-pre-line pr-4'
-              style={{ width: '-webkit-fill-available', wordBreak: 'break-word' }}
+              style={{
+                width: '-webkit-fill-available',
+                wordBreak: 'break-word',
+              }}
             >
               {eventData.description}
             </p>

@@ -77,7 +77,6 @@ const AddEventForm = () => {
   const endDate = useWatch({ control, name: 'endDate' });
 
   const onSubmit: SubmitHandler<AddEventInputs> = (data) => {
-    console.log(data);
     setAddData({
       ...data,
       additionalLocations:

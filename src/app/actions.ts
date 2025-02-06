@@ -3,9 +3,9 @@
 import { prisma } from '@/configs/prisma';
 import { MapFilters } from '@/types/common';
 import { EventCategoryEnum, Prisma } from '@prisma/client';
+import { setHours, setMinutes } from 'date-fns';
 
 export async function getEvents(filters: MapFilters) {
-  console.log(filters.search);
   // Build the where clause based on filters
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const whereClause: any = {
@@ -41,7 +41,9 @@ export async function getEvents(filters: MapFilters) {
 
   // Dates filter
   if (filters.startDate && filters.endDate) {
-    const { startDate, endDate } = filters;
+    const startDate = setMinutes(setHours(new Date(filters.startDate), 2), 0);
+    const endDate = setMinutes(setHours(new Date(filters.startDate), 24), 0);
+
     whereClause.NOT = [
       {
         category: EventCategoryEnum.TOURNAMENT,

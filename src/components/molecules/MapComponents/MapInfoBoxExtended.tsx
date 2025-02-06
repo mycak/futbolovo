@@ -2,7 +2,7 @@
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
 import { InfoBox } from '@react-google-maps/api';
 import { generateMapIcon } from '@/utils';
-import { format } from 'date-fns';
+import { format, subHours } from 'date-fns';
 import { BulkEvents } from '@/types/common';
 import { currentCurrencySign, DATE_FORMAT } from '@/constants/common';
 import clsx from 'clsx';
@@ -143,9 +143,10 @@ const MapInfoBoxExtended = ({
                   <div className='w-3 flex flex-col items-center'>
                     <i className='fa-solid fa-calendar-days text-grass-50' />
                   </div>
+
                   <p className='text-sm'>
                     {event.date
-                      ? format(new Date(event.date), DATE_FORMAT)
+                      ? format(subHours(new Date(event.date), 3), DATE_FORMAT)
                       : '-'}
                   </p>
                 </div>
@@ -159,9 +160,12 @@ const MapInfoBoxExtended = ({
                   <p className='text-sm'>
                     {event.startDate && event.endDate
                       ? `${format(
-                          new Date(event.startDate),
+                          subHours(new Date(event.startDate), 3),
                           DATE_FORMAT
-                        )} - ${format(new Date(event.endDate), DATE_FORMAT)}`
+                        )} - ${format(
+                          subHours(new Date(event.endDate), 3),
+                          DATE_FORMAT
+                        )}`
                       : '-'}
                   </p>
                 </div>
