@@ -42,8 +42,11 @@ const DateRangeInput = ({
           startDate={startDate ?? undefined}
           endDate={endDate ?? undefined}
           onChange={(dates) => {
-            setValue('startDate', dates[0]);
-            setValue('endDate', dates[1]);
+            const [start, end] = dates;
+            if (start) start.setHours(15, 0, 0, 0);
+            if (end) end.setHours(15, 0, 0, 0);
+            setValue('startDate', start);
+            setValue('endDate', end);
           }}
           className={customStyles({ disabled, error: !!error })}
           shouldCloseOnSelect

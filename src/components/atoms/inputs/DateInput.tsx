@@ -40,7 +40,10 @@ const DateInput = ({
               disabled={disabled}
               selected={value ?? null}
               minDate={minDate ? new Date() : undefined}
-              onChange={(date) => onChange(date)}
+              onChange={(date) => {
+                if (date) date.setHours(15, 0, 0, 0);
+                onChange(date);
+              }}
               className={customStyles({ disabled, error: !!error })}
               calendarClassName='!p-1 !border !border-grass-50 !bg-emerald-600 !rounded-sm max-w-80'
               dayClassName={() =>
