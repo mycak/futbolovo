@@ -42,7 +42,7 @@ export async function getEvents(filters: MapFilters) {
   // Dates filter
   if (filters.startDate && filters.endDate) {
     const startDate = setMinutes(setHours(new Date(filters.startDate), 2), 0);
-    const endDate = setMinutes(setHours(new Date(filters.startDate), 24), 0);
+    const endDate = setMinutes(setHours(new Date(filters.endDate), 24), 0);
 
     whereClause.NOT = [
       {
