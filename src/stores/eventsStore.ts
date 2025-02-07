@@ -12,16 +12,18 @@ export interface EventsAction {
   clearState: () => void;
 }
 
+export const filtersInitialState = {
+  categories: undefined,
+  coords: undefined,
+  search: '',
+  startDate: new Date(),
+  endDate: addMonths(new Date(), 6),
+  ageCategories: undefined,
+};
+
 const initialState: EventsState = {
   events: [],
-  filters: {
-    categories: undefined,
-    coords: undefined,
-    search: undefined,
-    startDate: new Date(),
-    endDate: addMonths(new Date(), 6),
-    ageCategories: undefined,
-  },
+  filters: filtersInitialState,
 };
 
 export const useEventsStore = create<EventsState & EventsAction>((set) => ({

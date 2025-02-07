@@ -10,7 +10,7 @@ import {
   UseFormRegister,
   useWatch,
 } from 'react-hook-form';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { LocationInputState, MapFilters } from '@/types/common';
 import { paths } from '@/constants/paths';
 import { useEventsStore } from '@/stores';
@@ -24,6 +24,8 @@ import PageWrapper from '../atoms/PageWrapper';
 import SearchInput from '../atoms/inputs/SearchInput';
 import Button from '../atoms/Button';
 import clsx from 'clsx';
+import { areObjectsEqual } from '@/utils/common';
+import { filtersInitialState } from '@/stores/eventsStore';
 
 const Filters = () => {
   const { lng } = useParams();
@@ -40,6 +42,15 @@ const Filters = () => {
   const currentCategories = useWatch({ control, name: 'categories' });
   const startDate = useWatch({ control, name: 'startDate' });
   const endDate = useWatch({ control, name: 'endDate' });
+
+  const isResetButtonDisabled = useMemo(
+    () => areObjectsEqual(filters, filtersInitialState),
+    [filters]
+  );
+
+  const onResetFilters = () => {
+    setFilters(filtersInitialState);
+  };
 
   useEffect(() => {
     const rangeCategories: EventCategoryEnum[] = [
@@ -179,6 +190,17 @@ const Filters = () => {
             text={t('search')}
             type='submit'
           />
+
+          {!isResetButtonDisabled ? (
+            <Button
+              classNames='h-[38px] bg-grass-45 text-xl pl-3 bg-red-600'
+              variant='icon'
+              icon='rotate-left'
+              text={t('reset')}
+              type='button'
+              onClick={onResetFilters}
+            />
+          ) : null}
         </div>
       </form>
     </PageWrapper>

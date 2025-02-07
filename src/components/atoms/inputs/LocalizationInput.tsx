@@ -47,6 +47,9 @@ const LocalizationInput = ({
   const { t } = useTranslation();
 
   useEffect(() => {
+    if (!currentCoords) {
+      setInput(initialInputState);
+    }
     if (
       currentCoords?.latitude &&
       currentCoords?.longitude &&

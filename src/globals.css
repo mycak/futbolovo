@@ -99,6 +99,9 @@ body::-webkit-scrollbar {
 .react-datepicker__current-month {
   color: #064e3b !important;
 }
+.react-datepicker__day--outside-month {
+  color: #9ae6b4 !important;
+}
 .react-datepicker__day-name {
   color: #059669 !important;
 }

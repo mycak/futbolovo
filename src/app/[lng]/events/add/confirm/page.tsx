@@ -15,7 +15,7 @@ const AddEventConfirmPage = () => {
   return (
     <PageContainer>
       <PageWrapper>
-        <div className='bg-gray-900 py-8 px-8 mx-auto max-w-max rounded-sm'>
+        <div className='bg-gray-900 py-8 px-4 md:px-8 mx-auto max-w-max rounded-sm'>
           <div className='mx-auto max-w-max'>
             <i className='fa-solid fa-map-location-dot fa-5x text-ivory-150 mx-auto' />
           </div>

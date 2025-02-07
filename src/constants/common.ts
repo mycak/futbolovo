@@ -1,5 +1,7 @@
 //REGEXS
-export const phoneRegex = new RegExp(/^\+48 ?\d{3} ?\d{3} ?\d{3}$|^\d{7,10}$/);
+export const phoneRegex = new RegExp(
+  /^\+48 ?\d{3} ?\d{3} ?\d{3}$|^\d{7,10}$|^\d{9}$|^\d{3} ?\d{3} ?\d{3}$/
+);
 
 //DATES
 export const DATE_FORMAT = 'dd.MM.yyyy';

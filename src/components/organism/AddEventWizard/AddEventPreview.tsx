@@ -41,13 +41,15 @@ const AddEventPreview = () => {
     );
 
     await Promise.all(addEventPromises)
-      .then(() => {
+      .then((data) => {
+        const eventIds = data.map((event) => event.id);
         const successPageQuery = {
           email: eventData.email,
           endDate: format(
             generateEventVisibilityEndDate(eventData.category, eventData),
             DATE_FORMAT
           ),
+          eventIds: encodeURIComponent(JSON.stringify(eventIds)),
         };
         const params = new URLSearchParams(successPageQuery).toString();
         const fullPath = `${paths.EventAddConfirm}?${params}`;

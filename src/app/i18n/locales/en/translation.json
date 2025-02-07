@@ -107,6 +107,7 @@
   "imageInputLabel": "Photo/graphic/logo",
   "imageInputPlaceholder": "Choose a file",
   "dateRange": "Date Range",
+  "reset": "Reset",
   "rangeDisabledInfo": "Applies to camps, matches or tournaments categories.",
   "ageCategory": "Age Category",
   "choose": "Choose",

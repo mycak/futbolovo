@@ -28,7 +28,7 @@ const SelectInput = <
   const id = Date.now().toString();
 
   //WORKAROUND FOR CONSOLE ERROR
-  const [isMounted, setIsMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
 
   const [currentSelectValues, setCurrentSelectValues] = useState<
     SelectOption | SelectOption[] | undefined
@@ -56,6 +56,8 @@ const SelectInput = <
                   : (props.options as unknown as SelectOption[]).find(
                       (option) => option.value === value
                     )
+                : value === undefined
+                ? []
                 : currentSelectValues;
 
             return (
