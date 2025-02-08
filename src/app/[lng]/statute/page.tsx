@@ -6,11 +6,17 @@ import { contactEmail } from '@/constants/common';
 import Head from 'next/head';
 import { Metadata } from 'next';
 
-export async function generateMetadata({
-  params: { lng },
-}: {
-  params: { lng: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ lng: string }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    lng
+  } = params;
+
   const { t } = await translate(lng);
   return {
     title: t('metatags.statute.title'),
@@ -18,13 +24,14 @@ export async function generateMetadata({
   };
 }
 
-const StatutePage = async ({
-  params,
-}: {
-  params: {
-    lng: string;
-  };
-}) => {
+const StatutePage = async (
+  props: {
+    params: Promise<{
+      lng: string;
+    }>;
+  }
+) => {
+  const params = await props.params;
   const { t } = await translate(params.lng);
   const pointTitleClassName = 'text-grass-50 my-2 ';
   return (

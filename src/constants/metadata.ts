@@ -42,9 +42,4 @@ export const mainPagesMetadata = (t: TFunction<'translation', undefined>) => ({
     index: true,
   },
   keywords: ['futbol', 'piłka nożna', 'soccer', 'sporty', 'boiska'],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-  },
-  themeColor: '#000000',
 });

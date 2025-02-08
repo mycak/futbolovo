@@ -5,11 +5,13 @@ import AddPlaceSection from '@/components/molecules/AddPlaceSection';
 import MapSet from '@/components/organism/MapSet';
 import { Metadata } from 'next';
 
-export async function generateMetadata({
-  params: { lng },
-}: {
-  params: { lng: string };
+export async function generateMetadata(props: {
+  params: Promise<{ lng: string }>;
 }): Promise<Metadata> {
+  const params = await props.params;
+
+  const { lng } = params;
+
   const { t } = await translate(lng);
   return {
     title: t('metatags.title'),
@@ -17,18 +19,17 @@ export async function generateMetadata({
   };
 }
 
-const MapPage = async ({
-  params,
-}: {
-  params: {
+const MapPage = async (props: {
+  params: Promise<{
     lng: string;
-  };
+  }>;
 }) => {
+  const params = await props.params;
   const lng = params.lng;
 
   return (
     <PageContainer>
-      <MapSet lng={lng} />
+      <MapSet />
       <Divider />
       <AddPlaceSection lng={lng} />
     </PageContainer>

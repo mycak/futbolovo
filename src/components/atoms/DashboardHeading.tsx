@@ -24,8 +24,9 @@ const DashboardHeading = ({
             {topic}
             <span
               className={clsx(
-                mainTopics.length === index + 1 && 'hidden sm:hidden',
-                'hidden sm:ml-8 sm:inline'
+                mainTopics.length === index + 1
+                  ? 'hidden sm:hidden'
+                  : 'hidden sm:ml-8 sm:inline'
               )}
             >
               •

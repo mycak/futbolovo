@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config "../tailwind.config.ts";
 
 :root {
   --background: #020617;
@@ -18,16 +17,7 @@ body {
   color: var(--foreground);
   background: var(--background);
 }
-p,
-a,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #fbf5df;
-}
+
 /* DYNAMIC LOADER */
 
 .loader-icon-filter {

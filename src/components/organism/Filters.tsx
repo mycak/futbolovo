@@ -10,7 +10,7 @@ import {
   UseFormRegister,
   useWatch,
 } from 'react-hook-form';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LocationInputState, MapFilters } from '@/types/common';
 import { paths } from '@/constants/paths';
 import { useEventsStore } from '@/stores';
@@ -43,10 +43,7 @@ const Filters = () => {
   const startDate = useWatch({ control, name: 'startDate' });
   const endDate = useWatch({ control, name: 'endDate' });
 
-  const isResetButtonDisabled = useMemo(
-    () => areObjectsEqual(filters, filtersInitialState),
-    [filters]
-  );
+  const isResetButtonDisabled = areObjectsEqual(filters, filtersInitialState);
 
   const onResetFilters = () => {
     setFilters(filtersInitialState);
@@ -165,9 +162,10 @@ const Filters = () => {
               setTimeout(() => setOverflowHidden(!showMoreFilters), 300);
             }}
             classNames={clsx(
-              !showMoreFilters ? 'bg-grass-45' : 'bg-red-500 mt-2',
+              showMoreFilters && 'mt-2',
               'md:hidden h-[26px] text-sm pl-3 pr-5 justify-around'
             )}
+            color={!showMoreFilters ? 'bg-grass-45' : 'bg-red-500'}
             variant='icon'
             icon={showMoreFilters ? 'remove' : 'add'}
             text={showMoreFilters ? t('lessFilters') : t('moreFilters')}
@@ -176,7 +174,8 @@ const Filters = () => {
         </div>
         <div className='flex gap-4 mx-auto mt-6'>
           <Button
-            classNames='h-[38px] text-xl pl-3 pr-5 bg-red-400'
+            classNames='h-[38px] text-xl pl-3 pr-5'
+            color='bg-red-400'
             variant='icon'
             icon='add'
             text={t('add')}
@@ -184,7 +183,8 @@ const Filters = () => {
             href={paths.EventAdd}
           />
           <Button
-            classNames='h-[38px] bg-grass-45 text-xl pl-3 pr-5'
+            classNames='h-[38px] text-xl pl-3 pr-5'
+            color='bg-grass-45'
             variant='icon'
             icon='search'
             text={t('search')}
@@ -193,8 +193,9 @@ const Filters = () => {
 
           {!isResetButtonDisabled ? (
             <Button
-              classNames='h-[38px] bg-grass-45 text-xl pl-3 bg-red-600'
+              classNames='h-[38px] text-xl pl-3'
               variant='icon'
+              color='bg-red-600'
               icon='rotate-left'
               text={t('reset')}
               type='button'

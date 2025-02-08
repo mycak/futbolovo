@@ -8,11 +8,17 @@ import { Metadata } from 'next';
 import { contactEmail } from '@/constants/common';
 import { Trans } from 'react-i18next/TransWithoutContext';
 
-export async function generateMetadata({
-  params: { lng },
-}: {
-  params: { lng: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ lng: string }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    lng
+  } = params;
+
   const { t } = await translate(lng);
   return {
     title: t('metatags.cooperation.title'),
@@ -20,13 +26,14 @@ export async function generateMetadata({
   };
 }
 
-const CooperationPage = async ({
-  params,
-}: {
-  params: {
-    lng: string;
-  };
-}) => {
+const CooperationPage = async (
+  props: {
+    params: Promise<{
+      lng: string;
+    }>;
+  }
+) => {
+  const params = await props.params;
   const { t } = await translate(params.lng);
 
   return (

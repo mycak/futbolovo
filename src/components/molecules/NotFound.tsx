@@ -32,7 +32,8 @@ const NotFound = async ({
         </p>
         {is404 ? (
           <Button
-            classNames='h-[38px] text-xl bg-grass-40'
+            color='bg-grass-40'
+            classNames='h-[38px] text-xl'
             text={t('navigation.mainPage')}
             asLink
             href={paths.Dashboard}

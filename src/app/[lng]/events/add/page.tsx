@@ -5,11 +5,13 @@ import Back from '@/components/molecules/Back';
 import AddEventWizard from '@/components/organism/AddEventWizard/AddEventWizard';
 import { Metadata } from 'next';
 
-export async function generateMetadata({
-  params: { lng },
-}: {
-  params: { lng: string };
+export async function generateMetadata(props: {
+  params: Promise<{ lng: string }>;
 }): Promise<Metadata> {
+  const params = await props.params;
+
+  const { lng } = params;
+
   const { t } = await translate(lng);
   return {
     title: t('metatags.events.title'),
@@ -17,13 +19,12 @@ export async function generateMetadata({
   };
 }
 
-const AddEventPage = async ({
-  params,
-}: {
-  params: {
+const AddEventPage = async (props: {
+  params: Promise<{
     lng: string;
-  };
+  }>;
 }) => {
+  const params = await props.params;
   const { t } = await translate(params.lng);
 
   return (
@@ -36,7 +37,7 @@ const AddEventPage = async ({
           <h2 className='text-2xl md:text-3xl text-center text-grass-20 mt-4 md:mt-8'>
             {t('navigation.addPoint')}
           </h2>
-          <AddEventWizard lng={params.lng} />
+          <AddEventWizard />
         </div>
         <Back classNames='mx-auto mt-8' lng={params.lng} />
       </PageWrapper>

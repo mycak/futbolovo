@@ -4,10 +4,9 @@ import { CldImage } from 'next-cloudinary';
 import Image from 'next/image';
 import { generateDummyPoster } from '@/utils';
 import clsx from 'clsx';
-import { useParams } from 'next/navigation';
 import { Event } from '@prisma/client';
 import { AddEventInputs } from '@/schemas/addEventSchema';
-import Loader from '@/components/atoms/Loader';
+import DynamicLoader from '@/components/atoms/DynamicLoader';
 
 const EventImage = ({
   eventData,
@@ -19,7 +18,6 @@ const EventImage = ({
   onPageImage?: boolean;
 }) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const { lng } = useParams();
 
   return (
     <div className={clsx('relative mx-auto max-w-full', classNames)}>
@@ -28,10 +26,12 @@ const EventImage = ({
           className={clsx(
             !onPageImage
               ? 'absolute left-[20%] flex items-center justify-center mx-auto w-28'
-              : 'flex items-center justify-center mx-auto w-64'
+              : 'flex items-center justify-center'
           )}
         >
-          <Loader lng={lng as string} small />
+          <div className='scale-50'>
+            <DynamicLoader />
+          </div>
         </div>
       ) : null}
 

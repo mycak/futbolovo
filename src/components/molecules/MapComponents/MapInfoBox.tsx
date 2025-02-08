@@ -31,7 +31,7 @@ const MapInfoBox = ({
   const { t } = useTranslation(lng as string);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isRendered, setIsRendered] = useState<boolean>(false);
-  const timeoutId = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutId = useRef<ReturnType<typeof setTimeout>>(undefined);
   const isMobileView = useClientMediaQuery('(max-width: 768px)');
 
   // InfoBox options for positioning and disabling default close button
@@ -200,7 +200,8 @@ const MapInfoBox = ({
               href={paths.Event(event.id)}
               onClick={saveMapData}
               text={t('more')}
-              classNames='text-sm px-2 py-0 bg-grass-40 '
+              classNames='text-sm px-2 py-0'
+              color='bg-grass-40'
             />
           </div>
         </div>

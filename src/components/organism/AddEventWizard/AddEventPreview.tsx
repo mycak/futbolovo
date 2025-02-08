@@ -66,14 +66,16 @@ const AddEventPreview = () => {
     <EventPreview eventData={eventData} lng={lng as string}>
       <div className='flex justify-center gap-8'>
         <Button
-          classNames='h-[38px] md:text-xl pl-3 pr-5 bg-red-400'
+          classNames='h-[38px] md:text-xl pl-3 pr-5'
+          color='bg-red-400'
           variant='icon'
           text={t('fix')}
           icon='pen-to-square'
           onClick={prevStep}
         />
         <Button
-          classNames='h-[38px] bg-grass-45 md:text-xl pl-3 pr-5'
+          classNames='h-[38px] md:text-xl pl-3 pr-5'
+          color='bg-grass-45'
           variant='icon'
           icon='futbol'
           text={t('accept')}

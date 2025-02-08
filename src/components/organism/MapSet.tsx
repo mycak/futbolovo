@@ -9,8 +9,8 @@ import MapComponent from './MapComponent';
 import PageWrapper from '../atoms/PageWrapper';
 import DynamicLoader from '../atoms/DynamicLoader';
 
-const MapSet = ({ lng }: { lng: string }) => {
-  const { isLoaded } = useJsApiLoader(googleApiConfig(lng));
+const MapSet = () => {
+  const { isLoaded } = useJsApiLoader(googleApiConfig);
   const mapCenter = useMapStore((state) => state.center);
   const setMapCenter = useMapStore((state) => state.setCenter);
   const setZoom = useMapStore((state) => state.setZoom);

@@ -332,7 +332,8 @@ const AddEventForm = () => {
         <Divider contained classNames='col-span-2' />
 
         <Button
-          classNames='h-[38px] bg-grass-45 text-xl pl-3 pr-5 col-span-2 max-w-max mx-auto'
+          classNames='h-[38px] text-xl pl-3 pr-5 col-span-2 max-w-max mx-auto'
+          color='bg-grass-45'
           variant='icon'
           icon='location-dot'
           text={t('add')}

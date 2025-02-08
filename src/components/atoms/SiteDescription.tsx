@@ -17,18 +17,18 @@ const SiteDescription = ({
   lng: string;
 }) => {
   return (
-    <PageWrapper classNames='bg-gray-900 py-12 flex flex-col-reverse md:flex-row justify-between gap-6 lg:gap-12'>
+    <PageWrapper classNames='bg-gray-900 py-12 flex flex-col-reverse lg:flex-row justify-between gap-6 lg:gap-12'>
       <div className='flex flex-col justify-center'>
-        <h3 className='text-center md:text-right text-3xl lg:text-5xl text-grass-20'>
+        <h3 className='text-center lg:text-right text-3xl lg:text-5xl text-grass-20'>
           {siteDescriptionTexts.title}
         </h3>
-        <p className='text-center md:text-right md:text-xl mt-6'>
+        <p className='text-center lg:text-right md:text-xl mt-6'>
           {siteDescriptionTexts.description1}{' '}
           <span className='text-grass-50'>
             {siteDescriptionTexts.description2}
           </span>
         </p>
-        <div className='flex items-end gap-8 mx-auto md:ml-auto md:mr-0'>
+        <div className='flex items-end gap-8 mx-auto lg:ml-auto lg:mr-0'>
           <Button
             asLink
             href={`/${lng}/${paths.Map}`}
@@ -41,7 +41,8 @@ const SiteDescription = ({
             size='lg'
             href={`/${lng}/${paths.EventAdd}`}
             text={siteDescriptionTexts.secondButton}
-            classNames='mt-8 animate-shake bg-red-400 delay-1'
+            classNames='mt-8 animate-shake delay-1'
+            color='bg-red-400'
           />
         </div>
       </div>
@@ -50,7 +51,7 @@ const SiteDescription = ({
         alt='overview'
         width={510}
         height={600}
-        className='h-full w-5/6 md:w-2/3 mx-auto md:mr-auto md:ml-0'
+        className='h-full w-5/6 mx-auto md:w-2/3 lg:mr-auto lg:ml-0'
         style={{
           maxHeight: '600px',
           height: 'auto',

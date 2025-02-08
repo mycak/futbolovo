@@ -9,7 +9,7 @@ const IconsSection = ({
   items: IconText[];
 }) => {
   return (
-    <PageWrapper classNames='py-8 max-w-screen-xl mx-auto bg-slate-950'>
+    <PageWrapper classNames='py-8 max-w-screen-xl mx-auto bborder border-red-600'>
       <h3 className='text-3xl md:text-5xl text-center pb-8 text-grass-50'>
         {title}
       </h3>

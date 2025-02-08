@@ -30,7 +30,7 @@ const MapInfoBoxExtended = ({
   const { t } = useTranslation(lng as string);
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [isRendered, setIsRendered] = useState<boolean>(false);
-  const timeoutId = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutId = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const categories = [...new Set(events.items.map((item) => item.category))];
   const [activeCategory, setActiveCategory] = useState<EventCategoryEnum>(
@@ -206,7 +206,8 @@ const MapInfoBoxExtended = ({
                   href={paths.Event(event.id)}
                   onClick={saveMapData}
                   text={t('more')}
-                  classNames='mt-2 text-sm px-2 py-0 bg-grass-40 '
+                  classNames='mt-2 text-sm px-2 py-0'
+                  color='bg-grass-40'
                 />
               </div>
               {index !== eventsToRender.length - 1 ? (

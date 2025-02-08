@@ -12,11 +12,14 @@ import Hero from '@/components/molecules/Hero';
 import IconsSection from '@/components/molecules/IconsSection';
 import SiteDescription from '@/components/atoms/SiteDescription';
 
-export async function generateMetadata({
-  params: { lng },
-}: {
-  params: { lng: string };
+export async function generateMetadata(props: {
+  params: Promise<{
+    lng: string;
+  }>;
 }): Promise<Metadata> {
+  const params = await props.params;
+  const { lng } = params;
+
   const { t } = await translate(lng);
   return {
     title: t('metatags.home.title'),
@@ -24,11 +27,15 @@ export async function generateMetadata({
   };
 }
 
-export default async function DashboardPage({
-  params: { lng },
-}: Readonly<{
-  params: { lng: string };
-}>) {
+export default async function DashboardPage(props: {
+  params: Promise<{
+    lng: string;
+  }>;
+}) {
+  const params = await props.params;
+
+  let { lng } = params;
+
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { t } = await translate(lng);
   return (
