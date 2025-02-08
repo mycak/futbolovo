@@ -12,11 +12,17 @@ import {
 } from '@tanstack/react-query';
 import { Metadata } from 'next';
 
-export async function generateMetadata({
-  params: { lng },
-}: {
-  params: { lng: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ lng: string }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    lng
+  } = params;
+
   const { t } = await translate(lng);
   return {
     title: t('metatags.event.title'),
@@ -24,11 +30,12 @@ export async function generateMetadata({
   };
 }
 
-const EventPage = async ({
-  params,
-}: {
-  params: { id: string; lng: string };
-}) => {
+const EventPage = async (
+  props: {
+    params: Promise<{ id: string; lng: string }>;
+  }
+) => {
+  const params = await props.params;
   const queryClient = new QueryClient();
 
   const eventData = await queryClient.fetchQuery({

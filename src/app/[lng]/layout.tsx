@@ -11,6 +11,16 @@ import Header from '@/components/molecules/Header';
 import Footer from '@/components/molecules/Footer';
 import Providers from '../providers';
 
+import type { Viewport } from 'next';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  colorScheme: 'dark',
+};
+
 const protestGuerilla = Protest_Guerrilla({
   weight: '400',
   subsets: ['latin'],
@@ -22,11 +32,13 @@ export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));
 }
 
-export async function generateMetadata({
-  params: { lng },
-}: {
-  params: { lng: string };
+export async function generateMetadata(props: {
+  params: Promise<{ lng: string }>;
 }): Promise<Metadata> {
+  const params = await props.params;
+
+  let { lng } = params;
+
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = await translate(lng);
@@ -44,15 +56,20 @@ export async function generateMetadata({
   };
 }
 
-export default function RootLayout({
-  children,
-  params: { lng },
-}: Readonly<{
-  children: React.ReactNode;
-  params: {
-    lng: string;
-  };
-}>) {
+export default async function RootLayout(
+  props: Readonly<{
+    children: React.ReactNode;
+    params: {
+      lng: string;
+    };
+  }>
+) {
+  const params = await props.params;
+
+  const { lng } = params;
+
+  const { children } = props;
+
   return (
     <html lang={lng} dir={dir(lng)}>
       <Script

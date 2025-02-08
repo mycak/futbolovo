@@ -8,11 +8,14 @@ import Head from 'next/head';
 import { contactEmail, contactPhone } from '@/constants/common';
 import { Trans } from 'react-i18next/TransWithoutContext';
 
-export async function generateMetadata({
-  params: { lng },
-}: {
-  params: { lng: string };
+export async function generateMetadata(props: {
+  params: Promise<{
+    lng: string;
+  }>;
 }): Promise<Metadata> {
+  const params = await props.params;
+  const { lng } = params;
+
   const { t } = await translate(lng);
   return {
     title: t('metatags.contact.title'),
@@ -20,14 +23,14 @@ export async function generateMetadata({
   };
 }
 
-const ContactPage = async ({
-  params,
-}: {
-  params: {
+export default async function ContactPage(props: {
+  params: Promise<{
     lng: string;
-  };
-}) => {
-  const { t } = await translate(params.lng);
+  }>;
+}) {
+  const params = await props.params;
+  const { lng } = params;
+  const { t } = await translate(lng);
 
   return (
     <>
@@ -87,5 +90,4 @@ const ContactPage = async ({
       </PageContainer>
     </>
   );
-};
-export default ContactPage;
+}

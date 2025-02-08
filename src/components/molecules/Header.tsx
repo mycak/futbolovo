@@ -24,7 +24,10 @@ const Header = ({ lng }: { lng: string }) => {
             <React.Fragment key={lang}>
               <button
                 onClick={() => (window.location.href = `/${lang}/${pathname}`)}
-                className={clsx(lng === lang && 'hidden', 'text-sm opacity-45')}
+                className={clsx(
+                  lng === lang && 'hidden',
+                  'text-sm opacity-45 cursor-pointer'
+                )}
               >
                 {lang.toUpperCase()}
               </button>

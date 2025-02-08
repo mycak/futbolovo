@@ -14,6 +14,7 @@ type ButtonProps =
       type?: 'button' | 'submit' | 'reset';
       size?: 'sm' | 'md' | 'lg';
       isLoading?: boolean;
+      color?: string;
     }
   | {
       text?: string;
@@ -26,6 +27,7 @@ type ButtonProps =
       type?: 'button' | 'submit' | 'reset';
       size?: 'sm' | 'md' | 'lg';
       isLoading?: boolean;
+      color?: string;
     }
   | {
       text?: string;
@@ -38,6 +40,7 @@ type ButtonProps =
       type?: 'button' | 'submit' | 'reset';
       size?: 'sm' | 'md' | 'lg';
       isLoading?: boolean;
+      color?: string;
     }
   | {
       text?: string;
@@ -50,6 +53,7 @@ type ButtonProps =
       type?: 'button' | 'submit' | 'reset';
       size?: 'sm' | 'md' | 'lg';
       isLoading?: boolean;
+      color?: string;
     };
 
 const Button = ({
@@ -63,6 +67,7 @@ const Button = ({
   type,
   size = 'md',
   isLoading = false,
+  color,
 }: ButtonProps) => {
   return (
     <button
@@ -70,11 +75,12 @@ const Button = ({
       onClick={onClick}
       disabled={isLoading}
       className={clsx(
-        'bg-grass-150 px-3 py-1 transition-all duration-300 opacity-90 rounded-sm flex items-center hover:opacity-100 relative',
+        ' px-3 py-1 transition-all duration-300 opacity-90 rounded-sm flex items-center hover:opacity-100 relative',
         variant === 'text' && 'text-grass-20 bg-transparent',
         size === 'lg' &&
           'px-2 py-1 md:px-5 md:py-3 text-xl md:text-2xl lg:text-3xl',
         isLoading && 'cursor-wait opacity-75',
+        color ?? 'bg-grass-150',
         classNames
       )}
     >

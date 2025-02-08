@@ -14,7 +14,7 @@ const NavigationMenu = ({
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const pathname = usePathname();
 
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
   const dropdownRef = useOutsideClick(() => setIsOpen(false), [buttonRef]);
 
   useEffect(() => setIsOpen(false), [pathname]);
@@ -25,7 +25,7 @@ const NavigationMenu = ({
       <div>
         <button
           type='button'
-          className='max-w-max'
+          className='max-w-max cursor-pointer'
           id='menu-button'
           aria-expanded={isOpen}
           aria-haspopup={isOpen}

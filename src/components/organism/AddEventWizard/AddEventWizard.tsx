@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { JSX } from 'react';
 import AddEventForm from './AddEventForm';
 import { useAddEventWizardStore } from '@/stores';
 import AddEventPreview from './AddEventPreview';
@@ -18,8 +18,8 @@ const steps: {
   },
 ] as const;
 
-const AddEventWizard = ({ lng }: { lng: string }) => {
-  const { isLoaded } = useJsApiLoader(googleApiConfig(lng));
+const AddEventWizard = () => {
+  const { isLoaded } = useJsApiLoader(googleApiConfig);
 
   const currentStep = useAddEventWizardStore((state) => state.currentStep);
   const { Component } = steps[currentStep];

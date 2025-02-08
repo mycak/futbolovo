@@ -5,7 +5,7 @@ import PageContainer from '@/components/atoms/PageContainer';
 import NotFound from '@/components/molecules/NotFound';
 
 const NotFoundPage = async () => {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const lng = cookieStore.get(cookieName)?.value;
   const { i18n } = await translate(lng as string);
   return (

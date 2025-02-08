@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Button from '../atoms/Button';
 import { paths } from '@/constants/paths';
 import { useTranslation } from '@/app/i18n/client';
+import clsx from 'clsx';
 
 const Hero = ({
   heroTexts,
@@ -32,14 +33,30 @@ const Hero = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const announcementPointStyle =
+    'md:max-w-screen-lg text-left text-base md:text-xl text-grass-20';
+
   return (
     <>
       <Head>
         <link rel='preload' as='image' href='/images/football-pitch.jpg' />
       </Head>
-      <h1 className='px-8 md:max-w-screen-lg mx-auto text-base md:text-2xl text-grass-30 mb-6 text-center'>
-        {t('hero.launchAnnouncement')}
-      </h1>
+      <div className='flex flex-col items-center justify-center'>
+        <h1 className='px-8 md:max-w-screen-lg mx-auto text-base md:text-2xl text-grass-30 mb-6 text-center'>
+          {t('hero.marchAnnouncement')}
+        </h1>
+        <ul className='list-disc list-outside mx-12'>
+          <li className={clsx(announcementPointStyle, 'mb-2')}>
+            {t('hero.marchAnnouncementPoints.point1')}
+          </li>
+          <li className={clsx(announcementPointStyle, 'mb-2')}>
+            {t('hero.marchAnnouncementPoints.point2')}
+          </li>
+          <li className={clsx(announcementPointStyle, 'mb-6')}>
+            {t('hero.marchAnnouncementPoints.point3')}
+          </li>
+        </ul>
+      </div>
       <div className='relative aspect-video bg-[url("/images/football-pitch.jpg")] bg-cover max-w-screen-2xl w-full mx-auto 2xl:rounded-lg'>
         <div className='absolute inset-0 '>
           <div className='w-full h-full bg-gray-900 opacity-80 hero-clip-diagonal relative' />

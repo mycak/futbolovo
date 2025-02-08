@@ -56,15 +56,17 @@ const AddEventConfirm = ({ t }: { t: TFunction<'translation', undefined> }) => {
       <div className='flex flex-col justify-center mt-8 gap-4 md:gap-6'>
         <div className='flex items-center gap-4 justify-center flex-wrap md:gap-6'>
           <Button
-            classNames='h-[38px] md:text-xl bg-grass-45'
+            classNames='h-[38px] md:text-xl'
             variant='icon'
             icon='plus'
             text={t('eventConfirmation.addNext')}
             asLink
             href={paths.EventAdd}
+            color='bg-grass-45'
           />
           <Button
-            classNames='h-[38px] md:text-xl bg-grass-45'
+            color='bg-grass-45'
+            classNames='h-[38px] md:text-xl'
             variant='icon'
             icon='plus'
             text={t('eventConfirmation.addSimilar')}
@@ -73,7 +75,8 @@ const AddEventConfirm = ({ t }: { t: TFunction<'translation', undefined> }) => {
           />
         </div>
         <Button
-          classNames='h-[38px] bg-red-400 w-max mx-auto md:text-xl'
+          classNames='h-[38px] w-max mx-auto md:text-xl'
+          color='bg-red-400'
           text={t('eventConfirmation.end')}
           variant='icon'
           icon='map'

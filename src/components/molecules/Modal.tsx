@@ -18,7 +18,7 @@ const Modal: FC<ModalProps> = ({ children, isOpen, title, onAccept }) => {
   return (
     <div
       className={clsx(
-        'fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80'
+        'fixed inset-0 z-50 flex items-center justify-center bg-black/80'
       )}
     >
       <div className='bg-gray-900 rounded-sm p-4 w-[80vw] sm:min-w-80 sm:w-max max-w-lg'>
@@ -32,7 +32,7 @@ const Modal: FC<ModalProps> = ({ children, isOpen, title, onAccept }) => {
         <Divider contained />
 
         <div className='flex justify-center gap-4 mt-4'>
-          <Button text='Ok' onClick={onAccept} classNames='bg-grass-40' />
+          <Button text='Ok' onClick={onAccept} color='bg-grass-40' />
         </div>
       </div>
     </div>

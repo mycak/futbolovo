@@ -52,17 +52,6 @@ const config: Config = {
             transform: 'translate(-0.5px, -0.5px) rotate(-0.1deg)',
           },
         },
-        fallAndBounce: {
-          '0%': { transform: 'translateY(-80px)' },
-          '20%': { transform: 'translateY(0)' },
-          '40%': { transform: 'translateY(-50px)' },
-          '55%': { transform: 'translateY(0)' },
-          '70%': { transform: 'translateY(-30px)' },
-          '80%': { transform: 'translateY(0)' },
-          '85%': { transform: 'translateY(-10px)' },
-          '90%': { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(0)' },
-        },
         ballCombined: {
           '0%': { transform: 'translateY(0px) rotate(0deg)' },
           '12.5%': { transform: 'translateY(2px) rotate(45deg)' },
@@ -85,7 +74,6 @@ const config: Config = {
       },
       animation: {
         shake: 'shake 2.5s infinite',
-        fallAndBounce: 'fallAndBounce 2s infinite ease-out',
         ballCombined: 'ballCombined 2s infinite linear',
         clouds: 'clouds 1s infinite linear',
         rotate360: 'rotate360 3s infinite linear',
