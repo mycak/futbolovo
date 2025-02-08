@@ -159,7 +159,7 @@ const Filters = () => {
           <Button
             onClick={() => {
               setShowMoreFilters(!showMoreFilters);
-              setTimeout(() => setOverflowHidden(!showMoreFilters), 300);
+              setTimeout(() => setOverflowHidden(!showMoreFilters), 50);
             }}
             classNames={clsx(
               showMoreFilters && 'mt-2',

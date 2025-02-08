@@ -90,7 +90,10 @@ body::-webkit-scrollbar {
   color: #064e3b !important;
 }
 .react-datepicker__day--outside-month {
-  color: #9ae6b4 !important;
+  filter: brightness(0.9);
+}
+.react-datepicker__day--disabled {
+  filter: brightness(0.7) !important;
 }
 .react-datepicker__day-name {
   color: #059669 !important;
