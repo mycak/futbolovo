@@ -13,6 +13,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@prisma/client": "^6.3.1",
+    "@prisma/extension-accelerate": "^1.2.1",
     "@prisma/ppg-tunnel": "^0.1.0",
     "@react-google-maps/api": "^2.20.5",
     "@tailwindcss/postcss": "^4.0.4",

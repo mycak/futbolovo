@@ -81,6 +81,7 @@ export async function getEvents(filters: MapFilters) {
   // Fetch events with applied filters
   const events = await prisma.event.findMany({
     where: whereClause,
+    cacheStrategy: { ttl: 60 * 60 * 24 }, // 1 day
   });
 
   return events;
@@ -89,6 +90,7 @@ export async function getEvents(filters: MapFilters) {
 export async function getEventById(eventId: string) {
   const event = await prisma.event.findUnique({
     where: { id: eventId },
+    cacheStrategy: { ttl: 60 * 60 * 7 }, // 7 days
   });
 
   return event;
