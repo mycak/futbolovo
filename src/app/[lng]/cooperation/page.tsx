@@ -8,16 +8,12 @@ import { Metadata } from 'next';
 import { contactEmail } from '@/constants/common';
 import { Trans } from 'react-i18next/TransWithoutContext';
 
-export async function generateMetadata(
-  props: {
-    params: Promise<{ lng: string }>;
-  }
-): Promise<Metadata> {
+export async function generateMetadata(props: {
+  params: Promise<{ lng: string }>;
+}): Promise<Metadata> {
   const params = await props.params;
 
-  const {
-    lng
-  } = params;
+  const { lng } = params;
 
   const { t } = await translate(lng);
   return {
@@ -26,23 +22,18 @@ export async function generateMetadata(
   };
 }
 
-const CooperationPage = async (
-  props: {
-    params: Promise<{
-      lng: string;
-    }>;
-  }
-) => {
+const CooperationPage = async (props: {
+  params: Promise<{
+    lng: string;
+  }>;
+}) => {
   const params = await props.params;
   const { t } = await translate(params.lng);
 
   return (
     <>
       <Head>
-        <link
-          rel='canonical'
-          href={`https://futbolovo.net/${params.lng}/cooperation`}
-        />
+        <link rel='canonical' href='https://futbolovo.net/pl/cooperation' />
       </Head>
       <PageContainer>
         <PageWrapper>

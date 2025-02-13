@@ -35,10 +35,7 @@ export default async function ContactPage(props: {
   return (
     <>
       <Head>
-        <link
-          rel='canonical'
-          href={`https://futbolovo.net/${params.lng}/contact`}
-        />
+        <link rel='canonical' href='https://futbolovo.net/pl/contact' />
       </Head>
       <PageContainer>
         <PageWrapper>

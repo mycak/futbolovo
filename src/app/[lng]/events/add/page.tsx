@@ -4,6 +4,7 @@ import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import AddEventWizard from '@/components/organism/AddEventWizard/AddEventWizard';
 import { Metadata } from 'next';
+import Head from 'next/head';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
@@ -28,20 +29,25 @@ const AddEventPage = async (props: {
   const { t } = await translate(params.lng);
 
   return (
-    <PageContainer>
-      <PageWrapper>
-        <div className='md:bg-gray-900 py-8 sm:px-4 md:px-8 mx-auto rounded-sm w-full'>
-          <div className='mx-auto max-w-max'>
-            <i className='fa-solid fa-map-location-dot fa-5x text-ivory-150 mx-auto' />
+    <>
+      <Head>
+        <link rel='canonical' href='https://futbolovo.net/pl/events/add' />
+      </Head>
+      <PageContainer>
+        <PageWrapper>
+          <div className='md:bg-gray-900 py-8 sm:px-4 md:px-8 mx-auto rounded-sm w-full'>
+            <div className='mx-auto max-w-max'>
+              <i className='fa-solid fa-map-location-dot fa-5x text-ivory-150 mx-auto' />
+            </div>
+            <h2 className='text-2xl md:text-3xl text-center text-grass-20 mt-4 md:mt-8'>
+              {t('navigation.addPoint')}
+            </h2>
+            <AddEventWizard />
           </div>
-          <h2 className='text-2xl md:text-3xl text-center text-grass-20 mt-4 md:mt-8'>
-            {t('navigation.addPoint')}
-          </h2>
-          <AddEventWizard />
-        </div>
-        <Back classNames='mx-auto mt-8' lng={params.lng} />
-      </PageWrapper>
-    </PageContainer>
+          <Back classNames='mx-auto mt-8' lng={params.lng} />
+        </PageWrapper>
+      </PageContainer>
+    </>
   );
 };
 

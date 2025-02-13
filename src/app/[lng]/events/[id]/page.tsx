@@ -11,17 +11,14 @@ import {
   QueryClient,
 } from '@tanstack/react-query';
 import { Metadata } from 'next';
+import Head from 'next/head';
 
-export async function generateMetadata(
-  props: {
-    params: Promise<{ lng: string }>;
-  }
-): Promise<Metadata> {
+export async function generateMetadata(props: {
+  params: Promise<{ lng: string }>;
+}): Promise<Metadata> {
   const params = await props.params;
 
-  const {
-    lng
-  } = params;
+  const { lng } = params;
 
   const { t } = await translate(lng);
   return {
@@ -30,11 +27,9 @@ export async function generateMetadata(
   };
 }
 
-const EventPage = async (
-  props: {
-    params: Promise<{ id: string; lng: string }>;
-  }
-) => {
+const EventPage = async (props: {
+  params: Promise<{ id: string; lng: string }>;
+}) => {
   const params = await props.params;
   const queryClient = new QueryClient();
 
@@ -42,8 +37,14 @@ const EventPage = async (
     queryKey: ['event', params.id],
     queryFn: () => getEventById(params.id),
   });
+
+  const canonicalUrl = `https://futbolovo.net/pl/events/${params.id}`;
+
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
+      <Head>
+        <link rel='canonical' href={canonicalUrl} />
+      </Head>
       <PageContainer>
         <PageWrapper classNames='grow flex flex-col'>
           {eventData ? (

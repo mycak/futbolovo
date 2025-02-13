@@ -4,6 +4,7 @@ import PageContainer from '@/components/atoms/PageContainer';
 import AddPlaceSection from '@/components/molecules/AddPlaceSection';
 import MapSet from '@/components/organism/MapSet';
 import { Metadata } from 'next';
+import Head from 'next/head';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
@@ -28,11 +29,16 @@ const MapPage = async (props: {
   const lng = params.lng;
 
   return (
-    <PageContainer>
-      <MapSet />
-      <Divider />
-      <AddPlaceSection lng={lng} />
-    </PageContainer>
+    <>
+      <Head>
+        <link rel='canonical' href='https://futbolovo.net/pl/map' />
+      </Head>
+      <PageContainer>
+        <MapSet />
+        <Divider />
+        <AddPlaceSection lng={lng} />
+      </PageContainer>
+    </>
   );
 };
 

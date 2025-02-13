@@ -4,9 +4,6 @@ export const mainPagesMetadata = (t: TFunction<'translation', undefined>) => ({
   title: t('metatags.title'),
   description: t('metatags.description'),
   metadataBase: new URL('https://futbolovo.net'),
-  alternates: {
-    canonical: 'https://futbolovo.net',
-  },
   openGraph: {
     type: 'website',
     siteName: 'Futbolovo',
