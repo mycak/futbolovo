@@ -76,7 +76,7 @@ const AddEventConfirm = ({ t }: { t: TFunction<'translation', undefined> }) => {
         </div>
         <Button
           classNames='h-[38px] w-max mx-auto md:text-xl'
-          color='bg-red-400'
+          color='bg-red-500'
           text={t('eventConfirmation.end')}
           variant='icon'
           icon='map'

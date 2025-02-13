@@ -67,7 +67,7 @@ const AddEventPreview = () => {
       <div className='flex justify-center gap-8'>
         <Button
           classNames='h-[38px] md:text-xl pl-3 pr-5'
-          color='bg-red-400'
+          color='bg-red-500'
           variant='icon'
           text={t('fix')}
           icon='pen-to-square'

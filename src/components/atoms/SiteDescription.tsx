@@ -42,7 +42,7 @@ const SiteDescription = ({
             href={`/${lng}/${paths.EventAdd}`}
             text={siteDescriptionTexts.secondButton}
             classNames='mt-8 animate-shake delay-1'
-            color='bg-red-400'
+            color='bg-red-500'
           />
         </div>
       </div>

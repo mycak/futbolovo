@@ -175,7 +175,7 @@ const Filters = () => {
         <div className='flex gap-4 mx-auto mt-6'>
           <Button
             classNames='h-[38px] text-xl pl-3 pr-5'
-            color='bg-red-400'
+            color='bg-red-500'
             variant='icon'
             icon='add'
             text={t('add')}

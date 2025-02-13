@@ -26,7 +26,7 @@ const Header = ({ lng }: { lng: string }) => {
                 onClick={() => (window.location.href = `/${lang}/${pathname}`)}
                 className={clsx(
                   lng === lang && 'hidden',
-                  'text-sm opacity-45 cursor-pointer'
+                  'text-sm cursor-pointer'
                 )}
               >
                 {lang.toUpperCase()}
