@@ -75,8 +75,8 @@ const EventPreview = ({
               <p>
                 {eventData.startDate && eventData.endDate
                   ? differenceInDays(
-                      new Date(eventData.startDate),
-                      new Date(eventData.endDate)
+                      new Date(eventData.endDate),
+                      new Date(eventData.startDate)
                     )
                   : '-'}{' '}
                 ({t('daysNumber')})
