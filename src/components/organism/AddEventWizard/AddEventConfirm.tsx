@@ -21,10 +21,8 @@ const AddEventConfirm = ({ t }: { t: TFunction<'translation', undefined> }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => clearState(), []);
 
-  const appUrl =
-    process.env.NODE_ENV !== 'development'
-      ? 'http://localhost:3000'
-      : process.env.NEXT_PUBLIC_APP_URL;
+  console.log(process.env.NODE_ENV);
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL;
 
   if (!endDate && !email) return <DynamicLoader classNames='mt-4' />;
 
