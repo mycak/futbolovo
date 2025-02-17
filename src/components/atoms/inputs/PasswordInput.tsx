@@ -1,7 +1,7 @@
 import { FieldValues, Path, UseFormRegister } from 'react-hook-form';
 import { customStyles } from './styles';
 
-const EmailInput = <T extends FieldValues>({
+const PasswordInput = <T extends FieldValues>({
   label,
   placeholder,
   name,
@@ -19,15 +19,15 @@ const EmailInput = <T extends FieldValues>({
       <label className='flex flex-col'>
         <span className='text-grass-20'>{label}</span>
         <input
-          type='email'
-          id='email'
+          type='password'
+          id='password'
           className={customStyles({ error: !!error })}
           placeholder={placeholder}
           {...register(name)}
         />
       </label>
       {error && (
-        <span className='absolute text-red-500 text-xs -bottom-4 right-0'>
+        <span className='absolute text-red-500 text-xs top-16 right-0'>
           {error}
         </span>
       )}
@@ -35,4 +35,4 @@ const EmailInput = <T extends FieldValues>({
   );
 };
 
-export default EmailInput;
+export default PasswordInput;

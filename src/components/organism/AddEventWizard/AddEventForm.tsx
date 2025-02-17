@@ -257,7 +257,7 @@ const AddEventForm = () => {
           label={t('name')}
           placeholder={t('typeName')}
           name='name'
-          register={register as unknown as UseFormRegister<FieldValues>}
+          register={register}
           error={errors.name?.message}
         />
         {generateCategoryFieldsSet()}
@@ -280,7 +280,7 @@ const AddEventForm = () => {
           label='Email'
           placeholder={t('typeEmail')}
           name='email'
-          register={register as unknown as UseFormRegister<FieldValues>}
+          register={register}
           error={errors.email?.message}
         />
         <FileInput

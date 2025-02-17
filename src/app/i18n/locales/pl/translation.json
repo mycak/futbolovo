@@ -1,4 +1,16 @@
 {
+  "auth": {
+    "userRegistration": "Rejestracja użytkownika",
+    "register": "Zarejestruj",
+    "userLogin": "Logowanie użytkownika",
+    "login": "Zaloguj",
+    "companyName": "Nazwa firmy"
+  },
+  "optional": "opcjonalnie",
+  "firstName": "Imię",
+  "lastName": "Nazwisko",
+  "password": "Hasło",
+  "repeatPassword": "Powtórz hasło",
   "metatags": {
     "title": "Futbolowa mapa Polski",
     "description": "Weź udział w piłkarskich wydarzeniach w Twojej okolicy.",
@@ -62,7 +74,10 @@
   "validation": {
     "incorrectPhone": "Nieprawidłowy numer telefonu",
     "min3": "Minimum 3 znaki",
-    "imageInfoOnRepeat": "Jeżeli powielasz dane, powtórne wgranie zdjęcia nie jest potrzebne"
+    "imageInfoOnRepeat": "Jeżeli powielasz dane, powtórne wgranie zdjęcia nie jest potrzebne",
+    "passwordConditions": "Hasło musi zawierać co najmniej 8 znaków, w tym jedną cyfrę, jedną dużą literę i jeden znak specjalny",
+    "passwordsDontMatch": "Hasła nie pasują do siebie",
+    "incorrectEmail": "Nieprawidłowy adres email"
   },
   "check": "Sprawdź!",
   "camp": "Obóz",

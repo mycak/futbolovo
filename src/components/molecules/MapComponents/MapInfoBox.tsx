@@ -164,7 +164,7 @@ const MapInfoBox = ({
                   <i className='fa-regular fa-comment text-grass-50' />
                 </div>
                 <p
-                  className='whitespace-pre-line'
+                  className='whitespace-pre-line text-sm'
                   style={{
                     width: '-webkit-fill-available',
                     wordBreak: 'break-word',

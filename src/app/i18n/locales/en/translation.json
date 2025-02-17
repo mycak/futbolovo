@@ -1,4 +1,16 @@
 {
+  "auth": {
+    "userRegistration": "User registration",
+    "register": "Register",
+    "userLogin": "User login",
+    "login": "Login",
+    "companyName": "Company Name"
+  },
+  "optional": "optional",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "password": "Password",
+  "repeatPassword": "Repeat Password",
   "metatags": {
     "title": "Football Map of World",
     "description": "Join football events in your area.",
@@ -63,7 +75,10 @@
   "validation": {
     "incorrectPhone": "Incorrect phone number",
     "min3": "Minimum 3 characters",
-    "imageInfoOnRepeat": "If you duplicate data, re-uploading the photo is not necessary"
+    "imageInfoOnRepeat": "If you duplicate data, re-uploading the photo is not necessary",
+    "passwordConditions": "Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character",
+    "passwordsDontMatch": "Passwords don't match",
+    "incorrectEmail": "Incorrect email address"
   },
   "typeName": "Type name",
   "events": "Events",
