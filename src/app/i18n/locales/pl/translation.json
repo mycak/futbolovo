@@ -4,7 +4,14 @@
     "register": "Zarejestruj",
     "userLogin": "Logowanie użytkownika",
     "login": "Zaloguj",
-    "companyName": "Nazwa firmy"
+    "companyName": "Nazwa firmy",
+    "logout": "Wyloguj",
+    "haveAccount": "Masz już konto?",
+    "noAccount": "Nie masz jeszcze konta?",
+    "signIn": "Zaloguj się",
+    "signUp": "Zarejestruj się",
+    "termsAndConditions": "Akceptuję",
+    "and": "oraz"
   },
   "optional": "opcjonalnie",
   "firstName": "Imię",
@@ -226,5 +233,11 @@
     "contactTitle": "Kontakt",
     "contactText": "W sprawach związanych z danymi osobowymi prosimy o kontakt pod adresem:"
   },
-  "acceptTermsAndPrivacyLabel": "Akceptuje <1>regulamin</1> i <2>politykę prywatności</2>"
+  "acceptTermsAndPrivacyLabel": "Akceptuje <1>regulamin</1> i <2>politykę prywatności</2>",
+  "errors": {
+    "credentialsRequired": "Email i hasło wymagane",
+    "userNotFound": "Użytkownik nie znaleziony",
+    "invalidPassword": "Niepoprawne hasło",
+    "emailExists": "Email już istnieje"
+  }
 }

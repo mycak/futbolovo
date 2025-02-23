@@ -1,8 +1,8 @@
 'use client';
-import { FieldValues, UseFormRegister } from 'react-hook-form';
+import { FieldValues, Path, UseFormRegister } from 'react-hook-form';
 import { customStyles } from './styles';
 
-const SearchInput = ({
+const SearchInput = <T extends FieldValues>({
   label,
   placeholder,
   name,
@@ -11,8 +11,8 @@ const SearchInput = ({
 }: {
   label: string;
   placeholder: string;
-  name: string;
-  register: UseFormRegister<FieldValues>;
+  name: Path<T>;
+  register: UseFormRegister<T>;
   error?: string;
 }) => {
   return (

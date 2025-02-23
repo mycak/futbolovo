@@ -151,7 +151,7 @@ const Filters = () => {
               <SearchInput
                 label={t('search')}
                 placeholder={t('writePhrase')}
-                register={register as unknown as UseFormRegister<FieldValues>}
+                register={register}
                 name='search'
               />
             </div>

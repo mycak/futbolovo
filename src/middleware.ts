@@ -1,5 +1,6 @@
 import acceptLanguage from 'accept-language';
 import { fallbackLng, languages, cookieName } from './app/i18n/settings';
+import { getToken } from 'next-auth/jwt';
 
 acceptLanguage.languages(languages);
 
@@ -10,13 +11,15 @@ export const config = {
 };
 
 import { NextRequest, NextResponse } from 'next/server';
+import { paths } from './constants/paths';
 
 // Function to format URL by replacing double slashes with a single slash
 function formatUrl(url: string): string {
   return url.replace(/\/{2,}/g, '/');
 }
 
-export function middleware(req: NextRequest) {
+export async function middleware(req: NextRequest) {
+  //IMAGE HANDLER
   if (
     req.nextUrl.pathname.indexOf('icon') > -1 ||
     req.nextUrl.pathname.indexOf('chrome') > -1 ||
@@ -25,6 +28,18 @@ export function middleware(req: NextRequest) {
     )
   )
     return NextResponse.next();
+
+  //NOT PERMITTED URL HANDLER
+  const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
+
+  const isAuthPage =
+    req.nextUrl.pathname.includes(paths.Login) ||
+    req.nextUrl.pathname.includes(paths.Register);
+  if (token && isAuthPage) {
+    return NextResponse.redirect(new URL(paths.Dashboard, req.url));
+  }
+
+  //LANGUAGE HANDLER
   let lng;
   const pathnameParts = req.nextUrl.pathname.split('/');
   const lngFromPath = pathnameParts[1];

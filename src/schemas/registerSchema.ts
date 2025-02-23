@@ -17,10 +17,15 @@ export const registerSchema = (t: TFunction<'translation', undefined>) =>
       firstName: z.string().min(1, { message: t('fieldIsRequired') }),
       lastName: z.string().min(1, { message: t('fieldIsRequired') }),
       companyName: z.string().optional(),
+      termsAndConditions: z.boolean(),
     })
     .refine((data) => data.password === data.repeatPassword, {
       message: t('validation.passwordsDontMatch'),
       path: ['repeatPassword'],
+    })
+    .refine((data) => data.termsAndConditions === true, {
+      message: t('fieldIsRequired'),
+      path: ['termsAndConditions'],
     });
 
 export type RegisterInputs = z.infer<ReturnType<typeof registerSchema>>;

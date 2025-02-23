@@ -7,12 +7,15 @@ import { DATE_FORMAT } from '@/constants/common';
 import { useParams, useRouter } from 'next/navigation';
 import { paths } from '@/constants/paths';
 import { useTranslation } from '@/app/i18n/client';
-import { addEvent } from '@/app/actions';
+import { addEvent } from '@/app/actions/events';
 import EventPreview from '@/components/molecules/Events/EventPreview';
 import Button from '@/components/atoms/Button';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
+import { useSession } from 'next-auth/react';
 
 const AddEventPreview = () => {
+  const { status, data } = useSession();
+
   const router = useRouter();
   const { lng } = useParams();
   const { t } = useTranslation(lng as string);
@@ -37,7 +40,13 @@ const AddEventPreview = () => {
     delete payload.termsAccepted;
 
     const addEventPromises = allLocations.map((location) =>
-      addEvent({ ...payload, location })
+      addEvent({
+        ...payload,
+        location,
+        ...(status === 'authenticated'
+          ? { authorId: data?.user?.id, isPublished: true }
+          : {}),
+      })
     );
 
     await Promise.all(addEventPromises)

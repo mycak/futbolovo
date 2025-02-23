@@ -20,7 +20,7 @@ const PasswordInput = <T extends FieldValues>({
         <span className='text-grass-20'>{label}</span>
         <input
           type='password'
-          id='password'
+          id={name}
           className={customStyles({ error: !!error })}
           placeholder={placeholder}
           {...register(name)}

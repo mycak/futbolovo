@@ -13,4 +13,16 @@ export const paths = {
   PrivacyPolicy: '/privacy-policy',
   //STATUTE
   Statute: '/statute',
+
+  //AUTH
+  Register: '/register',
+  Login: '/login',
+  PasswordReset: '/password-reset',
+  PasswordResetConfirm: '/password-reset/confirm',
+  PasswordRemind: '/password-remind',
+  SuccessRegister: '/success-register',
+
+  //USER
+  MyEvents: '/my-events',
+  Profile: '/profile',
 } as const;

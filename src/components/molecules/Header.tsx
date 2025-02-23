@@ -11,10 +11,14 @@ import PageWrapper from '../atoms/PageWrapper';
 import Logo from '../atoms/Logo';
 import DashboardHeading from '../atoms/DashboardHeading';
 import Divider from '../atoms/Divider';
+import { useSession } from 'next-auth/react';
+import UserNavigationMenu from '../organism/UserNavigationMenu';
 
 const Header = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);
   const pathname = usePathname().slice(4); // Pathname without language prefix
+  const { status } = useSession();
+
   // Window.location.href is used to achieve full page reload (google elements - apiJsLoader issue with language change)
   return (
     <>
@@ -35,8 +39,11 @@ const Header = ({ lng }: { lng: string }) => {
           ))}
         </div>
         <Logo />
-        <div className='justify-self-end'>
-          <NavigationMenu navigationItems={navigationItems(true, t)} />
+        <div className='justify-self-end flex gap-4'>
+          <NavigationMenu
+            navigationItems={navigationItems(status === 'authenticated', t)}
+          />
+          <UserNavigationMenu />
         </div>
       </PageWrapper>
       <DashboardHeading mainTopics={mainTopics(t)} classNames='my-4' />

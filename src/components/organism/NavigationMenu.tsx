@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { NavigationItem, NavigationKey } from '@/types/common';
 import { useOutsideClick } from '@/hooks';
 import { usePathname } from 'next/navigation';
+import clsx from 'clsx';
 
 const NavigationMenu = ({
   navigationItems,
@@ -52,19 +53,28 @@ const NavigationMenu = ({
           <ul role='menu'>
             {Object.keys(navigationItems).map((key, index) => (
               <li key={key} role='none'>
-                {navigationItems[key as NavigationKey].map(({ text, to }) => (
-                  <Link
-                    href={to}
-                    key={text}
-                    role='menuitem'
-                    className='block px-4 py-2 md:text-xl transition-all duration-300 hover:bg-grass-40'
-                  >
-                    {text}
-                  </Link>
-                ))}
+                {navigationItems[key as NavigationKey].map(
+                  ({ text, to, className, callback }) => (
+                    <Link
+                      href={to}
+                      key={text}
+                      role='menuitem'
+                      className={clsx(
+                        'block px-4 py-2 md:text-xl transition-all duration-300 hover:bg-grass-40',
+                        className
+                      )}
+                      onClick={() => {
+                        callback?.();
+                        setIsOpen(false);
+                      }}
+                    >
+                      {text}
+                    </Link>
+                  )
+                )}
                 {index !== 2 && (
                   <div
-                    className='border-b border-grass-40 mx-2 my-2'
+                    className='border-b border-grass-40 mx-2'
                     role='separator'
                   />
                 )}
