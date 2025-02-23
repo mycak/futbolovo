@@ -30,7 +30,7 @@ export const cloudinaryWidgetConfig = (
       sourceBg: '#9ae6b4',
     },
     frame: {
-      background: '#0E2F5B25',
+      background: '#101828',
     },
     fonts: {
       "'Protest Guerrilla', latin":
