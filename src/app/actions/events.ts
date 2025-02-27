@@ -96,6 +96,17 @@ export async function getEventById(eventId: string) {
   return event;
 }
 
+export async function getEventsByUser(userId: string, userEmail: string) {
+  const events = await prisma.event.findMany({
+    where: {
+      OR: [{ authorId: userId }, { email: userEmail }],
+    },
+    cacheStrategy: { ttl: 60 * 60 * 24 }, // 1 day
+  });
+
+  return events;
+}
+
 export async function addEvent(eventData: Prisma.EventCreateInput) {
   const newEvent = await prisma.event.create({
     data: eventData,

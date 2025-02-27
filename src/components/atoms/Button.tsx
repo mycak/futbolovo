@@ -75,7 +75,7 @@ const Button = ({
       onClick={onClick}
       disabled={isLoading}
       className={clsx(
-        'px-3 py-1 transition-all duration-300 opacity-90 rounded-sm flex items-center hover:opacity-100 relative',
+        'px-3 py-1 transition-all duration-300 opacity-90 rounded-sm flex items-center cursor-pointer hover:opacity-100 relative',
         variant === 'text' && 'text-grass-20 bg-transparent',
         size === 'lg' &&
           'px-2 py-1 md:px-5 md:py-3 text-xl md:text-2xl lg:text-3xl',

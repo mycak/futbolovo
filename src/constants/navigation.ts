@@ -22,6 +22,14 @@ export const navigationItems = (
       text: t('navigation.addPoint'),
       to: paths.EventAdd,
     },
+    ...(isSignedIn
+      ? [
+          {
+            text: t('myList'),
+            to: paths.MyEvents,
+          },
+        ]
+      : []),
   ],
   auth: isSignedIn
     ? [
