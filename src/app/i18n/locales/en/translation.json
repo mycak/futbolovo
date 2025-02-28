@@ -13,7 +13,11 @@
     "termsAndConditions": "I accept the",
     "and": "and",
     "forgotPassword": "Forgot password?",
-    "resetPassword": "Reset password"
+    "resetPassword": "Reset password",
+    "registerSuccess": {
+      "title": "Registration Successful!",
+      "message": "Your account has been created successfully. You can now log in to your account."
+    }
   },
   "optional": "optional",
   "firstName": "First Name",

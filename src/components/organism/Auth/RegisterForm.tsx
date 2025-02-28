@@ -34,7 +34,7 @@ const RegisterForm = () => {
   const onSubmit = async (data: RegisterInputs) => {
     setIsSubmitting(true);
     await registerUser(data)
-      .then(() => router.push(paths.SuccessRegister))
+      .then(() => router.push(paths.RegisterConfirm))
       .catch((err) => {
         console.error(err);
         setError(err.error);
@@ -119,7 +119,9 @@ const RegisterForm = () => {
             </div>
           </>
         ) : (
-          <DynamicLoader />
+          <div className='col-span-2'>
+            <DynamicLoader />
+          </div>
         )}
         <Divider contained classNames='col-span-2' />
 

@@ -21,7 +21,7 @@ export const paths = {
   PasswordReset: '/password-reset',
   PasswordResetConfirm: '/password-reset/confirm',
   PasswordRemind: '/password-remind',
-  SuccessRegister: '/success-register',
+  RegisterConfirm: '/register-confirm',
 
   //USER
   MyEvents: '/my-events',

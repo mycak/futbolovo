@@ -13,7 +13,11 @@
     "termsAndConditions": "Akceptuję",
     "and": "oraz",
     "forgotPassword": "Zapomniałeś hasła?",
-    "resetPassword": "Zresetuj hasło"
+    "resetPassword": "Zresetuj hasło",
+    "registerSuccess": {
+      "title": "Rejestracja zakończona pomyślnie!",
+      "message": "Twoje konto zostało utworzone. Możesz się teraz zalogować."
+    }
   },
   "optional": "opcjonalnie",
   "firstName": "Imię",
