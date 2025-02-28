@@ -46,42 +46,47 @@ export const authOptions: NextAuthOptions = {
           email: user.email,
           firstName: user.firstName,
           lastName: user.lastName,
-          companyName: user.companyName,
+          companyName: user.companyName || null,
           createdAt: user.createdAt.toISOString(),
         };
       },
     }),
   ],
   session: {
-    strategy: 'jwt' as SessionStrategy,
+    strategy: 'jwt',
   },
   pages: {
     signIn: '/login',
   },
   callbacks: {
-    async jwt({ token, user }: { token: JWT; user: User }) {
+    async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
-        token.firstName = user.firstName;
-        token.lastName = user.lastName;
-        token.companyName = user.companyName;
-        token.createdAt = user.createdAt;
+        return {
+          ...token,
+          id: user.id,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          companyName: user.companyName || null,
+          createdAt: user.createdAt,
+        };
       }
       return token;
     },
-    async session({ session, token }: { session: Session; token: JWT }) {
-      if (session.user) {
-        session.user.id = token.id as string;
-        session.user.firstName = token.firstName as string;
-        session.user.lastName = token.lastName as string;
-        session.user.companyName = token.companyName as string | undefined;
-        session.user.createdAt = token.createdAt as string;
-      }
+    async session({ session, token }) {
+      session.user = {
+        ...session.user,
+        id: token.id as string,
+        firstName: token.firstName as string,
+        lastName: token.lastName as string,
+        companyName: token.companyName as string | null,
+        createdAt: token.createdAt as string,
+      };
       return session;
     },
   },
   secret: process.env.NEXTAUTH_SECRET,
 };
 
-export const GET = NextAuth(authOptions);
-export const POST = NextAuth(authOptions);
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
