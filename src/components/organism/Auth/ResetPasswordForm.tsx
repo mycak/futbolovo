@@ -32,6 +32,7 @@ const ResetPasswordForm = () => {
   });
 
   const onSubmit = async (data: ResetPasswordInputs) => {
+    console.log(data);
     setIsLoading(true);
     //TODO: add reset functionality
   };
