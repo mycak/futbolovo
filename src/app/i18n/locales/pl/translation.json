@@ -160,6 +160,7 @@
     "mainPage": "Strona Główna",
     "map": "Mapa",
     "addPoint": "Dodaj punkt na mapie",
+    "editEvent": "Edytuj punkt na mapie",
     "addEvent": "Dodaj Event",
     "portal": "Portal",
     "others": "Inne"
@@ -242,5 +243,10 @@
     "userNotFound": "Użytkownik nie znaleziony",
     "invalidPassword": "Niepoprawne hasło",
     "emailExists": "Email już istnieje"
+  },
+  "myEvents": {
+    "noEventsFound": "Nie masz jeszcze żadnych wydarzeń",
+    "createFirst": "Utwórz swoje pierwsze wydarzenie!",
+    "description": "Dodaj swoje wydarzenie i pozwól innym je odkryć."
   }
 }

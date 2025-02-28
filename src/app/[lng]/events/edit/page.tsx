@@ -20,7 +20,7 @@ export async function generateMetadata(props: {
   };
 }
 
-const EditEventPage = async (props: {
+const AddEventPage = async (props: {
   params: Promise<{
     lng: string;
   }>;
@@ -31,7 +31,7 @@ const EditEventPage = async (props: {
   return (
     <>
       <Head>
-        <link rel='canonical' href='https://futbolovo.net/pl/events/edit' />
+        <link rel='canonical' href='https://futbolovo.net/pl/events/add' />
       </Head>
       <PageContainer>
         <PageWrapper>
@@ -40,7 +40,7 @@ const EditEventPage = async (props: {
               <i className='fa-solid fa-map-location-dot fa-5x text-ivory-150 mx-auto' />
             </div>
             <h2 className='text-2xl md:text-3xl text-center text-grass-20 mt-4 md:mt-8'>
-              {t('navigation.editPoint')}
+              {t('navigation.editEvent')}
             </h2>
             <AddEventWizard />
           </div>
@@ -51,4 +51,4 @@ const EditEventPage = async (props: {
   );
 };
 
-export default EditEventPage;
+export default AddEventPage;

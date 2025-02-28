@@ -12,6 +12,7 @@ import Button from '@/components/atoms/Button';
 import { useRouter } from 'next/navigation';
 import { useAddEventWizardStore } from '@/stores';
 import { Location } from '@/types/common';
+import { deleteEvent } from '@/app/actions/events';
 
 interface MyEventsListProps {
   events: Event[];
@@ -20,13 +21,17 @@ interface MyEventsListProps {
 
 const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
   const { t } = useTranslation(lng);
-  const { push } = useRouter();
+  const router = useRouter();
   const setAddData = useAddEventWizardStore((state) => state.setAddData);
 
-  const handleRepost = (e: React.SyntheticEvent, eventId: string) => {
+  const handleRedirect = (
+    e: React.SyntheticEvent,
+    eventId: string,
+    editMode: boolean
+  ) => {
     e.preventDefault();
     e.stopPropagation();
-    push(paths.EventAdd);
+    router.push(editMode ? paths.EventEdit : paths.EventAdd);
     const eventData = events.find((event) => event.id === eventId);
     if (eventData) {
       setAddData({
@@ -35,15 +40,42 @@ const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
         additionalLocations: [],
         authorId: eventData.authorId ?? '',
         location: eventData.location as Location,
-        id: undefined,
+        id: editMode ? eventId : undefined,
       });
+    }
+  };
+
+  const handleGoToAddEvent = () => {
+    router.push(paths.EventAdd);
+  };
+
+  const handleDelete = async (e: React.SyntheticEvent, eventId: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    try {
+      await deleteEvent(eventId);
+      // Refresh the page to get updated data
+      router.refresh();
+    } catch (error) {
+      console.error('Failed to delete event:', error);
     }
   };
 
   if (!events.length) {
     return (
-      <div className='text-center py-8'>
-        <p className='text-gray-400 text-lg'>{t('noEventsFound')}</p>
+      <div className='flex flex-col items-center justify-center bg-gray-800 rounded-lg p-8 text-center my-8'>
+        <i className='fa-solid fa-calendar-plus text-grass-50 text-4xl mb-4'></i>
+        <h3 className='text-xl font-semibold text-white mb-2'>
+          {t('myEvents.noEventsFound')}
+        </h3>
+        <p className='text-gray-400 mb-6'>{t('myEvents.description')}</p>
+        <Button
+          onClick={handleGoToAddEvent}
+          color='bg-grass-45'
+          classNames='text-white py-2 px-6'
+          text={t('myEvents.createFirst')}
+        />
       </div>
     );
   }
@@ -53,8 +85,9 @@ const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
       <div className='flex flex-col gap-4'>
         {events.map((event) => (
           <Link href={paths.Event(event.id)} key={event.id}>
-            <div className='bg-gray-800 hover:bg-gray-750 rounded-lg p-4 flex justify-between items-center transition-colors cursor-pointer'>
-              <div className='flex flex-col'>
+            <div className='bg-gray-800 hover:bg-gray-750 rounded-lg p-4 flex flex-col md:flex-row md:justify-between transition-colors cursor-pointer'>
+              {/* Event details section */}
+              <div className='flex flex-col mb-4 md:mb-0'>
                 <h3 className='text-lg font-semibold text-white'>
                   {event.name}
                 </h3>
@@ -78,15 +111,41 @@ const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
                   </p>
                 </div>
               </div>
-              <Button
-                size='lg'
-                onClick={(ev: React.SyntheticEvent) =>
-                  handleRepost(ev, event.id)
-                }
-                color='bg-grass-45'
-                classNames='text-white py-2 px-4'
-                text={t('repost')}
-              />
+
+              {/* Actions section - separate row on mobile */}
+              <div className='flex justify-between items-center border-t pt-3 md:pt-0 md:border-0'>
+                <div className='flex gap-3 items-center'>
+                  <button
+                    onClick={(ev: React.SyntheticEvent) =>
+                      handleDelete(ev, event.id)
+                    }
+                    className='text-red-500 hover:text-red-400 p-2 cursor-pointer'
+                    aria-label={t('remove')}
+                    title={t('remove')}
+                  >
+                    <i className='fa-solid fa-trash text-lg'></i>
+                  </button>
+                  <button
+                    onClick={(ev: React.SyntheticEvent) =>
+                      handleRedirect(ev, event.id, true)
+                    }
+                    className='text-grass-50 hover:text-grass-40 p-2 cursor-pointer'
+                    aria-label={t('edit')}
+                    title={t('edit')}
+                  >
+                    <i className='fa-solid fa-edit text-lg'></i>
+                  </button>
+                </div>
+                <Button
+                  size='sm'
+                  onClick={(ev: React.SyntheticEvent) =>
+                    handleRedirect(ev, event.id, false)
+                  }
+                  color='bg-grass-45'
+                  classNames='text-white py-1.5 px-3 md:ml-4'
+                  text={t('repost')}
+                />
+              </div>
             </div>
           </Link>
         ))}
