@@ -48,6 +48,8 @@ const AddEventForm = () => {
   const searchParams = useSearchParams();
   const isRepeatedData = searchParams.get('data') === 'repeated' && tempAddData;
 
+  const isEditMode = !!addData?.id;
+
   const [isMultipleModalOpened, setIsMultipleModalOpened] =
     useState<boolean>(false);
 
@@ -206,7 +208,7 @@ const AddEventForm = () => {
               ? tempAddData.location?.addressName
               : addData?.location?.addressName
           }
-          multiple
+          multiple={!isEditMode}
           onAddMore={onAddMoreLocation}
         />
         <Modal
@@ -336,7 +338,7 @@ const AddEventForm = () => {
           color='bg-grass-45'
           variant='icon'
           icon='location-dot'
-          text={t('add')}
+          text={isEditMode ? t('edit') : t('add')}
           type='submit'
         />
       </form>

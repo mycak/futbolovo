@@ -7,12 +7,15 @@ import { DATE_FORMAT } from '@/constants/common';
 import { useParams, useRouter } from 'next/navigation';
 import { paths } from '@/constants/paths';
 import { useTranslation } from '@/app/i18n/client';
-import { addEvent } from '@/app/actions';
+import { addEvent, editEvent } from '@/app/actions/events';
 import EventPreview from '@/components/molecules/Events/EventPreview';
 import Button from '@/components/atoms/Button';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
+import { useSession } from 'next-auth/react';
 
 const AddEventPreview = () => {
+  const { status, data } = useSession();
+
   const router = useRouter();
   const { lng } = useParams();
   const { t } = useTranslation(lng as string);
@@ -23,42 +26,70 @@ const AddEventPreview = () => {
     (state) => state.setTempAddData
   );
 
+  const isEditMode = !!eventData?.id;
+
   const onAddEvent = async () => {
     if (eventData === undefined) return;
     setTempAddData(eventData);
     setIsLoading(true);
 
     const payload = { ...eventData };
-    const allLocations = [...eventData.additionalLocations, eventData.location];
 
     // @ts-expect-error - Remove additionalLocations from payload to fit payload type
     delete payload.additionalLocations;
     // @ts-expect-error - Remove termsAccepted from payload to fit payload type
     delete payload.termsAccepted;
 
-    const addEventPromises = allLocations.map((location) =>
-      addEvent({ ...payload, location })
-    );
+    if (!isEditMode) {
+      //ADD EVENTS
+      const allLocations = [
+        ...eventData.additionalLocations,
+        eventData.location,
+      ];
 
-    await Promise.all(addEventPromises)
-      .then((data) => {
-        const eventIds = data.map((event) => event.id);
-        const successPageQuery = {
-          email: eventData.email,
-          endDate: format(
-            generateEventVisibilityEndDate(eventData.category, eventData),
-            DATE_FORMAT
-          ),
-          eventIds: encodeURIComponent(JSON.stringify(eventIds)),
-        };
-        const params = new URLSearchParams(successPageQuery).toString();
-        const fullPath = `${paths.EventAddConfirm}?${params}`;
-        router.push(fullPath);
+      const addEventPromises = allLocations.map((location) =>
+        addEvent({
+          ...payload,
+          location,
+          ...(status === 'authenticated'
+            ? { authorId: data?.user?.id, isPublished: true }
+            : {}),
+        })
+      );
+
+      await Promise.all(addEventPromises)
+        .then((data) => {
+          const eventIds = data.map((event) => event.id);
+          const successPageQuery = {
+            email: eventData.email,
+            endDate: format(
+              generateEventVisibilityEndDate(eventData.category, eventData),
+              DATE_FORMAT
+            ),
+            eventIds: encodeURIComponent(JSON.stringify(eventIds)),
+          };
+          const params = new URLSearchParams(successPageQuery).toString();
+          const fullPath = `${paths.EventAddConfirm}?${params}`;
+          router.push(fullPath);
+        })
+        .catch((err) => {
+          console.error(err);
+          setIsLoading(false);
+        });
+    } else {
+      //EDIT EVENTS
+      editEvent(eventData?.id as string, {
+        ...payload,
       })
-      .catch((err) => {
-        console.error(err);
-        setIsLoading(false);
-      });
+        .then(() => {
+          // TODO: add success notification
+          router.push(paths.MyEvents);
+        })
+        .catch((err) => {
+          console.error(err);
+          setIsLoading(false);
+        });
+    }
   };
 
   if (!eventData || isLoading) return <DynamicLoader classNames='mt-16' />;

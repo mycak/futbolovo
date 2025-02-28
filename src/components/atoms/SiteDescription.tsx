@@ -5,7 +5,6 @@ import PageWrapper from './PageWrapper';
 
 const SiteDescription = ({
   siteDescriptionTexts,
-  lng,
 }: {
   siteDescriptionTexts: {
     title: string;
@@ -14,7 +13,6 @@ const SiteDescription = ({
     firstButton: string;
     secondButton: string;
   };
-  lng: string;
 }) => {
   return (
     <PageWrapper classNames='bg-gray-900 py-12 flex flex-col-reverse lg:flex-row justify-between gap-6 lg:gap-12'>
@@ -31,7 +29,7 @@ const SiteDescription = ({
         <div className='flex items-end gap-8 mx-auto lg:ml-auto lg:mr-0'>
           <Button
             asLink
-            href={`/${lng}/${paths.Map}`}
+            href={paths.Map}
             text={siteDescriptionTexts.firstButton}
             size='lg'
             classNames='md:ml-auto mt-8 animate-shake'
@@ -39,7 +37,7 @@ const SiteDescription = ({
           <Button
             asLink
             size='lg'
-            href={`/${lng}/${paths.EventAdd}`}
+            href={paths.EventAdd}
             text={siteDescriptionTexts.secondButton}
             classNames='mt-8 animate-shake delay-1'
             color='bg-red-500'

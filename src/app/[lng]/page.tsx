@@ -49,10 +49,7 @@ export default async function DashboardPage(props: {
         title={t('iconsSection.forFootballEnthusiasts')}
         items={usersIconsTexts(t)}
       />
-      <SiteDescription
-        siteDescriptionTexts={siteDescriptionTexts(t)}
-        lng={lng}
-      />
+      <SiteDescription siteDescriptionTexts={siteDescriptionTexts(t)} />
       <IconsSection
         title={t('iconsSection.forOwners')}
         items={ownersIconsTexts(t)}

@@ -4,7 +4,7 @@ import { Events } from '@/types/common';
 import { MutableRefObject, useEffect } from 'react';
 import { Cluster } from '@react-google-maps/marker-clusterer';
 import { MAX_ZOOM_LEVEL } from '@/constants/common';
-import { getEvents } from '@/app/actions';
+import { getEvents } from '@/app/actions/events';
 import { useQuery } from '@tanstack/react-query';
 
 const useMap = (mapRef: MutableRefObject<google.maps.Map | null>) => {

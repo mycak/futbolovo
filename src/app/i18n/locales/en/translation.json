@@ -4,7 +4,20 @@
     "register": "Register",
     "userLogin": "User login",
     "login": "Login",
-    "companyName": "Company Name"
+    "companyName": "Company Name",
+    "logout": "Logout",
+    "haveAccount": "Already have an account?",
+    "noAccount": "Don't have an account yet?",
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "termsAndConditions": "I accept the",
+    "and": "and",
+    "forgotPassword": "Forgot password?",
+    "resetPassword": "Reset password",
+    "registerSuccess": {
+      "title": "Registration Successful!",
+      "message": "Your account has been created successfully. You can now log in to your account."
+    }
   },
   "optional": "optional",
   "firstName": "First Name",
@@ -59,11 +72,13 @@
   "kidsSchools": "Academies",
   "remove": "Remove",
   "fix": "Fix",
+  "repost": "Repost",
   "accept": "Accept",
   "fields": "Fields",
   "name": "Name",
   "academyOrSchool": "Academy/School",
   "field": "Field",
+  "edit": "Edit",
   "camp": "Camp",
   "league": "League",
   "service": "Service",
@@ -76,12 +91,18 @@
     "incorrectPhone": "Incorrect phone number",
     "min3": "Minimum 3 characters",
     "imageInfoOnRepeat": "If you duplicate data, re-uploading the photo is not necessary",
-    "passwordConditions": "Password must contain at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character",
+    "passwordConditions": "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character",
     "passwordsDontMatch": "Passwords don't match",
     "incorrectEmail": "Incorrect email address"
   },
   "typeName": "Type name",
   "events": "Events",
+  "myList": "My List",
+  "myEvents": {
+    "noEventsFound": "You don't have any events yet",
+    "createFirst": "Create your first event!",
+    "description": "Add your event and let others discover it."
+  },
   "chooseFile": "Choose a file",
   "clear": "Clear",
   "givePrice": "Give a price",
@@ -151,6 +172,7 @@
     "map": "Map",
     "addPoint": "Add a point on the map",
     "addEvent": "Add Event",
+    "editEvent": "Edit Event",
     "portal": "Portal",
     "others": "Others"
   },
@@ -226,5 +248,11 @@
     "contactTitle": "Contact",
     "contactText": "For matters related to personal data, please contact:"
   },
-  "acceptTermsAndPrivacyLabel": "I accept the <1>Terms and Conditions</1> and <2>Privacy Policy</2>"
+  "acceptTermsAndPrivacyLabel": "I accept the <1>Terms and Conditions</1> and <2>Privacy Policy</2>",
+  "errors": {
+    "credentialsRequired": "Email and password required",
+    "userNotFound": "User not found",
+    "invalidPassword": "Invalid password",
+    "emailExists": "Email already exists"
+  }
 }

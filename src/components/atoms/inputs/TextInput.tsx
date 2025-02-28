@@ -22,7 +22,7 @@ const TextInput = <T extends FieldValues>({
         <span className='text-grass-20'>{label}</span>
         <input
           type='text'
-          id='text'
+          id={name}
           className={customStyles({ error: !!error })}
           placeholder={placeholder}
           {...register(name)}

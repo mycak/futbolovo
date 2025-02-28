@@ -1,5 +1,6 @@
-import { AddEventInputs } from "@/schemas/addEventSchema";
-import { AgeCategoryCategoryEnum, EventCategoryEnum } from "@prisma/client";
+import { AddEventInputs } from '@/schemas/addEventSchema';
+import { AgeCategoryCategoryEnum, EventCategoryEnum } from '@prisma/client';
+import { DefaultUser } from 'next-auth';
 
 export type IconText = {
   icon: string;
@@ -63,11 +64,13 @@ export type Event = AddEventInputs & {
 export type Events = Event[];
 
 //NAVIGATION
-export type NavigationKey = "mainPage" | "map" | "other";
+export type NavigationKey = 'mainPage' | 'map' | 'auth';
 
 export type NavigationItem = {
   text: string;
   to: string;
+  className?: string;
+  callback?: () => void;
 };
 
 export type Location = {
@@ -75,3 +78,12 @@ export type Location = {
   longitude: number;
   addressName: string;
 };
+
+export interface IUser extends DefaultUser {
+  id: string;
+  firstName: string;
+  lastName: string;
+  companyName?: string | null;
+  email: string;
+  createdAt: string;
+}

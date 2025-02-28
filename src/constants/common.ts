@@ -22,3 +22,11 @@ export const contactEmail: string = 'futbolovo.contact@gmail.com';
 
 //GOOGLE PLACES
 export const MAX_ZOOM_LEVEL = 14;
+
+//AUTH MESSAGES
+export const authMessages = {
+  credentialsRequired: 'credentialsRequired',
+  userNotFound: 'userNotFound',
+  invalidPassword: 'invalidPassword',
+  emailExists: 'emailExists',
+};

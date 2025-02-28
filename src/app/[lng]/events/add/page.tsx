@@ -4,7 +4,11 @@ import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import AddEventWizard from '@/components/organism/AddEventWizard/AddEventWizard';
 import { Metadata } from 'next';
+import { getServerSession } from 'next-auth';
 import Head from 'next/head';
+import Button from '@/components/atoms/Button';
+import { paths } from '@/constants/paths';
+import { authOptions } from '@/configs/auth';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
@@ -20,7 +24,7 @@ export async function generateMetadata(props: {
   };
 }
 
-const AddEventPage = async (props: {
+const EditEventPage = async (props: {
   params: Promise<{
     lng: string;
   }>;
@@ -28,10 +32,12 @@ const AddEventPage = async (props: {
   const params = await props.params;
   const { t } = await translate(params.lng);
 
+  const session = await getServerSession(authOptions);
+
   return (
     <>
       <Head>
-        <link rel='canonical' href='https://futbolovo.net/pl/events/add' />
+        <link rel='canonical' href='https://futbolovo.net/pl/events/edit' />
       </Head>
       <PageContainer>
         <PageWrapper>
@@ -42,6 +48,16 @@ const AddEventPage = async (props: {
             <h2 className='text-2xl md:text-3xl text-center text-grass-20 mt-4 md:mt-8'>
               {t('navigation.addPoint')}
             </h2>
+            {!session || !session.user ? (
+              <Button
+                asLink
+                href={paths.Login}
+                size='lg'
+                text={`${t('auth.login')} / ${t('auth.register')}`}
+                color='bg-red-600'
+                classNames='mt-4 mb-5 md:mt-8 mx-auto'
+              />
+            ) : null}
             <AddEventWizard />
           </div>
           <Back classNames='mx-auto mt-8' lng={params.lng} />
@@ -51,4 +67,4 @@ const AddEventPage = async (props: {
   );
 };
 
-export default AddEventPage;
+export default EditEventPage;

@@ -2,59 +2,54 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { FieldValues, SubmitHandler } from 'react-hook-form';
 
+// Base button properties common to all variants
+type BaseButtonProps = {
+  text?: string;
+  onClick?: ((ev: React.SyntheticEvent) => void) | SubmitHandler<FieldValues>;
+  classNames?: string;
+  type?: 'button' | 'submit' | 'reset';
+  size?: 'sm' | 'md' | 'lg';
+  isLoading?: boolean;
+  color?: string;
+};
+
+// Link button variant
+type LinkButtonProps = BaseButtonProps & {
+  asLink: true;
+  href: string;
+  variant?: 'basic' | 'icon';
+  icon?: string;
+};
+
+// Icon button variant
+type IconButtonProps = BaseButtonProps & {
+  asLink?: false;
+  href?: never;
+  variant?: 'icon';
+  icon: string;
+};
+
+// Basic button variant
+type BasicButtonProps = BaseButtonProps & {
+  asLink?: false;
+  href?: never;
+  variant?: 'basic';
+  icon?: string;
+};
+
+// Text button variant
+type TextButtonProps = BaseButtonProps & {
+  asLink?: false;
+  href?: never;
+  variant?: 'text';
+  icon?: string;
+};
+
 type ButtonProps =
-  | {
-      text?: string;
-      variant?: 'basic' | 'icon';
-      onClick?: (() => void) | SubmitHandler<FieldValues>;
-      classNames?: string;
-      asLink: true;
-      href: string;
-      icon?: string;
-      type?: 'button' | 'submit' | 'reset';
-      size?: 'sm' | 'md' | 'lg';
-      isLoading?: boolean;
-      color?: string;
-    }
-  | {
-      text?: string;
-      variant?: 'basic';
-      onClick?: (() => void) | SubmitHandler<FieldValues>;
-      classNames?: string;
-      asLink?: false;
-      href?: never;
-      icon?: string;
-      type?: 'button' | 'submit' | 'reset';
-      size?: 'sm' | 'md' | 'lg';
-      isLoading?: boolean;
-      color?: string;
-    }
-  | {
-      text?: string;
-      variant?: 'icon';
-      onClick?: (() => void) | SubmitHandler<FieldValues>;
-      classNames?: string;
-      asLink?: false;
-      href?: never;
-      icon: string;
-      type?: 'button' | 'submit' | 'reset';
-      size?: 'sm' | 'md' | 'lg';
-      isLoading?: boolean;
-      color?: string;
-    }
-  | {
-      text?: string;
-      variant?: 'text';
-      onClick?: (() => void) | SubmitHandler<FieldValues>;
-      classNames?: string;
-      asLink?: false;
-      href?: never;
-      icon?: string;
-      type?: 'button' | 'submit' | 'reset';
-      size?: 'sm' | 'md' | 'lg';
-      isLoading?: boolean;
-      color?: string;
-    };
+  | LinkButtonProps
+  | IconButtonProps
+  | BasicButtonProps
+  | TextButtonProps;
 
 const Button = ({
   text,
@@ -75,7 +70,7 @@ const Button = ({
       onClick={onClick}
       disabled={isLoading}
       className={clsx(
-        'px-3 py-1 transition-all duration-300 opacity-90 rounded-sm flex items-center hover:opacity-100 relative',
+        'px-3 py-1 transition-all duration-300 opacity-90 rounded-sm flex items-center cursor-pointer hover:opacity-100 relative',
         variant === 'text' && 'text-grass-20 bg-transparent',
         size === 'lg' &&
           'px-2 py-1 md:px-5 md:py-3 text-xl md:text-2xl lg:text-3xl',

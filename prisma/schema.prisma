@@ -31,11 +31,13 @@ model Event {
 
 model User {
   id             String                     @id @default(uuid())
-  userName       String
+  firstName       String
+  lastName       String
   password       String
-  phoneNumber    String
+  companyName    String?
   email          String                     @unique
   events         Event[]
+  createdAt      DateTime @default(now())
 }
 
 enum EventCategoryEnum {

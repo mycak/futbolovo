@@ -96,10 +96,40 @@ export async function getEventById(eventId: string) {
   return event;
 }
 
+export async function getEventsByUser(userId: string, userEmail: string) {
+  const events = await prisma.event.findMany({
+    where: {
+      OR: [{ authorId: userId }, { email: userEmail }],
+    },
+  });
+
+  return events;
+}
+
 export async function addEvent(eventData: Prisma.EventCreateInput) {
   const newEvent = await prisma.event.create({
     data: eventData,
   });
 
   return newEvent;
+}
+
+export async function editEvent(
+  id: string,
+  eventData: Prisma.EventUpdateInput
+) {
+  const newEvent = await prisma.event.update({
+    where: { id },
+    data: eventData,
+  });
+
+  return newEvent;
+}
+
+export async function deleteEvent(id: string) {
+  const deletedEvent = await prisma.event.delete({
+    where: { id },
+  });
+
+  return deletedEvent;
 }

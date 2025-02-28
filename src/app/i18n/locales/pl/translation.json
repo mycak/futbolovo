@@ -4,7 +4,20 @@
     "register": "Zarejestruj",
     "userLogin": "Logowanie użytkownika",
     "login": "Zaloguj",
-    "companyName": "Nazwa firmy"
+    "companyName": "Nazwa firmy",
+    "logout": "Wyloguj",
+    "haveAccount": "Masz już konto?",
+    "noAccount": "Nie masz jeszcze konta?",
+    "signIn": "Zaloguj się",
+    "signUp": "Zarejestruj się",
+    "termsAndConditions": "Akceptuję",
+    "and": "oraz",
+    "forgotPassword": "Zapomniałeś hasła?",
+    "resetPassword": "Zresetuj hasło",
+    "registerSuccess": {
+      "title": "Rejestracja zakończona pomyślnie!",
+      "message": "Twoje konto zostało utworzone. Możesz się teraz zalogować."
+    }
   },
   "optional": "opcjonalnie",
   "firstName": "Imię",
@@ -83,6 +96,7 @@
   "camp": "Obóz",
   "league": "Liga",
   "pitchOrIndoor": "Boisko lub hala na wynajem",
+  "myList": "Moja lista",
   "service": "Usługa",
   "match": "Mecz",
   "unknown": "Nieznany",
@@ -122,11 +136,13 @@
   "contactNumber": "Numer kontaktowy",
   "more": "Więcej",
   "reset": "Resetuj",
+  "edit": "Edytuj",
   "date": "Data",
   "dateRange": "Zakres dat",
   "rangeDisabledInfo": "Dotyczy kategorii obozów, meczy lub turniejów.",
   "ageCategory": "Kategoria wiekowa",
   "choose": "Wybierz",
+  "repost": "Wystaw ponownie",
   "chooseCategory": "Wybierz kategorię",
   "search": "Szukaj",
   "writePhrase": "Wpisz frazę",
@@ -150,6 +166,7 @@
     "mainPage": "Strona Główna",
     "map": "Mapa",
     "addPoint": "Dodaj punkt na mapie",
+    "editEvent": "Edytuj punkt na mapie",
     "addEvent": "Dodaj Event",
     "portal": "Portal",
     "others": "Inne"
@@ -226,5 +243,16 @@
     "contactTitle": "Kontakt",
     "contactText": "W sprawach związanych z danymi osobowymi prosimy o kontakt pod adresem:"
   },
-  "acceptTermsAndPrivacyLabel": "Akceptuje <1>regulamin</1> i <2>politykę prywatności</2>"
+  "acceptTermsAndPrivacyLabel": "Akceptuje <1>regulamin</1> i <2>politykę prywatności</2>",
+  "errors": {
+    "credentialsRequired": "Email i hasło wymagane",
+    "userNotFound": "Użytkownik nie znaleziony",
+    "invalidPassword": "Niepoprawne hasło",
+    "emailExists": "Email już istnieje"
+  },
+  "myEvents": {
+    "noEventsFound": "Nie masz jeszcze żadnych wydarzeń",
+    "createFirst": "Utwórz swoje pierwsze wydarzenie!",
+    "description": "Dodaj swoje wydarzenie i pozwól innym je odkryć."
+  }
 }

@@ -1,12 +1,12 @@
 import { NavigationItem, NavigationKey } from '@/types/common';
 import { paths } from './paths';
 import { TFunction } from 'i18next';
+import { signOut } from 'next-auth/react';
 
-export const navigationItems: (
-  isSignIn: boolean,
+export const navigationItems = (
+  isSignedIn: boolean,
   t: TFunction<'translation', undefined>
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-) => Record<NavigationKey, NavigationItem[]> = (_isSignIn, t) => ({
+): Record<NavigationKey, NavigationItem[]> => ({
   mainPage: [
     {
       text: t('navigation.mainPage'),
@@ -22,40 +22,32 @@ export const navigationItems: (
       text: t('navigation.addPoint'),
       to: paths.EventAdd,
     },
+    ...(isSignedIn
+      ? [
+          {
+            text: t('myList'),
+            to: paths.MyEvents,
+          },
+        ]
+      : []),
   ],
-  other: [
-    {
-      text: t('navigation.contact'),
-      to: paths.Contact,
-    },
-    {
-      text: t('navigation.cooperation'),
-      to: paths.Cooperation,
-    },
-    {
-      text: t('privacyPolicyPage.title'),
-      to: paths.PrivacyPolicy,
-    },
-    {
-      text: t('statutePage.title'),
-      to: paths.Statute,
-    },
-  ],
-  // auth: isSignIn
-  //   ? [
-  //       {
-  //         text: "Wyloguj",
-  //         to: "/signout",
-  //       },
-  //     ]
-  //   : [
-  //       {
-  //         text: "Zaloguj",
-  //         to: "/login",
-  //       },
-  //       {
-  //         text: "Zarejestruj",
-  //         to: "/register",
-  //       },
-  //     ],
+  auth: isSignedIn
+    ? [
+        {
+          text: t('auth.logout'),
+          to: '/signout',
+          className: 'text-green-200',
+          callback: () => signOut({ callbackUrl: paths.Dashboard }),
+        },
+      ]
+    : [
+        {
+          text: t('auth.login'),
+          to: paths.Login,
+        },
+        {
+          text: t('auth.register'),
+          to: paths.Register,
+        },
+      ],
 });

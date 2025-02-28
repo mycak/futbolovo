@@ -1,4 +1,4 @@
-import { getEventById } from '@/app/actions';
+import { getEventById } from '@/app/actions/events';
 import { translate } from '@/app/i18n';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';

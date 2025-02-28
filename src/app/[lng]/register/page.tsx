@@ -5,6 +5,8 @@ import PageContainer from '@/components/atoms/PageContainer';
 import RegisterForm from '@/components/organism/Auth/RegisterForm';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
+import Link from 'next/link';
+import { paths } from '@/constants/paths';
 
 export async function generateMetadata(props: {
   params: Promise<{
@@ -43,6 +45,15 @@ export default async function RegisterPage(props: {
             {t('auth.userRegistration')}
           </h2>
           <RegisterForm />
+          <p className='text-center mt-6 text-grass-20'>
+            {t('auth.haveAccount')}{' '}
+            <Link
+              href={paths.Login}
+              className='text-ivory-150 hover:text-ivory-100 transition-colors'
+            >
+              {t('auth.signIn')}
+            </Link>
+          </p>
         </div>
         <Back classNames='mx-auto mt-8' lng={params.lng} />
       </PageWrapper>
