@@ -1,14 +1,8 @@
-import NextAuth, {
-  NextAuthOptions,
-  SessionStrategy,
-  User,
-  Session,
-} from 'next-auth';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcrypt';
 import { PrismaClient } from '@prisma/client';
 import { authMessages } from '@/constants/common';
-import { JWT } from 'next-auth/jwt';
 
 const prisma = new PrismaClient();
 
