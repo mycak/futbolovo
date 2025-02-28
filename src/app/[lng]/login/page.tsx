@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import { languages, fallbackLng } from '../../i18n/settings';
 import { translate } from '../../i18n';
 import PageContainer from '@/components/atoms/PageContainer';
-import RegisterForm from '@/components/organism/Auth/RegisterForm';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import LoginForm from '@/components/organism/Auth/LoginForm';
@@ -24,7 +23,7 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function RegisterPage(props: {
+export default async function LoginPage(props: {
   params: Promise<{
     lng: string;
   }>;

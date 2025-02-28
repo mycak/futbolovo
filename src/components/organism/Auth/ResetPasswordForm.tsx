@@ -7,22 +7,21 @@ import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
 import { useTranslation } from '@/app/i18n/client';
 import EmailInput from '@/components/atoms/inputs/EmailInput';
-import PasswordInput from '@/components/atoms/inputs/PasswordInput';
 import Divider from '@/components/atoms/Divider';
 import Button from '@/components/atoms/Button';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
-import { LoginInputs } from '@/schemas/loginSchema';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import { paths } from '@/constants/paths';
+// import { useRouter } from 'next/navigation';
 import { ResetPasswordInputs } from '@/schemas/restPasswordSchema';
 
 const ResetPasswordForm = () => {
   const { lng } = useParams();
   const { t } = useTranslation(lng as string);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | null | undefined>(null);
-  const router = useRouter();
+  const [
+    error,
+    // setError
+  ] = useState<string | null | undefined>(null);
+  // const router = useRouter();
 
   const {
     handleSubmit,

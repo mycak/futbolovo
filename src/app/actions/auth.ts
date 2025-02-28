@@ -28,6 +28,7 @@ export async function registerUser(userPayload: RegisterInputs) {
 
     return { message: 'User created successfully!', user };
   } catch (error) {
+    console.error(error);
     return { error: authMessages.emailExists };
   }
 }

@@ -5,7 +5,6 @@ import PageWrapper from './PageWrapper';
 
 const SiteDescription = ({
   siteDescriptionTexts,
-  lng,
 }: {
   siteDescriptionTexts: {
     title: string;
@@ -14,7 +13,6 @@ const SiteDescription = ({
     firstButton: string;
     secondButton: string;
   };
-  lng: string;
 }) => {
   return (
     <PageWrapper classNames='bg-gray-900 py-12 flex flex-col-reverse lg:flex-row justify-between gap-6 lg:gap-12'>

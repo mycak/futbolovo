@@ -1,4 +1,4 @@
-import { getEventById, getEventsByUser } from '@/app/actions/events';
+import { getEventsByUser } from '@/app/actions/events';
 import { translate } from '@/app/i18n';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
@@ -11,7 +11,6 @@ import {
   QueryClient,
 } from '@tanstack/react-query';
 import { Metadata } from 'next';
-import { useSession } from 'next-auth/react';
 import Head from 'next/head';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
