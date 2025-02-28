@@ -1,4 +1,3 @@
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { translate } from '@/app/i18n';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
@@ -9,6 +8,7 @@ import { getServerSession } from 'next-auth';
 import Head from 'next/head';
 import Button from '@/components/atoms/Button';
 import { paths } from '@/constants/paths';
+import { authOptions } from '@/configs/auth';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;

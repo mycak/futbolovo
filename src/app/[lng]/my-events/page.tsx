@@ -13,7 +13,7 @@ import {
 import { Metadata } from 'next';
 import Head from 'next/head';
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/configs/auth';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
