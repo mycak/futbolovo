@@ -2,13 +2,13 @@ import { AddEventInputs } from './../schemas/addEventSchema';
 import { create } from 'zustand';
 
 export interface AddEventState {
-  addData: AddEventInputs | undefined;
+  addData: (AddEventInputs & { id?: string }) | undefined;
   tempAddData: AddEventInputs | undefined;
   currentStep: number;
 }
 
 export interface AddEventAction {
-  setAddData: (addData: AddEventInputs) => void;
+  setAddData: (addData: AddEventInputs & { id?: string }) => void;
   setTempAddData: (tempData: AddEventInputs) => void;
   setStep: (currentStep: number) => void;
   nextStep: () => void;

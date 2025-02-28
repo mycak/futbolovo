@@ -9,6 +9,9 @@ import { DATE_FORMAT } from '@/constants/common';
 import { translateEventType } from '@/utils';
 import { paths } from '@/constants/paths';
 import Button from '@/components/atoms/Button';
+import { useRouter } from 'next/navigation';
+import { useAddEventWizardStore } from '@/stores';
+import { Location } from '@/types/common';
 
 interface MyEventsListProps {
   events: Event[];
@@ -17,9 +20,24 @@ interface MyEventsListProps {
 
 const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
   const { t } = useTranslation(lng);
+  const { push } = useRouter();
+  const setAddData = useAddEventWizardStore((state) => state.setAddData);
 
-  const handleRepost = (eventId: string) => {
-    console.log('repeat event', eventId);
+  const handleRepost = (e: React.SyntheticEvent, eventId: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    push(paths.EventAdd);
+    const eventData = events.find((event) => event.id === eventId);
+    if (eventData) {
+      setAddData({
+        ...eventData,
+        termsAccepted: true,
+        additionalLocations: [],
+        authorId: eventData.authorId ?? '',
+        location: eventData.location as Location,
+        id: undefined,
+      });
+    }
   };
 
   if (!events.length) {
@@ -61,10 +79,10 @@ const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
                 </div>
               </div>
               <Button
-                asLink
-                href={`/${lng}/${paths.Map}`}
                 size='lg'
-                onClick={(e) => handleRepost(event.id)}
+                onClick={(ev: React.SyntheticEvent) =>
+                  handleRepost(ev, event.id)
+                }
                 color='bg-grass-45'
                 classNames='text-white py-2 px-4'
                 text={t('repost')}

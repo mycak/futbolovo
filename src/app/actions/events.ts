@@ -101,7 +101,6 @@ export async function getEventsByUser(userId: string, userEmail: string) {
     where: {
       OR: [{ authorId: userId }, { email: userEmail }],
     },
-    cacheStrategy: { ttl: 60 * 60 * 24 }, // 1 day
   });
 
   return events;
@@ -113,4 +112,24 @@ export async function addEvent(eventData: Prisma.EventCreateInput) {
   });
 
   return newEvent;
+}
+
+export async function editEvent(
+  id: string,
+  eventData: Prisma.EventUpdateInput
+) {
+  const newEvent = await prisma.event.update({
+    where: { id },
+    data: eventData,
+  });
+
+  return newEvent;
+}
+
+export async function deleteEvent(id: string) {
+  const deletedEvent = await prisma.event.delete({
+    where: { id },
+  });
+
+  return deletedEvent;
 }

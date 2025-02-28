@@ -5,8 +5,7 @@ import { useSession } from 'next-auth/react';
 import { paths } from '@/constants/paths';
 
 const UserNavigationMenu = () => {
-  const { status, data } = useSession();
-  console.log(data);
+  const { status } = useSession();
   const router = useRouter();
 
   const onButtonClick = () => {
