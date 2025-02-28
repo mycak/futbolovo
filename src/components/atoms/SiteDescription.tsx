@@ -31,7 +31,7 @@ const SiteDescription = ({
         <div className='flex items-end gap-8 mx-auto lg:ml-auto lg:mr-0'>
           <Button
             asLink
-            href={`/${lng}/${paths.Map}`}
+            href={paths.Map}
             text={siteDescriptionTexts.firstButton}
             size='lg'
             classNames='md:ml-auto mt-8 animate-shake'
@@ -39,7 +39,7 @@ const SiteDescription = ({
           <Button
             asLink
             size='lg'
-            href={`/${lng}/${paths.EventAdd}`}
+            href={paths.EventAdd}
             text={siteDescriptionTexts.secondButton}
             classNames='mt-8 animate-shake delay-1'
             color='bg-red-500'

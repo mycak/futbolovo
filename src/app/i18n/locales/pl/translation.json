@@ -11,7 +11,9 @@
     "signIn": "Zaloguj się",
     "signUp": "Zarejestruj się",
     "termsAndConditions": "Akceptuję",
-    "and": "oraz"
+    "and": "oraz",
+    "forgotPassword": "Zapomniałeś hasła?",
+    "resetPassword": "Zresetuj hasło"
   },
   "optional": "opcjonalnie",
   "firstName": "Imię",

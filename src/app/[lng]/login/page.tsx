@@ -7,6 +7,7 @@ import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import LoginForm from '@/components/organism/Auth/LoginForm';
 import Link from 'next/link';
+import { paths } from '@/constants/paths';
 
 export async function generateMetadata(props: {
   params: Promise<{
@@ -48,12 +49,22 @@ export default async function RegisterPage(props: {
           <p className='text-center mt-6 text-grass-20'>
             {t('auth.noAccount')}{' '}
             <Link
-              href={`/${lng}/register`}
-              className='text-ivory-150 hover:text-ivory-100 transition-colors'
+              href={paths.Register}
+              className='text-ivory-150 hover:text-grass-50 transition-colors'
             >
               {t('auth.signUp')}
             </Link>
           </p>
+          {/* //TODO: finish reset page */}
+          {/* <p className='text-center mt-2 text-grass-20'>
+            {t('auth.forgotPassword')}{' '}
+            <Link
+              href={paths.PasswordReset}
+              className='text-ivory-150 hover:text-grass-50 transition-colors'
+            >
+              {t('auth.resetPassword')}
+            </Link>
+          </p> */}
         </div>
         <Back classNames='mx-auto mt-8' lng={params.lng} />
       </PageWrapper>

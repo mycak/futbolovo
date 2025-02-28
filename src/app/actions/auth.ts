@@ -31,3 +31,32 @@ export async function registerUser(userPayload: RegisterInputs) {
     return { error: authMessages.emailExists };
   }
 }
+
+export async function changePassword(
+  userId: string,
+  oldPassword: string,
+  newPassword: string
+) {
+  if (!oldPassword || !newPassword) {
+    return { error: 'Both old and new passwords are required' };
+  }
+
+  const user = await prisma.user.findUnique({ where: { id: userId } });
+
+  if (!user) {
+    return { error: 'User not found' };
+  }
+
+  const passwordMatch = await bcrypt.compare(oldPassword, user.password);
+  if (!passwordMatch) {
+    return { error: 'Old password is incorrect' };
+  }
+
+  const hashedPassword = await bcrypt.hash(newPassword, 10);
+  await prisma.user.update({
+    where: { id: userId },
+    data: { password: hashedPassword },
+  });
+
+  return { message: 'Password updated successfully' };
+}

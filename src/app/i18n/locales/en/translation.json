@@ -11,7 +11,9 @@
     "signIn": "Sign in",
     "signUp": "Sign up",
     "termsAndConditions": "I accept the",
-    "and": "and"
+    "and": "and",
+    "forgotPassword": "Forgot password?",
+    "resetPassword": "Reset password"
   },
   "optional": "optional",
   "firstName": "First Name",

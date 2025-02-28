@@ -5,7 +5,9 @@ import PageContainer from '@/components/atoms/PageContainer';
 import RegisterForm from '@/components/organism/Auth/RegisterForm';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
+import LoginForm from '@/components/organism/Auth/LoginForm';
 import Link from 'next/link';
+import ResetPasswordForm from '@/components/organism/Auth/ResetPasswordForm';
 import { paths } from '@/constants/paths';
 
 export async function generateMetadata(props: {
@@ -23,7 +25,7 @@ export async function generateMetadata(props: {
   };
 }
 
-export default async function RegisterPage(props: {
+export default async function ResetPasswordPage(props: {
   params: Promise<{
     lng: string;
   }>;
@@ -37,21 +39,21 @@ export default async function RegisterPage(props: {
   return (
     <PageContainer classNames='pb-0'>
       <PageWrapper>
-        <div className='md:bg-gray-900 py-8 sm:px-4 md:px-8 mx-auto rounded-sm w-full'>
+        <div className='md:bg-gray-900 py-8 sm:px-4 md:px-8 mx-auto rounded-sm'>
           <div className='mx-auto max-w-max'>
-            <i className='fa-solid fa-users-line fa-5x text-ivory-150 mx-auto' />
+            <i className='fa-solid fa-lock fa-5x text-ivory-150 mx-auto' />
           </div>
           <h2 className='text-2xl md:text-3xl text-center text-grass-20 mt-4 md:mt-8'>
-            {t('auth.userRegistration')}
+            {t('auth.resetPassword')}
           </h2>
-          <RegisterForm />
+          <ResetPasswordForm />
           <p className='text-center mt-6 text-grass-20'>
-            {t('auth.haveAccount')}{' '}
+            {t('auth.noAccount')}{' '}
             <Link
-              href={paths.Login}
+              href={paths.Register}
               className='text-ivory-150 hover:text-ivory-100 transition-colors'
             >
-              {t('auth.signIn')}
+              {t('auth.signUp')}
             </Link>
           </p>
         </div>
