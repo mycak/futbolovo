@@ -2,7 +2,11 @@
 
 import React from 'react';
 import EventImage from './EventImage';
-import { formatPhoneNumber, translateEventType } from '@/utils';
+import {
+  formatPhoneNumber,
+  generatePriceDescription,
+  translateEventType,
+} from '@/utils';
 import { currentCurrencySign, DATE_FORMAT } from '@/constants/common';
 import { differenceInDays, format } from 'date-fns';
 import { AddEventInputs } from '@/schemas/addEventSchema';
@@ -100,10 +104,27 @@ const EventPreview = ({
               </p>
             </div>
           )}
+          {(
+            [
+              EventCategoryEnum.TOURNAMENT,
+              EventCategoryEnum.SCHOOL,
+            ] as EventCategoryEnum[]
+          ).includes(eventData.category) &&
+            !!eventData.female && (
+              <div className='flex items-center gap-3 col-span-2 '>
+                <i className='fa-solid fa-venus text-grass-50' />
+                <p>
+                  <i className='fa-solid fa-thumbs-up text-ivory-150' />
+                </p>
+              </div>
+            )}
           <div className='flex items-center gap-3 col-span-2 '>
             <i className='fa-solid fa-coins text-grass-50' />
             <p>
-              {eventData.price} {currentCurrencySign}
+              {generatePriceDescription(
+                eventData as AddEventInputs,
+                currentCurrencySign
+              )}
             </p>
           </div>
           <div className='flex items-center gap-3 col-span-2 '>

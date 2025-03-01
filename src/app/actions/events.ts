@@ -12,6 +12,11 @@ export async function getEvents(filters: MapFilters) {
     isPublished: true,
   };
 
+  // Sex filter
+  if (!!filters.female) {
+    whereClause.female = true;
+  }
+
   // Categories filter
   if (filters.categories?.length) {
     whereClause.category = { in: filters.categories };

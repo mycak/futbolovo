@@ -258,15 +258,6 @@ const AddEventForm = () => {
           register={register}
           error={errors.name?.message}
         />
-        {generateCategoryFieldsSet()}
-        {/* CONTACT AND DESCRIPTION */}
-        <NumberInput
-          label={t('price')}
-          placeholder={t('givePrice')}
-          name='price'
-          control={control}
-          error={errors.price?.message}
-        />
         <PhoneNumberInput
           label={t('contactNumber')}
           placeholder='+48XXXXXXXXX'
@@ -274,6 +265,24 @@ const AddEventForm = () => {
           register={register}
           error={errors.phoneNumber?.message}
         />
+        <NumberInput
+          label={t('priceFrom')}
+          placeholder={t('givePrice')}
+          name='priceFrom'
+          control={control}
+          error={errors.priceFrom?.message}
+        />
+        <NumberInput
+          label={t('priceTo')}
+          placeholder={t('givePrice')}
+          name='priceTo'
+          control={control}
+          error={errors.priceTo?.message}
+        />
+        {generateCategoryFieldsSet()}
+
+        {/* CONTACT AND DESCRIPTION */}
+
         <EmailInput
           label='Email'
           placeholder={t('typeEmail')}
@@ -301,6 +310,15 @@ const AddEventForm = () => {
           error={errors.description?.message}
           register={register}
         />
+        {(currentCategory === EventCategoryEnum.TOURNAMENT ||
+          currentCategory === EventCategoryEnum.SCHOOL) && (
+          <SwitchInput
+            label={t('female')}
+            name='female'
+            register={register}
+            error={errors.female?.message}
+          />
+        )}
         <SwitchInput
           label={
             <Trans

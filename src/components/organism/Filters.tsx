@@ -19,6 +19,7 @@ import Button from '../atoms/Button';
 import clsx from 'clsx';
 import { areObjectsEqual } from '@/utils/common';
 import { filtersInitialState } from '@/stores/eventsStore';
+import SwitchInput from '../atoms/inputs/SwitchInput';
 
 const Filters = () => {
   const { lng } = useParams();
@@ -29,6 +30,7 @@ const Filters = () => {
     values: filters,
   });
   const [dateRangeDisabled, setDateRangeDisabled] = useState<boolean>(false);
+
   const [showMoreFilters, setShowMoreFilters] = useState<boolean>(false);
   const [overflowHidden, setOverflowHidden] = useState<boolean>(false);
 
@@ -147,6 +149,13 @@ const Filters = () => {
                 register={register}
                 name='search'
               />
+              <div className='block mx-auto mt-4 md:hidden'>
+                <SwitchInput
+                  label={t('female')}
+                  name='female'
+                  register={register}
+                />
+              </div>
             </div>
           </div>
           <Button
@@ -164,6 +173,9 @@ const Filters = () => {
             text={showMoreFilters ? t('lessFilters') : t('moreFilters')}
             type='button'
           />
+        </div>
+        <div className='hidden mx-auto mt-4 md:block'>
+          <SwitchInput label={t('female')} name='female' register={register} />
         </div>
         <div className='flex gap-4 mx-auto mt-6'>
           <Button

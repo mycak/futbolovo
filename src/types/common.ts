@@ -55,6 +55,7 @@ export type MapFilters = {
   startDate: Date | undefined;
   endDate: Date | undefined;
   ageCategories: AgeCategoryCategoryEnum[] | undefined;
+  female: boolean | undefined;
 };
 
 //EVENTS

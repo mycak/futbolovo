@@ -19,6 +19,7 @@ export const filtersInitialState = {
   startDate: new Date(),
   endDate: addMonths(new Date(), 6),
   ageCategories: undefined,
+  female: undefined,
 };
 
 const initialState: EventsState = {

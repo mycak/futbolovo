@@ -30,7 +30,6 @@ const ResetPasswordForm = () => {
   });
 
   const onSubmit = async (data: ResetPasswordInputs) => {
-    console.log(data);
     try {
       setIsLoading(true);
       setError(null);
