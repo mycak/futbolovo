@@ -17,7 +17,10 @@ model Event {
   endDate        DateTime?
   date           DateTime?
   name           String
-  price          Float
+  price          Float?
+  priceFrom      Float?
+  priceTo        Float?
+  female         Boolean?
   description    String
   phoneNumber    String
   email          String

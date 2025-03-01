@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Event" ADD COLUMN     "female" BOOLEAN,
+ADD COLUMN     "priceFrom" DOUBLE PRECISION,
+ADD COLUMN     "priceTo" DOUBLE PRECISION,
+ALTER COLUMN "price" DROP NOT NULL;

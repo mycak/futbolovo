@@ -39,7 +39,7 @@ export const navigationItems = (
         },
         {
           text: t('auth.logout'),
-          to: paths.Map,
+          to: paths.Dashboard,
           callback: () => signOut({ callbackUrl: paths.Dashboard }),
         },
       ]

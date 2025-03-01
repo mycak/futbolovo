@@ -146,6 +146,7 @@
     "text1": "Your event has been successfully saved in our database. It will be published once approved by an administrator.",
     "endDateText": "Event expiration date:",
     "text2": "Your event will be reviewed by an administrator within 24 hours and, once approved, will be visible on the map. If you have any questions, feel free to contact us.",
+    "text3": "Your event is now visible on the map! As a logged-in user, you can manage your listings in the user panel. If you have any questions, feel free to contact us.",
     "addNext": "Add next",
     "addSimilar": "Add similar",
     "end": "End"
@@ -199,12 +200,12 @@
     "option1": "Discover an interactive map that opens up a world of football opportunities for you!",
     "option2": "Check what's happening in your area and join the game!",
     "buttonTitle": "Join the game!",
-    "marchAnnouncement": "We are pleased to announce that by the end of March 2025, we plan to implement the following improvements on our platform:",
+    "marchAnnouncement": "We are pleased to announce that we've implemented a <panel>user panel (!)</panel> that allows easy management of your listings! In the coming days, we plan to implement additional improvements:",
     "marchAnnouncementPoints": {
-      "point1": "Adding a user panel to better manage submitted ads.",
-      "point2": "Introducing new categories for women and girls.",
-      "point3": "Introducing price ranges for categories."
-    }
+      "point1": "Introducing new categories for women and girls.",
+      "point2": "Implementing price ranges for categories."
+    },
+    "successUpdate": "Update completed successfully!"
   },
   "siteDescription": {
     "desc1": "Here you will find all the important information about tournaments, six-a-side leagues, kids' football schools, fields for rent, and football-related services.",

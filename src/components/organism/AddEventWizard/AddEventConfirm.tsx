@@ -7,9 +7,11 @@ import { TFunction } from 'i18next';
 import Button from '@/components/atoms/Button';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
 import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 
 const AddEventConfirm = ({ t }: { t: TFunction<'translation', undefined> }) => {
   const params = useSearchParams();
+  const { status } = useSession();
 
   const clearState = useAddEventWizardStore((state) => state.clearState);
 
@@ -22,7 +24,7 @@ const AddEventConfirm = ({ t }: { t: TFunction<'translation', undefined> }) => {
   useEffect(() => clearState(), []);
 
   const appUrl = process.env.NEXT_PUBLIC_APP_URL;
-
+  const isSignedIn = status === 'authenticated';
   if (!endDate && !email) return <DynamicLoader classNames='mt-4' />;
 
   return (
@@ -31,7 +33,11 @@ const AddEventConfirm = ({ t }: { t: TFunction<'translation', undefined> }) => {
         {t('eventConfirmation.title')}
       </h1>
       <div className='max-w-80 mx-auto md:max-w-xl'>
-        <p className='text-center'>{t('eventConfirmation.text2')}</p>
+        <p className='text-center'>
+          {isSignedIn
+            ? t('eventConfirmation.text3')
+            : t('eventConfirmation.text2')}
+        </p>
         <div className='flex flex-col gap-2 items-center text-center mt-2'>
           {eventIds.map((id: string) => (
             <Link

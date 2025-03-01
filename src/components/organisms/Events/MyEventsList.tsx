@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Event } from '@prisma/client';
+import { Event, EventCategoryEnum } from '@prisma/client';
 import { useTranslation } from '@/app/i18n/client';
 import { format } from 'date-fns';
 import { DATE_FORMAT } from '@/constants/common';
@@ -97,19 +97,30 @@ const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
                     {translateEventType(event.category, t)}
                   </p>
                 </div>
-                <div className='flex items-center gap-3 mt-1'>
-                  <i className='fa-solid fa-calendar-days text-grass-50' />
-                  <p className='text-gray-300'>
-                    {event.date
-                      ? format(new Date(event.date), DATE_FORMAT)
-                      : event.startDate && event.endDate
-                      ? `${format(
-                          new Date(event.startDate),
-                          DATE_FORMAT
-                        )} - ${format(new Date(event.endDate), DATE_FORMAT)}`
-                      : '-'}
-                  </p>
-                </div>
+                {event.category === EventCategoryEnum.TOURNAMENT && (
+                  <div className='flex items-center gap-3 col-span-2'>
+                    <i className='fa-solid fa-calendar-days text-grass-50' />
+                    <p>
+                      {event.date
+                        ? format(new Date(event.date), DATE_FORMAT)
+                        : '-'}
+                    </p>
+                  </div>
+                )}
+                {(event.category === EventCategoryEnum.CAMP ||
+                  event.category === EventCategoryEnum.MATCH) && (
+                  <div className='flex items-center gap-3 col-span-2'>
+                    <i className='fa-solid fa-calendar-days text-grass-50' />
+                    <p>
+                      {event.startDate && event.endDate
+                        ? `${format(
+                            new Date(event.startDate),
+                            DATE_FORMAT
+                          )} - ${format(new Date(event.endDate), DATE_FORMAT)}`
+                        : '-'}
+                    </p>
+                  </div>
+                )}
               </div>
 
               {/* Actions section - separate row on mobile */}

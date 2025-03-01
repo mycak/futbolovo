@@ -36,7 +36,11 @@ export async function middleware(req: NextRequest) {
     req.nextUrl.pathname.includes(paths.Login) ||
     req.nextUrl.pathname.includes(paths.Register);
 
-  const isUserPage = req.nextUrl.pathname.includes(paths.MyEvents);
+  const isUserPage =
+    req.nextUrl.pathname.includes(paths.MyEvents) ||
+    req.nextUrl.pathname.includes(paths.ChangePassword) ||
+    req.nextUrl.pathname.includes('/events/edit');
+
   if (token && isAuthPage) {
     return NextResponse.redirect(new URL(paths.Dashboard, req.url));
   }
