@@ -29,6 +29,7 @@
     "next": "15.1.6",
     "next-auth": "^4.24.11",
     "next-cloudinary": "^6.16.0",
+    "node-mailjet": "^6.0.6",
     "react": "^19",
     "react-cookie": "7.2.2",
     "react-datepicker": "^8.0.0",

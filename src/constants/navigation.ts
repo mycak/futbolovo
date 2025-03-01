@@ -34,9 +34,12 @@ export const navigationItems = (
   auth: isSignedIn
     ? [
         {
+          text: t('auth.changePassword.title'),
+          to: paths.ChangePassword,
+        },
+        {
           text: t('auth.logout'),
-          to: '/signout',
-          className: 'text-green-200',
+          to: paths.Map,
           callback: () => signOut({ callbackUrl: paths.Dashboard }),
         },
       ]

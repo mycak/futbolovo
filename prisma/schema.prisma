@@ -37,6 +37,8 @@ model User {
   companyName    String?
   email          String                     @unique
   events         Event[]
+  resetToken       String?
+  resetTokenExpires DateTime?
   createdAt      DateTime @default(now())
 }
 

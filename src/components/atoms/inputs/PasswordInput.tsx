@@ -7,12 +7,14 @@ const PasswordInput = <T extends FieldValues>({
   name,
   register,
   error,
+  loading,
 }: {
   label: string;
   placeholder: string;
   name: Path<T>;
   register: UseFormRegister<T>;
   error?: string;
+  loading?: boolean;
 }) => {
   return (
     <div className='relative max-w-80 w-full'>
@@ -21,6 +23,7 @@ const PasswordInput = <T extends FieldValues>({
         <input
           type='password'
           id={name}
+          disabled={loading}
           className={customStyles({ error: !!error })}
           placeholder={placeholder}
           {...register(name)}

@@ -18,10 +18,14 @@ export const paths = {
   //AUTH
   Register: '/register',
   Login: '/login',
+
   PasswordReset: '/password-reset',
-  PasswordResetConfirm: '/password-reset/confirm',
+  PasswordResetConfirm: '/password-reset-confirm',
+
   PasswordRemind: '/password-remind',
   RegisterConfirm: '/register-confirm',
+
+  ChangePassword: '/password-change',
 
   //USER
   MyEvents: '/my-events',

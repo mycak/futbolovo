@@ -8,6 +8,7 @@ type BaseButtonProps = {
   onClick?: ((ev: React.SyntheticEvent) => void) | SubmitHandler<FieldValues>;
   classNames?: string;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
   size?: 'sm' | 'md' | 'lg';
   isLoading?: boolean;
   color?: string;
@@ -60,6 +61,7 @@ const Button = ({
   variant,
   icon,
   type,
+  disabled = false,
   size = 'md',
   isLoading = false,
   color,
@@ -68,7 +70,7 @@ const Button = ({
     <button
       type={type ?? 'button'}
       onClick={onClick}
-      disabled={isLoading}
+      disabled={isLoading || disabled}
       className={clsx(
         'px-3 py-1 transition-all duration-300 opacity-90 rounded-sm flex items-center cursor-pointer hover:opacity-100 relative',
         variant === 'text' && 'text-grass-20 bg-transparent',

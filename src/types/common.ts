@@ -86,4 +86,6 @@ export interface IUser extends DefaultUser {
   companyName?: string | null;
   email: string;
   createdAt: string;
+  resetToken?: string | null;
+  resetTokenExpires?: Date | null;
 }
