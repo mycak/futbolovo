@@ -47,6 +47,7 @@ const ConfirmResetPasswordForm = () => {
         setIsSuccess(true);
       }
     } catch (err) {
+      console.error(err);
       setError(t('auth.resetPassword.error'));
     } finally {
       setIsLoading(false);

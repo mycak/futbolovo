@@ -54,6 +54,7 @@ const ChangePasswordForm = () => {
         reset();
       }
     } catch (err) {
+      console.error(err);
       setError(t('auth.changePassword.error'));
     } finally {
       setIsLoading(false);
