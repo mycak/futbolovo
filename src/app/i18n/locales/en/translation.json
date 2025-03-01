@@ -13,10 +13,29 @@
     "termsAndConditions": "I accept the",
     "and": "and",
     "forgotPassword": "Forgot password?",
-    "resetPassword": "Reset password",
     "registerSuccess": {
       "title": "Registration Successful!",
       "message": "Your account has been created successfully. You can now log in to your account."
+    },
+    "resetPassword": {
+      "title": "Reset Password",
+      "emailBody": "Click here to reset your password:",
+      "successReset": "Your password has been reset. You can now log in.",
+      "newPassword": "New Password",
+      "repeatNewPassword": "Repeat New Password",
+      "emailSuccessSent": "Password reset link has been sent to your email.",
+      "tryAgain": "Please try again in a moment",
+      "error": "An error occurred while resetting password. Try once again.",
+      "invalidToken": "Your reset password link is invalid or has expired."
+    },
+    "changePassword": {
+      "title": "Change Password",
+      "oldPassword": "Old Password",
+      "newPassword": "New Password",
+      "repeatNewPassword": "Repeat New Password",
+      "success": "Password has been changed successfully.",
+      "error": "An error occurred while changing password. Try once again.",
+      "invalidPassword": "Invalid password"
     }
   },
   "optional": "optional",

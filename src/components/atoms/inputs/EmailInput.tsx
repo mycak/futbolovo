@@ -7,12 +7,14 @@ const EmailInput = <T extends FieldValues>({
   name,
   register,
   error,
+  disabled,
 }: {
   label: string;
   placeholder: string;
   name: Path<T>;
   register: UseFormRegister<T>;
   error?: string;
+  disabled?: boolean;
 }) => {
   return (
     <div className='relative max-w-80 w-full'>
@@ -21,6 +23,7 @@ const EmailInput = <T extends FieldValues>({
         <input
           type='email'
           id='email'
+          disabled={disabled}
           className={customStyles({ error: !!error })}
           placeholder={placeholder}
           {...register(name)}

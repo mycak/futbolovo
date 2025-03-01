@@ -13,10 +13,27 @@
     "termsAndConditions": "Akceptuję",
     "and": "oraz",
     "forgotPassword": "Zapomniałeś hasła?",
-    "resetPassword": "Zresetuj hasło",
     "registerSuccess": {
       "title": "Rejestracja zakończona pomyślnie!",
       "message": "Twoje konto zostało utworzone. Możesz się teraz zalogować."
+    },
+    "resetPassword": {
+      "title": "Zresetuj hasło",
+      "emailBody": "Kliknij tutaj, aby zresetować hasło:",
+      "successReset": "Twoje hasło zostało zmienione. Możesz się teraz zalogować.",
+      "newPassword": "Nowe hasło",
+      "repeatNewPassword": "Powtórz nowe hasło",
+      "emailSuccessSent": "Link do resetu hasła został wysłany na Twój e-mail.",
+      "tryAgain": "Spróbuj ponownie za chwilę",
+      "error": "Wystąpił błąd podczas resetowania hasła. Spróbuj ponownie.",
+      "invalidToken": "Twój link do resetu hasła jest niepoprawny lub wygasł."
+    },
+    "changePassword": {
+      "title": "Zmień hasło",
+      "oldPassword": "Stare hasło",
+      "success": "Hasło zostało pomyślnie zmienione.",
+      "error": "Wystąpił błąd podczas zmiany hasła. Spróbuj ponownie.",
+      "invalidPassword": "Nieprawidłowe hasło"
     }
   },
   "optional": "opcjonalnie",
