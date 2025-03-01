@@ -93,6 +93,7 @@ const AddEventPreview = () => {
   };
 
   if (!eventData || isLoading) return <DynamicLoader classNames='mt-16' />;
+
   return (
     <EventPreview eventData={eventData} lng={lng as string}>
       <div className='flex justify-center gap-8'>

@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { InfoBox } from '@react-google-maps/api';
-import { generateMapIcon } from '@/utils';
+import { generateMapIcon, generatePriceDescription } from '@/utils';
 import { format } from 'date-fns';
 import { Event } from '@/types/common';
 import { currentCurrencySign, DATE_FORMAT } from '@/constants/common';
@@ -183,7 +183,7 @@ const MapInfoBox = ({
                 <i className='fa-solid fa-coins text-grass-50' />
               </div>
               <p className='text-sm'>
-                {event.price} {currentCurrencySign}
+                {generatePriceDescription(event, currentCurrencySign)}
               </p>
             </div>
             <div className='flex items-center gap-3'>

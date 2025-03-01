@@ -99,3 +99,20 @@ export const formatPhoneNumber = (phoneNumber: string): string => {
   }
   return phoneNumber;
 };
+
+export const generatePriceDescription = (
+  event: AddEventInputs,
+  currentCurrencySign: string
+) => {
+  const isOnlyOneValue =
+    (event.price && !event.priceTo) ||
+    event.priceTo === event.priceFrom ||
+    (typeof event.priceFrom === 'number' && !event.priceTo);
+
+  if (isOnlyOneValue) {
+    return `${event.price ?? event.priceFrom ?? 0} ${currentCurrencySign}`;
+  } else
+    return `${event.price ?? event.priceFrom ?? 0}${
+      event.priceTo ? ` - ${event.priceTo}` : ''
+    } ${currentCurrencySign}`;
+};

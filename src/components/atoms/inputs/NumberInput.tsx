@@ -33,11 +33,16 @@ const NumberInput = <T extends FieldValues>({
               id={name}
               className={customStyles({ error: !!error })}
               placeholder={placeholder}
-              onChange={(e) =>
-                onChange(e.target.value ? Number(e.target.value) : undefined)
-              } // Convert to number
+              onChange={(e) => {
+                // Allow empty string to be passed to form state
+                // This enables deletion of values
+                const inputValue = e.target.value;
+                const newValue = inputValue === '' ? null : Number(inputValue);
+                onChange(newValue);
+              }} // Convert to number
               onBlur={onBlur}
-              value={value}
+              // Handle empty string or undefined values in display
+              value={value === undefined || value === '' ? '' : value}
               ref={ref}
             />
           )}
