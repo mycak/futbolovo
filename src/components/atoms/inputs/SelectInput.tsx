@@ -2,20 +2,23 @@
 import { useEffect, useState } from 'react';
 import Select, { GroupBase, Props, PropsValue } from 'react-select';
 import { generateClassNames } from './styles';
-import { Control, Controller, FieldValues } from 'react-hook-form';
+import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 import { SelectOption } from '@/types/common';
 
 interface ExtendedProps<
+  T extends FieldValues,
   Option,
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>
 > extends Props<Option, IsMulti, Group> {
   label: string;
-  control: Control<FieldValues>;
+  control: Control<T>;
+  name: Path<T>;
   error?: string;
 }
 
 const SelectInput = <
+  T extends FieldValues,
   Option,
   IsMulti extends boolean = false,
   Group extends GroupBase<Option> = GroupBase<Option>
@@ -24,7 +27,7 @@ const SelectInput = <
   control,
   error,
   ...props
-}: ExtendedProps<Option, IsMulti, Group>) => {
+}: ExtendedProps<T, Option, IsMulti, Group>) => {
   const id = Date.now().toString();
 
   //WORKAROUND FOR CONSOLE ERROR
@@ -41,14 +44,14 @@ const SelectInput = <
       <label className=''>
         <span className='mb-1 text-grass-20'>{label}</span>
         <Controller
-          name={props.name as string}
+          name={props.name as Path<T>}
           control={control}
           render={({ field: { onChange, onBlur, ref, value } }) => {
             //USEFUL FOR FORM ONLY-VALUE POPULATION
             const selectValue =
               !currentSelectValues && value
                 ? Array.isArray(value)
-                  ? value.map((val) =>
+                  ? value.map((val: string) =>
                       (props.options as unknown as SelectOption[]).find(
                         (option) => option.value === val
                       )

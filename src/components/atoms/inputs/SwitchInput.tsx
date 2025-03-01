@@ -1,18 +1,20 @@
-import { FieldValues, UseFormRegister } from 'react-hook-form';
+import { FieldValues, UseFormRegister, Path } from 'react-hook-form';
 import clsx from 'clsx';
 import React from 'react';
 
-const SwitchInput = ({
+interface SwitchInputProps<T extends FieldValues> {
+  label: string | React.ReactNode;
+  name: Path<T>;
+  register: UseFormRegister<T>;
+  error?: string;
+}
+
+const SwitchInput = <T extends FieldValues>({
   label,
   name,
   register,
   error,
-}: {
-  label: string | React.ReactNode;
-  name: string;
-  register: UseFormRegister<FieldValues>;
-  error?: string;
-}) => {
+}: SwitchInputProps<T>) => {
   return (
     <div className='relative max-w-80 w-full md:w-max md:max-w-full md:col-span-2'>
       <label className='flex items-center '>

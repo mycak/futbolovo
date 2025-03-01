@@ -30,7 +30,7 @@ export const addEventSchema = (t: TFunction<'translation', undefined>) =>
         .min(1, { message: t('fieldIsRequired') })
         .min(3, { message: t('validation.min3') }),
 
-      price: z.number({ message: t('fieldIsRequired') }),
+      price: z.number({ message: t('fieldIsRequired') }).nullable(),
 
       description: z.string().min(1, { message: t('fieldIsRequired') }),
 

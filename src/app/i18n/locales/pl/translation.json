@@ -88,6 +88,7 @@
     "text1": "Twoje wydarzenie zostało pomyślnie zapisane w naszej bazie danych. Zostanie ono opublikowane po zatwierdzeniu przez administratora.",
     "endDateText": "Data wygaśnięcia wydarzenia:",
     "text2": "Twoje wydarzenie zostanie zweryfikowane przez administratora w ciągu 24 godzin i po akceptacji będzie widoczne na mapie. Jeśli masz jakiekolwiek pytania, skontaktuj się z nami.",
+    "text3": "Twoje wydarzenie jest już widoczne na mapie! Jako zalogowany użytkownik możesz zarządzać swoimi ogłoszeniami w panelu użytkownika. Jeśli masz jakiekolwiek pytania, skontaktuj się z nami.",
     "addNext": "Dodaj kolejne",
     "addSimilar": "Dodaj podobne",
     "end": "Zakończ"
@@ -192,12 +193,12 @@
     "option1": "Odkryj interaktywną mapę, która otwiera przed Tobą świat futbolowych możliwości!",
     "option2": "Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!",
     "buttonTitle": "Dołącz do gry!",
-    "marchAnnouncement": "Z przyjemnością informujemy, że do końca marca 2025 roku planujemy wdrożyć następujące usprawnienia na naszej platformie:",
+    "marchAnnouncement": "Z przyjemnością informujemy, że wdrożyliśmy <panel>panel użytkownika (!)</panel>, który umożliwia łatwe zarządzanie ogłoszeniami! W nadchodzących dniach planujemy wdrożyć kolejne usprawnienia:",
     "marchAnnouncementPoints": {
-      "point1": "Dodanie panelu użytkownika, który umożliwi lepsze zarządzanie dodanymi ogłoszeniami.",
-      "point2": "Wprowadzenie nowych kategorii dla kobiet i dziewczyn.",
-      "point3": "Wprowadzenie zakresu cenowego dla kategorii."
-    }
+      "point1": "Wprowadzenie nowych kategorii dla kobiet i dziewczyn.",
+      "point2": "Wprowadzenie zakresu cenowego dla kategorii."
+    },
+    "successUpdate": "Aktualizacja zakończona sukcesem!"
   },
   "siteDescription": {
     "desc1": "Znajdziesz tutaj wszystkie najważniejsze informacje o turniejach, ligach szóstek, szkółkach piłkarskich dla dzieci, boiskach do wynajęcia oraz usługach piłkarskich.",

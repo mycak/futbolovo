@@ -1,20 +1,22 @@
-import { FieldValues, UseFormRegister } from 'react-hook-form';
+import { FieldValues, UseFormRegister, Path } from 'react-hook-form';
 import { customStyles } from './styles';
 import { phoneRegex } from '@/constants/common';
 
-const PhoneNumberInput = ({
+interface PhoneNumberInputProps<T extends FieldValues> {
+  label: string;
+  placeholder: string;
+  name: Path<T>;
+  register: UseFormRegister<T>;
+  error?: string;
+}
+
+const PhoneNumberInput = <T extends FieldValues>({
   label,
   placeholder,
   name,
   register,
   error,
-}: {
-  label: string;
-  placeholder: string;
-  name: string;
-  register: UseFormRegister<FieldValues>;
-  error?: string;
-}) => {
+}: PhoneNumberInputProps<T>) => {
   return (
     <div className='relative max-w-80 w-full'>
       <label className='flex flex-col'>

@@ -3,13 +3,23 @@ import 'react-datepicker/dist/react-datepicker.css'; // Needed to keep styles af
 import React from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import { pl } from 'date-fns/locale';
-import { Control, Controller, FieldValues } from 'react-hook-form';
+import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 import { customStyles } from './styles';
 import { useParams } from 'next/navigation';
 
 registerLocale('pl', pl);
 
-const DateInput = ({
+interface DateInputProps<T extends FieldValues> {
+  label: string;
+  placeholder: string;
+  disabled?: boolean;
+  control: Control<T>;
+  name: Path<T>;
+  error?: string;
+  minDate?: boolean;
+}
+
+const DateInput = <T extends FieldValues>({
   label,
   placeholder,
   disabled = false,
@@ -17,15 +27,7 @@ const DateInput = ({
   name,
   error,
   minDate,
-}: {
-  label: string;
-  disabled?: boolean;
-  control: Control<FieldValues>;
-  name: string;
-  error?: string;
-  placeholder: string;
-  minDate?: boolean;
-}) => {
+}: DateInputProps<T>) => {
   const { lng } = useParams();
 
   return (

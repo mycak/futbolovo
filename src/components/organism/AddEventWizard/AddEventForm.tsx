@@ -6,13 +6,9 @@ import { ageCategoryOptions, categoryOptions } from '@/constants/inputOptions';
 import { AddEventInputs, addEventSchema } from '@/schemas/addEventSchema';
 import { LocationInputState } from '@/types/common';
 import {
-  Control,
-  FieldValues,
   SubmitHandler,
   useFieldArray,
   useForm,
-  UseFormRegister,
-  UseFormSetValue,
   useWatch,
 } from 'react-hook-form';
 import { useAddEventWizardStore } from '@/stores';
@@ -121,12 +117,12 @@ const AddEventForm = () => {
               name='date'
               minDate
               label={t('date')}
-              control={control as unknown as Control<FieldValues>}
+              control={control}
               error={errors.date?.message}
               placeholder={t('chooseDate')}
             />
             <SelectInput
-              control={control as unknown as Control<FieldValues>}
+              control={control}
               label={t('ageCategory')}
               id='ageCategories'
               name='ageCategories'
@@ -149,10 +145,10 @@ const AddEventForm = () => {
               label={t('dateRange')}
               placeholder={t('chooseDates')}
               error={errors.startDate?.message}
-              setValue={setValue as unknown as UseFormSetValue<FieldValues>}
+              setValue={setValue}
             />
             <SelectInput
-              control={control as unknown as Control<FieldValues>}
+              control={control}
               label={t('ageCategory')}
               id='ageCategories'
               name='ageCategories'
@@ -167,7 +163,7 @@ const AddEventForm = () => {
       case EventCategoryEnum.SCHOOL:
         return (
           <SelectInput
-            control={control as unknown as Control<FieldValues>}
+            control={control}
             label={t('ageCategory')}
             id='ageCategories'
             name='ageCategories'
@@ -189,7 +185,7 @@ const AddEventForm = () => {
         className='flex flex-col items-center md:items-start gap-4 md:grid md:grid-cols-[repeat(2,_minmax(auto,_320px))] md:gap-x-8 justify-center mx-auto mt-4 md:mt-8'
       >
         <SelectInput
-          control={control as unknown as Control<FieldValues>}
+          control={control}
           label={t('category')}
           id='category'
           name='category'
@@ -268,14 +264,14 @@ const AddEventForm = () => {
           label={t('price')}
           placeholder={t('givePrice')}
           name='price'
-          control={control as unknown as Control<FieldValues>}
+          control={control}
           error={errors.price?.message}
         />
         <PhoneNumberInput
           label={t('contactNumber')}
           placeholder='+48XXXXXXXXX'
           name='phoneNumber'
-          register={register as unknown as UseFormRegister<FieldValues>}
+          register={register}
           error={errors.phoneNumber?.message}
         />
         <EmailInput
@@ -290,7 +286,7 @@ const AddEventForm = () => {
           placeholder={t('imageInputPlaceholder')}
           name='image'
           type='image'
-          control={control as unknown as Control<FieldValues>}
+          control={control}
           error={errors.image?.message}
           info={isRepeatedData ? t('validation.imageInfoOnRepeat') : undefined}
         />
@@ -303,7 +299,7 @@ const AddEventForm = () => {
           }
           name='description'
           error={errors.description?.message}
-          register={register as unknown as UseFormRegister<FieldValues>}
+          register={register}
         />
         <SwitchInput
           label={
@@ -328,7 +324,7 @@ const AddEventForm = () => {
             </Trans>
           }
           name='termsAccepted'
-          register={register as unknown as UseFormRegister<FieldValues>}
+          register={register}
           error={errors.termsAccepted?.message}
         />
         <Divider contained classNames='col-span-2' />

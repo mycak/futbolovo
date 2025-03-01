@@ -2,14 +2,7 @@
 import 'react-datepicker/dist/react-datepicker.css';
 import { ageCategoryOptions, categoryOptions } from '@/constants/inputOptions';
 
-import {
-  Control,
-  FieldValues,
-  SubmitHandler,
-  useForm,
-  UseFormRegister,
-  useWatch,
-} from 'react-hook-form';
+import { SubmitHandler, useForm, useWatch } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { LocationInputState, MapFilters } from '@/types/common';
 import { paths } from '@/constants/paths';
@@ -85,7 +78,7 @@ const Filters = () => {
       >
         <div className='flex flex-col items-center md:flex-row justify-center gap-x-8 gap-y-2 flex-wrap [&>*]:w-80'>
           <SelectInput
-            control={control as unknown as Control<FieldValues>}
+            control={control}
             label={t('category')}
             id='categories'
             name='categories'
@@ -122,7 +115,7 @@ const Filters = () => {
 
               <div className='relative'>
                 <DateRangeInput
-                  setValue={setValue as unknown as UseFormRegister<FieldValues>}
+                  setValue={setValue}
                   startDate={startDate}
                   endDate={endDate}
                   label={t('dateRange')}
@@ -138,7 +131,7 @@ const Filters = () => {
               </div>
               <div className='relative'>
                 <SelectInput
-                  control={control as unknown as Control<FieldValues>}
+                  control={control}
                   label={t('ageCategory')}
                   id='ageCategories'
                   name='ageCategories'

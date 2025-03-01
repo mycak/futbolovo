@@ -3,13 +3,24 @@ import 'react-datepicker/dist/react-datepicker.css'; // Needed to keep styles af
 import React from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import { pl } from 'date-fns/locale';
-import { FieldValues, UseFormSetValue } from 'react-hook-form';
+import { FieldValues, UseFormSetValue, Path, PathValue } from 'react-hook-form';
 import { customStyles } from './styles';
 import { useParams } from 'next/navigation';
 
 registerLocale('pl', pl);
 
-const DateRangeInput = ({
+interface DateRangeInputProps<T extends FieldValues> {
+  label: string;
+  disabled?: boolean;
+  error?: string;
+  placeholder?: string;
+  startDate?: Date | null;
+  endDate?: Date | null;
+  setValue: UseFormSetValue<T>;
+  minDate?: boolean;
+}
+
+const DateRangeInput = <T extends FieldValues>({
   label,
   disabled = false,
   error,
@@ -18,16 +29,7 @@ const DateRangeInput = ({
   endDate,
   setValue,
   minDate,
-}: {
-  label: string;
-  disabled?: boolean;
-  error?: string;
-  placeholder?: string;
-  startDate?: Date | null;
-  endDate?: Date | null;
-  setValue: UseFormSetValue<FieldValues>;
-  minDate?: boolean;
-}) => {
+}: DateRangeInputProps<T>) => {
   const { lng } = useParams();
   return (
     <div className='relative max-w-80 w-full'>
@@ -45,8 +47,10 @@ const DateRangeInput = ({
             const [start, end] = dates;
             if (start) start.setHours(15, 0, 0, 0);
             if (end) end.setHours(15, 0, 0, 0);
-            setValue('startDate', start);
-            setValue('endDate', end);
+            if (start)
+              setValue('startDate' as Path<T>, start as PathValue<T, Path<T>>);
+            if (end)
+              setValue('endDate' as Path<T>, end as PathValue<T, Path<T>>);
           }}
           className={customStyles({ disabled, error: !!error })}
           shouldCloseOnSelect

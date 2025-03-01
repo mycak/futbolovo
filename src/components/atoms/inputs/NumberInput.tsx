@@ -1,20 +1,22 @@
 'use client';
-import { FieldValues, Control, Controller } from 'react-hook-form';
+import { FieldValues, Control, Controller, Path } from 'react-hook-form';
 import { customStyles } from './styles';
 
-const NumberInput = ({
+interface NumberInputProps<T extends FieldValues> {
+  label: string;
+  placeholder: string;
+  name: Path<T>;
+  control: Control<T>;
+  error?: string;
+}
+
+const NumberInput = <T extends FieldValues>({
   label,
   placeholder,
   name,
   control,
   error,
-}: {
-  label: string;
-  placeholder: string;
-  name: string;
-  control: Control<FieldValues>;
-  error?: string;
-}) => {
+}: NumberInputProps<T>) => {
   return (
     <div className='relative max-w-80 w-full'>
       <label className='flex flex-col price'>

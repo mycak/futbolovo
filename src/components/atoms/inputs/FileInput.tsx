@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Control, Controller, FieldValues } from 'react-hook-form';
+import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 import { customStyles } from './styles';
 import clsx from 'clsx';
 import { CldUploadWidget, CloudinaryUploadWidgetInfo } from 'next-cloudinary';
@@ -8,7 +8,17 @@ import { cloudinaryWidgetConfig } from '@/configs/cloudinary';
 import { useParams } from 'next/navigation';
 import { useTranslation } from '@/app/i18n/client';
 
-const FileInput = ({
+interface FileInputProps<T extends FieldValues> {
+  label: string;
+  placeholder: string;
+  name: Path<T>;
+  control: Control<T>;
+  error?: string;
+  info?: string;
+  type?: 'basic' | 'image';
+}
+
+const FileInput = <T extends FieldValues>({
   label,
   placeholder,
   name,
@@ -16,15 +26,7 @@ const FileInput = ({
   error,
   info,
   type = 'basic',
-}: {
-  label: string;
-  placeholder: string;
-  name: string;
-  control: Control<FieldValues>;
-  error?: string;
-  info?: string;
-  type?: 'basic' | 'image';
-}) => {
+}: FileInputProps<T>) => {
   const [fileName, setFileName] = useState<string | null>(null);
   const [fileUniqueId, setFileUniqueId] = useState<string>(
     `id-${Date.now()}-${Math.random()}`
