@@ -203,7 +203,7 @@
     "option1": "Discover an interactive map that opens up a world of football opportunities for you!",
     "option2": "Check what's happening in your area and join the game!",
     "buttonTitle": "Join the game!",
-    "marchAnnouncement": "We are pleased to announce that we've implemented a <panel>user panel (!)</panel> that allows easy management of your listings! In the coming days, we plan to implement additional improvements:",
+    "marchAnnouncement": "We are pleased to announce that we've implemented a <panel>user panel (!)</panel> that allows easy management of your listings! Additionally, we've introduced more improvements:",
     "marchAnnouncementPoints": {
       "point1": "Introducing new categories for women and girls.",
       "point2": "Implementing price ranges for categories."
