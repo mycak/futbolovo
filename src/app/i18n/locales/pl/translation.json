@@ -71,6 +71,50 @@
     "privacyPolicy": {
       "title": "Polityka Prywatności | Futbolovo",
       "description": "Dowiedz się, jak chronimy Twoje dane osobowe. Zasady przetwarzania i ochrony prywatności na platformie Futbolovo."
+    },
+    "login": {
+      "title": "Logowanie | Futbolovo",
+      "description": "Zaloguj się do swojego konta na platformie Futbolovo i zarządzaj swoimi wydarzeniami piłkarskimi."
+    },
+    "map": {
+      "title": "Mapa | Futbolovo",
+      "description": "Odkryj piłkarskie wydarzenia w Twojej okolicy na mapie. Turnieje, mecze, szkółki i więcej!"
+    },
+    "myEvents": {
+      "title": "Moje Wydarzenia | Futbolovo",
+      "description": "Zarządzaj swoimi wydarzeniami piłkarskimi na platformie Futbolovo."
+    },
+    "register": {
+      "title": "Rejestracja | Futbolovo",
+      "description": "Załóż konto na platformie Futbolovo i rozpocznij dodawanie własnych wydarzeń piłkarskich."
+    },
+    "registerConfirm": {
+      "title": "Potwierdzenie Rejestracji | Futbolovo",
+      "description": "Twoje konto zostało utworzone. Możesz teraz zalogować się na platformie Futbolovo."
+    },
+    "passwordReset": {
+      "title": "Reset Hasła | Futbolovo",
+      "description": "Zresetuj swoje hasło do konta na platformie Futbolovo."
+    },
+    "passwordResetConfirm": {
+      "title": "Potwierdzenie Resetu Hasła | Futbolovo",
+      "description": "Ustaw nowe hasło do swojego konta na platformie Futbolovo."
+    },
+    "passwordChange": {
+      "title": "Zmiana Hasła | Futbolovo",
+      "description": "Zmień hasło do swojego konta na platformie Futbolovo."
+    },
+    "eventAdd": {
+      "title": "Dodaj Wydarzenie | Futbolovo",
+      "description": "Dodaj swoje wydarzenie piłkarskie na mapę. Turnieje, mecze, szkółki, boiska i więcej!"
+    },
+    "eventEdit": {
+      "title": "Edytuj Wydarzenie | Futbolovo",
+      "description": "Edytuj swoje wydarzenie piłkarskie na platformie Futbolovo."
+    },
+    "eventAddConfirm": {
+      "title": "Potwierdzenie Dodania Wydarzenia | Futbolovo",
+      "description": "Twoje wydarzenie zostało pomyślnie dodane na platformę Futbolovo."
     }
   },
   "daysNumber": "Dni",

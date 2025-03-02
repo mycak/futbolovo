@@ -5,26 +5,25 @@ import Back from '@/components/molecules/Back';
 import AddEventWizard from '@/components/organism/AddEventWizard/AddEventWizard';
 import { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
-import Head from 'next/head';
 import Button from '@/components/atoms/Button';
 import { paths } from '@/constants/paths';
 import { authOptions } from '@/configs/auth';
+import SEOCanonical from '@/components/molecules/SEOCanonical';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
 }): Promise<Metadata> {
   const params = await props.params;
-
   const { lng } = params;
 
   const { t } = await translate(lng);
   return {
-    title: t('metatags.events.title'),
-    description: t('metatags.events.description'),
+    title: t('metatags.eventAdd.title'),
+    description: t('metatags.eventAdd.description'),
   };
 }
 
-const EditEventPage = async (props: {
+const AddEventPage = async (props: {
   params: Promise<{
     lng: string;
   }>;
@@ -36,9 +35,7 @@ const EditEventPage = async (props: {
 
   return (
     <>
-      <Head>
-        <link rel='canonical' href='https://futbolovo.net/pl/events/edit' />
-      </Head>
+      <SEOCanonical path={paths.EventAdd} />
       <PageContainer>
         <PageWrapper>
           <div className='md:bg-gray-900 py-8 sm:px-4 md:px-8 mx-auto rounded-sm w-full'>
@@ -67,4 +64,4 @@ const EditEventPage = async (props: {
   );
 };
 
-export default EditEventPage;
+export default AddEventPage;

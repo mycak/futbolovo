@@ -11,21 +11,21 @@ import {
   QueryClient,
 } from '@tanstack/react-query';
 import { Metadata } from 'next';
-import Head from 'next/head';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/configs/auth';
+import SEOCanonical from '@/components/molecules/SEOCanonical';
+import { paths } from '@/constants/paths';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
 }): Promise<Metadata> {
   const params = await props.params;
-
   const { lng } = params;
 
   const { t } = await translate(lng);
   return {
-    title: t('metatags.event.title'),
-    description: t('metatags.event.description'),
+    title: t('metatags.myEvents.title'),
+    description: t('metatags.myEvents.description'),
   };
 }
 
@@ -48,13 +48,10 @@ const MyEventsPage = async (props: {
     queryFn: () => getEventsByUser(user.id, user.email),
   });
 
-  const canonicalUrl = `https://futbolovo.net/${lng}/my-events`;
-
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <Head>
-        <link rel='canonical' href={canonicalUrl} />
-      </Head>
+      <SEOCanonical path={paths.MyEvents} />
+
       <PageContainer>
         <PageWrapper classNames='grow flex flex-col'>
           <div className='sm:bg-gray-900 sm:p-5 rounded-lg py-8 md:px-8 mx-4'>

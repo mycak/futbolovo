@@ -73,6 +73,50 @@
     "privacyPolicy": {
       "title": "Privacy Policy | Futbolovo",
       "description": "Learn how we protect your personal data. Data processing and privacy protection rules on the Futbolovo platform."
+    },
+    "login": {
+      "title": "Login | Futbolovo",
+      "description": "Sign in to your Futbolovo account and manage your football events."
+    },
+    "map": {
+      "title": "Map | Futbolovo",
+      "description": "Discover football events in your area on the map. Tournaments, matches, academies and more!"
+    },
+    "myEvents": {
+      "title": "My Events | Futbolovo",
+      "description": "Manage your football events on the Futbolovo platform."
+    },
+    "register": {
+      "title": "Register | Futbolovo",
+      "description": "Create an account on Futbolovo platform and start adding your football events."
+    },
+    "registerConfirm": {
+      "title": "Registration Confirmation | Futbolovo",
+      "description": "Your account has been created. You can now log in to Futbolovo platform."
+    },
+    "passwordReset": {
+      "title": "Password Reset | Futbolovo",
+      "description": "Reset your password for your Futbolovo platform account."
+    },
+    "passwordResetConfirm": {
+      "title": "Password Reset Confirmation | Futbolovo",
+      "description": "Set a new password for your Futbolovo platform account."
+    },
+    "passwordChange": {
+      "title": "Change Password | Futbolovo",
+      "description": "Change the password for your Futbolovo platform account."
+    },
+    "eventAdd": {
+      "title": "Add Event | Futbolovo",
+      "description": "Add your football event to the map. Tournaments, matches, academies, fields and more!"
+    },
+    "eventEdit": {
+      "title": "Edit Event | Futbolovo",
+      "description": "Edit your football event on the Futbolovo platform."
+    },
+    "eventAddConfirm": {
+      "title": "Event Addition Confirmation | Futbolovo",
+      "description": "Your event has been successfully added to the Futbolovo platform."
     }
   },
   "daysNumber": "Days",

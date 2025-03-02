@@ -1,23 +1,30 @@
-'use client';
-
-import { useTranslation } from '@/app/i18n/client';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
+import SEOCanonical from '@/components/molecules/SEOCanonical';
 import AddEventConfirm from '@/components/organism/AddEventWizard/AddEventConfirm';
-import Head from 'next/head';
-import { useParams } from 'next/navigation';
+import { paths } from '@/constants/paths';
 import { Suspense } from 'react';
+import { Metadata } from 'next';
+import { translate } from '@/app/i18n';
 
-const AddEventConfirmPage = () => {
-  const { lng } = useParams();
-  const { t } = useTranslation(lng as string);
+export async function generateMetadata(props: {
+  params: Promise<{ lng: string }>;
+}): Promise<Metadata> {
+  const params = await props.params;
+  const { lng } = params;
 
+  const { t } = await translate(lng);
+  return {
+    title: t('metatags.eventAddConfirm.title'),
+    description: t('metatags.eventAddConfirm.description'),
+  };
+}
+
+const AddEventConfirmPage = async () => {
   return (
     <>
-      <Head>
-        <link rel='canonical' href='https://futbolovo.net/pl/events/confirm' />
-      </Head>
+      <SEOCanonical path={paths.EventAddConfirm} />
       <PageContainer>
         <PageWrapper>
           <div className='bg-gray-900 py-8 px-4 md:px-8 mx-auto max-w-max rounded-sm'>
@@ -25,7 +32,7 @@ const AddEventConfirmPage = () => {
               <i className='fa-solid fa-map-location-dot fa-5x text-ivory-150 mx-auto' />
             </div>
             <Suspense fallback={<DynamicLoader classNames='my-16' />}>
-              <AddEventConfirm t={t} />
+              <AddEventConfirm />
             </Suspense>
           </div>
         </PageWrapper>

@@ -5,6 +5,8 @@ import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import ResetPasswordForm from '@/components/organism/Auth/ResetPasswordForm';
+import { paths } from '@/constants/paths';
+import SEOCanonical from '@/components/molecules/SEOCanonical';
 
 export async function generateMetadata(props: {
   params: Promise<{
@@ -16,8 +18,8 @@ export async function generateMetadata(props: {
 
   const { t } = await translate(lng);
   return {
-    title: t('metatags.home.title'),
-    description: t('metatags.home.description'),
+    title: t('metatags.passwordReset.title'),
+    description: t('metatags.passwordReset.description'),
   };
 }
 
@@ -33,19 +35,22 @@ export default async function ResetPasswordPage(props: {
 
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   return (
-    <PageContainer classNames='pb-0'>
-      <PageWrapper>
-        <div className='md:bg-gray-900 py-8 sm:px-4 md:px-8 mx-auto rounded-sm'>
-          <div className='mx-auto max-w-max'>
-            <i className='fa-solid fa-lock fa-5x text-ivory-150 mx-auto' />
+    <>
+      <SEOCanonical path={paths.PasswordReset} />
+      <PageContainer classNames='pb-0'>
+        <PageWrapper>
+          <div className='md:bg-gray-900 py-8 sm:px-4 md:px-8 mx-auto rounded-sm'>
+            <div className='mx-auto max-w-max'>
+              <i className='fa-solid fa-lock fa-5x text-ivory-150 mx-auto' />
+            </div>
+            <h2 className='text-2xl md:text-3xl text-center text-grass-20 mt-4 md:mt-8'>
+              {t('auth.resetPassword.title')}
+            </h2>
+            <ResetPasswordForm />
           </div>
-          <h2 className='text-2xl md:text-3xl text-center text-grass-20 mt-4 md:mt-8'>
-            {t('auth.resetPassword.title')}
-          </h2>
-          <ResetPasswordForm />
-        </div>
-        <Back classNames='mx-auto mt-8' lng={params.lng} />
-      </PageWrapper>
-    </PageContainer>
+          <Back classNames='mx-auto mt-8' lng={params.lng} />
+        </PageWrapper>
+      </PageContainer>
+    </>
   );
 }
