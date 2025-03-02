@@ -7,6 +7,7 @@ import Back from '@/components/molecules/Back';
 import LoginForm from '@/components/organism/Auth/LoginForm';
 import Link from 'next/link';
 import { paths } from '@/constants/paths';
+import SEOCanonical from '@/components/molecules/SEOCanonical';
 
 export async function generateMetadata(props: {
   params: Promise<{
@@ -18,8 +19,8 @@ export async function generateMetadata(props: {
 
   const { t } = await translate(lng);
   return {
-    title: t('metatags.home.title'),
-    description: t('metatags.home.description'),
+    title: t('metatags.login.title'),
+    description: t('metatags.login.description'),
   };
 }
 
@@ -35,34 +36,37 @@ export default async function LoginPage(props: {
 
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   return (
-    <PageContainer classNames='pb-0'>
-      <PageWrapper>
-        <div className='md:bg-gray-900 py-8 sm:px-4 md:px-8 mx-auto rounded-sm'>
-          <div className='mx-auto max-w-max'>
-            <i className='fa-solid fa-user fa-5x text-ivory-150 mx-auto' />
-          </div>
-          <h2 className='text-2xl md:text-3xl text-center text-grass-20 mt-4 md:mt-8'>
-            {t('auth.userLogin')}
-          </h2>
-          <LoginForm />
-          <p className='text-center mt-6 text-grass-20'>
-            {t('auth.noAccount')}{' '}
+    <>
+      <SEOCanonical path={paths.Login} />
+      <PageContainer classNames='pb-0'>
+        <PageWrapper>
+          <div className='md:bg-gray-900 py-8 sm:px-4 md:px-8 mx-auto rounded-sm'>
+            <div className='mx-auto max-w-max'>
+              <i className='fa-solid fa-user fa-5x text-ivory-150 mx-auto' />
+            </div>
+            <h2 className='text-2xl md:text-3xl text-center text-grass-20 mt-4 md:mt-8'>
+              {t('auth.userLogin')}
+            </h2>
+            <LoginForm />
+            <p className='text-center mt-6 text-grass-20'>
+              {t('auth.noAccount')}{' '}
+              <Link
+                href={paths.Register}
+                className='text-ivory-150 hover:text-grass-50 transition-colors'
+              >
+                {t('auth.signUp')}
+              </Link>
+            </p>
             <Link
-              href={paths.Register}
-              className='text-ivory-150 hover:text-grass-50 transition-colors'
+              href={paths.PasswordReset}
+              className='text-grass-50 hover:text-grass-50 transition-colors mx-auto table mt-4'
             >
-              {t('auth.signUp')}
+              {t('auth.forgotPassword')}
             </Link>
-          </p>
-          <Link
-            href={paths.PasswordReset}
-            className='text-grass-50 hover:text-grass-50 transition-colors mx-auto table mt-4'
-          >
-            {t('auth.forgotPassword')}
-          </Link>
-        </div>
-        <Back classNames='mx-auto mt-8' lng={params.lng} />
-      </PageWrapper>
-    </PageContainer>
+          </div>
+          <Back classNames='mx-auto mt-8' lng={params.lng} />
+        </PageWrapper>
+      </PageContainer>
+    </>
   );
 }

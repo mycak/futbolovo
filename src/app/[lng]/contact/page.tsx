@@ -3,10 +3,11 @@ import { translate } from '@/app/i18n';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
-import Head from 'next/head';
 
 import { contactEmail, contactPhone } from '@/constants/common';
 import { Trans } from 'react-i18next/TransWithoutContext';
+import { paths } from '@/constants/paths';
+import SEOCanonical from '@/components/molecules/SEOCanonical';
 
 export async function generateMetadata(props: {
   params: Promise<{
@@ -34,9 +35,7 @@ export default async function ContactPage(props: {
 
   return (
     <>
-      <Head>
-        <link rel='canonical' href='https://futbolovo.net/pl/contact' />
-      </Head>
+      <SEOCanonical path={paths.Contact} />
       <PageContainer>
         <PageWrapper>
           <div className='md:aspect-video md:bg-[url("/images/football-pitch.jpg")] bg-cover max-w-screen-2xl mx-auto rounded-lg'>

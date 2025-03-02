@@ -3,8 +3,9 @@ import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import { contactEmail } from '@/constants/common';
-import Head from 'next/head';
 import { Metadata } from 'next';
+import { paths } from '@/constants/paths';
+import SEOCanonical from '@/components/molecules/SEOCanonical';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
@@ -30,9 +31,7 @@ const StatutePage = async (props: {
   const pointTitleClassName = 'text-grass-50 my-2 ';
   return (
     <>
-      <Head>
-        <link rel='canonical' href='https://futbolovo.net/pl/statute' />
-      </Head>
+      <SEOCanonical path={paths.Statute} />
       <PageContainer>
         <PageWrapper>
           <div className='max-w-screen-xl mx-auto rounded-lg bg-gray-900 flex flex-col justify-around py-8 px-4 md:py-12'>

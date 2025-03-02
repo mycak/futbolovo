@@ -3,16 +3,18 @@ import { paths } from '@/constants/paths';
 import React, { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useAddEventWizardStore } from '@/stores';
-import { TFunction } from 'i18next';
 import Button from '@/components/atoms/Button';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
+import { useParams } from 'next/navigation';
+import { useTranslation } from '@/app/i18n/client';
 
-const AddEventConfirm = ({ t }: { t: TFunction<'translation', undefined> }) => {
+const AddEventConfirm = () => {
   const params = useSearchParams();
   const { status } = useSession();
-
+  const { lng } = useParams();
+  const { t } = useTranslation(lng as string);
   const clearState = useAddEventWizardStore((state) => state.clearState);
 
   const endDate = params.get('endDate');

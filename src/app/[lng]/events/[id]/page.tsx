@@ -5,13 +5,14 @@ import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import EventPreview from '@/components/molecules/Events/EventPreview';
 import NotFound from '@/components/molecules/NotFound';
+import SEOCanonical from '@/components/molecules/SEOCanonical';
+import { paths } from '@/constants/paths';
 import {
   HydrationBoundary,
   dehydrate,
   QueryClient,
 } from '@tanstack/react-query';
 import { Metadata } from 'next';
-import Head from 'next/head';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
@@ -38,13 +39,9 @@ const EventPage = async (props: {
     queryFn: () => getEventById(params.id),
   });
 
-  const canonicalUrl = `https://futbolovo.net/pl/events/${params.id}`;
-
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <Head>
-        <link rel='canonical' href={canonicalUrl} />
-      </Head>
+      <SEOCanonical path={paths.Event(params.id)} />
       <PageContainer>
         <PageWrapper classNames='grow flex flex-col'>
           {eventData ? (

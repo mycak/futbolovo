@@ -11,6 +11,8 @@ import PageContainer from '@/components/atoms/PageContainer';
 import Hero from '@/components/molecules/Hero';
 import IconsSection from '@/components/molecules/IconsSection';
 import SiteDescription from '@/components/atoms/SiteDescription';
+import SEOCanonical from '@/components/molecules/SEOCanonical';
+import { paths } from '@/constants/paths';
 
 export async function generateMetadata(props: {
   params: Promise<{
@@ -39,21 +41,24 @@ export default async function DashboardPage(props: {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   const { t } = await translate(lng);
   return (
-    <PageContainer classNames='pb-0'>
-      <Hero
-        heroTexts={heroTexts(t)}
-        buttonTitle={t('hero.buttonTitle')}
-        lng={lng}
-      />
-      <IconsSection
-        title={t('iconsSection.forFootballEnthusiasts')}
-        items={usersIconsTexts(t)}
-      />
-      <SiteDescription siteDescriptionTexts={siteDescriptionTexts(t)} />
-      <IconsSection
-        title={t('iconsSection.forOwners')}
-        items={ownersIconsTexts(t)}
-      />
-    </PageContainer>
+    <>
+      <SEOCanonical path={paths.Dashboard} />
+      <PageContainer classNames='pb-0'>
+        <Hero
+          heroTexts={heroTexts(t)}
+          buttonTitle={t('hero.buttonTitle')}
+          lng={lng}
+        />
+        <IconsSection
+          title={t('iconsSection.forFootballEnthusiasts')}
+          items={usersIconsTexts(t)}
+        />
+        <SiteDescription siteDescriptionTexts={siteDescriptionTexts(t)} />
+        <IconsSection
+          title={t('iconsSection.forOwners')}
+          items={ownersIconsTexts(t)}
+        />
+      </PageContainer>
+    </>
   );
 }
