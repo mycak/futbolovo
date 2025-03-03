@@ -54,7 +54,7 @@ const NavigationMenu = ({
             {Object.keys(navigationItems).map((key, index) => (
               <li key={key} role='none'>
                 {navigationItems[key as NavigationKey].map(
-                  ({ text, to, className, callback }) => (
+                  ({ text, to, className, callback, icon }) => (
                     <Link
                       href={to}
                       key={text}
@@ -68,6 +68,7 @@ const NavigationMenu = ({
                         setIsOpen(false);
                       }}
                     >
+                      <i className={`${icon} text-grass-50`} />
                       {text}
                     </Link>
                   )
