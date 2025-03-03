@@ -68,7 +68,7 @@ const NavigationMenu = ({
                         setIsOpen(false);
                       }}
                     >
-                      <i className={`${icon} text-grass-50`} />
+                      {icon && <i className={`${icon} text-ivory-150 mr-2`} />}
                       {text}
                     </Link>
                   )
