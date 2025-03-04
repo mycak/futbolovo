@@ -61,8 +61,6 @@ const Filters = () => {
     } else {
       setDateRangeDisabled(true);
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentCategories]);
 
   const onSubmit: SubmitHandler<MapFilters> = (data) => setFilters(data);
