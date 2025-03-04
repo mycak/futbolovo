@@ -1,8 +1,8 @@
 import { z } from 'zod';
-import { TFunction } from 'i18next';
 import { passwordRegex } from '@/constants/common';
+import { TranslationFunction } from '@/app/i18n/types';
 
-export const changePasswordSchema = (t: TFunction<'translation', undefined>) =>
+export const changePasswordSchema = (t: TranslationFunction) =>
   z
     .object({
       oldPassword: z.string({ message: t('fieldIsRequired') }),

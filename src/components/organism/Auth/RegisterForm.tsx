@@ -33,7 +33,7 @@ const RegisterForm = () => {
 
   const onSubmit = async (data: RegisterInputs) => {
     setIsSubmitting(true);
-    await registerUser(data)
+    await registerUser({ ...data, email: data.email.toLowerCase() })
       .then(() => router.push(paths.RegisterConfirm))
       .catch((err) => {
         console.error(err);

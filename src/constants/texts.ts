@@ -1,14 +1,12 @@
+import { TranslationFunction } from '@/app/i18n/types';
 import { IconText } from '@/types/common';
-import { TFunction } from 'i18next';
 
-export const heroTexts = (t: TFunction<'translation', undefined>): string[] => [
+export const heroTexts = (t: TranslationFunction): string[] => [
   t('hero.option1'),
   t('hero.option2'),
 ];
 
-export const mainTopics = (
-  t: TFunction<'translation', undefined>
-): string[] => [
+export const mainTopics = (t: TranslationFunction): string[] => [
   t('tournaments'),
   t('leagues'),
   t('fields'),
@@ -16,9 +14,7 @@ export const mainTopics = (
   t('matches'),
 ];
 
-export const usersIconsTexts = (
-  t: TFunction<'translation', undefined>
-): IconText[] => [
+export const usersIconsTexts = (t: TranslationFunction): IconText[] => [
   {
     text: t('iconsSection.users.desc1'),
     icon: 'trophy',
@@ -37,9 +33,7 @@ export const usersIconsTexts = (
   },
 ];
 
-export const ownersIconsTexts = (
-  t: TFunction<'translation', undefined>
-): IconText[] => [
+export const ownersIconsTexts = (t: TranslationFunction): IconText[] => [
   {
     text: t('iconsSection.owners.desc1'),
     icon: 'newspaper',
@@ -58,9 +52,7 @@ export const ownersIconsTexts = (
   },
 ];
 
-export const siteDescriptionTexts = (
-  t: TFunction<'translation', undefined>
-) => ({
+export const siteDescriptionTexts = (t: TranslationFunction) => ({
   title: t('siteDescription.title'),
   description1: t('siteDescription.desc1'),
   description2: t('siteDescription.desc2'),

@@ -1,9 +1,9 @@
+import { TranslationFunction } from '@/app/i18n/types';
 import { EventCategoryEnum } from '@prisma/client';
-import { TFunction } from 'i18next';
 
 export const translateEventType = (
   event: EventCategoryEnum,
-  t: TFunction<'translation', undefined>
+  t: TranslationFunction
 ) => {
   switch (event) {
     case EventCategoryEnum.TOURNAMENT:

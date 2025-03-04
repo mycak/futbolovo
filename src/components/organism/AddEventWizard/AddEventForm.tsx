@@ -33,6 +33,7 @@ import SwitchInput from '@/components/atoms/inputs/SwitchInput';
 import { Trans } from 'react-i18next/TransWithoutContext';
 import Link from 'next/link';
 import { paths } from '@/constants/paths';
+import { TFunction } from 'i18next';
 
 const AddEventForm = () => {
   const nextStep = useAddEventWizardStore((state) => state.nextStep);
@@ -322,7 +323,7 @@ const AddEventForm = () => {
         <SwitchInput
           label={
             <Trans
-              t={t}
+              t={t as TFunction<'translation', undefined>}
               i18nKey='acceptTermsAndPrivacyLabel'
               components={{
                 1: <Link className='text-grass-50' href={paths.Statute} />,

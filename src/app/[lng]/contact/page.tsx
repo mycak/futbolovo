@@ -8,6 +8,7 @@ import { contactEmail, contactPhone } from '@/constants/common';
 import { Trans } from 'react-i18next/TransWithoutContext';
 import { paths } from '@/constants/paths';
 import SEOCanonical from '@/components/molecules/SEOCanonical';
+import { TFunction } from 'i18next';
 
 export async function generateMetadata(props: {
   params: Promise<{
@@ -49,7 +50,7 @@ export default async function ContactPage(props: {
                 </h1>
                 <p className='max-w-xl text-xl mt-4'>
                   <Trans
-                    t={t}
+                    t={t as TFunction<'translation', undefined>}
                     i18nKey='contactPage.text1'
                     components={{
                       1: <span className='text-grass-50' />,

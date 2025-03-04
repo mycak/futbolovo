@@ -1,11 +1,11 @@
 import { NavigationItem, NavigationKey } from '@/types/common';
 import { paths } from './paths';
-import { TFunction } from 'i18next';
 import { signOut } from 'next-auth/react';
+import { TranslationFunction } from '@/app/i18n/types';
 
 export const navigationItems = (
   isSignedIn: boolean,
-  t: TFunction<'translation', undefined>
+  t: TranslationFunction
 ): Record<NavigationKey, NavigationItem[]> => ({
   mainPage: [
     {

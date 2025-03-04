@@ -6,6 +6,7 @@ import { paths } from '@/constants/paths';
 import { useTranslation } from '@/app/i18n/client';
 import clsx from 'clsx';
 import { Trans } from 'react-i18next/TransWithoutContext';
+import { TFunction } from 'i18next';
 
 const Hero = ({
   heroTexts,
@@ -54,7 +55,7 @@ const Hero = ({
               <p className={textStyle}>
                 <Trans
                   i18nKey='hero.marchAnnouncement'
-                  t={t}
+                  t={t as TFunction<'translation', undefined>}
                   components={{
                     panel: <span className='text-grass-50 font-bold' />,
                   }}
