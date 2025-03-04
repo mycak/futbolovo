@@ -72,6 +72,7 @@ export type NavigationItem = {
   to: string;
   className?: string;
   callback?: () => void;
+  icon?: string;
 };
 
 export type Location = {

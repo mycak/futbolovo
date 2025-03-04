@@ -39,6 +39,7 @@ export const navigationItems = (
         },
         {
           text: t('auth.logout'),
+          icon: 'fa-solid fa-power-off',
           to: paths.Dashboard,
           callback: () => signOut({ callbackUrl: paths.Dashboard }),
         },
