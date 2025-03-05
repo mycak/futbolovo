@@ -32,9 +32,13 @@ const LoginForm = () => {
   });
 
   const onSubmit = async (data: LoginInputs) => {
+    const parsedData = {
+      ...data,
+      email: data.email.toLowerCase(),
+    };
     setIsLoading(true);
     await signIn('credentials', {
-      ...data,
+      ...parsedData,
       redirect: false,
     })
       .then((res) => {

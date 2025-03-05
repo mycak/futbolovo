@@ -1,6 +1,6 @@
-import { TFunction } from 'i18next';
+import { TranslationFunction } from '@/app/i18n/types';
 
-export const mainPagesMetadata = (t: TFunction<'translation', undefined>) => ({
+export const mainPagesMetadata = (t: TranslationFunction) => ({
   title: t('metatags.title'),
   description: t('metatags.description'),
   metadataBase: new URL('https://futbolovo.net'),

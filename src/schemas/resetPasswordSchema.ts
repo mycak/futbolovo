@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { TFunction } from 'i18next';
+import { TranslationFunction } from '@/app/i18n/types';
 
-export const resetPasswordSchema = (t: TFunction<'translation', undefined>) =>
+export const resetPasswordSchema = (t: TranslationFunction) =>
   z.object({
     email: z
       .string()

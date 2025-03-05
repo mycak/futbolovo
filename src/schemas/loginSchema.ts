@@ -1,7 +1,7 @@
 import { z } from 'zod';
-import { TFunction } from 'i18next';
+import { TranslationFunction } from '@/app/i18n/types';
 
-export const loginSchema = (t: TFunction<'translation', undefined>) =>
+export const loginSchema = (t: TranslationFunction) =>
   z.object({
     email: z
       .string()

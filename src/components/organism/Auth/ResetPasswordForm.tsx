@@ -33,7 +33,7 @@ const ResetPasswordForm = () => {
     try {
       setIsLoading(true);
       setError(null);
-      const result = await requestPasswordReset(data.email, {
+      const result = await requestPasswordReset(data.email.toLowerCase(), {
         title: t('auth.resetPassword.title'),
         emailBody: t('auth.resetPassword.emailBody'),
       });
@@ -50,6 +50,8 @@ const ResetPasswordForm = () => {
       setIsLoading(false);
     }
   };
+
+  // Now when you use t('some.key'), you'll get autocomplete and type checking
 
   return (
     <div className='w-full max-w-md mx-auto'>

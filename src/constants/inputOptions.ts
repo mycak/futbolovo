@@ -1,11 +1,8 @@
+import { TranslationFunction } from '@/app/i18n/types';
 import { SelectOptions } from '@/types/common';
 import { AgeCategoryCategoryEnum, EventCategoryEnum } from '@prisma/client';
 
-import { TFunction } from 'i18next';
-
-export const categoryOptions = (
-  t: TFunction<'translation', undefined>
-): SelectOptions => [
+export const categoryOptions = (t: TranslationFunction): SelectOptions => [
   { value: EventCategoryEnum.TOURNAMENT, label: t('tournament') },
   { value: EventCategoryEnum.SCHOOL, label: t('academyOrSchool') },
   { value: EventCategoryEnum.SPORT_FIELD, label: t('pitchOrIndoor') },

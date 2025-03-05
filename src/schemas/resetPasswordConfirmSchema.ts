@@ -1,10 +1,8 @@
 import { z } from 'zod';
-import { TFunction } from 'i18next';
 import { passwordRegex } from '@/constants/common';
+import { TranslationFunction } from '@/app/i18n/types';
 
-export const confirmResetPasswordSchema = (
-  t: TFunction<'translation', undefined>
-) =>
+export const confirmResetPasswordSchema = (t: TranslationFunction) =>
   z
     .object({
       password: z

@@ -1,9 +1,9 @@
 import { z } from 'zod';
 import { AgeCategoryCategoryEnum, EventCategoryEnum } from '@prisma/client';
 import { phoneRegex } from '@/constants/common';
-import { TFunction } from 'i18next';
+import { TranslationFunction } from '@/app/i18n/types';
 
-export const addEventSchema = (t: TFunction<'translation', undefined>) =>
+export const addEventSchema = (t: TranslationFunction) =>
   z
     .object({
       category: z.nativeEnum(EventCategoryEnum, {
