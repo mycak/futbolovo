@@ -82,6 +82,7 @@ const AddEventForm = () => {
         data.additionalLocations?.filter(
           (item) => item.latitude && item.longitude
         ) ?? [],
+      id: addData?.id,
     });
     clearTempData();
     nextStep();
