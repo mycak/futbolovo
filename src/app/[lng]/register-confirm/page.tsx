@@ -38,7 +38,7 @@ export default async function RegisterConfirmPage(props: {
       <SEOCanonical path={paths.RegisterConfirm} />
       <PageContainer classNames='pb-0'>
         <PageWrapper>
-          <div className='md:bg-gray-900 py-8 sm:px-4 md:px-8 mx-auto rounded-sm w-full'>
+          <div className='md:bg-gray-900 md:py-8 sm:px-4 md:px-8 mx-auto rounded-sm w-full'>
             <div className='mx-auto max-w-max'>
               <i className='fa-solid fa-users-line fa-5x text-ivory-150 mx-auto' />
             </div>

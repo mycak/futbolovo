@@ -1,6 +1,6 @@
 'use client';
 import { useAddEventWizardStore } from '@/stores';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { generateEventVisibilityEndDate } from '@/utils';
 import { format } from 'date-fns';
 import { DATE_FORMAT } from '@/constants/common';
@@ -20,6 +20,7 @@ const AddEventPreview = () => {
   const { lng } = useParams();
   const { t } = useTranslation(lng as string);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isEditSucceeded, setIsEditSucceeded] = useState<boolean>(false);
   const eventData = useAddEventWizardStore((state) => state.addData);
   const prevStep = useAddEventWizardStore((state) => state.prevStep);
   const setTempAddData = useAddEventWizardStore(
@@ -27,6 +28,16 @@ const AddEventPreview = () => {
   );
 
   const isEditMode = !!eventData?.id;
+
+  useEffect(() => {
+    if (isEditSucceeded) {
+      const redirectTimer = setTimeout(() => {
+        // router.push(paths.MyEvents);
+      }, 2000);
+
+      return () => clearTimeout(redirectTimer);
+    }
+  }, [isEditSucceeded, router]);
 
   const onAddEvent = async () => {
     if (eventData === undefined) return;
@@ -82,8 +93,8 @@ const AddEventPreview = () => {
         ...payload,
       })
         .then(() => {
-          // TODO: add success notification
-          router.push(paths.MyEvents);
+          setIsLoading(false);
+          setIsEditSucceeded(true);
         })
         .catch((err) => {
           console.error(err);
@@ -93,6 +104,16 @@ const AddEventPreview = () => {
   };
 
   if (!eventData || isLoading) return <DynamicLoader classNames='mt-16' />;
+
+  if (isEditSucceeded) {
+    return (
+      <div className='flex flex-col items-center justify-center mt-16 text-center'>
+        <h2 className='text-2xl font-bold text-grass-45 mb-4'>
+          {t('hero.successUpdate')}
+        </h2>
+      </div>
+    );
+  }
 
   return (
     <EventPreview eventData={eventData} lng={lng as string}>
