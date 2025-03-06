@@ -321,5 +321,7 @@
     "userNotFound": "User not found",
     "invalidPassword": "Invalid password",
     "emailExists": "Email already exists"
-  }
+  },
+  "share": "Share",
+  "eventShareDefaultText": "Check out this event!"
 }

@@ -45,7 +45,7 @@ const EventPage = async (props: {
       <PageContainer>
         <PageWrapper classNames='grow flex flex-col'>
           {eventData ? (
-            <div className='sm:bg-gray-900 rounded-lg py-8 md:px-8 mx-4'>
+            <div className='sm:bg-gray-900 rounded-lg sm:py-8 md:px-8 mx-4'>
               <EventPreview eventData={eventData} lng={params.lng} isEventPage>
                 <div className='mx-auto w-max'>
                   <Back lng={params.lng} />

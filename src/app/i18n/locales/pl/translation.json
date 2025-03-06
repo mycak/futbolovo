@@ -319,5 +319,7 @@
     "noEventsFound": "Nie masz jeszcze żadnych wydarzeń",
     "createFirst": "Utwórz swoje pierwsze wydarzenie!",
     "description": "Dodaj swoje wydarzenie i pozwól innym je odkryć."
-  }
+  },
+  "share": "Udostępnij",
+  "eventShareDefaultText": "Sprawdź to wydarzenie!"
 }

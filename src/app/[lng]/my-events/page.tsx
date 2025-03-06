@@ -54,7 +54,7 @@ const MyEventsPage = async (props: {
 
       <PageContainer>
         <PageWrapper classNames='grow flex flex-col'>
-          <div className='sm:bg-gray-900 sm:p-5 rounded-lg py-8 md:px-8 mx-4'>
+          <div className='sm:bg-gray-900 sm:p-5 rounded-lg md:py-8 md:px-8 mx-4'>
             <div className='mx-auto max-w-max'>
               <i className='fa-solid fa-futbol fa-6x text-ivory-150 mx-auto' />
             </div>
