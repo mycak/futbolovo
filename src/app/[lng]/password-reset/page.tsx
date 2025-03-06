@@ -39,7 +39,7 @@ export default async function ResetPasswordPage(props: {
       <SEOCanonical path={paths.PasswordReset} />
       <PageContainer classNames='pb-0'>
         <PageWrapper>
-          <div className='md:bg-gray-900 py-8 sm:px-4 md:px-8 mx-auto rounded-sm'>
+          <div className='md:bg-gray-900 md:py-8 sm:px-4 md:px-8 mx-auto rounded-sm'>
             <div className='mx-auto max-w-max'>
               <i className='fa-solid fa-lock fa-5x text-ivory-150 mx-auto' />
             </div>

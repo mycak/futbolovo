@@ -347,7 +347,7 @@ const AddEventForm = () => {
           register={register}
           error={errors.termsAccepted?.message}
         />
-        <Divider contained classNames='col-span-2' />
+        <Divider contained classNames='col-span-2 !my-3' />
 
         <Button
           classNames='h-[38px] text-xl pl-3 pr-5 col-span-2 max-w-max mx-auto'

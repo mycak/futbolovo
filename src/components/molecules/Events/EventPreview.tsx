@@ -14,6 +14,7 @@ import { useTranslation } from '@/app/i18n/client';
 import { Event, EventCategoryEnum } from '@prisma/client';
 import { Location } from '@/types/common';
 import Divider from '@/components/atoms/Divider';
+import ShareButton from '@/components/atoms/ShareButton';
 
 const EventPreview = ({
   eventData,
@@ -31,19 +32,34 @@ const EventPreview = ({
   return (
     <div>
       {!isEventPage ? <Divider /> : null}
-      <h1 className='text-2xl md:text-3xl font-bold text-center text-grass-30 mb-6 md:mb-12'>
-        {eventData.name}
-      </h1>
+      <div className='flex flex-col'>
+        <h1 className='text-2xl md:text-3xl font-bold text-center text-grass-30 mb-6'>
+          {eventData.name}
+        </h1>
+
+        {isEventPage && (
+          <div className='flex justify-center mb-8'>
+            <ShareButton
+              title={eventData.name}
+              text={eventData.description || t('eventShareDefaultText')}
+              url={typeof window !== 'undefined' ? window.location.href : ''}
+              lng={lng}
+            />
+          </div>
+        )}
+      </div>
+
       <div className='flex flex-col lg:flex-row'>
         <div className='mx-auto max-w-96 lg:ml-auto lg:mr-0'>
           <EventImage eventData={eventData} onPageImage />
         </div>
+
         <Divider
           classNames='block md:mt-8 lg:mt-12 lg:hidden'
           wrapperClassNames='lg:hidden'
         />
 
-        <div className='grid md:grid-cols-2 gap-y-4 gap-x-8 justify-center max-w-lg mx-auto lg:mt-4 lg:mr-auto lg:ml-12 lg:h-max'>
+        <div className='grid md:grid-cols-2 gap-y-4 gap-x-8 md:justify-center max-w-lg mx-auto lg:mt-4 lg:mr-auto lg:ml-12 lg:h-max'>
           <div className='flex items-center gap-3 col-span-2'>
             <i className='fa-solid fa-futbol text-grass-50' />
             <p>{translateEventType(eventData.category, t)}</p>
