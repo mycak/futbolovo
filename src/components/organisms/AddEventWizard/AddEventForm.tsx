@@ -44,7 +44,7 @@ const AddEventForm = () => {
   const tempAddData = useAddEventWizardStore((state) => state.tempAddData);
 
   const searchParams = useSearchParams();
-  const isRepeatedData = searchParams.get('data') === 'repeated' && tempAddData;
+  const isRepeatMode = !!searchParams.get('repost');
 
   const isEditMode = !!addData?.id;
 
@@ -62,7 +62,7 @@ const AddEventForm = () => {
   } = useForm<AddEventInputs>({
     resolver: zodResolver(addEventSchema(t)),
     defaultValues: {
-      ...parseOldToCurrentEventData(isRepeatedData ? tempAddData : addData),
+      ...parseOldToCurrentEventData(tempAddData ?? addData),
       termsAccepted: true,
     },
   });
@@ -203,9 +203,7 @@ const AddEventForm = () => {
           onChangeCallback={(data) => onLocationChange(data, 'location')}
           error={errors.location?.message}
           displayValue={
-            isRepeatedData
-              ? tempAddData.location?.addressName
-              : addData?.location?.addressName
+            tempAddData?.location?.addressName ?? addData?.location?.addressName
           }
           multiple={!isEditMode}
           onAddMore={onAddMoreLocation}
@@ -297,10 +295,13 @@ const AddEventForm = () => {
           label={t('imageInputLabel')}
           placeholder={t('imageInputPlaceholder')}
           name='image'
-          type='image'
           control={control}
           error={errors.image?.message}
-          info={isRepeatedData ? t('validation.imageInfoOnRepeat') : undefined}
+          info={
+            isRepeatMode || isEditMode
+              ? t('validation.imageInfoOnRepeat')
+              : undefined
+          }
         />
         <TextAreaInput
           label={t('description')}

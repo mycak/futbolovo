@@ -76,7 +76,7 @@ const AddEventConfirm = () => {
             icon='plus'
             text={t('eventConfirmation.addSimilar')}
             asLink
-            href={`${paths.EventAdd}?data=repeated`}
+            href={paths.EventRepost}
           />
         </div>
         <Button

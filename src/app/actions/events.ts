@@ -106,6 +106,9 @@ export async function getEventsByUser(userId: string, userEmail: string) {
     where: {
       OR: [{ authorId: userId }, { email: userEmail }],
     },
+    orderBy: {
+      date: 'desc',
+    },
   });
 
   return events;
