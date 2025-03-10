@@ -62,9 +62,7 @@ const AddEventForm = () => {
   } = useForm<AddEventInputs>({
     resolver: zodResolver(addEventSchema(t)),
     defaultValues: {
-      ...parseOldToCurrentEventData(
-        (isRepeatedData ? tempAddData : addData) as AddEventInputs
-      ),
+      ...parseOldToCurrentEventData(isRepeatedData ? tempAddData : addData),
       termsAccepted: true,
     },
   });

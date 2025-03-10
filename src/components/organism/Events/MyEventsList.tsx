@@ -14,7 +14,6 @@ import { useAddEventWizardStore } from '@/stores';
 import { Location } from '@/types/common';
 import { deleteEvent } from '@/app/actions/events';
 import { useNotifications } from '@/hooks/useNotifications';
-import { AddEventInputs } from '@/schemas/addEventSchema';
 
 interface MyEventsListProps {
   events: Event[];
@@ -41,10 +40,11 @@ const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
         ...eventData,
         termsAccepted: true,
         additionalLocations: [],
+        priceFrom: eventData.priceFrom ?? eventData.price ?? 0,
         authorId: eventData.authorId ?? '',
         location: eventData.location as Location,
         id: editMode ? eventId : undefined,
-      } as AddEventInputs);
+      });
     }
   };
 
