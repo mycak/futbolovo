@@ -1,4 +1,5 @@
 import { translate } from '@/app/i18n';
+import DynamicLoader from '@/components/atoms/DynamicLoader';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
@@ -6,6 +7,7 @@ import SEOCanonical from '@/components/molecules/SEOCanonical';
 import AddEventWizard from '@/components/organism/AddEventWizard/AddEventWizard';
 import { paths } from '@/constants/paths';
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
@@ -40,7 +42,9 @@ const AddEventPage = async (props: {
             <h2 className='text-2xl md:text-3xl text-center text-grass-20 mt-4 md:mt-8'>
               {t('navigation.editEvent')}
             </h2>
-            <AddEventWizard />
+            <Suspense fallback={<DynamicLoader classNames='my-16' />}>
+              <AddEventWizard />
+            </Suspense>
           </div>
           <Back classNames='mx-auto mt-8' lng={params.lng} />
         </PageWrapper>

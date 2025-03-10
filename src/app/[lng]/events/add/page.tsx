@@ -9,6 +9,8 @@ import Button from '@/components/atoms/Button';
 import { paths } from '@/constants/paths';
 import { authOptions } from '@/configs/auth';
 import SEOCanonical from '@/components/molecules/SEOCanonical';
+import { Suspense } from 'react';
+import DynamicLoader from '@/components/atoms/DynamicLoader';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
@@ -55,7 +57,9 @@ const AddEventPage = async (props: {
                 classNames='mt-4 mb-5 md:mt-8 mx-auto'
               />
             ) : null}
-            <AddEventWizard />
+            <Suspense fallback={<DynamicLoader classNames='my-16' />}>
+              <AddEventWizard />
+            </Suspense>
           </div>
           <Back classNames='mx-auto mt-8' lng={params.lng} />
         </PageWrapper>
