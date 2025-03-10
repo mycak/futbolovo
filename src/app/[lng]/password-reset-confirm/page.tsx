@@ -4,7 +4,7 @@ import { translate } from '../../i18n';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
-import ConfirmResetPasswordForm from '@/components/organism/Auth/ConfirmResetPasswordForm';
+import ConfirmResetPasswordForm from '@/components/organisms/Auth/ConfirmResetPasswordForm';
 import { paths } from '@/constants/paths';
 import SEOCanonical from '@/components/molecules/SEOCanonical';
 

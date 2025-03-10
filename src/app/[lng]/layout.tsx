@@ -10,7 +10,7 @@ import { translate } from '../i18n';
 import Header from '@/components/molecules/Header';
 import Footer from '@/components/molecules/Footer';
 import Providers from '../providers';
-import { Notifications } from '@/components/organism/Notifications';
+import { Notifications } from '@/components/organisms/Notifications';
 
 import type { Viewport } from 'next';
 

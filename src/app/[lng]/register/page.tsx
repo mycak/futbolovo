@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { languages, fallbackLng } from '../../i18n/settings';
 import { translate } from '../../i18n';
 import PageContainer from '@/components/atoms/PageContainer';
-import RegisterForm from '@/components/organism/Auth/RegisterForm';
+import RegisterForm from '@/components/organisms/Auth/RegisterForm';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import Link from 'next/link';

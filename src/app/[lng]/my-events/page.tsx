@@ -4,7 +4,7 @@ import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import NotFound from '@/components/molecules/NotFound';
-import MyEventsList from '@/components/organism/Events/MyEventsList';
+import UserEventsList from '@/components/organisms/Events/UserEventsList';
 import {
   HydrationBoundary,
   dehydrate,
@@ -61,7 +61,7 @@ const MyEventsPage = async (props: {
             <h1 className='text-3xl md:text-4xl lg:text-5xl text-center text-grass-20 mb-6 mt-4 md:mt-8'>
               {t('myList')}
             </h1>
-            <MyEventsList events={eventsData} lng={lng} />
+            <UserEventsList events={eventsData} lng={lng} />
             <div className='mx-auto w-max mt-8'>
               <Back lng={lng} />
             </div>

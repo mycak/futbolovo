@@ -4,7 +4,7 @@ import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import SEOCanonical from '@/components/molecules/SEOCanonical';
-import AddEventWizard from '@/components/organism/AddEventWizard/AddEventWizard';
+import AddEventWizard from '@/components/organisms/AddEventWizard/AddEventWizard';
 import { paths } from '@/constants/paths';
 import { Metadata } from 'next';
 import { Suspense } from 'react';

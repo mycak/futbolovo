@@ -24,7 +24,7 @@ const ShareButton: React.FC<ShareButtonProps> = ({
 
   const handleShare = async () => {
     if (!navigator.share) {
-      console.log('Web Share API not supported in your browser');
+      console.info('Web Share API not supported in your browser');
       return;
     }
 

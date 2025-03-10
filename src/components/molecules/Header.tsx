@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import NavigationMenu from '@/components/organism/NavigationMenu';
+import NavigationMenu from '@/components/organisms/NavigationMenu';
 import { useTranslation } from '@/app/i18n/client';
 import { mainTopics } from '@/constants/texts';
 import { navigationItems } from '@/constants/navigation';
@@ -12,7 +12,7 @@ import Logo from '../atoms/Logo';
 import DashboardHeading from '../atoms/DashboardHeading';
 import Divider from '../atoms/Divider';
 import { useSession } from 'next-auth/react';
-import UserNavigationMenu from '../organism/UserNavigationMenu';
+import UserNavigationMenu from '../organisms/UserNavigationMenu';
 
 const Header = ({ lng }: { lng: string }) => {
   const { t } = useTranslation(lng);

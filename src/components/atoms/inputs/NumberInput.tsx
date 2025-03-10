@@ -42,7 +42,7 @@ const NumberInput = <T extends FieldValues>({
               }} // Convert to number
               onBlur={onBlur}
               // Handle empty string or undefined values in display
-              value={value === undefined || value === '' ? '' : value}
+              value={!value ? '' : value}
               ref={ref}
             />
           )}
