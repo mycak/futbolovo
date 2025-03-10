@@ -3,6 +3,7 @@
 //TODO: MINOR
 // LOAD IMAGE ON REPOST
 // ORDER EVENTS BY DATE
+// [DOM] Password forms should have (optionally hidden) username fields for accessibility: (More info
 
 //TODO: AFTER MVP
 // CREATE SIDEBAR WITH DATA (MARKERS)
