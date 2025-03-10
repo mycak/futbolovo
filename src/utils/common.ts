@@ -7,8 +7,8 @@ export const areObjectsEqual = (
 ) => JSON.stringify(obj1) === JSON.stringify(obj2);
 
 export const parseOldToCurrentEventData = (
-  data: AddEventInputs
-): AddEventInputs => {
+  data: AddEventInputs | undefined
+) => {
   const isOldPrice = !!data?.price;
 
   if (isOldPrice) {

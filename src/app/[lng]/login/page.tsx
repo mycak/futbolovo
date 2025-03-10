@@ -4,7 +4,7 @@ import { translate } from '../../i18n';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
-import LoginForm from '@/components/organism/Auth/LoginForm';
+import LoginForm from '@/components/organisms/Auth/LoginForm';
 import Link from 'next/link';
 import { paths } from '@/constants/paths';
 import SEOCanonical from '@/components/molecules/SEOCanonical';

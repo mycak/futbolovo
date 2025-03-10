@@ -2,7 +2,7 @@ import { translate } from '@/app/i18n';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
-import AddEventWizard from '@/components/organism/AddEventWizard/AddEventWizard';
+import AddEventWizard from '@/components/organisms/AddEventWizard/AddEventWizard';
 import { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import Button from '@/components/atoms/Button';

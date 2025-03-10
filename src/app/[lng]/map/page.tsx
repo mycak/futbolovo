@@ -3,7 +3,7 @@ import Divider from '@/components/atoms/Divider';
 import PageContainer from '@/components/atoms/PageContainer';
 import AddPlaceSection from '@/components/molecules/AddPlaceSection';
 import SEOCanonical from '@/components/molecules/SEOCanonical';
-import MapSet from '@/components/organism/MapSet';
+import MapSet from '@/components/organisms/MapSet';
 import { paths } from '@/constants/paths';
 import { Metadata } from 'next';
 

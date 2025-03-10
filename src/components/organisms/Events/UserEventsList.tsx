@@ -14,14 +14,13 @@ import { useAddEventWizardStore } from '@/stores';
 import { Location } from '@/types/common';
 import { deleteEvent } from '@/app/actions/events';
 import { useNotifications } from '@/hooks/useNotifications';
-import { AddEventInputs } from '@/schemas/addEventSchema';
 
-interface MyEventsListProps {
+interface UserEventsListProps {
   events: Event[];
   lng: string;
 }
 
-const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
+const UserEventsList: React.FC<UserEventsListProps> = ({ events, lng }) => {
   const { t } = useTranslation(lng);
   const router = useRouter();
   const { showNotification } = useNotifications();
@@ -41,10 +40,11 @@ const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
         ...eventData,
         termsAccepted: true,
         additionalLocations: [],
+        priceFrom: eventData.priceFrom ?? eventData.price ?? 0,
         authorId: eventData.authorId ?? '',
         location: eventData.location as Location,
         id: editMode ? eventId : undefined,
-      } as AddEventInputs);
+      });
     }
   };
 
@@ -86,6 +86,14 @@ const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
 
   return (
     <div className='w-full'>
+      <Button
+        classNames='h-[38px] text-xl pl-3 pr-5 mx-auto my-8'
+        color='bg-grass-45'
+        variant='icon'
+        icon='plus'
+        text={t('navigation.addEvent')}
+        onClick={handleGoToAddEvent}
+      />
       <div className='flex flex-col gap-4'>
         {events.map((event) => (
           <Link href={paths.Event(event.id)} key={event.id}>
@@ -169,4 +177,4 @@ const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
   );
 };
 
-export default MyEventsList;
+export default UserEventsList;
