@@ -8,6 +8,7 @@ const PasswordInput = <T extends FieldValues>({
   register,
   error,
   loading,
+  autocomplete,
 }: {
   label: string;
   placeholder: string;
@@ -15,6 +16,7 @@ const PasswordInput = <T extends FieldValues>({
   register: UseFormRegister<T>;
   error?: string;
   loading?: boolean;
+  autocomplete?: string;
 }) => {
   return (
     <div className='relative max-w-80 w-full'>
@@ -26,6 +28,7 @@ const PasswordInput = <T extends FieldValues>({
           disabled={loading}
           className={customStyles({ error: !!error })}
           placeholder={placeholder}
+          autoComplete={autocomplete}
           {...register(name)}
         />
       </label>

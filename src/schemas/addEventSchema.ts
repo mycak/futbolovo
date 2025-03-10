@@ -31,7 +31,7 @@ export const addEventSchema = (t: TranslationFunction) =>
         .min(3, { message: t('validation.min3') }),
 
       price: z.number().nullable().optional(),
-      priceFrom: z.number({ message: t('fieldIsRequired') }).nullable(),
+      priceFrom: z.number({ message: t('fieldIsRequired') }),
       priceTo: z.number().nullable().optional(),
       female: z.boolean().default(false).nullable().optional(),
       description: z.string().min(1, { message: t('fieldIsRequired') }),

@@ -10,6 +10,7 @@ import { translate } from '../i18n';
 import Header from '@/components/molecules/Header';
 import Footer from '@/components/molecules/Footer';
 import Providers from '../providers';
+import { Notifications } from '@/components/organism/Notifications';
 
 import type { Viewport } from 'next';
 
@@ -90,6 +91,7 @@ export default async function RootLayout(
           <Header lng={lng} />
           {children}
           <Footer lng={lng} />
+          <Notifications />
         </Providers>
       </body>
     </html>

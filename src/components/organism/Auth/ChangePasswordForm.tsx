@@ -14,11 +14,13 @@ import {
   ChangePasswordInputs,
 } from '@/schemas/changePasswordSchema';
 import { useSession } from 'next-auth/react';
+import { useNotifications } from '@/hooks/useNotifications';
 
 const ChangePasswordForm = () => {
   const { lng } = useParams();
   const { data: userData } = useSession();
   const { t } = useTranslation(lng as string);
+  const { showNotification } = useNotifications();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -44,18 +46,20 @@ const ChangePasswordForm = () => {
       );
 
       if (result.error) {
-        setError(
+        const errorMessage =
           result.error === 'Old password is incorrect'
             ? t('auth.changePassword.invalidPassword')
-            : t('auth.changePassword.error')
-        );
+            : t('auth.changePassword.error');
+        setError(errorMessage);
       } else {
         setIsSuccess(true);
+        showNotification(t('auth.changePassword.success'), 'success');
         reset();
       }
     } catch (err) {
       console.error(err);
-      setError(t('auth.changePassword.error'));
+      const errorMessage = t('auth.changePassword.error');
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }
@@ -74,6 +78,7 @@ const ChangePasswordForm = () => {
           register={register}
           loading={isLoading}
           error={errors.password?.message}
+          autocomplete='current-password'
         />
         <PasswordInput
           label={t('auth.resetPassword.newPassword')}
@@ -82,6 +87,7 @@ const ChangePasswordForm = () => {
           register={register}
           loading={isLoading}
           error={errors.password?.message}
+          autocomplete='new-password'
         />
         <PasswordInput
           label={t('auth.resetPassword.repeatNewPassword')}
@@ -90,6 +96,7 @@ const ChangePasswordForm = () => {
           register={register}
           loading={isLoading}
           error={errors.repeatPassword?.message}
+          autocomplete='new-password'
         />
 
         <Divider contained classNames='col-span-2' />

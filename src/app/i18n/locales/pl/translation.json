@@ -13,6 +13,8 @@
     "termsAndConditions": "Akceptuję",
     "and": "oraz",
     "forgotPassword": "Zapomniałeś hasła?",
+    "loginSuccess": "Zalogowano pomyślnie",
+    "loginError": "Wystąpił błąd podczas logowania",
     "registerSuccess": {
       "title": "Rejestracja zakończona pomyślnie!",
       "message": "Twoje konto zostało utworzone. Możesz się teraz zalogować."
@@ -321,5 +323,11 @@
     "description": "Dodaj swoje wydarzenie i pozwól innym je odkryć."
   },
   "share": "Udostępnij",
-  "eventShareDefaultText": "Sprawdź to wydarzenie!"
+  "eventShareDefaultText": "Sprawdź to wydarzenie!",
+  "eventsForm": {
+    "editSuccess": "Wydarzenie zostało pomyślnie zaktualizowane",
+    "editError": "Wystąpił błąd podczas aktualizacji wydarzenia. Spróbuj ponownie",
+    "deleteSuccess": "Wydarzenie zostało pomyślnie usunięte",
+    "deleteError": "Wystąpił błąd podczas usuwania wydarzenia. Spróbuj ponownie"
+  }
 }

@@ -34,6 +34,7 @@ import { Trans } from 'react-i18next/TransWithoutContext';
 import Link from 'next/link';
 import { paths } from '@/constants/paths';
 import { TFunction } from 'i18next';
+import { parseOldToCurrentEventData } from '@/utils/common';
 
 const AddEventForm = () => {
   const nextStep = useAddEventWizardStore((state) => state.nextStep);
@@ -61,7 +62,9 @@ const AddEventForm = () => {
   } = useForm<AddEventInputs>({
     resolver: zodResolver(addEventSchema(t)),
     defaultValues: {
-      ...(isRepeatedData ? tempAddData : addData),
+      ...parseOldToCurrentEventData(
+        (isRepeatedData ? tempAddData : addData) as AddEventInputs
+      ),
       termsAccepted: true,
     },
   });

@@ -13,10 +13,12 @@ import {
   ResetPasswordInputs,
   resetPasswordSchema,
 } from '@/schemas/resetPasswordSchema';
+import { useNotifications } from '@/hooks/useNotifications';
 
 const ResetPasswordForm = () => {
   const { lng } = useParams();
   const { t } = useTranslation(lng as string);
+  const { showNotification } = useNotifications();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -42,6 +44,7 @@ const ResetPasswordForm = () => {
         setError(result.error || 'auth.resetPassword.error');
       } else {
         setIsSuccess(true);
+        showNotification(t('auth.resetPassword.emailSuccessSent'), 'success');
       }
     } catch (err) {
       console.error(err);
@@ -50,8 +53,6 @@ const ResetPasswordForm = () => {
       setIsLoading(false);
     }
   };
-
-  // Now when you use t('some.key'), you'll get autocomplete and type checking
 
   return (
     <div className='w-full max-w-md mx-auto'>

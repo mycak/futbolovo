@@ -12,9 +12,11 @@ import EventPreview from '@/components/molecules/Events/EventPreview';
 import Button from '@/components/atoms/Button';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
 import { useSession } from 'next-auth/react';
+import { useNotifications } from '@/hooks/useNotifications';
 
 const AddEventPreview = () => {
   const { status, data } = useSession();
+  const { showNotification } = useNotifications();
 
   const router = useRouter();
   const { lng } = useParams();
@@ -32,7 +34,7 @@ const AddEventPreview = () => {
   useEffect(() => {
     if (isEditSucceeded) {
       const redirectTimer = setTimeout(() => {
-        // router.push(paths.MyEvents);
+        router.push(paths.MyEvents);
       }, 2000);
 
       return () => clearTimeout(redirectTimer);
@@ -95,10 +97,12 @@ const AddEventPreview = () => {
         .then(() => {
           setIsLoading(false);
           setIsEditSucceeded(true);
+          showNotification(t('eventsForm.editSuccess'), 'success');
         })
         .catch((err) => {
           console.error(err);
           setIsLoading(false);
+          showNotification(t('eventsForm.editError'), 'error');
         });
     }
   };

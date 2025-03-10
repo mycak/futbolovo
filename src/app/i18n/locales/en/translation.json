@@ -13,6 +13,8 @@
     "termsAndConditions": "I accept the",
     "and": "and",
     "forgotPassword": "Forgot password?",
+    "loginSuccess": "Logged in successfully",
+    "loginError": "An error occurred during login",
     "registerSuccess": {
       "title": "Registration Successful!",
       "message": "Your account has been created successfully. You can now log in to your account."
@@ -323,5 +325,11 @@
     "emailExists": "Email already exists"
   },
   "share": "Share",
-  "eventShareDefaultText": "Check out this event!"
+  "eventShareDefaultText": "Check out this event!",
+  "eventsForm": {
+    "editSuccess": "Event was successfully updated",
+    "editError": "An error occurred while updating the event. Please try again",
+    "deleteSuccess": "Event was successfully deleted",
+    "deleteError": "An error occurred while deleting the event. Please try again"
+  }
 }

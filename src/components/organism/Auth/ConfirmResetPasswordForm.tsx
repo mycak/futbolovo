@@ -14,6 +14,7 @@ import {
   confirmResetPasswordSchema,
 } from '@/schemas/resetPasswordConfirmSchema';
 import { paths } from '@/constants/paths';
+import { useNotifications } from '@/hooks/useNotifications';
 
 const ConfirmResetPasswordForm = () => {
   const { lng, token } = useParams();
@@ -21,6 +22,7 @@ const ConfirmResetPasswordForm = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const { showNotification } = useNotifications();
 
   const {
     handleSubmit,
@@ -45,6 +47,7 @@ const ConfirmResetPasswordForm = () => {
         );
       } else {
         setIsSuccess(true);
+        showNotification(t('auth.resetPassword.successReset'), 'success');
       }
     } catch (err) {
       console.error(err);

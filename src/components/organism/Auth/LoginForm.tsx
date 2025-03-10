@@ -15,10 +15,12 @@ import { LoginInputs } from '@/schemas/loginSchema';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { paths } from '@/constants/paths';
+import { useNotifications } from '@/hooks/useNotifications';
 
 const LoginForm = () => {
   const { lng } = useParams();
   const { t } = useTranslation(lng as string);
+  const { showNotification } = useNotifications();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null | undefined>(null);
   const router = useRouter();
@@ -45,12 +47,14 @@ const LoginForm = () => {
         if (res?.error || !res?.ok) {
           setError(res?.error);
         } else if (res?.ok) {
+          showNotification(t('auth.loginSuccess'), 'success');
           router.push(paths.Dashboard);
         }
       })
       .catch((err) => {
         console.error(err);
         setError(err.error);
+        showNotification(t('auth.loginError'), 'error');
       })
       .finally(() => setIsLoading(false));
   };

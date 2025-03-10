@@ -4,6 +4,7 @@ export const paths = {
   //EVENTS
   Event: (id: string) => `/events/${id}`,
   EventAdd: '/events/add',
+  EventRepost: '/events/add?repost=true',
   EventEdit: '/events/edit',
   EventAddConfirm: '/events/add/confirm',
   //CONTACT

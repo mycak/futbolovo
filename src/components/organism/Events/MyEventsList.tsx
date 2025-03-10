@@ -13,6 +13,8 @@ import { useRouter } from 'next/navigation';
 import { useAddEventWizardStore } from '@/stores';
 import { Location } from '@/types/common';
 import { deleteEvent } from '@/app/actions/events';
+import { useNotifications } from '@/hooks/useNotifications';
+import { AddEventInputs } from '@/schemas/addEventSchema';
 
 interface MyEventsListProps {
   events: Event[];
@@ -22,6 +24,7 @@ interface MyEventsListProps {
 const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
   const { t } = useTranslation(lng);
   const router = useRouter();
+  const { showNotification } = useNotifications();
   const setAddData = useAddEventWizardStore((state) => state.setAddData);
 
   const handleRedirect = (
@@ -31,7 +34,7 @@ const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
   ) => {
     e.preventDefault();
     e.stopPropagation();
-    router.push(editMode ? paths.EventEdit : paths.EventAdd);
+    router.push(editMode ? paths.EventEdit : paths.EventRepost);
     const eventData = events.find((event) => event.id === eventId);
     if (eventData) {
       setAddData({
@@ -41,7 +44,7 @@ const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
         authorId: eventData.authorId ?? '',
         location: eventData.location as Location,
         id: editMode ? eventId : undefined,
-      });
+      } as AddEventInputs);
     }
   };
 
@@ -55,6 +58,7 @@ const MyEventsList: React.FC<MyEventsListProps> = ({ events, lng }) => {
 
     try {
       await deleteEvent(eventId);
+      showNotification(t('eventsForm.deleteSuccess'), 'success');
       // Refresh the page to get updated data
       router.refresh();
     } catch (error) {
