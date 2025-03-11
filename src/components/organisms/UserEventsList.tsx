@@ -14,6 +14,7 @@ import { useAddEventWizardStore } from '@/stores';
 import { Location } from '@/types/common';
 import { deleteEvent } from '@/app/actions/events';
 import { useNotifications } from '@/hooks/useNotifications';
+import { currencyOptions } from '@/constants/inputOptions';
 
 interface UserEventsListProps {
   events: Event[];
@@ -44,6 +45,7 @@ const UserEventsList: React.FC<UserEventsListProps> = ({ events, lng }) => {
         authorId: eventData.authorId ?? '',
         location: eventData.location as Location,
         id: editMode ? eventId : undefined,
+        currency: eventData.currency ?? currencyOptions[0].value,
       });
     }
   };

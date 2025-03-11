@@ -67,7 +67,7 @@ const AddEventForm = () => {
     resolver: zodResolver(addEventSchema(t)),
     defaultValues: {
       ...parseOldToCurrentEventData(tempAddData ?? addData),
-      currency: currencyOptions()[0].value as string,
+      currency: currencyOptions[0].value,
       termsAccepted: true,
     },
   });
@@ -294,7 +294,7 @@ const AddEventForm = () => {
           name='currency'
           closeMenuOnSelect={true}
           placeholder={t('currency')}
-          options={currencyOptions()}
+          options={currencyOptions}
           error={errors.currency?.message}
         />
         {generateCategoryFieldsSet()}
