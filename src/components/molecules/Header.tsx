@@ -48,7 +48,7 @@ const Header = ({ lng }: { lng: string }) => {
       </PageWrapper>
       <DashboardHeading mainTopics={mainTopics(t)} classNames='my-4' />
       <PageWrapper>
-        <Divider classNames='!mt-0 mb-6 md:mb-12' />
+        <Divider classNames='!mt-0 mb-6' />
       </PageWrapper>
     </>
   );

@@ -176,6 +176,7 @@
   "field": "Boisko",
   "events": "Eventy",
   "name": "Nazwa",
+  "currency": "Waluta",
   "typeName": "Wpisz nazwę",
   "objects": "Obiekty",
   "services": "Usługi",

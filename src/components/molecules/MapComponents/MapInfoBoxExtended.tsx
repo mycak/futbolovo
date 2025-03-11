@@ -4,7 +4,7 @@ import { InfoBox } from '@react-google-maps/api';
 import { generateMapIcon, generatePriceDescription } from '@/utils';
 import { format } from 'date-fns';
 import { BulkEvents } from '@/types/common';
-import { currentCurrencySign, DATE_FORMAT } from '@/constants/common';
+import { DATE_FORMAT } from '@/constants/common';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { paths } from '@/constants/paths';
@@ -189,9 +189,7 @@ const MapInfoBoxExtended = ({
                 <div className='w-3 flex flex-col items-center'>
                   <i className='fa-solid fa-coins text-grass-50' />
                 </div>
-                <p className='text-sm'>
-                  {generatePriceDescription(event, currentCurrencySign)}
-                </p>
+                <p className='text-sm'>{generatePriceDescription(event)}</p>
               </div>
               <div className='flex items-center gap-3'>
                 <div className='w-3 flex flex-col items-center'>

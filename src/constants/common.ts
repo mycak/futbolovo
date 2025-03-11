@@ -1,3 +1,5 @@
+import { currencyOptions } from './inputOptions';
+
 //REGEXS
 export const phoneRegex = new RegExp(
   /^\+48 ?\d{3} ?\d{3} ?\d{3}$|^\d{7,10}$|^\d{9}$|^\d{3} ?\d{3} ?\d{3}$/
@@ -9,9 +11,6 @@ export const passwordRegex = new RegExp(
 
 //DATES
 export const DATE_FORMAT = 'dd.MM.yyyy';
-
-//MAIN SETTINGS
-export const currentCurrencySign = 'zł';
 
 //CONTACT DATA
 export const contactPhone: {
@@ -30,3 +29,5 @@ export const authMessages = {
   invalidPassword: 'invalidPassword',
   emailExists: 'emailExists',
 };
+
+export const DEFAULT_CURRENCY = currencyOptions[0].value;

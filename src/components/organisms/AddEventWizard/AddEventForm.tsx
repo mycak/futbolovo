@@ -2,7 +2,11 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { descriptionHints } from '@/constants/addEvents';
-import { ageCategoryOptions, categoryOptions } from '@/constants/inputOptions';
+import {
+  ageCategoryOptions,
+  categoryOptions,
+  currencyOptions,
+} from '@/constants/inputOptions';
 import { AddEventInputs, addEventSchema } from '@/schemas/addEventSchema';
 import { LocationInputState } from '@/types/common';
 import {
@@ -63,6 +67,7 @@ const AddEventForm = () => {
     resolver: zodResolver(addEventSchema(t)),
     defaultValues: {
       ...parseOldToCurrentEventData(tempAddData ?? addData),
+      currency: currencyOptions[0].value,
       termsAccepted: true,
     },
   });
@@ -73,6 +78,8 @@ const AddEventForm = () => {
   });
 
   const currentCategory = useWatch({ control, name: 'category' });
+  const currentCurrency = useWatch({ control, name: 'currency' });
+
   const startDate = useWatch({ control, name: 'startDate' });
   const endDate = useWatch({ control, name: 'endDate' });
 
@@ -267,18 +274,28 @@ const AddEventForm = () => {
           error={errors.phoneNumber?.message}
         />
         <NumberInput
-          label={t('priceFrom')}
+          label={`${t('priceFrom')} ${currentCurrency}`}
           placeholder={t('givePrice')}
           name='priceFrom'
           control={control}
           error={errors.priceFrom?.message}
         />
         <NumberInput
-          label={t('priceTo')}
+          label={`${t('priceTo')} ${currentCurrency}`}
           placeholder={t('givePrice')}
           name='priceTo'
           control={control}
           error={errors.priceTo?.message}
+        />
+        <SelectInput
+          control={control}
+          label={t('currency')}
+          id='currency'
+          name='currency'
+          closeMenuOnSelect={true}
+          placeholder={t('currency')}
+          options={currencyOptions}
+          error={errors.currency?.message}
         />
         {generateCategoryFieldsSet()}
 

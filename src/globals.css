@@ -199,22 +199,6 @@ input[type='number'] {
   position: relative;
 }
 
-/* position the unit to the right of the wrapper */
-.price::after {
-  position: absolute;
-  top: 32px;
-  right: 0.5em;
-  transition: all 0.05s ease-in-out;
-  content: 'zł';
-}
-
-/* handle Firefox (arrows always shown) */
-@supports (-moz-appearance: none) {
-  .price::after {
-    right: 1.5em;
-  }
-}
-
 /* ANIMATION DELAY */
 .delay-1 {
   animation-delay: 1s;

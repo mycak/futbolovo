@@ -46,19 +46,11 @@ const AddEventPreview = () => {
     setTempAddData(eventData);
     setIsLoading(true);
 
-    const payload = { ...eventData };
-
-    // @ts-expect-error - Remove additionalLocations from payload to fit payload type
-    delete payload.additionalLocations;
-    // @ts-expect-error - Remove termsAccepted from payload to fit payload type
-    delete payload.termsAccepted;
+    const { additionalLocations, termsAccepted, ...payload } = eventData;
 
     if (!isEditMode) {
       //ADD EVENTS
-      const allLocations = [
-        ...eventData.additionalLocations,
-        eventData.location,
-      ];
+      const allLocations = [...additionalLocations, eventData.location];
 
       const addEventPromises = allLocations.map((location) =>
         addEvent({

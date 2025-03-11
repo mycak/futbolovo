@@ -7,7 +7,7 @@ import {
   generatePriceDescription,
   translateEventType,
 } from '@/utils';
-import { currentCurrencySign, DATE_FORMAT } from '@/constants/common';
+import { DATE_FORMAT } from '@/constants/common';
 import { differenceInDays, format } from 'date-fns';
 import { AddEventInputs } from '@/schemas/addEventSchema';
 import { useTranslation } from '@/app/i18n/client';
@@ -136,12 +136,7 @@ const EventPreview = ({
             )}
           <div className='flex items-center gap-3 col-span-2 '>
             <i className='fa-solid fa-coins text-grass-50' />
-            <p>
-              {generatePriceDescription(
-                eventData as AddEventInputs,
-                currentCurrencySign
-              )}
-            </p>
+            <p>{generatePriceDescription(eventData as AddEventInputs)}</p>
           </div>
           <div className='flex items-center gap-3 col-span-2 '>
             <i className='fa-regular fa-envelope text-grass-50' />
