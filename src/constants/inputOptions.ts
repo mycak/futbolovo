@@ -20,3 +20,9 @@ export const ageCategoryOptions: SelectOptions = (
   value: AgeCategoryCategoryEnum[key],
   label: AgeCategoryCategoryEnum[key],
 }));
+
+export const currencyOptions = (): SelectOptions => [
+  { value: 'zł', label: 'zł' },
+  { value: 'EUR', label: 'EUR' },
+  { value: '$', label: '$' },
+];

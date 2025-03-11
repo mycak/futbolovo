@@ -20,6 +20,7 @@ model Event {
   price          Float?
   priceFrom      Float?
   priceTo        Float?
+  currency       String
   female         Boolean?
   description    String
   phoneNumber    String

@@ -1,3 +1,4 @@
+import { DEFAULT_CURRENCY } from '@/constants/common';
 import { AddEventInputs } from '@/schemas/addEventSchema';
 import { EventCategoryEnum } from '@prisma/client';
 import { add } from 'date-fns';
@@ -100,19 +101,18 @@ export const formatPhoneNumber = (phoneNumber: string): string => {
   return phoneNumber;
 };
 
-export const generatePriceDescription = (
-  event: AddEventInputs,
-  currentCurrencySign: string
-) => {
+export const generatePriceDescription = (event: AddEventInputs) => {
   const isOnlyOneValue =
     (event.price && !event.priceTo) ||
     event.priceTo === event.priceFrom ||
     (typeof event.priceFrom === 'number' && !event.priceTo);
 
   if (isOnlyOneValue) {
-    return `${event.price ?? event.priceFrom ?? 0} ${currentCurrencySign}`;
+    return `${event.price ?? event.priceFrom ?? 0} ${
+      event.currency ?? DEFAULT_CURRENCY
+    }`;
   } else
     return `${event.price ?? event.priceFrom ?? 0}${
       event.priceTo ? ` - ${event.priceTo}` : ''
-    } ${currentCurrencySign}`;
+    } ${event.currency ?? DEFAULT_CURRENCY}`;
 };

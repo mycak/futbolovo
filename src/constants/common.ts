@@ -10,9 +10,6 @@ export const passwordRegex = new RegExp(
 //DATES
 export const DATE_FORMAT = 'dd.MM.yyyy';
 
-//MAIN SETTINGS
-export const currentCurrencySign = 'zł';
-
 //CONTACT DATA
 export const contactPhone: {
   label: string;
@@ -30,3 +27,5 @@ export const authMessages = {
   invalidPassword: 'invalidPassword',
   emailExists: 'emailExists',
 };
+
+export const DEFAULT_CURRENCY = 'zł';

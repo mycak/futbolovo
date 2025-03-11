@@ -175,6 +175,7 @@
   "price": "Price",
   "priceFrom": "Price min",
   "priceTo": "Price max",
+  "currency": "Currency",
   "contactNumber": "Contact Number",
   "services": "Services",
   "category": "Category",

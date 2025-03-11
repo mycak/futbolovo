@@ -35,7 +35,7 @@ const MapSet = () => {
           <MapComponent mapInitialPosition={initialMapCords} />
         </div>
       ) : (
-        <PageWrapper classNames='min-h-96 pt-16'>
+        <PageWrapper classNames='pt-8'>
           <DynamicLoader />
         </PageWrapper>
       )}

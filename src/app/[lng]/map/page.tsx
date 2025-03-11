@@ -33,7 +33,7 @@ const MapPage = async (props: {
       <SEOCanonical path={paths.Map} />
       <PageContainer>
         <MapSet />
-        <Divider />
+        <Divider classNames='!mb-0' />
         <AddPlaceSection lng={lng} />
       </PageContainer>
     </>
