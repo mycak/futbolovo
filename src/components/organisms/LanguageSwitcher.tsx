@@ -23,22 +23,20 @@ const LanguageSwitcher = ({
 
   return (
     <div className={clsx('relative inline-block text-left', classNames)}>
-      <div>
-        <button
-          type='button'
-          className='max-w-max cursor-pointer group'
-          aria-expanded={isOpen}
-          aria-haspopup={isOpen}
-          aria-label='Toggle language menu'
-          onClick={toggleMenu}
-          ref={buttonRef}
-        >
-          <span className='text-grass-45 text-xs mx-auto transition-colors duration-500 group-hover:text-grass-20 font-medium'>
-            {lng.toUpperCase()}
-          </span>
-          <i className='fa-solid fa-language text-grass-45 transition-colors duration-500 group-hover:text-grass-20' />
-        </button>
-      </div>
+      <button
+        type='button'
+        className='max-w-max cursor-pointer group h-10 flex flex-col items-center justify-center'
+        aria-expanded={isOpen}
+        aria-haspopup={isOpen}
+        aria-label='Toggle language menu'
+        onClick={toggleMenu}
+        ref={buttonRef}
+      >
+        <span className='text-grass-45 text-xs mx-auto transition-colors duration-500 group-hover:text-grass-20 font-medium'>
+          {lng.toUpperCase()}
+        </span>
+        <i className='fa-solid fa-language text-grass-45 transition-colors duration-500 group-hover:text-grass-20' />
+      </button>
 
       <div
         ref={dropdownRef}
@@ -64,7 +62,7 @@ const LanguageSwitcher = ({
                       setIsOpen(false);
                     }}
                     className={clsx(
-                      'cursor-pointer block w-full text-left px-4 py-2 md:text-xl whitespace-nowrap transition-all duration-300 hover:bg-grass-40',
+                      'cursor-pointer block w-full text-left px-4 py-2 md:py-1 whitespace-nowrap transition-all duration-300 hover:bg-grass-40',
                       lng === lang && 'font-bold'
                     )}
                     role='menuitem'

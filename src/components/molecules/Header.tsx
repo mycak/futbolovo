@@ -21,7 +21,7 @@ const Header = ({ lng }: { lng: string }) => {
   return (
     <>
       <PageWrapper classNames='grid grid-cols-[30px_auto_30px] items-center w-full pt-4'>
-        <LanguageSwitcher classNames='flex items-center mr-6' lng={lng} />
+        <LanguageSwitcher lng={lng} />
 
         <Logo />
         <div className='justify-self-end flex gap-4'>
