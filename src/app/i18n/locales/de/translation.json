@@ -1,0 +1,336 @@
+{
+  "auth": {
+    "userRegistration": "Benutzerregistrierung",
+    "register": "Registrieren",
+    "userLogin": "Benutzer-Login",
+    "login": "Anmelden",
+    "companyName": "Firmenname",
+    "logout": "Abmelden",
+    "haveAccount": "Hast du bereits ein Konto?",
+    "noAccount": "Noch kein Konto?",
+    "signIn": "Anmelden",
+    "signUp": "Registrieren",
+    "termsAndConditions": "Ich akzeptiere die",
+    "and": "und",
+    "forgotPassword": "Passwort vergessen?",
+    "loginSuccess": "Erfolgreich angemeldet",
+    "loginError": "Ein Fehler ist beim Anmelden aufgetreten",
+    "registerSuccess": {
+      "title": "Registrierung erfolgreich!",
+      "message": "Dein Konto wurde erfolgreich erstellt. Du kannst dich jetzt in dein Konto einloggen."
+    },
+    "resetPassword": {
+      "title": "Passwort zurücksetzen",
+      "emailBody": "Klicke hier, um dein Passwort zurückzusetzen:",
+      "successReset": "Dein Passwort wurde zurückgesetzt. Du kannst dich jetzt anmelden.",
+      "newPassword": "Neues Passwort",
+      "repeatNewPassword": "Neues Passwort wiederholen",
+      "emailSuccessSent": "Ein Link zum Zurücksetzen des Passworts wurde an deine E-Mail-Adresse gesendet.",
+      "tryAgain": "Bitte versuche es in einem Moment noch einmal",
+      "error": "Ein Fehler ist beim Zurücksetzen des Passworts aufgetreten. Versuche es noch einmal.",
+      "invalidToken": "Dein Link zum Zurücksetzen des Passworts ist ungültig oder abgelaufen."
+    },
+    "changePassword": {
+      "title": "Passwort ändern",
+      "oldPassword": "Altes Passwort",
+      "newPassword": "Neues Passwort",
+      "repeatNewPassword": "Neues Passwort wiederholen",
+      "success": "Passwort wurde erfolgreich geändert.",
+      "error": "Ein Fehler ist beim Ändern des Passworts aufgetreten. Versuche es noch einmal.",
+      "invalidPassword": "Ungültiges Passwort"
+    }
+  },
+  "optional": "optional",
+  "firstName": "Vorname",
+  "lastName": "Nachname",
+  "password": "Passwort",
+  "repeatPassword": "Passwort wiederholen",
+  "metatags": {
+    "title": "Fußballkarte der Welt",
+    "description": "Nimm an Fußballveranstaltungen in deiner Nähe teil.",
+    "events": {
+      "title": "Fußballveranstaltungen | Futbolovo",
+      "description": "Füge Fußballveranstaltungen in deiner Nähe hinzu oder finde sie. Spiele, Turniere, Camps und mehr!"
+    },
+    "contact": {
+      "title": "Kontakt | Futbolovo",
+      "description": "Hast du Fragen? Kontaktiere uns! Wir helfen dir bei allen Fragen rund um die Futbolovo-Plattform."
+    },
+    "cooperation": {
+      "title": "Kooperation | Futbolovo",
+      "description": "Wirb für dein Unternehmen oder Produkt auf unserer Plattform. Lass uns gemeinsam wachsen!"
+    },
+    "statute": {
+      "title": "AGB | Futbolovo",
+      "description": "Lies die Allgemeinen Geschäftsbedingungen der Futbolovo-Plattform. Regeln für die Nutzung des Dienstes."
+    },
+    "home": {
+      "title": "Futbolovo | Alle Fußballveranstaltungen an einem Ort",
+      "description": "Entdecke Fußballveranstaltungen in deiner Nähe. Turniere, Spiele, Fußballschulen, Plätze und mehr!"
+    },
+    "event": {
+      "title": "Veranstaltung | Futbolovo",
+      "description": "Details zur Fußballveranstaltung. Überprüfe die Informationen zu Datum, Ort und Teilnahmebedingungen."
+    },
+    "privacyPolicy": {
+      "title": "Datenschutzbestimmungen | Futbolovo",
+      "description": "Erfahre, wie wir deine persönlichen Daten schützen. Regeln zur Datenverarbeitung und zum Datenschutz auf der Futbolovo-Plattform."
+    },
+    "login": {
+      "title": "Anmelden | Futbolovo",
+      "description": "Melde dich in deinem Futbolovo-Konto an und verwalte deine Fußballveranstaltungen."
+    },
+    "map": {
+      "title": "Karte | Futbolovo",
+      "description": "Entdecke Fußballveranstaltungen in deiner Nähe auf der Karte. Turniere, Spiele, Akademien und mehr!"
+    },
+    "myEvents": {
+      "title": "Meine Veranstaltungen | Futbolovo",
+      "description": "Verwalte deine Fußballveranstaltungen auf der Futbolovo-Plattform."
+    },
+    "register": {
+      "title": "Registrieren | Futbolovo",
+      "description": "Erstelle ein Konto auf der Futbolovo-Plattform und beginne mit dem Hinzufügen deiner Fußballveranstaltungen."
+    },
+    "registerConfirm": {
+      "title": "Registrierungsbestätigung | Futbolovo",
+      "description": "Dein Konto wurde erstellt. Du kannst dich jetzt auf der Futbolovo-Plattform anmelden."
+    },
+    "passwordReset": {
+      "title": "Passwort zurücksetzen | Futbolovo",
+      "description": "Setze dein Passwort für dein Futbolovo-Plattformkonto zurück."
+    },
+    "passwordResetConfirm": {
+      "title": "Bestätigung zum Zurücksetzen des Passworts | Futbolovo",
+      "description": "Lege ein neues Passwort für dein Futbolovo-Plattformkonto fest."
+    },
+    "passwordChange": {
+      "title": "Passwort ändern | Futbolovo",
+      "description": "Ändere das Passwort für dein Futbolovo-Plattformkonto."
+    },
+    "eventAdd": {
+      "title": "Veranstaltung hinzufügen | Futbolovo",
+      "description": "Füge deine Fußballveranstaltung zur Karte hinzu. Turniere, Spiele, Akademien, Felder und mehr!"
+    },
+    "eventEdit": {
+      "title": "Veranstaltung bearbeiten | Futbolovo",
+      "description": "Bearbeite deine Fußballveranstaltung auf der Futbolovo-Plattform."
+    },
+    "eventAddConfirm": {
+      "title": "Bestätigung der Veranstaltungsergänzung | Futbolovo",
+      "description": "Deine Veranstaltung wurde erfolgreich zur Futbolovo-Plattform hinzugefügt."
+    }
+  },
+  "daysNumber": "Tage",
+  "chooseDate": "Wähle ein Datum",
+  "chooseDates": "Wähle ein Datum",
+  "lessFilters": "Weniger Filter",
+  "moreFilters": "Mehr Filter",
+  "back": "Zurück",
+  "cancel": "Abbrechen",
+  "leagues": "Ligen",
+  "check": "Prüfen!",
+  "pitchOrIndoor": "Feld oder Halle zu vermieten",
+  "addPoint": "Füge einen Punkt hinzu!",
+  "tournaments": "Turniere",
+  "tournament": "Turnier",
+  "kidsSchools": "Akademien",
+  "remove": "Entfernen",
+  "fix": "Korrigieren",
+  "repost": "Ähnliches erneut posten",
+  "accept": "Akzeptieren",
+  "fields": "Felder",
+  "name": "Name",
+  "academyOrSchool": "Akademie/Schule",
+  "field": "Feld",
+  "edit": "Bearbeiten",
+  "camp": "Camp",
+  "league": "Liga",
+  "service": "Service",
+  "addMore": "Mehr hinzufügen",
+  "addMoreLocations": "Weitere Standorte hinzufügen",
+  "match": "Spiel",
+  "unknown": "Unbekannt",
+  "fieldIsRequired": "Feld ist erforderlich",
+  "validation": {
+    "incorrectPhone": "Falsche Telefonnummer",
+    "min3": "Mindestens 3 Zeichen",
+    "imageInfoOnRepeat": "Wenn du Daten duplizierst, ist das erneute Hochladen des Fotos nicht erforderlich",
+    "passwordConditions": "Das Passwort muss mindestens 8 Zeichen, einen Großbuchstaben, einen Kleinbuchstaben, eine Zahl und ein Sonderzeichen enthalten",
+    "passwordsDontMatch": "Passwörter stimmen nicht überein",
+    "incorrectEmail": "Falsche E-Mail-Adresse"
+  },
+  "typeName": "Name eingeben",
+  "events": "Veranstaltungen",
+  "myList": "Meine Liste",
+  "myEvents": {
+    "noEventsFound": "Du hast noch keine Veranstaltungen",
+    "createFirst": "Erstelle deine erste Veranstaltung!",
+    "description": "Füge deine Veranstaltung hinzu und lass andere sie entdecken."
+  },
+  "chooseFile": "Wähle eine Datei",
+  "clear": "Leeren",
+  "givePrice": "Gib einen Preis an",
+  "objects": "Einrichtungen",
+  "price": "Preis",
+  "priceFrom": "Preis ab",
+  "priceTo": "Preis bis",
+  "currency": "Währung",
+  "contactNumber": "Kontaktnummer",
+  "services": "Dienstleistungen",
+  "category": "Kategorie",
+  "location": "Ort",
+  "date": "Datum",
+  "female": "Weiblich",
+  "more": "Mehr",
+  "description": "Beschreibung",
+  "addDescription": "Füge eine Beschreibung hinzu",
+  "descriptionHints": {
+    "option1": "Zeitrahmen, Regeln usw.",
+    "option2": "Wichtige Informationen",
+    "option3": "Servicebeschreibung",
+    "option4": "Objektbeschreibung"
+  },
+  "eventConfirmation": {
+    "title": "Vielen Dank für das Hinzufügen deiner Veranstaltung!",
+    "text1": "Deine Veranstaltung wurde erfolgreich in unserer Datenbank gespeichert. Sie wird nach Genehmigung durch einen Administrator veröffentlicht.",
+    "endDateText": "Ablaufdatum der Veranstaltung:",
+    "text2": "Deine Veranstaltung wird innerhalb von 24 Stunden von einem Administrator überprüft und nach Genehmigung auf der Karte sichtbar sein. Wenn du Fragen hast, kannst du dich gerne an uns wenden.",
+    "text3": "Deine Veranstaltung ist jetzt auf der Karte sichtbar! Als angemeldeter Benutzer kannst du deine Einträge im Benutzerbereich verwalten. Wenn du Fragen hast, kannst du dich gerne an uns wenden.",
+    "addNext": "Nächste hinzufügen",
+    "addSimilar": "Ähnliche hinzufügen",
+    "end": "Ende"
+  },
+  "contactPage": {
+    "title": "Kontaktiere uns!",
+    "text1": "Wenn du eine interessante <1>Idee</1> hast, die zur Verbesserung unserer Plattform beitragen könnte, melde dich bei uns! <1>Probleme</1> auf der Seite? Wir sind hier, um zu helfen. Kontaktiere uns und wir werden unser Bestes tun, um das Problem so schnell wie möglich zu lösen."
+  },
+  "cooperationPage": {
+    "title": "Kontaktiere uns!",
+    "text1": "Möchtest du dein Unternehmen oder Produkt auf unserer Plattform <1>bewerben</1>? Oder hast du eine Idee, wie wir unsere Seite gemeinsam <1>entwickeln</1> und neue, innovative Lösungen schaffen können? Wir sind auch offen für die <1>Zusammenarbeit mit Förderern</1>, die unsere Aktivitäten unterstützen und Teil unseres Wachstums werden möchten. Melde dich bei uns und lass uns Möglichkeiten der Zusammenarbeit besprechen!"
+  },
+  "typeEmail": "E-Mail eingeben",
+  "imageInputLabel": "Foto/Grafik/Logo",
+  "imageInputPlaceholder": "Wähle eine Datei",
+  "dateRange": "Datumsbereich",
+  "reset": "Zurücksetzen",
+  "rangeDisabledInfo": "Gilt für die Kategorien Camps, Spiele oder Turniere.",
+  "ageCategory": "Alterskategorie",
+  "choose": "Wählen",
+  "search": "Suchen",
+  "chooseCategory": "Kategorie wählen",
+  "cityAndPlace": "Stadt, Region, Straße",
+  "writePhrase": "Schreibe einen Satz",
+  "add": "Hinzufügen",
+  "wait": "Warten",
+  "matches": "Spiele",
+  "notFound": {
+    "smallDesc": "Ups! Erfolgloser Dribbling...",
+    "error404": "Fehler 404",
+    "error": "Etwas ist schief gelaufen ;("
+  },
+  "addPlace": {
+    "title": "Möchtest du dich auf der Karte verewigen?",
+    "text1": "Füge dein Feld hinzu, organisiere ein Turnier, biete deine Dienstleistungen an oder erstelle ein Fußballcamp! Teile einen Ort, der auf Sportler und Teams aus aller Welt wartet. Bewirb dein Angebot,",
+    "text2": "werde bemerkt und ziehe neue Teilnehmer an!",
+    "addPlaceButton": "Füge einen Ort hinzu!"
+  },
+  "navigation": {
+    "contact": "Kontakt",
+    "cooperation": "Kooperation",
+    "mainPage": "Startseite",
+    "map": "Karte",
+    "addPoint": "Füge einen Punkt auf der Karte hinzu",
+    "addEvent": "Veranstaltung hinzufügen",
+    "editEvent": "Veranstaltung bearbeiten",
+    "portal": "Portal",
+    "others": "Andere"
+  },
+  "hero": {
+    "option1": "Entdecke eine interaktive Karte, die dir eine Welt voller Fußballmöglichkeiten eröffnet!",
+    "option2": "Überprüfe, was in deiner Nähe passiert und nimm am Spiel teil!",
+    "buttonTitle": "Nimm am Spiel teil!",
+    "marchAnnouncement": "Wir freuen uns, bekannt zu geben, dass wir ein <panel>Benutzerpanel (!)</panel> implementiert haben, das eine einfache Verwaltung deiner Einträge ermöglicht! Darüber hinaus haben wir weitere Verbesserungen eingeführt:",
+    "marchAnnouncementPoints": {
+      "point1": "Einführung neuer Kategorien für Frauen und Mädchen.",
+      "point2": "Implementierung von Preisspannen für Kategorien."
+    },
+    "successUpdate": "Update erfolgreich abgeschlossen!"
+  },
+  "siteDescription": {
+    "desc1": "Hier findest du alle wichtigen Informationen über Turniere, Kleinfeldligen, Kinderfußballschulen, Felder zur Miete und fußballbezogene Dienstleistungen.",
+    "desc2": "Überprüfe, was in deiner Nähe passiert und nimm am Spiel teil!",
+    "title": "Entdecke eine interaktive Karte, die dir eine Welt voller Fußballmöglichkeiten eröffnet!"
+  },
+  "iconsSection": {
+    "forFootballEnthusiasts": "Für Fußballbegeisterte",
+    "forOwners": "Für Organisatoren und Besitzer",
+    "users": {
+      "desc1": "Bleibe auf dem Laufenden über Fußballveranstaltungen in deiner Nähe und nimm an lokalen Turnieren teil!",
+      "desc2": "Finde leicht Orte, an denen deine Kinder ihre Fähigkeiten unter der Anleitung professioneller Trainer verbessern können.",
+      "desc3": "Miete ein Feld für ein Spiel mit Freunden oder zum Trainieren."
+    },
+    "owners": {
+      "desc1": "Veröffentliche Ankündigungen über deine Fußballveranstaltungen, um mehr Teilnehmer und Zuschauer anzuziehen.",
+      "desc2": "Erhöhe die Nutzung deiner Einrichtungen, indem du Informationen über verfügbare Zeiten auf der Karte teilst.",
+      "desc3": "Gewinne neue Schüler, indem du Details über dein Trainingsangebot und deinen Standort hinzufügst."
+    }
+  },
+  "statutePage": {
+    "title": "Allgemeine Geschäftsbedingungen",
+    "responsibilityTitle": "Verantwortung für Inhalte",
+    "responsibilityText": "Jeder Benutzer, der eine Anzeige aufgibt, ist voll verantwortlich für die veröffentlichten Inhalte. Anzeigen müssen geltendem Recht entsprechen und dürfen keine Rechte Dritter verletzen.",
+    "dataUsageTitle": "Verbot der Verwendung fremder Daten",
+    "dataUsageText": "Es ist verboten, personenbezogene Daten anderer Personen, einschließlich Namen, E-Mail-Adressen oder Telefonnummern, ohne deren Zustimmung zu verwenden. Es ist auch verboten, fremde Marken, einschließlich Logos, ohne entsprechende Genehmigung zu verwenden.",
+    "accurateInfoTitle": "Bereitstellung genauer Informationen",
+    "accurateInfoText": "Der Inserent ist verpflichtet, in der Anzeige genaue und wahrheitsgemäße Informationen anzugeben. Jede Abweichung oder irreführende Information kann zur Entfernung der Anzeige führen.",
+    "logoUsageTitle": "Verbot der Verwendung des Futbolovo-Logos und der Lösungen",
+    "logoUsageText": "Es ist verboten, das Logo, die Namen, Grafiken und alle technologischen Lösungen, die auf der Futbolovo-Website verwendet werden, ohne die Zustimmung der Administratoren zu verwenden.",
+    "illegalContentTitle": "Illegale Inhalte",
+    "illegalContentText": "Es ist verboten, Inhalte hinzuzufügen, die Urheberrechte, Persönlichkeitsrechte, Netiquette-Regeln verletzen oder illegale Aktivitäten fördern.",
+    "dataVerificationTitle": "Datenüberprüfung",
+    "dataVerificationText": "Plattformadministratoren können eine Überprüfung der Kontaktdaten von Benutzern und Werbetreibenden verlangen.",
+    "complaintsTitle": "Beschwerden und Anzeigenentfernung",
+    "complaintsText": "Der Administrator hat das Recht, eine Anzeige zu entfernen, die nicht den Anforderungen der Bestimmungen entspricht oder als gesetzeswidrig gemeldet wird.",
+    "changesTitle": "Änderungen der Bestimmungen",
+    "changesText": "Administratoren behalten sich das Recht vor, die Bestimmungen jederzeit zu ändern. Benutzer werden über die vorgenommenen Änderungen informiert.",
+    "contactTitle": "Kontakt",
+    "contactText": "Alle Fragen und Beschwerden bezüglich Anzeigen sind an die Kontaktadresse der Plattform zu richten"
+  },
+  "privacyPolicyPage": {
+    "title": "Datenschutzbestimmungen",
+    "adminTitle": "Verantwortlicher für personenbezogene Daten",
+    "adminText": "Der Verantwortliche für personenbezogene Daten ist Piotr Myszkiewicz, ansässig in Warschau Radziwie 3/2. Die Kontaktaufnahme mit dem Verantwortlichen ist per E-Mail möglich:",
+    "dataScopeTitle": "Umfang der erhobenen Daten",
+    "dataScopeText": "Wir erheben personenbezogene Daten wie Name, Nachname, E-Mail-Adresse, Telefonnummer, IP sowie Daten im Zusammenhang mit der Aktivität auf der Website, einschließlich Daten im Zusammenhang mit von Nutzern hinzugefügten Anzeigen.",
+    "dataPurposeTitle": "Zweck der Datenverarbeitung",
+    "dataPurposeText": "Personenbezogene Daten werden zum Zwecke der Erbringung von auf der Plattform angebotenen Dienstleistungen, zur Kontaktaufnahme mit Nutzern, zur Bearbeitung von Anzeigen sowie zu Analyse- und Marketingzwecken verarbeitet.",
+    "dataSharingTitle": "Datenweitergabe",
+    "dataSharingText": "Personenbezogene Daten werden nicht an Dritte weitergegeben, es sei denn, dies ist zur Erfüllung des Vertrags erforderlich oder gesetzlich vorgeschrieben.",
+    "dataSecurityTitle": "Datensicherheit",
+    "dataSecurityText": "Wir setzen geeignete technische und organisatorische Maßnahmen ein, um die Sicherheit personenbezogener Daten zu gewährleisten, einschließlich Datenverschlüsselung und Zugriffsbeschränkung auf autorisierte Mitarbeiter.",
+    "userRightsTitle": "Benutzerrechte",
+    "userRightsText": "Benutzer haben das Recht auf Auskunft über ihre personenbezogenen Daten, deren Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragung und Widerspruch gegen deren Verarbeitung.",
+    "dataRetentionTitle": "Speicherdauer der Daten",
+    "dataRetentionText": "Personenbezogene Daten werden für den Zeitraum gespeichert, der zur Erreichung der oben genannten Zwecke erforderlich ist, danach werden sie gelöscht oder anonymisiert.",
+    "policyChangesTitle": "Änderungen der Datenschutzbestimmungen",
+    "policyChangesText": "Der Administrator behält sich das Recht vor, die Datenschutzbestimmungen zu ändern. Alle Änderungen werden auf dieser Seite veröffentlicht.",
+    "contactTitle": "Kontakt",
+    "contactText": "Bei Fragen im Zusammenhang mit personenbezogenen Daten wende dich bitte an:"
+  },
+  "acceptTermsAndPrivacyLabel": "Ich akzeptiere die <1>Allgemeinen Geschäftsbedingungen</1> und die <2>Datenschutzbestimmungen</2>",
+  "errors": {
+    "credentialsRequired": "E-Mail und Passwort erforderlich",
+    "userNotFound": "Benutzer nicht gefunden",
+    "invalidPassword": "Ungültiges Passwort",
+    "emailExists": "E-Mail existiert bereits"
+  },
+  "share": "Teilen",
+  "eventShareDefaultText": "Schau dir diese Veranstaltung an!",
+  "eventsForm": {
+    "editSuccess": "Veranstaltung wurde erfolgreich aktualisiert",
+    "editError": "Ein Fehler ist beim Aktualisieren der Veranstaltung aufgetreten. Bitte versuche es noch einmal",
+    "deleteSuccess": "Veranstaltung wurde erfolgreich gelöscht",
+    "deleteError": "Ein Fehler ist beim Löschen der Veranstaltung aufgetreten. Bitte versuche es noch einmal"
+  }
+}
