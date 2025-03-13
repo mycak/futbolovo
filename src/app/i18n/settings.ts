@@ -1,7 +1,9 @@
-export const fallbackLng = "pl";
-export const languages = [fallbackLng, "en"];
-export const defaultNS = "translation";
-export const cookieName = "i18next";
+import { defaultLocale, locales } from '@/configs/i18n';
+
+export const fallbackLng = defaultLocale;
+export const languages = locales;
+export const defaultNS = 'translation';
+export const cookieName = 'i18next';
 
 export function getOptions(lng = fallbackLng, ns = defaultNS) {
   return {

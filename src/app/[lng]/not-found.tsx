@@ -9,7 +9,7 @@ const NotFoundPage = async () => {
   const lng = cookieStore.get(cookieName)?.value;
   const { i18n } = await translate(lng as string);
   return (
-    <PageContainer>
+    <PageContainer classNames='mb-8'>
       <NotFound is404 lng={i18n.language} />
     </PageContainer>
   );
