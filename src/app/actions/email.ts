@@ -17,6 +17,5 @@ export async function sendEventAddedEmail(emailData: {
       error,
     })
   );
-  console.log('Email sending result:', result);
   return result;
 }

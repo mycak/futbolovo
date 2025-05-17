@@ -34,15 +34,6 @@ export async function sendEmail(to: string, subject: string, text: string) {
       return { success: false, error: 'Email configuration error' };
     }
 
-    // Log email content for debugging
-    console.log('Attempting to send email:', {
-      to,
-      subject,
-      textLength: text.length,
-      textPreview: text.substring(0, 100) + '...',
-      from: fromEmail,
-    });
-
     // Initialize mailjet client
     const mailjetClient = getMailjetClient();
 
