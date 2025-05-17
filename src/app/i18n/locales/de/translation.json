@@ -250,10 +250,10 @@
     "option1": "Entdecke eine interaktive Karte, die dir eine Welt voller Fußballmöglichkeiten eröffnet!",
     "option2": "Überprüfe, was in deiner Nähe passiert und nimm am Spiel teil!",
     "buttonTitle": "Nimm am Spiel teil!",
-    "marchAnnouncement": "Wir freuen uns, bekannt zu geben, dass wir ein <panel>Benutzerpanel (!)</panel> implementiert haben, das eine einfache Verwaltung deiner Einträge ermöglicht! Darüber hinaus haben wir weitere Verbesserungen eingeführt:",
+    "marchAnnouncement": "Wir freuen uns, aktuelle Verbesserungen unserer Plattform <panel>zur Verbesserung Ihres Benutzererlebnisses</panel> bekannt zu geben:",
     "marchAnnouncementPoints": {
-      "point1": "Einführung neuer Kategorien für Frauen und Mädchen.",
-      "point2": "Implementierung von Preisspannen für Kategorien."
+      "point1": "Zentrierungsfehler bei den Eventinformationskacheln wurden für eine bessere Darstellung auf allen Geräten behoben.",
+      "point2": "Bestätigungs-E-Mails für alle eingereichten Veranstaltungen wurden hinzugefügt."
     },
     "successUpdate": "Update erfolgreich abgeschlossen!"
   },

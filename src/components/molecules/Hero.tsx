@@ -50,7 +50,7 @@ const Hero = ({
             </div>
             <div className='ml-3'>
               <h1 className='text-3xl font-medium text-green-300 mb-2'>
-                {t('hero.successUpdate')}
+                {t('hero.successUpdate')} - 17.05.25
               </h1>
               <p className={textStyle}>
                 <Trans
@@ -65,10 +65,10 @@ const Hero = ({
           </div>
           <ul className='list-disc list-inside ml-8 mt-3'>
             <li className={clsx(textStyle, 'text-ivory-150')}>
-              {t('hero.marchAnnouncementPoints.point1')}
+              {t('hero.marchAnnouncementPoints.point2')}
             </li>
             <li className={clsx(textStyle, 'text-ivory-150')}>
-              {t('hero.marchAnnouncementPoints.point2')}
+              {t('hero.marchAnnouncementPoints.point1')}
             </li>
           </ul>
         </div>

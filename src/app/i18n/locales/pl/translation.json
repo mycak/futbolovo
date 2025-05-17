@@ -244,10 +244,10 @@
     "option1": "Odkryj interaktywną mapę, która otwiera przed Tobą świat futbolowych możliwości!",
     "option2": "Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!",
     "buttonTitle": "Dołącz do gry!",
-    "marchAnnouncement": "Z przyjemnością informujemy, że wdrożyliśmy <panel>panel użytkownika (!)</panel>, który umożliwia łatwe zarządzanie ogłoszeniami! Dodatkowo wprowadziliśmy kolejne usprawnienia:",
+    "marchAnnouncement": "Z przyjemnością informujemy o ostatnich ulepszeniach naszej platformy <panel>poprawiających komfort użytkowania</panel>:",
     "marchAnnouncementPoints": {
-      "point1": "Wprowadzenie nowych kategorii dla kobiet i dziewczyn.",
-      "point2": "Wprowadzenie zakresu cenowego dla kategorii."
+      "point1": "Naprawiliśmy wyświetlanie kafelków informacji o wydarzeniach, aby lepiej wyglądały na wszystkich urządzeniach.",
+      "point2": "Dodaliśmy wysyłanie e-maili potwierdzających dla wszystkich przesłanych wydarzeń."
     },
     "successUpdate": "Aktualizacja zakończona sukcesem!"
   },
