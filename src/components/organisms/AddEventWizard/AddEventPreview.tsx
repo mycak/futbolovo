@@ -9,7 +9,7 @@ import { paths } from '@/constants/paths';
 import { useTranslation } from '@/app/i18n/client';
 import { addEvent, editEvent } from '@/app/actions/events';
 import { sendEventAddedEmail } from '@/app/actions/email';
-import { getEmailTranslations } from '@/utils/email';
+
 import EventPreview from '@/components/molecules/Events/EventPreview';
 import Button from '@/components/atoms/Button';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
@@ -90,7 +90,7 @@ const AddEventPreview = () => {
             { ...eventData, email: emailToUse },
             firstEventId,
             isSignedIn,
-            getEmailTranslations(t)
+            lng as string // Pass the language code instead of translations
           ).catch((err) =>
             console.error('Failed to send notification email:', err)
           );
