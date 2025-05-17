@@ -57,9 +57,29 @@ const MapComponent = ({
     anchor: new window.google.maps.Point(10, 20),
   };
 
-  const handleEventClick = (id: string | number) => {
+  const handleEventClick = (
+    id: string | number,
+    markerPosition: google.maps.LatLng
+  ) => {
     setBulkEvents({ items: [], position: undefined });
-    setCurrentEventId(id);
+    setCurrentEventId(id); // Center the map on the marker with a slight offset for better mobile viewing
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      const offsetY = -30; // Increased offset to make room for the InfoBox at the top
+      const latLng = new google.maps.LatLng(
+        markerPosition.lat(),
+        markerPosition.lng()
+      );
+
+      // Use panTo with a slight delay to ensure smooth transition
+      setTimeout(() => {
+        mapRef.current?.panTo(latLng);
+        // Additional offset for mobile view to ensure the top of the InfoBox is visible
+        mapRef.current?.panBy(0, offsetY);
+      }, 50);
+    } else {
+      mapRef.current?.panTo(markerPosition);
+    }
   };
 
   const onBulkEventsSetCallback = (
@@ -116,10 +136,9 @@ const MapComponent = ({
                       ...googlePinIconConfig,
                     }}
                     onClick={(marker) => {
-                      mapRef.current?.panTo(
-                        marker.latLng as google.maps.LatLng
-                      );
-                      handleEventClick(event.id);
+                      const markerPosition =
+                        marker.latLng as google.maps.LatLng;
+                      handleEventClick(event.id, markerPosition);
                     }}
                   >
                     <MapInfoBox

@@ -37,8 +37,12 @@ const MapInfoBox = ({
   // InfoBox options for positioning and disabling default close button
   const boxOptions = {
     enableEventPropagation: true,
-    pixelOffset: new google.maps.Size(isMobileView ? -144 : -285, -250),
+    pixelOffset: new google.maps.Size(
+      isMobileView ? -150 : -285,
+      isMobileView ? -250 : -250
+    ),
     closeBoxURL: '', // Remove default close icon
+    alignBottom: false, // Keep top alignment for both mobile and desktop
   };
 
   // Effect to handle showing and hiding the InfoBox with animation
@@ -80,6 +84,7 @@ const MapInfoBox = ({
           'relative flex flex-col w-72 md:w-full md:max-w-full md:flex-row border border-grass-50 rounded-lg bg-emerald-900 p-5 text-ivory-150',
           'hover:cursor-pointer focus:outline-none focus:border-grass-40',
           'transition-all duration-300 ease-out',
+          isMobileView ? 'max-h-[65vh] overflow-y-auto' : '',
           isVisible ? 'opacity-95 ' : 'opacity-0'
         )}
       >
