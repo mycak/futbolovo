@@ -65,8 +65,8 @@ const AddEventPreview = () => {
       );
 
       await Promise.all(addEventPromises)
-        .then((data) => {
-          const eventIds = data.map((event) => event.id);
+        .then((events) => {
+          const eventIds = events.map((event) => event.id);
           const endDateFormatted = format(
             generateEventVisibilityEndDate(eventData.category, eventData),
             DATE_FORMAT
@@ -79,13 +79,15 @@ const AddEventPreview = () => {
 
           // Send notification email
           const isSignedIn = status === 'authenticated';
+          const emailToUse =
+            isSignedIn && data?.user.email ? data.user.email : eventData.email;
 
           // Only send one email even if multiple locations were added
           const firstEventId = eventIds[0];
 
           // Send email using server action
           sendEventAddedEmail(
-            eventData,
+            { ...eventData, email: emailToUse },
             firstEventId,
             isSignedIn,
             getEmailTranslations(t)
