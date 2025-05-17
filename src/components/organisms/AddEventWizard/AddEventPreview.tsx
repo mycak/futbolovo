@@ -15,6 +15,7 @@ import Button from '@/components/atoms/Button';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
 import { useSession } from 'next-auth/react';
 import { useNotifications } from '@/hooks/useNotifications';
+import { generateEventAddedEmail } from '@/utils/email';
 
 const AddEventPreview = () => {
   const { status, data } = useSession();
@@ -65,7 +66,7 @@ const AddEventPreview = () => {
       );
 
       await Promise.all(addEventPromises)
-        .then((events) => {
+        .then(async (events) => {
           const eventIds = events.map((event) => event.id);
           const endDateFormatted = format(
             generateEventVisibilityEndDate(eventData.category, eventData),
@@ -85,13 +86,21 @@ const AddEventPreview = () => {
           // Only send one email even if multiple locations were added
           const firstEventId = eventIds[0];
 
-          // Send email using server action
-          sendEventAddedEmail(
+          // Get the app URL from environment variables
+          const appUrl =
+            process.env.NEXT_PUBLIC_APP_URL || 'https://futbolovo.com';
+
+          const emailData = generateEventAddedEmail(
             { ...eventData, email: emailToUse },
             firstEventId,
+            appUrl,
             isSignedIn,
-            lng as string // Pass the language code instead of translations
-          ).catch((err) =>
+            t
+          );
+
+          console.log('Email data:', emailData);
+          // Send email using server action
+          await sendEventAddedEmail(emailData).catch((err) =>
             console.error('Failed to send notification email:', err)
           );
 

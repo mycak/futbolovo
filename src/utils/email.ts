@@ -113,7 +113,7 @@ export const generateEventAddedEmail = (
   const baseUrl = appUrl || 'https://futbolovo.com';
   const eventUrl = `${baseUrl}/events/${eventId}`;
   const eventType = getEventType(eventData.category, t);
-
+  const email = eventData.email;
   const subject = t('email.eventAdded.subject').replace(
     '{eventType}',
     eventType
@@ -136,7 +136,7 @@ export const generateEventAddedEmail = (
 
   text += t('email.eventAdded.footer');
 
-  return { subject, text };
+  return { subject, text, email };
 };
 
 // --------------------------------
