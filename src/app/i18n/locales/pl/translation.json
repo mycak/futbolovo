@@ -137,7 +137,8 @@
     "text3": "Twoje wydarzenie jest już widoczne na mapie! Jako zalogowany użytkownik możesz zarządzać swoimi ogłoszeniami w panelu użytkownika. Jeśli masz jakiekolwiek pytania, skontaktuj się z nami.",
     "addNext": "Dodaj kolejne",
     "addSimilar": "Dodaj podobne",
-    "end": "Zakończ"
+    "end": "Zakończ",
+    "emailSent": "Email z potwierdzeniem został wysłany na adres:"
   },
   "contactPage": {
     "title": "Skontaktuj się z nami!",
@@ -325,6 +326,18 @@
   },
   "share": "Udostępnij",
   "eventShareDefaultText": "Sprawdź to wydarzenie!",
+  "email": {
+    "eventAdded": {
+      "subject": "Twoje {eventType} zostało dodane do Futbolovo!",
+      "greeting": "Cześć!",
+      "thanks": "Dziękujemy za dodanie Twojego wydarzenia do Futbolovo!",
+      "details": "Szczegóły wydarzenia",
+      "link": "Adres URL wydarzenia",
+      "loggedInInfo": "Jako zalogowany użytkownik, Twoje wydarzenie jest już widoczne na mapie! Możesz zarządzać swoimi ogłoszeniami w panelu użytkownika.",
+      "createAccountInfo": "Aby w przyszłości zarządzać swoimi wydarzeniami, rozważ utworzenie konta na naszej platformie. Zarejestruj się tutaj:",
+      "footer": "Dziękujemy za korzystanie z Futbolovo - najlepszej piłkarskiej mapy!"
+    }
+  },
   "eventsForm": {
     "editSuccess": "Wydarzenie zostało pomyślnie zaktualizowane",
     "editError": "Wystąpił błąd podczas aktualizacji wydarzenia. Spróbuj ponownie",

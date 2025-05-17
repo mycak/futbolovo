@@ -327,6 +327,18 @@
   },
   "share": "Teilen",
   "eventShareDefaultText": "Schau dir diese Veranstaltung an!",
+  "email": {
+    "eventAdded": {
+      "subject": "Dein {eventType} wurde zu Futbolovo hinzugefügt!",
+      "greeting": "Hallo!",
+      "thanks": "Vielen Dank für das Hinzufügen deiner Veranstaltung zu Futbolovo!",
+      "details": "Veranstaltungsdetails",
+      "link": "Veranstaltungs-URL",
+      "loggedInInfo": "Als angemeldeter Benutzer ist deine Veranstaltung jetzt auf der Karte sichtbar! Du kannst deine Einträge im Benutzerbereich verwalten.",
+      "createAccountInfo": "Um deine Veranstaltungen in Zukunft zu verwalten, solltest du ein Konto auf unserer Plattform erstellen. Registriere dich hier:",
+      "footer": "Vielen Dank, dass du Futbolovo benutzt - die beste Fußballkarte!"
+    }
+  },
   "eventsForm": {
     "editSuccess": "Veranstaltung wurde erfolgreich aktualisiert",
     "editError": "Ein Fehler ist beim Aktualisieren der Veranstaltung aufgetreten. Bitte versuche es noch einmal",

@@ -3,7 +3,6 @@
 //TODO: MINOR
 
 //TODO: AFTER MVP
-// ADD LOCALE SELECT
 // CREATE SIDEBAR WITH DATA (MARKERS)
 // HANDLE URL PARAMS WITH FILTERS
 // CONSIDER MIGRATION TO @vis.gl/react-google-maps or Migrate from Marker to Advanced Marker

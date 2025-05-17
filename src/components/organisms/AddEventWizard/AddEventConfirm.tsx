@@ -56,6 +56,10 @@ const AddEventConfirm = () => {
           {t('eventConfirmation.endDateText')}{' '}
           <span className='text-grass-40'>{endDate}</span>
         </p>
+        <p className='text-center text-gray-400 py-2'>
+          {t('eventConfirmation.emailSent')}{' '}
+          <span className='text-grass-20'>{email}</span>
+        </p>
         <p className='text-center text-xl text-grass-50 pt-4'>Stay tuned!</p>
       </div>
       <div className='flex flex-col justify-center mt-8 gap-4 md:gap-6'>

@@ -8,6 +8,8 @@ import { useParams, useRouter } from 'next/navigation';
 import { paths } from '@/constants/paths';
 import { useTranslation } from '@/app/i18n/client';
 import { addEvent, editEvent } from '@/app/actions/events';
+import { sendEventAddedEmail } from '@/app/actions/email';
+import { getEmailTranslations } from '@/utils/email';
 import EventPreview from '@/components/molecules/Events/EventPreview';
 import Button from '@/components/atoms/Button';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
@@ -65,14 +67,32 @@ const AddEventPreview = () => {
       await Promise.all(addEventPromises)
         .then((data) => {
           const eventIds = data.map((event) => event.id);
+          const endDateFormatted = format(
+            generateEventVisibilityEndDate(eventData.category, eventData),
+            DATE_FORMAT
+          );
           const successPageQuery = {
             email: eventData.email,
-            endDate: format(
-              generateEventVisibilityEndDate(eventData.category, eventData),
-              DATE_FORMAT
-            ),
+            endDate: endDateFormatted,
             eventIds: encodeURIComponent(JSON.stringify(eventIds)),
           };
+
+          // Send notification email
+          const isSignedIn = status === 'authenticated';
+
+          // Only send one email even if multiple locations were added
+          const firstEventId = eventIds[0];
+
+          // Send email using server action
+          sendEventAddedEmail(
+            eventData,
+            firstEventId,
+            isSignedIn,
+            getEmailTranslations(t)
+          ).catch((err) =>
+            console.error('Failed to send notification email:', err)
+          );
+
           const params = new URLSearchParams(successPageQuery).toString();
           const fullPath = `${paths.EventAddConfirm}?${params}`;
           router.push(fullPath);
