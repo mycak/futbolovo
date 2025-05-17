@@ -100,9 +100,11 @@ const AddEventPreview = () => {
 
           console.log('Email data:', emailData);
           // Send email using server action
-          await sendEventAddedEmail(emailData).catch((err) =>
+          const emailRes = await sendEventAddedEmail(emailData).catch((err) =>
             console.error('Failed to send notification email:', err)
           );
+
+          console.log('Email sending result:', emailRes);
 
           const params = new URLSearchParams(successPageQuery).toString();
           const fullPath = `${paths.EventAddConfirm}?${params}`;

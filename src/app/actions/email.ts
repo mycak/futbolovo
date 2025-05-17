@@ -10,24 +10,13 @@ export async function sendEventAddedEmail(emailData: {
   text: string;
   email: string;
 }) {
-  try {
-    // Log environment setup for debugging
-    console.log('Email environment check:', {
-      hasAppUrl: !!process.env.NEXT_PUBLIC_APP_URL,
-      hasMailjetApiKey: !!process.env.MAILJET_API_KEY,
-      hasMailjetSecretKey: !!process.env.MAILJET_SECRET_KEY,
-      hasMailjetFromEmail: !!process.env.MAILJET_FROM_EMAIL,
-    });
+  const { subject, text, email } = emailData;
 
-    const { subject, text, email } = emailData;
-
-    const result = await sendEmail(email, subject, text);
-    console.log('Email sending result:', result);
-    return result;
-  } catch (error) {
+  const result = await sendEmail(email, subject, text).catch((error) =>
     console.error('Failed to send event added email:', {
       error,
-    });
-    return { success: false, error: 'Failed to send email' };
-  }
+    })
+  );
+  console.log('Email sending result:', result);
+  return result;
 }

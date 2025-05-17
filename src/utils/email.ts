@@ -31,11 +31,6 @@ export async function sendEmail(to: string, subject: string, text: string) {
     const fromEmail = process.env.MAILJET_FROM_EMAIL || 'noreply@futbolovo.com';
 
     if (!apiKey || !secretKey) {
-      console.error('Email configuration error:', {
-        hasApiKey: !!apiKey,
-        hasSecretKey: !!secretKey,
-        hasFromEmail: !!fromEmail,
-      });
       return { success: false, error: 'Email configuration error' };
     }
 
@@ -81,15 +76,6 @@ export async function sendEmail(to: string, subject: string, text: string) {
   } catch (error) {
     console.error('Email send error:', {
       error,
-      errorMessage: error instanceof Error ? error.message : 'Unknown error',
-      errorStack: error instanceof Error ? error.stack : undefined,
-      context: {
-        to,
-        subject,
-        hasApiKey: !!process.env.MAILJET_API_KEY,
-        hasSecretKey: !!process.env.MAILJET_SECRET_KEY,
-        hasFromEmail: !!process.env.MAILJET_FROM_EMAIL,
-      },
     });
     return { success: false, error: 'Failed to send email' };
   }
