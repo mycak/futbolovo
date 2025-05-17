@@ -199,7 +199,8 @@
     "text3": "Your event is now visible on the map! As a logged-in user, you can manage your listings in the user panel. If you have any questions, feel free to contact us.",
     "addNext": "Add next",
     "addSimilar": "Add similar",
-    "end": "End"
+    "end": "End",
+    "emailSent": "A confirmation email has been sent to:"
   },
   "contactPage": {
     "title": "Contact with us!",
@@ -250,10 +251,10 @@
     "option1": "Discover an interactive map that opens up a world of football opportunities for you!",
     "option2": "Check what's happening in your area and join the game!",
     "buttonTitle": "Join the game!",
-    "marchAnnouncement": "We are pleased to announce that we've implemented a <panel>user panel (!)</panel> that allows easy management of your listings! Additionally, we've introduced more improvements:",
+    "marchAnnouncement": "We are pleased to announce recent improvements to our platform <panel>enhancing your user experience</panel>:",
     "marchAnnouncementPoints": {
-      "point1": "Introducing new categories for women and girls.",
-      "point2": "Implementing price ranges for categories."
+      "point1": "Fixed event info tile centering for better display across devices.",
+      "point2": "Added confirmation emails for all event submissions."
     },
     "successUpdate": "Update completed successfully!"
   },
@@ -327,6 +328,18 @@
   },
   "share": "Share",
   "eventShareDefaultText": "Check out this event!",
+  "email": {
+    "eventAdded": {
+      "subject": "Your {eventType} has been added to Futbolovo!",
+      "greeting": "Hello!",
+      "thanks": "Thank you for adding your event to Futbolovo!",
+      "details": "Event details",
+      "link": "Event URL",
+      "loggedInInfo": "As a logged-in user, your event is now visible on the map! You can manage your listings in the user panel.",
+      "createAccountInfo": "To manage your events in the future, consider creating an account on our platform. Register here:",
+      "footer": "Thank you for using Futbolovo - the best football map!"
+    }
+  },
   "eventsForm": {
     "editSuccess": "Event was successfully updated",
     "editError": "An error occurred while updating the event. Please try again",
