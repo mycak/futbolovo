@@ -39,8 +39,10 @@ import Link from 'next/link';
 import { paths } from '@/constants/paths';
 import { TFunction } from 'i18next';
 import { parseOldToCurrentEventData } from '@/utils/common';
+import { useSession } from 'next-auth/react';
 
 const AddEventForm = () => {
+  const { status, data } = useSession();
   const nextStep = useAddEventWizardStore((state) => state.nextStep);
   const clearTempData = useAddEventWizardStore((state) => state.clearTempData);
   const setAddData = useAddEventWizardStore((state) => state.setAddData);
@@ -51,9 +53,19 @@ const AddEventForm = () => {
   const isRepeatMode = !!searchParams.get('repost');
 
   const isEditMode = !!addData?.id;
+  const isSignedIn = status === 'authenticated';
 
   const [isMultipleModalOpened, setIsMultipleModalOpened] =
     useState<boolean>(false);
+
+  const currentFormData = parseOldToCurrentEventData(tempAddData ?? addData);
+  const parsedFormData = {
+    ...currentFormData,
+    email:
+      isSignedIn && !currentFormData?.email
+        ? data.user.email
+        : currentFormData?.email,
+  };
 
   const { lng } = useParams();
   const { t } = useTranslation(lng as string);
@@ -66,7 +78,7 @@ const AddEventForm = () => {
   } = useForm<AddEventInputs>({
     resolver: zodResolver(addEventSchema(t)),
     defaultValues: {
-      ...parseOldToCurrentEventData(tempAddData ?? addData),
+      ...parsedFormData,
       currency: currencyOptions[0].value,
       termsAccepted: true,
     },
