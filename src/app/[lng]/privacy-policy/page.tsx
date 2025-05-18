@@ -2,7 +2,7 @@ import { translate } from '@/app/i18n';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
-import SEOCanonical from '@/components/molecules/SEOCanonical';
+import SEOMetadata from '@/components/molecules/SEOMetadata';
 import { contactEmail } from '@/constants/common';
 import { paths } from '@/constants/paths';
 import { Metadata } from 'next';
@@ -31,7 +31,7 @@ const PrivacyPolicyPage = async (props: {
   const pointTitleClassName = 'text-grass-50 my-2 ';
   return (
     <>
-      <SEOCanonical path={paths.PrivacyPolicy} />
+      <SEOMetadata t={t} path={paths.PrivacyPolicy} />
       <PageContainer>
         <PageWrapper>
           <div className='max-w-screen-xl mx-auto rounded-lg bg-gray-900 flex flex-col justify-around py-8 px-4 md:py-12'>

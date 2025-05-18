@@ -7,7 +7,7 @@ import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import Link from 'next/link';
 import { paths } from '@/constants/paths';
-import SEOCanonical from '@/components/molecules/SEOCanonical';
+import SEOMetadata from '@/components/molecules/SEOMetadata';
 
 export async function generateMetadata(props: {
   params: Promise<{
@@ -37,7 +37,7 @@ export default async function RegisterPage(props: {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   return (
     <>
-      <SEOCanonical path={paths.Register} />
+      <SEOMetadata t={t} path={paths.Register} />
       <PageContainer classNames='pb-0'>
         <PageWrapper>
           <div className='md:bg-gray-900 md:py-8 sm:px-4 md:px-8 mx-auto rounded-sm w-full'>

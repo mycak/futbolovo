@@ -5,7 +5,7 @@ import Back from '@/components/molecules/Back';
 import { contactEmail } from '@/constants/common';
 import { Metadata } from 'next';
 import { paths } from '@/constants/paths';
-import SEOCanonical from '@/components/molecules/SEOCanonical';
+import SEOMetadata from '@/components/molecules/SEOMetadata';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
@@ -31,7 +31,7 @@ const StatutePage = async (props: {
   const pointTitleClassName = 'text-grass-50 my-2 ';
   return (
     <>
-      <SEOCanonical path={paths.Statute} />
+      <SEOMetadata t={t} path={paths.Statute} />
       <PageContainer>
         <PageWrapper>
           <div className='max-w-screen-xl mx-auto rounded-lg bg-gray-900 flex flex-col justify-around py-8 px-4 md:py-12'>

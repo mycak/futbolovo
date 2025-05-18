@@ -11,7 +11,7 @@ import PageContainer from '@/components/atoms/PageContainer';
 import Hero from '@/components/molecules/Hero';
 import IconsSection from '@/components/molecules/IconsSection';
 import SiteDescription from '@/components/atoms/SiteDescription';
-import SEOCanonical from '@/components/molecules/SEOCanonical';
+import SEOMetadata from '@/components/molecules/SEOMetadata';
 import { paths } from '@/constants/paths';
 
 export async function generateMetadata(props: {
@@ -42,7 +42,7 @@ export default async function DashboardPage(props: {
   const { t } = await translate(lng);
   return (
     <>
-      <SEOCanonical path={paths.Dashboard} />
+      <SEOMetadata path={paths.Dashboard} t={t} />
       <PageContainer classNames='pb-0'>
         <Hero
           heroTexts={heroTexts(t)}

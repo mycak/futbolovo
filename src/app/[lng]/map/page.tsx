@@ -2,10 +2,17 @@ import { translate } from '@/app/i18n';
 import Divider from '@/components/atoms/Divider';
 import PageContainer from '@/components/atoms/PageContainer';
 import AddPlaceSection from '@/components/molecules/AddPlaceSection';
-import SEOCanonical from '@/components/molecules/SEOCanonical';
+import SEOMetadata from '@/components/molecules/SEOMetadata';
 import MapSet from '@/components/organisms/MapSet';
 import { paths } from '@/constants/paths';
 import { Metadata } from 'next';
+import {
+  generateWebsiteSchema,
+  generateSportsFacilitySchema,
+} from '@/utils/jsonld.utils';
+import { JsonLdType, Location } from '@/types/common';
+import { getEvents } from '@/app/actions/events';
+import { EventCategoryEnum } from '@prisma/client';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
@@ -26,11 +33,53 @@ const MapPage = async (props: {
   }>;
 }) => {
   const params = await props.params;
+  const { t } = await translate(params.lng);
   const lng = params.lng;
+
+  // Get all sports facilities for JSON-LD
+  const facilities = await getEvents({
+    categories: [EventCategoryEnum.SPORT_FIELD],
+    coords: undefined,
+    search: undefined,
+    startDate: undefined,
+    endDate: undefined,
+    ageCategories: undefined,
+    female: undefined,
+  });
+
+  // Generate schema for the map page and all facilities
+  const facilitiesSchemas = facilities.map((facility) => {
+    const location = facility.location as unknown as Location;
+    return generateSportsFacilitySchema({
+      name: facility.name,
+      location: {
+        addressName: location?.addressName || '',
+        latitude: location?.latitude || 0,
+        longitude: location?.longitude || 0,
+      },
+      description: facility.description,
+      category: facility.category,
+      email: facility.email,
+      phoneNumber: facility.phoneNumber,
+    });
+  });
+
+  const mapJsonLd: JsonLdType = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: t('metatags.map.title'),
+    description: t('metatags.map.description'),
+    url: `${process.env.NEXT_PUBLIC_APP_URL}${paths.Map}`,
+    isPartOf: generateWebsiteSchema(t),
+    mainContentOfPage: {
+      '@type': 'Map',
+      about: facilitiesSchemas,
+    },
+  };
 
   return (
     <>
-      <SEOCanonical path={paths.Map} />
+      <SEOMetadata path={paths.Map} t={t} jsonLd={mapJsonLd} />
       <PageContainer>
         <MapSet />
         <Divider classNames='!mb-0' />

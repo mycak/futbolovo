@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 
 import { contactEmail } from '@/constants/common';
 import { Trans } from 'react-i18next/TransWithoutContext';
-import SEOCanonical from '@/components/molecules/SEOCanonical';
+import SEOMetadata from '@/components/molecules/SEOMetadata';
 import { paths } from '@/constants/paths';
 import { TFunction } from 'i18next';
 
@@ -34,7 +34,7 @@ const CooperationPage = async (props: {
 
   return (
     <>
-      <SEOCanonical path={paths.Cooperation} />
+      <SEOMetadata t={t} path={paths.Cooperation} />
       <PageContainer>
         <PageWrapper>
           <div className='md:aspect-video md:bg-[url("/images/football-pitch.jpg")] bg-cover max-w-screen-2xl mx-auto rounded-lg'>

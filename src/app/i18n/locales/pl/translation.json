@@ -45,7 +45,20 @@
   "repeatPassword": "Powtórz hasło",
   "metatags": {
     "title": "Futbolowa mapa Polski",
-    "description": "Weź udział w piłkarskich wydarzeniach w Twojej okolicy.",
+    "description": "Weź udział w piłkarskich wydarzeniach w Twojej okolicy. Znajdź mecze, turnieje, obozy treningowe i akademie piłkarskie. Rezerwuj boiska i odkrywaj obiekty sportowe.",
+    "facilities": "Obiekty sportowe",
+    "fields": "Boiska piłkarskie",
+    "grounds": "Tereny treningowe",
+    "indoor": "Obiekty kryte",
+    "outdoor": "Boiska zewnętrzne",
+    "training": "Trening piłkarski",
+    "practice": "Zajęcia piłkarskie",
+    "games": "Rozgrywki piłkarskie",
+    "tournaments": "Turnieje piłkarskie",
+    "academy": "Akademia piłkarska",
+    "youth": "Piłka młodzieżowa",
+    "camps": "Obozy piłkarskie",
+    "schools": "Szkółki piłkarskie",
     "events": {
       "title": "Wydarzenia piłkarskie | Futbolovo",
       "description": "Dodaj lub znajdź wydarzenia piłkarskie w Twojej okolicy. Mecze, turnieje, obozy i więcej!"

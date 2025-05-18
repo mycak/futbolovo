@@ -1,7 +1,7 @@
 import DynamicLoader from '@/components/atoms/DynamicLoader';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
-import SEOCanonical from '@/components/molecules/SEOCanonical';
+import SEOMetadata from '@/components/molecules/SEOMetadata';
 import AddEventConfirm from '@/components/organisms/AddEventWizard/AddEventConfirm';
 import { paths } from '@/constants/paths';
 import { Suspense } from 'react';
@@ -21,10 +21,16 @@ export async function generateMetadata(props: {
   };
 }
 
-const AddEventConfirmPage = async () => {
+const AddEventConfirmPage = async (props: {
+  params: Promise<{
+    lng: string;
+  }>;
+}) => {
+  const params = await props.params;
+  const { t } = await translate(params.lng);
   return (
     <>
-      <SEOCanonical path={paths.EventAddConfirm} />
+      <SEOMetadata t={t} path={paths.EventAddConfirm} />
       <PageContainer>
         <PageWrapper>
           <div className='bg-gray-900 py-8 px-4 md:px-8 mx-auto max-w-max rounded-sm'>
