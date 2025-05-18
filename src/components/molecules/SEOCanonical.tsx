@@ -1,4 +1,4 @@
-import { defaultLocale, locales } from '@/configs/i18n';
+import { locales } from '@/configs/i18n';
 import Head from 'next/head';
 import { generateHref } from '@/utils/seo.utils';
 type SEOCanonicalProps = {
@@ -6,7 +6,9 @@ type SEOCanonicalProps = {
 };
 
 const SEOCanonical = ({ path }: SEOCanonicalProps) => {
-  const canonicalUrl = generateHref(defaultLocale, path);
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+
+  const canonicalUrl = `${baseUrl}${path}`;
 
   return (
     <Head>
