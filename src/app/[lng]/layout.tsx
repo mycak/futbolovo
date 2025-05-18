@@ -43,16 +43,14 @@ export async function generateMetadata(props: {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
 
   const { t } = await translate(lng);
+  const metadata = mainPagesMetadata(t, lng);
+
   return {
-    ...mainPagesMetadata(t),
+    ...metadata,
     icons: {
       icon: '/favicon.png',
       shortcut: '/favicon.png',
       apple: '/favicon.png',
-    },
-    // Google site verification meta tag
-    other: {
-      'google-site-verification': 'dAI8EDPV-YcgL-Y67csG4n06zMXekj9MESY-Ywbl1lM',
     },
   };
 }

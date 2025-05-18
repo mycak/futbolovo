@@ -47,7 +47,20 @@
   "repeatPassword": "Passwort wiederholen",
   "metatags": {
     "title": "Fußballkarte der Welt",
-    "description": "Nimm an Fußballveranstaltungen in deiner Nähe teil.",
+    "description": "Nimm an Fußballveranstaltungen in deiner Nähe teil. Finde Spiele, Turniere, Trainingscamps und Fußballakademien. Buche Fußballplätze und entdecke Sportanlagen.",
+    "facilities": "Sportanlagen",
+    "fields": "Fußballplätze",
+    "grounds": "Trainingsgelände",
+    "indoor": "Hallenanlagen",
+    "outdoor": "Außenplätze",
+    "training": "Fußballtraining",
+    "practice": "Fußballübungen",
+    "games": "Fußballspiele",
+    "tournaments": "Fußballturniere",
+    "academy": "Fußballakademie",
+    "youth": "Jugendfußball",
+    "camps": "Fußballcamps",
+    "schools": "Fußballschulen",
     "events": {
       "title": "Fußballveranstaltungen | Futbolovo",
       "description": "Füge Fußballveranstaltungen in deiner Nähe hinzu oder finde sie. Spiele, Turniere, Camps und mehr!"

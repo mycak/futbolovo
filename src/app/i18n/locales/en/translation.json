@@ -47,7 +47,20 @@
   "repeatPassword": "Repeat Password",
   "metatags": {
     "title": "Football Map of World",
-    "description": "Join football events in your area.",
+    "description": "Join football events in your area. Find matches, tournaments, training camps, and soccer academies near you. Book football fields and discover sports facilities.",
+    "facilities": "Sports Facilities",
+    "fields": "Football Fields",
+    "grounds": "Training Grounds",
+    "indoor": "Indoor Facilities",
+    "outdoor": "Outdoor Fields",
+    "training": "Football Training",
+    "practice": "Soccer Practice",
+    "games": "Football Games",
+    "tournaments": "Soccer Tournaments",
+    "academy": "Football Academy",
+    "youth": "Youth Soccer",
+    "camps": "Football Camps",
+    "schools": "Soccer Schools",
     "events": {
       "title": "Football Events | Futbolovo",
       "description": "Add or find football events in your area. Matches, tournaments, camps and more!"
