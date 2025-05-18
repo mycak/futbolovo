@@ -1,5 +1,4 @@
 export * from './dynamic-images';
-export * from './sitemap-generator';
 export * from '../../utils/jsonld.utils';
 export * from '../../utils/seo.utils';
 
