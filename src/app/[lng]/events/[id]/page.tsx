@@ -1,11 +1,12 @@
 import { getEventById } from '@/app/actions/events';
 import { translate } from '@/app/i18n';
+import { generateEventSchema } from '@/utils/jsonld.utils';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
 import EventPreview from '@/components/molecules/Events/EventPreview';
 import NotFound from '@/components/molecules/NotFound';
-import SEOCanonical from '@/components/molecules/SEOCanonical';
+import SEOMetadata from '@/components/molecules/SEOMetadata';
 import { paths } from '@/constants/paths';
 import {
   HydrationBoundary,
@@ -31,8 +32,9 @@ export async function generateMetadata(props: {
 const EventPage = async (props: {
   params: Promise<{ id: string; lng: string }>;
 }) => {
-  const params = await props.params;
   const queryClient = new QueryClient();
+  const params = await props.params;
+  const { t } = await translate(params.lng);
 
   const eventData = await queryClient.fetchQuery({
     queryKey: ['event', params.id],
@@ -41,7 +43,11 @@ const EventPage = async (props: {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <SEOCanonical path={paths.Event(params.id)} />
+      <SEOMetadata
+        path={paths.Event(params.id)}
+        t={t}
+        jsonLd={eventData ? generateEventSchema(eventData, t) : undefined}
+      />
       <PageContainer>
         <PageWrapper classNames='grow flex flex-col'>
           {eventData ? (

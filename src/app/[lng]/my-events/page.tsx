@@ -13,7 +13,7 @@ import {
 import { Metadata } from 'next';
 import { getServerSession } from 'next-auth/next';
 import { authOptions } from '@/configs/auth';
-import SEOCanonical from '@/components/molecules/SEOCanonical';
+import SEOMetadata from '@/components/molecules/SEOMetadata';
 import { paths } from '@/constants/paths';
 
 export async function generateMetadata(props: {
@@ -50,7 +50,7 @@ const MyEventsPage = async (props: {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <SEOCanonical path={paths.MyEvents} />
+      <SEOMetadata t={t} path={paths.MyEvents} />
 
       <PageContainer>
         <PageWrapper classNames='grow flex flex-col mb-8'>

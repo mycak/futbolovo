@@ -91,3 +91,9 @@ export interface IUser extends DefaultUser {
   resetToken?: string | null;
   resetTokenExpires?: Date | null;
 }
+
+export type JsonLdType = {
+  '@context': 'https://schema.org';
+  '@type': string;
+  [key: string]: unknown;
+};

@@ -3,7 +3,7 @@ import DynamicLoader from '@/components/atoms/DynamicLoader';
 import PageContainer from '@/components/atoms/PageContainer';
 import PageWrapper from '@/components/atoms/PageWrapper';
 import Back from '@/components/molecules/Back';
-import SEOCanonical from '@/components/molecules/SEOCanonical';
+import SEOMetadata from '@/components/molecules/SEOMetadata';
 import AddEventWizard from '@/components/organisms/AddEventWizard/AddEventWizard';
 import { paths } from '@/constants/paths';
 import { Metadata } from 'next';
@@ -32,7 +32,7 @@ const AddEventPage = async (props: {
 
   return (
     <>
-      <SEOCanonical path={paths.EventEdit} />
+      <SEOMetadata path={paths.EventEdit} t={t} />
       <PageContainer>
         <PageWrapper>
           <div className='md:bg-gray-900 md:py-8 sm:px-4 md:px-8 mx-auto rounded-sm w-full'>

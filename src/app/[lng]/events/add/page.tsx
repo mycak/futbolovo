@@ -8,9 +8,9 @@ import { getServerSession } from 'next-auth';
 import Button from '@/components/atoms/Button';
 import { paths } from '@/constants/paths';
 import { authOptions } from '@/configs/auth';
-import SEOCanonical from '@/components/molecules/SEOCanonical';
 import { Suspense } from 'react';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
+import SEOMetadata from '@/components/molecules/SEOMetadata';
 
 export async function generateMetadata(props: {
   params: Promise<{ lng: string }>;
@@ -37,7 +37,7 @@ const AddEventPage = async (props: {
 
   return (
     <>
-      <SEOCanonical path={paths.EventAdd} />
+      <SEOMetadata path={paths.EventAdd} t={t} />
       <PageContainer>
         <PageWrapper>
           <div className='md:bg-gray-900 md:py-8 sm:px-4 md:px-8 mx-auto rounded-sm w-full'>

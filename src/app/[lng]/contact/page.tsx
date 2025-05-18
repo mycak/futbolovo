@@ -7,7 +7,7 @@ import Back from '@/components/molecules/Back';
 import { contactEmail, contactPhone } from '@/constants/common';
 import { Trans } from 'react-i18next/TransWithoutContext';
 import { paths } from '@/constants/paths';
-import SEOCanonical from '@/components/molecules/SEOCanonical';
+import SEOMetadata from '@/components/molecules/SEOMetadata';
 import { TFunction } from 'i18next';
 
 export async function generateMetadata(props: {
@@ -36,7 +36,7 @@ export default async function ContactPage(props: {
 
   return (
     <>
-      <SEOCanonical path={paths.Contact} />
+      <SEOMetadata t={t} path={paths.Contact} />
       <PageContainer>
         <PageWrapper>
           <div className='md:aspect-video md:bg-[url("/images/football-pitch.jpg")] bg-cover max-w-screen-2xl mx-auto rounded-lg'>
