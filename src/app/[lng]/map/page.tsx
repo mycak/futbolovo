@@ -79,7 +79,12 @@ const MapPage = async (props: {
 
   return (
     <>
-      <SEOMetadata path={paths.Map} t={t} jsonLd={mapJsonLd} />
+      <SEOMetadata
+        path={paths.Map}
+        t={t}
+        jsonLd={mapJsonLd}
+        currentLanguage={lng}
+      />
       <PageContainer>
         <MapSet />
         <Divider classNames='!mb-0' />

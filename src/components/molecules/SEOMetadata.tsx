@@ -1,4 +1,4 @@
-import { locales, languageMappings } from '@/configs/i18n';
+import { locales, languageMappings, defaultLocale } from '@/configs/i18n';
 import Head from 'next/head';
 import { generateHref } from '@/utils/seo.utils';
 import {
@@ -25,6 +25,7 @@ type SEOMetadataProps = {
     height: number;
     alt: string;
   }; // Optional custom page image
+  currentLanguage: string; // Current language of the page
 };
 
 /**
@@ -41,9 +42,13 @@ const SEOMetadata = ({
   pageTitle,
   pageDescription,
   pageImage,
+  currentLanguage,
 }: SEOMetadataProps) => {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://futbolovo.net';
-  const canonicalUrl = `${baseUrl}${path}`;
+  const canonicalUrl =
+    currentLanguage === defaultLocale
+      ? `${baseUrl}${path}`
+      : `${baseUrl}/${currentLanguage}${path}`;
 
   // Base JSON-LD schemas that should be present on all pages
   const orgSchema = generateOrganizationSchema(t);
@@ -87,8 +92,12 @@ const SEOMetadata = ({
         />
       ))}
 
-      {/* x-default for language negotiation */}
-      <link rel='alternate' hrefLang='x-default' href={`${baseUrl}${path}`} />
+      {/* x-default for language negotiation - defaults to Polish */}
+      <link
+        rel='alternate'
+        hrefLang='x-default'
+        href={generateHref(defaultLocale, path)}
+      />
 
       {/* Open Graph tags */}
       <meta property='og:title' content={title} />
@@ -104,7 +113,7 @@ const SEOMetadata = ({
       {/* Additional meta tags for better SEO */}
       {locales.map((lang) => (
         <meta
-          key={lang}
+          key={`og-locale-${lang}`}
           property='og:locale:alternate'
           content={
             languageMappings[lang as keyof typeof languageMappings].ogLocale

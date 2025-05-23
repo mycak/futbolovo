@@ -34,7 +34,11 @@ const CooperationPage = async (props: {
 
   return (
     <>
-      <SEOMetadata t={t} path={paths.Cooperation} />
+      <SEOMetadata
+        t={t}
+        path={paths.Cooperation}
+        currentLanguage={params.lng}
+      />
       <PageContainer>
         <PageWrapper>
           <div className='md:aspect-video md:bg-[url("/images/football-pitch.jpg")] bg-cover max-w-screen-2xl mx-auto rounded-lg'>

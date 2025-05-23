@@ -30,7 +30,11 @@ const AddEventConfirmPage = async (props: {
   const { t } = await translate(params.lng);
   return (
     <>
-      <SEOMetadata t={t} path={paths.EventAddConfirm} />
+      <SEOMetadata
+        t={t}
+        path={paths.EventAddConfirm}
+        currentLanguage={params.lng}
+      />
       <PageContainer>
         <PageWrapper>
           <div className='bg-gray-900 py-8 px-4 md:px-8 mx-auto max-w-max rounded-sm'>

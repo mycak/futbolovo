@@ -36,7 +36,11 @@ export default async function ResetPasswordConfirmPage(props: {
   if (languages.indexOf(lng) < 0) lng = fallbackLng;
   return (
     <>
-      <SEOMetadata t={t} path={paths.PasswordResetConfirm} />
+      <SEOMetadata
+        t={t}
+        path={paths.PasswordResetConfirm}
+        currentLanguage={lng}
+      />
       <PageContainer classNames='pb-0'>
         <PageWrapper>
           <div className='md:bg-gray-900 md:py-8 sm:px-4 md:px-8 mx-auto rounded-sm'>

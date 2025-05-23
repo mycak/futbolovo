@@ -44,11 +44,12 @@ import SEOMetadata from '@/components/molecules/SEOMetadata';
 import { paths } from '@/constants/paths';
 
 // Basic usage
-<SEOMetadata path={paths.YourPage} t={t} />
+<SEOMetadata path={paths.YourPage} t={t} currentLanguage={lng} />
 
 // With custom page-specific structured data
 <SEOMetadata
   path={paths.Event(id)}
+  currentLanguage={lng}
   t={t}
   jsonLd={generateEventSchema(eventData, t)}
 />
@@ -60,6 +61,7 @@ import { paths } from '@/constants/paths';
   jsonLd={generateEventSchema(eventData, t)}
   pageTitle={`Event: ${eventData.name}`}
   pageDescription={eventData.description}
+  currentLanguage={lng}
 />
 ```
 

@@ -31,7 +31,11 @@ const PrivacyPolicyPage = async (props: {
   const pointTitleClassName = 'text-grass-50 my-2 ';
   return (
     <>
-      <SEOMetadata t={t} path={paths.PrivacyPolicy} />
+      <SEOMetadata
+        t={t}
+        path={paths.PrivacyPolicy}
+        currentLanguage={params.lng}
+      />
       <PageContainer>
         <PageWrapper>
           <div className='max-w-screen-xl mx-auto rounded-lg bg-gray-900 flex flex-col justify-around py-8 px-4 md:py-12'>

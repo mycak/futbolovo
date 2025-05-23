@@ -37,7 +37,7 @@ const AddEventPage = async (props: {
 
   return (
     <>
-      <SEOMetadata path={paths.EventAdd} t={t} />
+      <SEOMetadata path={paths.EventAdd} t={t} currentLanguage={params.lng} />
       <PageContainer>
         <PageWrapper>
           <div className='md:bg-gray-900 md:py-8 sm:px-4 md:px-8 mx-auto rounded-sm w-full'>
