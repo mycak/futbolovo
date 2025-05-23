@@ -19,15 +19,17 @@ function formatUrl(url: string): string {
 }
 
 export async function middleware(req: NextRequest) {
-  //IMAGE HANDLER
+  // Skip all middleware logic for specific static resources and sitemap
   if (
     req.nextUrl.pathname.indexOf('icon') > -1 ||
     req.nextUrl.pathname.indexOf('chrome') > -1 ||
     ['icons', 'images', 'favicon'].some((el) =>
       req.nextUrl.pathname.includes(el)
-    )
-  )
+    ) ||
+    req.nextUrl.pathname === '/sitemap.xml'
+  ) {
     return NextResponse.next();
+  }
 
   //NOT PERMITTED URL HANDLER
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
