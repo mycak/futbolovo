@@ -47,6 +47,7 @@ const EventPage = async (props: {
         path={paths.Event(params.id)}
         t={t}
         jsonLd={eventData ? generateEventSchema(eventData, t) : undefined}
+        currentLanguage={params.lng}
       />
       <PageContainer>
         <PageWrapper classNames='grow flex flex-col'>

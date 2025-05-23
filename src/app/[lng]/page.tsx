@@ -42,7 +42,7 @@ export default async function DashboardPage(props: {
   const { t } = await translate(lng);
   return (
     <>
-      <SEOMetadata path={paths.Dashboard} t={t} />
+      <SEOMetadata path={paths.Dashboard} t={t} currentLanguage={lng} />
       <PageContainer classNames='pb-0'>
         <Hero
           heroTexts={heroTexts(t)}

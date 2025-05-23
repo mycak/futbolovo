@@ -36,7 +36,7 @@ export default async function ContactPage(props: {
 
   return (
     <>
-      <SEOMetadata t={t} path={paths.Contact} />
+      <SEOMetadata t={t} path={paths.Contact} currentLanguage={lng} />
       <PageContainer>
         <PageWrapper>
           <div className='md:aspect-video md:bg-[url("/images/football-pitch.jpg")] bg-cover max-w-screen-2xl mx-auto rounded-lg'>
