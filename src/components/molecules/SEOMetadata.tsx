@@ -45,10 +45,7 @@ const SEOMetadata = ({
   currentLanguage,
 }: SEOMetadataProps) => {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://futbolovo.net';
-  const canonicalUrl =
-    currentLanguage === defaultLocale
-      ? `${baseUrl}${path}`
-      : `${baseUrl}/${currentLanguage}${path}`;
+  const canonicalUrl = `${baseUrl}/${currentLanguage ?? defaultLocale}${path}`;
 
   // Base JSON-LD schemas that should be present on all pages
   const orgSchema = generateOrganizationSchema(t);
@@ -76,10 +73,8 @@ const SEOMetadata = ({
       {/* Basic SEO tags */}
       <title>{title}</title>
       <meta name='description' content={description} />
-
       {/* Canonical URL */}
       <link rel='canonical' href={canonicalUrl} />
-
       {/* Language alternates */}
       {locales.map((lang) => (
         <link
@@ -91,14 +86,12 @@ const SEOMetadata = ({
           href={generateHref(lang, path)}
         />
       ))}
-
       {/* x-default for language negotiation - defaults to Polish */}
       <link
         rel='alternate'
         hrefLang='x-default'
         href={generateHref(defaultLocale, path)}
       />
-
       {/* Open Graph tags */}
       <meta property='og:title' content={title} />
       <meta property='og:description' content={description} />
@@ -109,7 +102,6 @@ const SEOMetadata = ({
       <meta property='og:image:alt' content={image.alt} />
       <meta property='og:type' content='website' />
       <meta property='og:site_name' content='Futbolovo' />
-
       {/* Additional meta tags for better SEO */}
       {locales.map((lang) => (
         <meta
@@ -120,14 +112,12 @@ const SEOMetadata = ({
           }
         />
       ))}
-
       {/* Twitter Card tags */}
       <meta name='twitter:card' content='summary_large_image' />
       <meta name='twitter:title' content={title} />
       <meta name='twitter:description' content={description} />
       <meta name='twitter:image' content={image.url} />
       <meta name='twitter:creator' content='@futbolovo' />
-
       {/* JSON-LD structured data */}
       <script
         type='application/ld+json'
