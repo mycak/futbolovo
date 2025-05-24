@@ -39,18 +39,17 @@ const DateRangeInput = <T extends FieldValues>({
         <DatePicker
           disabled={disabled}
           isClearable
-          selectsRange={true}
+          selectsRange
+          selected={startDate}
           minDate={minDate ? new Date() : undefined}
-          startDate={startDate ?? undefined}
-          endDate={endDate ?? undefined}
+          startDate={startDate}
+          endDate={endDate}
           onChange={(dates) => {
             const [start, end] = dates;
             if (start) start.setHours(15, 0, 0, 0);
             if (end) end.setHours(15, 0, 0, 0);
-            if (start)
-              setValue('startDate' as Path<T>, start as PathValue<T, Path<T>>);
-            if (end)
-              setValue('endDate' as Path<T>, end as PathValue<T, Path<T>>);
+            setValue('startDate' as Path<T>, start as PathValue<T, Path<T>>);
+            setValue('endDate' as Path<T>, end as PathValue<T, Path<T>>);
           }}
           className={customStyles({ disabled, error: !!error })}
           shouldCloseOnSelect

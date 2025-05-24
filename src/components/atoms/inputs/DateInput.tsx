@@ -41,7 +41,7 @@ const DateInput = <T extends FieldValues>({
             <DatePicker
               disabled={disabled}
               selected={value ?? null}
-              shouldCloseOnSelect={true}
+              shouldCloseOnSelect
               minDate={minDate ? new Date() : undefined}
               onChange={(date) => {
                 if (date) date.setHours(15, 0, 0, 0);
