@@ -260,7 +260,9 @@
     "marchAnnouncement": "Z przyjemnością informujemy o ostatnich ulepszeniach naszej platformy <panel>poprawiających komfort użytkowania</panel>:",
     "marchAnnouncementPoints": {
       "point1": "Naprawiliśmy wyświetlanie kafelków informacji o wydarzeniach, aby lepiej wyglądały na wszystkich urządzeniach.",
-      "point2": "Dodaliśmy wysyłanie e-maili potwierdzających dla wszystkich przesłanych wydarzeń."
+      "point2": "Dodaliśmy wysyłanie e-maili potwierdzających dla wszystkich przesłanych wydarzeń.",
+      "point3": "Naprawiliśmy działanie wyboru zakresu dat dla lepszego doświadczenia użytkownika.",
+      "point4": "Połączyliśmy filtry z parametrami URL dla łatwiejszego udostępniania i nawigacji."
     },
     "successUpdate": "Aktualizacja zakończona sukcesem!"
   },

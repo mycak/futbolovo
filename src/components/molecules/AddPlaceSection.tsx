@@ -19,7 +19,7 @@ const AddPlaceSection = async ({ lng }: { lng: string }) => {
         asLink
         size='lg'
         href={paths.EventAdd}
-        classNames='mt-4 md:mt-8 mx-auto animate-shake block'
+        classNames='mt-4 md:mt-8 mx-auto block animate-shake hover:animate-none'
         text={t('addPlace.addPlaceButton')}
       />
       <p className='text-center text-ivory-150-60 text-lg md:text-2xl mt-4 md:mt-8'>
