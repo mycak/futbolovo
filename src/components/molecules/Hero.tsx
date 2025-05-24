@@ -90,7 +90,12 @@ const Hero = ({
           >
             <p
               className='text-grass-20'
-              style={{ fontSize: 'clamp(1.2rem, 3vw, 4rem)' }}
+              style={{
+                fontSize:
+                  currentTextIndex === 0
+                    ? 'clamp(1rem, 2vw, 4rem) sm: clamp(1.2rem, 3vw, 4rem)'
+                    : 'clamp(1.2rem, 3vw, 4rem)',
+              }}
             >
               {heroTexts[currentTextIndex]}
             </p>

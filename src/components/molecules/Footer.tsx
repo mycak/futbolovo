@@ -25,16 +25,16 @@ const Footer = async ({ lng }: { lng: string }) => {
   ];
 
   return (
-    <div className='min-w-full flex justify-center bg-gray-900 gap-16 py-4'>
+    <div className='min-w-full flex flex-wrap justify-center bg-gray-900 gap-8 md:gap-16 py-4'>
       {footerItems.map((item) => (
         <div key={item.title} className='flex flex-col'>
-          <h3 className='text-lg text-ivory-100'>{item.title}</h3>
-          <ul>
+          <h3 className='text-lg text-ivory-100 ml-2'>{item.title}</h3>
+          <ul className='w-full'>
             {item.items.map((subItem) => (
-              <li key={subItem.name}>
+              <li key={subItem.name} className='my-1'>
                 <Link
                   href={subItem.href}
-                  className='text-grass-100 text-sm block'
+                  className='text-grass-100 text-sm px-2 py-1 min-w-[44px] w-full flex items-center hover:text-grass-50 transition-colors'
                 >
                   {subItem.name}
                 </Link>
