@@ -93,7 +93,7 @@ const Hero = ({
               style={{
                 fontSize:
                   currentTextIndex === 0
-                    ? 'clamp(1rem, 2vw, 4rem) sm: clamp(1.2rem, 3vw, 4rem)'
+                    ? 'clamp(1rem, 2vw, 4rem) sm:clamp(1.2rem, 3vw, 4rem)'
                     : 'clamp(1.2rem, 3vw, 4rem)',
               }}
             >
