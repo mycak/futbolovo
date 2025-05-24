@@ -32,14 +32,14 @@ const SiteDescription = ({
             href={paths.Map}
             text={siteDescriptionTexts.firstButton}
             size='lg'
-            classNames='md:ml-auto mt-8 animate-shake'
+            classNames='md:ml-auto mt-8 animate-shake hover:animate-none'
           />
           <Button
             asLink
             size='lg'
             href={paths.EventAdd}
             text={siteDescriptionTexts.secondButton}
-            classNames='mt-8 animate-shake delay-1'
+            classNames='mt-8 animate-shake delay-1 hover:animate-none'
             color='bg-red-500'
           />
         </div>
@@ -49,12 +49,9 @@ const SiteDescription = ({
         alt='overview'
         width={510}
         height={600}
-        className='h-full w-5/6 mx-auto md:w-2/3 lg:mr-auto lg:ml-0'
-        style={{
-          maxHeight: '600px',
-          height: 'auto',
-          objectFit: 'cover',
-        }}
+        className='w-5/6 mx-auto md:w-2/3 lg:mr-auto lg:ml-0'
+        sizes='(max-width: 768px) 83vw, 66vw'
+        style={{ objectFit: 'cover' }}
       />
     </PageWrapper>
   );

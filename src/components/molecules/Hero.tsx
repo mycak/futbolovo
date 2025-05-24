@@ -7,6 +7,7 @@ import { useTranslation } from '@/app/i18n/client';
 import clsx from 'clsx';
 import { Trans } from 'react-i18next/TransWithoutContext';
 import { TFunction } from 'i18next';
+import { useRouter } from 'next/navigation';
 
 const Hero = ({
   heroTexts,
@@ -21,6 +22,7 @@ const Hero = ({
   const [textOpacity, setTextOpacity] = useState<number>(1);
   const CHANGE_TEXT_INTERVAL = 9000;
   const { t } = useTranslation(lng);
+  const router = useRouter();
 
   useEffect(() => {
     // Change the text every n seconds
@@ -50,7 +52,7 @@ const Hero = ({
             </div>
             <div className='ml-3'>
               <h1 className='text-3xl font-medium text-green-300 mb-2'>
-                {t('hero.successUpdate')} - 17.05.25
+                {t('hero.successUpdate')} - 20.05.25
               </h1>
               <p className={textStyle}>
                 <Trans
@@ -70,6 +72,12 @@ const Hero = ({
             <li className={clsx(textStyle, 'text-ivory-150')}>
               {t('hero.marchAnnouncementPoints.point1')}
             </li>
+            <li className={clsx(textStyle, 'text-ivory-150')}>
+              {t('hero.marchAnnouncementPoints.point3')}
+            </li>
+            <li className={clsx(textStyle, 'text-ivory-150')}>
+              {t('hero.marchAnnouncementPoints.point4')}
+            </li>
           </ul>
         </div>
       </div>
@@ -87,11 +95,10 @@ const Hero = ({
               {heroTexts[currentTextIndex]}
             </p>
             <Button
-              asLink
+              onClick={() => router.push(paths.Map)}
               size='lg'
-              href={paths.Map}
               text={buttonTitle}
-              classNames='mt-8 mr-auto animate-shake'
+              classNames='mt-8 mr-auto animate-shake hover:animate-none'
             />
           </div>
         </div>

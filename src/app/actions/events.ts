@@ -36,11 +36,13 @@ export async function getEvents(filters: MapFilters) {
   if (filters.ageCategories?.length) {
     whereClause.ageCategories = { hasSome: filters.ageCategories };
     whereClause.category = {
-      in: [
-        EventCategoryEnum.CAMP,
-        EventCategoryEnum.TOURNAMENT,
-        EventCategoryEnum.MATCH,
-      ],
+      in: filters.categories?.length
+        ? filters.categories
+        : [
+            EventCategoryEnum.CAMP,
+            EventCategoryEnum.TOURNAMENT,
+            EventCategoryEnum.MATCH,
+          ],
     };
   }
 

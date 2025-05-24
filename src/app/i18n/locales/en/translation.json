@@ -267,7 +267,9 @@
     "marchAnnouncement": "We are pleased to announce recent improvements to our platform <panel>enhancing your user experience</panel>:",
     "marchAnnouncementPoints": {
       "point1": "Fixed event info tile centering for better display across devices.",
-      "point2": "Added confirmation emails for all event submissions."
+      "point2": "Added confirmation emails for all event submissions.",
+      "point3": "Fixed date range input behavior for better user experience.",
+      "point4": "Connected filters with URL parameters for easier sharing and navigation."
     },
     "successUpdate": "Update completed successfully!"
   },

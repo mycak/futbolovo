@@ -10,7 +10,7 @@ import {
   generateWebsiteSchema,
   generateSportsFacilitySchema,
 } from '@/utils/jsonld.utils';
-import { JsonLdType, Location } from '@/types/common';
+import { JsonLdType, Location, MapFilters } from '@/types/common';
 import { getEvents } from '@/app/actions/events';
 import { EventCategoryEnum } from '@prisma/client';
 
@@ -31,21 +31,24 @@ const MapPage = async (props: {
   params: Promise<{
     lng: string;
   }>;
+  searchParams?: Promise<{ categories?: string }>;
 }) => {
   const params = await props.params;
+  const searchParams = props.searchParams ? await props.searchParams : {};
   const { t } = await translate(params.lng);
   const lng = params.lng;
 
-  // Get all sports facilities for JSON-LD
-  const facilities = await getEvents({
-    categories: [EventCategoryEnum.SPORT_FIELD],
-    coords: undefined,
-    search: undefined,
-    startDate: undefined,
-    endDate: undefined,
-    ageCategories: undefined,
-    female: undefined,
-  });
+  // Check if category in query params is SPORT_FIELD
+  const isSportFieldCategory = searchParams.categories?.includes(
+    EventCategoryEnum.SPORT_FIELD
+  );
+
+  // Get all sports facilities for JSON-LD, but only if needed
+  const facilities = isSportFieldCategory
+    ? await getEvents({
+        categories: [EventCategoryEnum.SPORT_FIELD],
+      } as MapFilters)
+    : [];
 
   // Generate schema for the map page and all facilities
   const facilitiesSchemas = facilities.map((facility) => {
@@ -82,7 +85,7 @@ const MapPage = async (props: {
       <SEOMetadata
         path={paths.Map}
         t={t}
-        jsonLd={mapJsonLd}
+        jsonLd={isSportFieldCategory ? mapJsonLd : undefined}
         currentLanguage={lng}
       />
       <PageContainer>
