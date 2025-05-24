@@ -17,7 +17,7 @@ const UserNavigationMenu = () => {
   };
 
   return (
-    <div className='relative  text-left hidden md:inline-block'>
+    <div className='relative text-left hidden md:inline-block'>
       <button
         type='button'
         aria-label='User navigation menu'
