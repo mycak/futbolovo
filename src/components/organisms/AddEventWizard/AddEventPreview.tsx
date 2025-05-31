@@ -51,6 +51,10 @@ const AddEventPreview = () => {
 
     const { additionalLocations, termsAccepted, ...payload } = eventData;
 
+    console.log(eventData);
+
+    return;
+
     if (!isEditMode) {
       //ADD EVENTS
       const allLocations = [...additionalLocations, eventData.location];

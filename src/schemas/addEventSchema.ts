@@ -44,6 +44,10 @@ export const addEventSchema = (t: TranslationFunction) =>
 
       email: z.string().min(1, { message: t('fieldIsRequired') }),
       image: z.string().nullable().optional(),
+      images: z
+        .array(z.string())
+        .max(3, { message: t('validation.maxImages') })
+        .optional(),
       isPublished: z.boolean().default(false),
       authorId: z.string().optional(),
       termsAccepted: z.boolean({ required_error: t('fieldIsRequired') }),

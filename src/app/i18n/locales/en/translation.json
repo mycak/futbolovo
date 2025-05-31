@@ -168,6 +168,7 @@
   "validation": {
     "incorrectPhone": "Incorrect phone number",
     "min3": "Minimum 3 characters",
+    "maxImages": "Maximum 3 images allowed",
     "imageInfoOnRepeat": "If you duplicate data, re-uploading the photo is not necessary",
     "passwordConditions": "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character",
     "passwordsDontMatch": "Passwords don't match",

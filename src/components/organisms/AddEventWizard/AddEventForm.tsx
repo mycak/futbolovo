@@ -14,6 +14,7 @@ import {
   useFieldArray,
   useForm,
   useWatch,
+  Path,
 } from 'react-hook-form';
 import { useAddEventWizardStore } from '@/stores';
 import { useParams, useSearchParams } from 'next/navigation';
@@ -57,6 +58,8 @@ const AddEventForm = () => {
 
   const [isMultipleModalOpened, setIsMultipleModalOpened] =
     useState<boolean>(false);
+  const [isImagesModalOpened, setIsImagesModalOpened] =
+    useState<boolean>(false);
 
   const currentFormData = parseOldToCurrentEventData(tempAddData ?? addData);
   const parsedFormData = {
@@ -81,6 +84,7 @@ const AddEventForm = () => {
       ...parsedFormData,
       currency: currencyOptions[0].value,
       termsAccepted: true,
+      images: parsedFormData?.images || [],
     },
   });
 
@@ -88,6 +92,18 @@ const AddEventForm = () => {
     control,
     name: 'additionalLocations',
   });
+
+  const currentImages = useWatch({ control, name: 'images' }) || [];
+
+  const addImage = () => {
+    const newImages = [...currentImages, ''];
+    setValue('images', newImages);
+  };
+
+  const removeImageAtIndex = (index: number) => {
+    const newImages = currentImages.filter((_, i) => i !== index);
+    setValue('images', newImages);
+  };
 
   const currentCategory = useWatch({ control, name: 'category' });
   const currentCurrency = useWatch({ control, name: 'currency' });
@@ -102,6 +118,7 @@ const AddEventForm = () => {
         data.additionalLocations?.filter(
           (item) => item.latitude && item.longitude
         ) ?? [],
+      images: data.images?.filter((image) => image) ?? [],
       id: addData?.id,
     });
     clearTempData();
@@ -114,6 +131,14 @@ const AddEventForm = () => {
   };
   const onAcceptLocationsModal = () => {
     setIsMultipleModalOpened(false);
+  };
+
+  const onAddMoreImages = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIsImagesModalOpened(true);
+  };
+  const onAcceptImagesModal = () => {
+    setIsImagesModalOpened(false);
   };
 
   const onLocationChange = (
@@ -320,18 +345,65 @@ const AddEventForm = () => {
           register={register}
           error={errors.email?.message}
         />
-        <FileInput
-          label={t('imageInputLabel')}
-          placeholder={t('imageInputPlaceholder')}
-          name='image'
-          control={control}
-          error={errors.image?.message}
-          info={
-            isRepeatMode || isEditMode
-              ? t('validation.imageInfoOnRepeat')
-              : undefined
-          }
-        />
+        <div className='relative max-w-80 w-full'>
+          <FileInput
+            label={t('imageInputLabel')}
+            placeholder={t('imageInputPlaceholder')}
+            name='image'
+            control={control}
+            error={errors.image?.message}
+            info={
+              isRepeatMode || isEditMode
+                ? t('validation.imageInfoOnRepeat')
+                : undefined
+            }
+          />
+          {currentImages.length < 3 && (
+            <span className='absolute text-grass-50 text-sm -bottom-4 right-0'>
+              <button type='button' onClick={onAddMoreImages}>
+                <i className='fa-solid fa-plus mr-1' />
+                {t('addMoreImages')}
+              </button>
+            </span>
+          )}
+        </div>
+        <Modal
+          isOpen={isImagesModalOpened}
+          title={t('addMoreImages')}
+          onAccept={onAcceptImagesModal}
+        >
+          {currentImages.slice(1).map((imageUrl, index) => (
+            <div
+              key={index}
+              className='flex flex-col justify-center gap-2 items-center'
+            >
+              <FileInput
+                label={`${t('imageInputLabel')} ${index + 2}`}
+                placeholder={t('imageInputPlaceholder')}
+                name={`images.${index + 1}` as Path<AddEventInputs>}
+                control={control}
+                error={errors.images?.[index + 1]?.message}
+              />
+              <button
+                type='button'
+                className='text-red-500'
+                onClick={() => removeImageAtIndex(index + 1)}
+              >
+                {t('remove')}
+              </button>
+            </div>
+          ))}
+          {currentImages.length < 3 && (
+            <button
+              type='button'
+              className='text-grass-50 mr-auto max-w-max'
+              onClick={addImage}
+            >
+              <i className='fa-solid fa-plus mr-1' />
+              {t('add')}
+            </button>
+          )}
+        </Modal>
         <TextAreaInput
           label={t('description')}
           placeholder={
