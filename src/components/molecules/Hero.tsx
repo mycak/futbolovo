@@ -38,7 +38,7 @@ const Hero = ({
   }, []);
 
   const textStyle = 'text-base md:text-xl text-green-200';
-
+  console.log(currentTextIndex);
   return (
     <>
       <Head>
@@ -89,13 +89,12 @@ const Hero = ({
             style={{ opacity: textOpacity }}
           >
             <p
-              className='text-grass-20'
-              style={{
-                fontSize:
-                  currentTextIndex === 0
-                    ? 'clamp(1rem, 2vw, 4rem) sm:clamp(1.2rem, 3vw, 4rem)'
-                    : 'clamp(1.2rem, 3vw, 4rem)',
-              }}
+              className={clsx(
+                'text-grass-20',
+                currentTextIndex === 0
+                  ? 'text-[clamp(1rem,2vw,4rem)] sm:text-[clamp(1.2rem,3vw,4rem)]'
+                  : 'text-[clamp(1.2rem,3vw,4rem)]'
+              )}
             >
               {heroTexts[currentTextIndex]}
             </p>
