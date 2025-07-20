@@ -57,8 +57,6 @@ const AddEventForm = () => {
   const isEditMode = !!addData?.id;
   const isSignedIn = status === 'authenticated';
 
-  console.log(addData, tempAddData);
-
   const [isMultipleModalOpened, setIsMultipleModalOpened] =
     useState<boolean>(false);
   const [isImagesModalOpened, setIsImagesModalOpened] =
@@ -370,7 +368,7 @@ const AddEventForm = () => {
             name='image'
             control={control}
             error={errors.image?.message}
-            showPreview={true}
+            showPreview={isEditMode}
             isEditMode={isEditMode}
           />
           <span className='absolute text-grass-50 text-sm bottom-10 right-0 cursor-pointer'>
@@ -401,7 +399,7 @@ const AddEventForm = () => {
                 control={control}
                 key={`images.${index}`}
                 error={errors.images?.[index]?.message}
-                showPreview={true}
+                showPreview={isEditMode}
                 isEditMode={isEditMode}
               />
               <button
@@ -413,10 +411,10 @@ const AddEventForm = () => {
               </button>
             </div>
           ))}
-          {currentImages.length < 1 && (
+          {currentImages.length < 2 && (
             <button
               type='button'
-              className='text-grass-50 mr-auto max-w-max'
+              className='text-grass-50 mr-auto max-w-max cursor-pointer'
               onClick={addImage}
             >
               <i className='fa-solid fa-plus mr-1' />

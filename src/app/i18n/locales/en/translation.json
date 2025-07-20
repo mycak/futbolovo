@@ -185,6 +185,7 @@
   "clear": "Clear",
   "currentImage": "Current image",
   "changeImage": "Change image",
+  "imageUploaded": "Image uploaded",
   "existingImage": "Existing image",
   "saved": "Saved",
   "givePrice": "Give a price",
@@ -270,10 +271,10 @@
     "buttonTitle": "Join the game!",
     "marchAnnouncement": "We are pleased to announce recent improvements to our platform <panel>enhancing your user experience</panel>:",
     "marchAnnouncementPoints": {
-      "point1": "Fixed event info tile centering for better display across devices.",
-      "point2": "Added confirmation emails for all event submissions.",
-      "point3": "Fixed date range input behavior for better user experience.",
-      "point4": "Connected filters with URL parameters for easier sharing and navigation."
+      "point1": "Enhanced image handling - now you can add up to 3 images per event.",
+      "point2": "Added image preview functionality in edit mode for better management.",
+      "point3": "Improved image organization system for more effective content management.",
+      "point4": "Streamlined image upload process for better user experience."
     },
     "successUpdate": "Update completed successfully!"
   },

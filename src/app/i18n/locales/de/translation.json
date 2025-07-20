@@ -184,6 +184,7 @@
   "clear": "Leeren",
   "currentImage": "Aktuelles Bild",
   "changeImage": "Bild ändern",
+  "imageUploaded": "Bild hochgeladen",
   "existingImage": "Vorhandenes Bild",
   "saved": "Gespeichert",
   "givePrice": "Gib einen Preis an",
@@ -268,10 +269,10 @@
     "buttonTitle": "Nimm am Spiel teil!",
     "marchAnnouncement": "Wir freuen uns, aktuelle Verbesserungen unserer Plattform <panel>zur Verbesserung Ihres Benutzererlebnisses</panel> bekannt zu geben:",
     "marchAnnouncementPoints": {
-      "point1": "Zentrierungsfehler bei den Eventinformationskacheln wurden für eine bessere Darstellung auf allen Geräten behoben.",
-      "point2": "Bestätigungs-E-Mails für alle eingereichten Veranstaltungen wurden hinzugefügt.",
-      "point3": "Verbessertes Verhalten bei der Eingabe von Datumsbereichen für eine bessere Benutzererfahrung.",
-      "point4": "Filter mit URL-Parametern verknüpft für einfacheres Teilen und Navigation."
+      "point1": "Verbesserte Bildbehandlung - jetzt können Sie bis zu 3 Bilder pro Veranstaltung hinzufügen.",
+      "point2": "Bildvorschau-Funktionalität im Bearbeitungsmodus für bessere Verwaltung hinzugefügt.",
+      "point3": "Verbessertes Bildorganisationssystem für effektiveres Content-Management.",
+      "point4": "Optimierter Bild-Upload-Prozess für bessere Benutzererfahrung."
     },
     "successUpdate": "Update erfolgreich abgeschlossen!"
   },

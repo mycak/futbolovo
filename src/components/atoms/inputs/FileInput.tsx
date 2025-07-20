@@ -162,7 +162,11 @@ const FileInput = <T extends FieldValues>({
                           'mt-0! pt-[7px] truncate'
                         )}
                       >
-                        {value ? t('changeImage') : fileName || t('chooseFile')}
+                        {value
+                          ? isEditMode
+                            ? t('changeImage')
+                            : fileName || t('imageUploaded')
+                          : fileName || t('chooseFile')}
                       </p>
                     </label>
 
