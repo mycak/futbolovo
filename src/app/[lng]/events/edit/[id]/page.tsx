@@ -46,7 +46,7 @@ const EditEventPage = async (props: {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <SEOMetadata path={paths.EventEdit} t={t} currentLanguage={params.lng} />
+      <SEOMetadata path={paths.EventEdit(params.id)} t={t} currentLanguage={params.lng} />
       <PageContainer>
         <PageWrapper>
           {eventData ? (
