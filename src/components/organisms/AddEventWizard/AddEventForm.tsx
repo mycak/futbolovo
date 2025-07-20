@@ -17,7 +17,7 @@ import {
   Path,
 } from 'react-hook-form';
 import { useAddEventWizardStore } from '@/stores';
-import { useParams, useSearchParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import { useTranslation } from '@/app/i18n/client';
 import { EventCategoryEnum } from '@prisma/client';
 import { useState } from 'react';
@@ -49,10 +49,6 @@ const AddEventForm = () => {
   const setAddData = useAddEventWizardStore((state) => state.setAddData);
   const addData = useAddEventWizardStore((state) => state.addData);
   const tempAddData = useAddEventWizardStore((state) => state.tempAddData);
-
-  const searchParams = useSearchParams();
-  const isRepeatMode = !!searchParams.get('repost');
-
   const isEditMode = !!addData?.id;
   const isSignedIn = status === 'authenticated';
 
@@ -103,6 +99,16 @@ const AddEventForm = () => {
   const removeImageAtIndex = (index: number) => {
     const newImages = currentImages.filter((_, i) => i !== index);
     setValue('images', newImages);
+
+    // Clean up sessionStorage for the removed image
+    const filenameKey = `filename_images.${index}`;
+    sessionStorage.removeItem(filenameKey);
+
+    // Also clean up any higher-indexed items since array is being reordered
+    for (let i = index + 1; i < currentImages.length; i++) {
+      const higherIndexKey = `filename_images.${i}`;
+      sessionStorage.removeItem(higherIndexKey);
+    }
   };
 
   const currentCategory = useWatch({ control, name: 'category' });
@@ -118,9 +124,10 @@ const AddEventForm = () => {
         data.additionalLocations?.filter(
           (item) => item.latitude && item.longitude
         ) ?? [],
-      images: data.images?.filter((image) => image) ?? [],
+      images: data.images?.filter((image) => image).slice(0, 2) ?? [],
       id: addData?.id,
     });
+
     clearTempData();
     nextStep();
   };
@@ -352,20 +359,13 @@ const AddEventForm = () => {
             name='image'
             control={control}
             error={errors.image?.message}
-            info={
-              isRepeatMode || isEditMode
-                ? t('validation.imageInfoOnRepeat')
-                : undefined
-            }
           />
-          {currentImages.length < 3 && (
-            <span className='absolute text-grass-50 text-sm -bottom-4 right-0'>
-              <button type='button' onClick={onAddMoreImages}>
-                <i className='fa-solid fa-plus mr-1' />
-                {t('addMoreImages')}
-              </button>
-            </span>
-          )}
+          <span className='absolute text-grass-50 text-sm bottom-10 right-0 cursor-pointer'>
+            <button type='button' onClick={onAddMoreImages}>
+              <i className='fa-solid fa-plus mr-1' />
+              {t('addMoreImages')}
+            </button>
+          </span>
         </div>
         <Modal
           isOpen={isImagesModalOpened}

@@ -38,7 +38,6 @@ const Hero = ({
   }, []);
 
   const textStyle = 'text-base md:text-xl text-green-200';
-  console.log(currentTextIndex);
   return (
     <>
       <Head>

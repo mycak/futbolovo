@@ -169,7 +169,6 @@
     "incorrectPhone": "Incorrect phone number",
     "min3": "Minimum 3 characters",
     "maxImages": "Maximum 3 images allowed",
-    "imageInfoOnRepeat": "If you duplicate data, re-uploading the photo is not necessary",
     "passwordConditions": "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character",
     "passwordsDontMatch": "Passwords don't match",
     "incorrectEmail": "Incorrect email address"
@@ -184,6 +183,8 @@
   },
   "chooseFile": "Choose a file",
   "clear": "Clear",
+  "currentImage": "Current image",
+  "changeImage": "Change image",
   "givePrice": "Give a price",
   "objects": "Facilities",
   "price": "Price",
@@ -225,7 +226,7 @@
     "text1": "Would you like to <1>promote</1> your company or product on our platform? Or maybe you have an idea on how we can <1>develop</1> our site together and create new, innovative solutions? We are also open to <1>collaborating with patrons</1> who would like to support our activities and become part of our growth. Reach out to us, and let's discuss opportunities for collaboration!"
   },
   "typeEmail": "Type email",
-  "imageInputLabel": "Photo/graphic/logo",
+  "imageInputLabel": "Photo/graphic",
   "imageInputPlaceholder": "Choose a file",
   "dateRange": "Date Range",
   "reset": "Reset",
@@ -342,6 +343,7 @@
     "invalidPassword": "Invalid password",
     "emailExists": "Email already exists"
   },
+  "addMoreImages": "Add more images",
   "share": "Share",
   "eventShareDefaultText": "Check out this event!",
   "email": {

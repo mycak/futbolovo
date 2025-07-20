@@ -24,7 +24,10 @@ const EventImage = ({
   const images = (() => {
     const eventDataWithImages = eventData as AddEventInputs;
     if (eventDataWithImages.images && eventDataWithImages.images.length > 0) {
-      return eventDataWithImages.images.filter((img) => img); // Filter out empty strings
+      return [
+        eventDataWithImages.image as string,
+        ...eventDataWithImages.images.filter((img) => img),
+      ]; // Filter out empty strings
     }
     if (eventData.image) {
       return [eventData.image];
@@ -63,7 +66,7 @@ const EventImage = ({
       ) : null}
 
       {images.length > 0 ? (
-        <div className='relative'>
+        <div className='relative min-w-[200px]'>
           <CldImage
             width='424'
             priority
