@@ -168,7 +168,7 @@
   "validation": {
     "incorrectPhone": "Incorrect phone number",
     "min3": "Minimum 3 characters",
-    "imageInfoOnRepeat": "If you duplicate data, re-uploading the photo is not necessary",
+    "maxImages": "Maximum 3 images allowed",
     "passwordConditions": "Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character",
     "passwordsDontMatch": "Passwords don't match",
     "incorrectEmail": "Incorrect email address"
@@ -183,6 +183,11 @@
   },
   "chooseFile": "Choose a file",
   "clear": "Clear",
+  "currentImage": "Current image",
+  "changeImage": "Change image",
+  "imageUploaded": "Image uploaded",
+  "existingImage": "Existing image",
+  "saved": "Saved",
   "givePrice": "Give a price",
   "objects": "Facilities",
   "price": "Price",
@@ -224,7 +229,7 @@
     "text1": "Would you like to <1>promote</1> your company or product on our platform? Or maybe you have an idea on how we can <1>develop</1> our site together and create new, innovative solutions? We are also open to <1>collaborating with patrons</1> who would like to support our activities and become part of our growth. Reach out to us, and let's discuss opportunities for collaboration!"
   },
   "typeEmail": "Type email",
-  "imageInputLabel": "Photo/graphic/logo",
+  "imageInputLabel": "Photo/graphic",
   "imageInputPlaceholder": "Choose a file",
   "dateRange": "Date Range",
   "reset": "Reset",
@@ -266,10 +271,10 @@
     "buttonTitle": "Join the game!",
     "marchAnnouncement": "We are pleased to announce recent improvements to our platform <panel>enhancing your user experience</panel>:",
     "marchAnnouncementPoints": {
-      "point1": "Fixed event info tile centering for better display across devices.",
-      "point2": "Added confirmation emails for all event submissions.",
-      "point3": "Fixed date range input behavior for better user experience.",
-      "point4": "Connected filters with URL parameters for easier sharing and navigation."
+      "point1": "Enhanced image handling - now you can add up to 3 images per event.",
+      "point2": "Added image preview functionality in edit mode for better management.",
+      "point3": "Improved image organization system for more effective content management.",
+      "point4": "Streamlined image upload process for better user experience."
     },
     "successUpdate": "Update completed successfully!"
   },
@@ -341,6 +346,7 @@
     "invalidPassword": "Invalid password",
     "emailExists": "Email already exists"
   },
+  "addMoreImages": "Add more images",
   "share": "Share",
   "eventShareDefaultText": "Check out this event!",
   "email": {

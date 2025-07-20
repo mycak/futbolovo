@@ -27,6 +27,7 @@ model Event {
   email          String
   isPublished    Boolean                    @default(false)
   image          String?
+  images         String[]
   createdAt      DateTime                   @default(now())
   updatedAt      DateTime                   @updatedAt
   author         User?                      @relation(fields: [authorId], references: [id])

@@ -14,6 +14,7 @@ import {
   useFieldArray,
   useForm,
   useWatch,
+  Path,
 } from 'react-hook-form';
 import { useAddEventWizardStore } from '@/stores';
 import { useParams, useSearchParams } from 'next/navigation';
@@ -41,6 +42,8 @@ import { TFunction } from 'i18next';
 import { parseOldToCurrentEventData } from '@/utils/common';
 import { useSession } from 'next-auth/react';
 
+import { clearSpecificImageFilename } from '@/utils/sessionStorage';
+
 const AddEventForm = () => {
   const { status, data } = useSession();
   const nextStep = useAddEventWizardStore((state) => state.nextStep);
@@ -48,14 +51,15 @@ const AddEventForm = () => {
   const setAddData = useAddEventWizardStore((state) => state.setAddData);
   const addData = useAddEventWizardStore((state) => state.addData);
   const tempAddData = useAddEventWizardStore((state) => state.tempAddData);
+  const isEditMode = !!addData?.id;
+  const isSignedIn = status === 'authenticated';
 
   const searchParams = useSearchParams();
   const isRepeatMode = !!searchParams.get('repost');
 
-  const isEditMode = !!addData?.id;
-  const isSignedIn = status === 'authenticated';
-
   const [isMultipleModalOpened, setIsMultipleModalOpened] =
+    useState<boolean>(false);
+  const [isImagesModalOpened, setIsImagesModalOpened] =
     useState<boolean>(false);
 
   const currentFormData = parseOldToCurrentEventData(tempAddData ?? addData);
@@ -81,6 +85,7 @@ const AddEventForm = () => {
       ...parsedFormData,
       currency: currencyOptions[0].value,
       termsAccepted: true,
+      images: parsedFormData?.images || [],
     },
   });
 
@@ -89,6 +94,24 @@ const AddEventForm = () => {
     name: 'additionalLocations',
   });
 
+  const currentImages = useWatch({ control, name: 'images' }) || [];
+  const addImage = () => {
+    const newImages = [...currentImages, ''];
+    setValue('images', newImages);
+  };
+
+  const removeImageAtIndex = (index: number) => {
+    const newImages = currentImages.filter((_, i) => i !== index);
+    setValue('images', newImages);
+
+    // Clean up sessionStorage for the removed image
+    clearSpecificImageFilename(`images.${index}`);
+
+    // Also clean up any higher-indexed items since array is being reordered
+    for (let i = index + 1; i < currentImages.length; i++) {
+      clearSpecificImageFilename(`images.${i}`);
+    }
+  };
   const currentCategory = useWatch({ control, name: 'category' });
   const currentCurrency = useWatch({ control, name: 'currency' });
 
@@ -102,9 +125,16 @@ const AddEventForm = () => {
         data.additionalLocations?.filter(
           (item) => item.latitude && item.longitude
         ) ?? [],
+      images: data.images?.filter((image) => image) ?? [],
       id: addData?.id,
     });
-    clearTempData();
+
+    // Only clear tempAddData for new events, not for edits
+    // In edit mode, tempAddData will be cleared after successful submission in preview
+    if (!isEditMode) {
+      clearTempData();
+    }
+
     nextStep();
   };
 
@@ -114,6 +144,14 @@ const AddEventForm = () => {
   };
   const onAcceptLocationsModal = () => {
     setIsMultipleModalOpened(false);
+  };
+
+  const onAddMoreImages = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIsImagesModalOpened(true);
+  };
+  const onAcceptImagesModal = () => {
+    setIsImagesModalOpened(false);
   };
 
   const onLocationChange = (
@@ -320,18 +358,67 @@ const AddEventForm = () => {
           register={register}
           error={errors.email?.message}
         />
-        <FileInput
-          label={t('imageInputLabel')}
-          placeholder={t('imageInputPlaceholder')}
-          name='image'
-          control={control}
-          error={errors.image?.message}
-          info={
-            isRepeatMode || isEditMode
-              ? t('validation.imageInfoOnRepeat')
-              : undefined
-          }
-        />
+        <div className='relative max-w-80 w-full'>
+          <FileInput
+            label={t('imageInputLabel')}
+            placeholder={t('imageInputPlaceholder')}
+            name='image'
+            control={control}
+            error={errors.image?.message}
+            showPreview={isEditMode || isRepeatMode}
+            isEditMode={isEditMode}
+          />
+          <span className='absolute text-grass-50 text-sm bottom-10 right-0 cursor-pointer'>
+            <button
+              type='button'
+              onClick={onAddMoreImages}
+              className='cursor-pointer'
+            >
+              <i className='fa-solid fa-plus mr-1' />
+              {t('addMoreImages')}
+            </button>
+          </span>
+        </div>
+        <Modal
+          isOpen={isImagesModalOpened}
+          title={t('addMoreImages')}
+          onAccept={onAcceptImagesModal}
+        >
+          {currentImages.map((_imageUrl, index) => (
+            <div
+              key={index}
+              className='flex flex-col justify-center gap-2 items-center'
+            >
+              <FileInput
+                label={`${t('imageInputLabel')} ${index + 2}`}
+                placeholder={t('imageInputPlaceholder')}
+                name={`images.${index}` as Path<AddEventInputs>}
+                control={control}
+                key={`images.${index}`}
+                error={errors.images?.[index]?.message}
+                showPreview={isEditMode || isRepeatMode}
+                isEditMode={isEditMode}
+              />
+              <button
+                type='button'
+                className='text-red-500 cursor-pointer'
+                onClick={() => removeImageAtIndex(index)}
+              >
+                {t('remove')}
+              </button>
+            </div>
+          ))}
+          {currentImages.length < 2 && (
+            <button
+              type='button'
+              className='text-grass-50 mr-auto max-w-max cursor-pointer'
+              onClick={addImage}
+            >
+              <i className='fa-solid fa-plus mr-1' />
+              {t('add')}
+            </button>
+          )}
+        </Modal>
         <TextAreaInput
           label={t('description')}
           placeholder={

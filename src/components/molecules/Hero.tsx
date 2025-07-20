@@ -38,7 +38,6 @@ const Hero = ({
   }, []);
 
   const textStyle = 'text-base md:text-xl text-green-200';
-  console.log(currentTextIndex);
   return (
     <>
       <Head>
@@ -52,7 +51,7 @@ const Hero = ({
             </div>
             <div className='ml-3'>
               <h1 className='text-3xl font-medium text-green-300 mb-2'>
-                {t('hero.successUpdate')} - 20.05.25
+                {t('hero.successUpdate')} - 20.07.25
               </h1>
               <p className={textStyle}>
                 <Trans

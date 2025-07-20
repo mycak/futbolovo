@@ -165,7 +165,6 @@
   "validation": {
     "incorrectPhone": "Nieprawidłowy numer telefonu",
     "min3": "Minimum 3 znaki",
-    "imageInfoOnRepeat": "Jeżeli powielasz dane, powtórne wgranie zdjęcia nie jest potrzebne",
     "passwordConditions": "Hasło musi zawierać co najmniej 8 znaków, w tym jedną cyfrę, jedną dużą literę i jeden znak specjalny",
     "passwordsDontMatch": "Hasła nie pasują do siebie",
     "incorrectEmail": "Nieprawidłowy adres email"
@@ -198,6 +197,11 @@
   "matches": "Mecze",
   "category": "Kategoria",
   "clear": "Wyczyść",
+  "currentImage": "Obecny obraz",
+  "changeImage": "Zmień obraz",
+  "imageUploaded": "Obraz przesłany",
+  "existingImage": "Istniejący obraz",
+  "saved": "Zapisane",
   "location": "Lokalizacja",
   "price": "Cena",
   "priceFrom": "Cena min",
@@ -211,7 +215,7 @@
     "option3": "Opis usługi",
     "option4": "Opis obiektu"
   },
-  "imageInputLabel": "Zdjęcie/grafika/logo",
+  "imageInputLabel": "Zdjęcie/grafika",
   "imageInputPlaceholder": "Umieść zdjęcie lub grafikę",
   "typeEmail": "Wpisz email",
   "givePrice": "Podaj cenę",
@@ -259,10 +263,10 @@
     "buttonTitle": "Dołącz do gry!",
     "marchAnnouncement": "Z przyjemnością informujemy o ostatnich ulepszeniach naszej platformy <panel>poprawiających komfort użytkowania</panel>:",
     "marchAnnouncementPoints": {
-      "point1": "Naprawiliśmy wyświetlanie kafelków informacji o wydarzeniach, aby lepiej wyglądały na wszystkich urządzeniach.",
-      "point2": "Dodaliśmy wysyłanie e-maili potwierdzających dla wszystkich przesłanych wydarzeń.",
-      "point3": "Naprawiliśmy działanie wyboru zakresu dat dla lepszego doświadczenia użytkownika.",
-      "point4": "Połączyliśmy filtry z parametrami URL dla łatwiejszego udostępniania i nawigacji."
+      "point1": "Ulepszona obsługa zdjęć - teraz możesz dodać do 3 zdjęć na wydarzenie.",
+      "point2": "Dodany podgląd zdjęć w trybie edycji dla lepszego zarządzania.",
+      "point3": "Ulepszony system organizacji zdjęć dla bardziej efektywnego zarządzania treścią.",
+      "point4": "Uproszczony proces przesyłania zdjęć dla lepszego doświadczenia użytkownika."
     },
     "successUpdate": "Aktualizacja zakończona sukcesem!"
   },
@@ -340,6 +344,7 @@
     "description": "Dodaj swoje wydarzenie i pozwól innym je odkryć."
   },
   "share": "Udostępnij",
+  "addMoreImages": "Dodaj więcej zdjęć",
   "eventShareDefaultText": "Sprawdź to wydarzenie!",
   "email": {
     "eventAdded": {

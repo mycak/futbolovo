@@ -7,6 +7,7 @@ import { useJsApiLoader } from '@react-google-maps/api';
 import { googleApiConfig } from '@/configs/googleApi';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { clearImageFilenameStorage } from '@/utils/sessionStorage';
 
 const steps: {
   key: 'addEventForm' | 'preview' | 'confirmMessage';
@@ -34,6 +35,16 @@ const AddEventWizard = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
+
+  // Cleanup sessionStorage when component unmounts (user leaves add event page)
+  useEffect(() => {
+    return () => {
+      // Only clean up if we're leaving the add event flow entirely
+      if (!window.location.pathname.includes('add')) {
+        clearImageFilenameStorage();
+      }
+    };
+  }, []);
 
   return isLoaded ? <Component /> : <DynamicLoader classNames='mt-8' />;
 };
