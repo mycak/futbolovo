@@ -1,7 +1,10 @@
 'use client';
 import { useAddEventWizardStore } from '@/stores';
 import React, { useState, useEffect } from 'react';
-import { generateEventVisibilityEndDate } from '@/utils';
+import {
+  clearImageFilenameStorage,
+  generateEventVisibilityEndDate,
+} from '@/utils';
 import { format } from 'date-fns';
 import { DATE_FORMAT } from '@/constants/common';
 import { useParams, useRouter } from 'next/navigation';
@@ -113,6 +116,8 @@ const AddEventPreview = () => {
 
           const params = new URLSearchParams(successPageQuery).toString();
           const fullPath = `${paths.EventAddConfirm}?${params}`;
+          // Clean up all image filename storage after successful submission
+          clearImageFilenameStorage();
           router.push(fullPath);
         })
         .catch((err) => {
@@ -128,6 +133,9 @@ const AddEventPreview = () => {
           setIsLoading(false);
           setIsEditSucceeded(true);
           showNotification(t('eventsForm.editSuccess'), 'success');
+          // Clean up all image filename storage after successful submission
+          clearImageFilenameStorage();
+          setTempAddData(undefined);
         })
         .catch((err) => {
           console.error(err);

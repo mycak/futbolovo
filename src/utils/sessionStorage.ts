@@ -23,7 +23,7 @@ export const clearImageFilenameStorage = (): void => {
   sessionStorage.removeItem(IMAGE_STORAGE_KEYS.MAIN_IMAGE);
 
   // Clear additional images filenames
-  for (let i = 1; i < MAX_ADDITIONAL_IMAGES; i++) {
+  for (let i = 0; i <= MAX_ADDITIONAL_IMAGES; i++) {
     sessionStorage.removeItem(`${IMAGE_STORAGE_KEYS.ADDITIONAL_IMAGES}.${i}`);
   }
 };
@@ -36,24 +36,4 @@ export const clearSpecificImageFilename = (fieldName: string): void => {
   if (typeof window === 'undefined') return;
 
   sessionStorage.removeItem(`filename_${fieldName}`);
-};
-
-/**
- * Gets all stored image filenames (useful for debugging)
- */
-export const getAllStoredImageFilenames = (): Record<string, string | null> => {
-  if (typeof window === 'undefined') return {};
-
-  const result: Record<string, string | null> = {};
-
-  result[IMAGE_STORAGE_KEYS.MAIN_IMAGE] = sessionStorage.getItem(
-    IMAGE_STORAGE_KEYS.MAIN_IMAGE
-  );
-
-  for (let i = 1; i < MAX_ADDITIONAL_IMAGES; i++) {
-    const key = `${IMAGE_STORAGE_KEYS.ADDITIONAL_IMAGES}.${i}`;
-    result[key] = sessionStorage.getItem(`filename_${key}`);
-  }
-
-  return result;
 };

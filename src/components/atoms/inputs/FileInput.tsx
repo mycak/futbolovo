@@ -84,7 +84,7 @@ const FileInput = <T extends FieldValues>({
         render={({ field: { onChange, value } }) => {
           return (
             <>
-              {showPreview && isEditMode && value && (
+              {(showPreview || isEditMode) && value && (
                 <div className='mb-3'>
                   <div className='text-grass-20 text-sm mb-2 flex items-center gap-2'>
                     {isExistingImage(value)

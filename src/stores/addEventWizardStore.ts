@@ -10,7 +10,7 @@ export interface AddEventState {
 
 export interface AddEventAction {
   setAddData: (addData: AddEventInputs & { id?: string }) => void;
-  setTempAddData: (tempData: AddEventInputs) => void;
+  setTempAddData: (tempData: AddEventInputs | undefined) => void;
   setStep: (currentStep: number) => void;
   nextStep: () => void;
   prevStep: () => void;

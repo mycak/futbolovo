@@ -17,7 +17,7 @@ import {
   Path,
 } from 'react-hook-form';
 import { useAddEventWizardStore } from '@/stores';
-import { useParams } from 'next/navigation';
+import { useParams, useSearchParams } from 'next/navigation';
 import { useTranslation } from '@/app/i18n/client';
 import { EventCategoryEnum } from '@prisma/client';
 import { useState } from 'react';
@@ -42,10 +42,7 @@ import { TFunction } from 'i18next';
 import { parseOldToCurrentEventData } from '@/utils/common';
 import { useSession } from 'next-auth/react';
 
-import {
-  clearImageFilenameStorage,
-  clearSpecificImageFilename,
-} from '@/utils/sessionStorage';
+import { clearSpecificImageFilename } from '@/utils/sessionStorage';
 
 const AddEventForm = () => {
   const { status, data } = useSession();
@@ -56,6 +53,9 @@ const AddEventForm = () => {
   const tempAddData = useAddEventWizardStore((state) => state.tempAddData);
   const isEditMode = !!addData?.id;
   const isSignedIn = status === 'authenticated';
+
+  const searchParams = useSearchParams();
+  const isRepeatMode = !!searchParams.get('repost');
 
   const [isMultipleModalOpened, setIsMultipleModalOpened] =
     useState<boolean>(false);
@@ -128,9 +128,6 @@ const AddEventForm = () => {
       images: data.images?.filter((image) => image) ?? [],
       id: addData?.id,
     });
-
-    // Clean up all image filename storage after successful submission
-    clearImageFilenameStorage();
 
     // Only clear tempAddData for new events, not for edits
     // In edit mode, tempAddData will be cleared after successful submission in preview
@@ -368,7 +365,7 @@ const AddEventForm = () => {
             name='image'
             control={control}
             error={errors.image?.message}
-            showPreview={isEditMode}
+            showPreview={isEditMode || isRepeatMode}
             isEditMode={isEditMode}
           />
           <span className='absolute text-grass-50 text-sm bottom-10 right-0 cursor-pointer'>
@@ -399,7 +396,7 @@ const AddEventForm = () => {
                 control={control}
                 key={`images.${index}`}
                 error={errors.images?.[index]?.message}
-                showPreview={isEditMode}
+                showPreview={isEditMode || isRepeatMode}
                 isEditMode={isEditMode}
               />
               <button
