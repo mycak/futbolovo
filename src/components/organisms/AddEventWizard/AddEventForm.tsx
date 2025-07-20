@@ -358,6 +358,21 @@ const AddEventForm = () => {
           register={register}
           error={errors.email?.message}
         />
+        {/* DESCRIPTION */}
+        <TextAreaInput
+          label={t('description')}
+          placeholder={
+            currentCategory
+              ? descriptionHints(t)[currentCategory]
+              : t('addDescription')
+          }
+          name='description'
+          error={errors.description?.message}
+          register={register}
+        />
+
+        {/* IMAGES */}
+
         <div className='relative max-w-80 w-full'>
           <FileInput
             label={t('imageInputLabel')}
@@ -419,17 +434,7 @@ const AddEventForm = () => {
             </button>
           )}
         </Modal>
-        <TextAreaInput
-          label={t('description')}
-          placeholder={
-            currentCategory
-              ? descriptionHints(t)[currentCategory]
-              : t('addDescription')
-          }
-          name='description'
-          error={errors.description?.message}
-          register={register}
-        />
+
         {(currentCategory === EventCategoryEnum.TOURNAMENT ||
           currentCategory === EventCategoryEnum.SCHOOL) && (
           <SwitchInput
