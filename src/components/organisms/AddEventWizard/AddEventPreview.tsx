@@ -31,6 +31,8 @@ const AddEventPreview = () => {
   const setTempAddData = useAddEventWizardStore(
     (state) => state.setTempAddData
   );
+  const clearState = useAddEventWizardStore((state) => state.clearState);
+  const clearTempData = useAddEventWizardStore((state) => state.clearTempData);
 
   const isEditMode = !!eventData?.id;
 
@@ -38,10 +40,14 @@ const AddEventPreview = () => {
     if (isEditSucceeded) {
       const redirectTimer = setTimeout(() => {
         router.push(paths.MyEvents);
+        // Clear all wizard data after successful edit
+        clearTempData();
+        clearState();
       }, 2000);
 
       return () => clearTimeout(redirectTimer);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEditSucceeded, router]);
 
   const onAddEvent = async () => {

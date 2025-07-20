@@ -42,6 +42,11 @@ import { TFunction } from 'i18next';
 import { parseOldToCurrentEventData } from '@/utils/common';
 import { useSession } from 'next-auth/react';
 
+import {
+  clearImageFilenameStorage,
+  clearSpecificImageFilename,
+} from '@/utils/sessionStorage';
+
 const AddEventForm = () => {
   const { status, data } = useSession();
   const nextStep = useAddEventWizardStore((state) => state.nextStep);
@@ -51,6 +56,8 @@ const AddEventForm = () => {
   const tempAddData = useAddEventWizardStore((state) => state.tempAddData);
   const isEditMode = !!addData?.id;
   const isSignedIn = status === 'authenticated';
+
+  console.log(addData, tempAddData);
 
   const [isMultipleModalOpened, setIsMultipleModalOpened] =
     useState<boolean>(false);
@@ -90,7 +97,6 @@ const AddEventForm = () => {
   });
 
   const currentImages = useWatch({ control, name: 'images' }) || [];
-
   const addImage = () => {
     const newImages = [...currentImages, ''];
     setValue('images', newImages);
@@ -101,16 +107,13 @@ const AddEventForm = () => {
     setValue('images', newImages);
 
     // Clean up sessionStorage for the removed image
-    const filenameKey = `filename_images.${index}`;
-    sessionStorage.removeItem(filenameKey);
+    clearSpecificImageFilename(`images.${index}`);
 
     // Also clean up any higher-indexed items since array is being reordered
     for (let i = index + 1; i < currentImages.length; i++) {
-      const higherIndexKey = `filename_images.${i}`;
-      sessionStorage.removeItem(higherIndexKey);
+      clearSpecificImageFilename(`images.${i}`);
     }
   };
-
   const currentCategory = useWatch({ control, name: 'category' });
   const currentCurrency = useWatch({ control, name: 'currency' });
 
@@ -124,11 +127,19 @@ const AddEventForm = () => {
         data.additionalLocations?.filter(
           (item) => item.latitude && item.longitude
         ) ?? [],
-      images: data.images?.filter((image) => image).slice(0, 2) ?? [],
+      images: data.images?.filter((image) => image) ?? [],
       id: addData?.id,
     });
 
-    clearTempData();
+    // Clean up all image filename storage after successful submission
+    clearImageFilenameStorage();
+
+    // Only clear tempAddData for new events, not for edits
+    // In edit mode, tempAddData will be cleared after successful submission in preview
+    if (!isEditMode) {
+      clearTempData();
+    }
+
     nextStep();
   };
 
@@ -359,9 +370,15 @@ const AddEventForm = () => {
             name='image'
             control={control}
             error={errors.image?.message}
+            showPreview={true}
+            isEditMode={isEditMode}
           />
           <span className='absolute text-grass-50 text-sm bottom-10 right-0 cursor-pointer'>
-            <button type='button' onClick={onAddMoreImages}>
+            <button
+              type='button'
+              onClick={onAddMoreImages}
+              className='cursor-pointer'
+            >
               <i className='fa-solid fa-plus mr-1' />
               {t('addMoreImages')}
             </button>
@@ -372,7 +389,7 @@ const AddEventForm = () => {
           title={t('addMoreImages')}
           onAccept={onAcceptImagesModal}
         >
-          {currentImages.slice(1).map((imageUrl, index) => (
+          {currentImages.map((_imageUrl, index) => (
             <div
               key={index}
               className='flex flex-col justify-center gap-2 items-center'
@@ -380,20 +397,23 @@ const AddEventForm = () => {
               <FileInput
                 label={`${t('imageInputLabel')} ${index + 2}`}
                 placeholder={t('imageInputPlaceholder')}
-                name={`images.${index + 1}` as Path<AddEventInputs>}
+                name={`images.${index}` as Path<AddEventInputs>}
                 control={control}
-                error={errors.images?.[index + 1]?.message}
+                key={`images.${index}`}
+                error={errors.images?.[index]?.message}
+                showPreview={true}
+                isEditMode={isEditMode}
               />
               <button
                 type='button'
-                className='text-red-500'
-                onClick={() => removeImageAtIndex(index + 1)}
+                className='text-red-500 cursor-pointer'
+                onClick={() => removeImageAtIndex(index)}
               >
                 {t('remove')}
               </button>
             </div>
           ))}
-          {currentImages.length < 3 && (
+          {currentImages.length < 1 && (
             <button
               type='button'
               className='text-grass-50 mr-auto max-w-max'

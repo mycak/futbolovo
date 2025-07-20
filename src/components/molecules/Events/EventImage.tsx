@@ -89,14 +89,14 @@ const EventImage = ({
               {/* Navigation arrows */}
               <button
                 onClick={prevImage}
-                className='absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity'
+                className='absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-grass-30 p-2 rounded-full hover:bg-opacity-75 transition-opacity cursor-pointer'
                 aria-label='Previous image'
               >
                 <i className='fa-solid fa-chevron-left' />
               </button>
               <button
                 onClick={nextImage}
-                className='absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-opacity'
+                className='absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 text-grass-30 p-2 rounded-full hover:bg-opacity-75 transition-opacity cursor-pointer'
                 aria-label='Next image'
               >
                 <i className='fa-solid fa-chevron-right' />
@@ -109,10 +109,10 @@ const EventImage = ({
                     key={index}
                     onClick={() => goToImage(index)}
                     className={clsx(
-                      'w-3 h-3 rounded-full transition-colors',
+                      'w-3 h-3 rounded-full transition-colors cursor-pointer',
                       index === currentImageIndex
-                        ? 'bg-white'
-                        : 'bg-white bg-opacity-50 hover:bg-opacity-75'
+                        ? 'bg-grass-40'
+                        : 'bg-grass-20 bg-opacity-50 hover:bg-opacity-75'
                     )}
                     aria-label={`Go to image ${index + 1}`}
                   />

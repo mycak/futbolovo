@@ -46,7 +46,7 @@ export const addEventSchema = (t: TranslationFunction) =>
       image: z.string().nullable().optional(),
       images: z
         .array(z.string())
-        .max(3, { message: t('validation.maxImages') })
+        .max(2, { message: t('validation.maxImages') })
         .optional(),
       isPublished: z.boolean().default(false),
       authorId: z.string().optional(),

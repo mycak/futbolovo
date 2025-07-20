@@ -184,6 +184,8 @@
   "clear": "Leeren",
   "currentImage": "Aktuelles Bild",
   "changeImage": "Bild ändern",
+  "existingImage": "Vorhandenes Bild",
+  "saved": "Gespeichert",
   "givePrice": "Gib einen Preis an",
   "objects": "Einrichtungen",
   "price": "Preis",

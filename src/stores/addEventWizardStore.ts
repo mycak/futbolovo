@@ -1,5 +1,6 @@
 import { AddEventInputs } from './../schemas/addEventSchema';
 import { create } from 'zustand';
+import { clearImageFilenameStorage } from '@/utils/sessionStorage';
 
 export interface AddEventState {
   addData: (AddEventInputs & { id?: string }) | undefined;
@@ -33,8 +34,13 @@ export const useAddEventWizardStore = create<AddEventState & AddEventAction>(
     prevStep: () => set((state) => ({ currentStep: state.currentStep - 1 })),
 
     setStep: (currentStep) => set({ currentStep }),
-    clearState: () =>
-      set((state) => ({ ...initialState, tempAddData: state.tempAddData })),
+    clearState: () => {
+      // Clear form state
+      set((state) => ({ ...initialState, tempAddData: state.tempAddData }));
+
+      // Clear image filename storage when starting fresh
+      clearImageFilenameStorage();
+    },
     clearTempData: () => set((state) => ({ ...state, tempAddData: undefined })),
   })
 );
