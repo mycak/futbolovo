@@ -75,7 +75,7 @@ const Button = ({
     size === 'lg' &&
       'px-5 py-4 md:px-6 md:py-4 text-xl md:text-2xl lg:text-3xl',
     isLoading && 'cursor-wait opacity-75',
-    color ?? 'bg-grass-150',
+    color ?? 'bg-grass-50',
     classNames
   );
 
