@@ -71,6 +71,10 @@
       "title": "Współpraca | Futbolovo",
       "description": "Zareklamuj swoją firmę lub produkt na naszej platformie. Rozwijajmy się razem!"
     },
+    "news": {
+      "title": "Aktualności | Futbolovo",
+      "description": "Bądź na bieżąco z najnowszymi wydarzeniami piłkarskimi i ogłoszeniami platformy Futbolovo."
+    },
     "statute": {
       "title": "Regulamin | Futbolovo",
       "description": "Zapoznaj się z regulaminem platformy Futbolovo. Zasady korzystania z serwisu."
@@ -161,6 +165,17 @@
     "title": "Chcesz nawiązać współpracę?",
     "text1": "Chciałbyś <1>zareklamować</1> swoją firmę lub produkt na naszej platformie? A może masz pomysł, jak razem możemy <1>rozwijać</1> naszą stronę i tworzyć nowe, innowacyjne rozwiązania? Jesteśmy również otwarci na <1>współpracę z patronami</1>, którzy chcieliby wesprzeć naszą działalność i stać się częścią naszego rozwoju. Skontaktuj się z nami i omówmy możliwości wspólnej współpracy!"
   },
+  "newsPage": {
+    "title": "Aktualności piłkarskie",
+    "text1": "Bądź na bieżąco z najnowszymi <1>wydarzeniami piłkarskimi</1> i aktualnościami z całego świata. Otrzymuj informacje o nadchodzących turniejach, meczach i ekscytujących wydarzeniach w społeczności piłkarskiej.",
+    "initialNews": {
+      "date": "15 stycznia 2025",
+      "title": "Witamy w Futbolovo News!",
+      "content": "Witamy w Futbolovo News! Tutaj znajdziesz wszystkie najnowsze aktualizacje o <1>wydarzeniach piłkarskich</1>, ogłoszeniach turniejów i aktualizacjach platformy. Śledź ekscytujące wiadomości ze społeczności piłkarskiej!",
+      "category": "Aktualizacje platformy"
+    },
+    "moreNewsComingSoon": "Więcej aktualności już wkrótce..."
+  },
   "fieldIsRequired": "To pole jest wymagane",
   "validation": {
     "incorrectPhone": "Nieprawidłowy numer telefonu",
@@ -249,6 +264,7 @@
   "navigation": {
     "contact": "Kontakt",
     "cooperation": "Współpraca",
+    "news": "Aktualności",
     "mainPage": "Strona Główna",
     "map": "Mapa",
     "addPoint": "Dodaj punkt na mapie",

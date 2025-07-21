@@ -11,6 +11,8 @@ export const paths = {
   Contact: '/contact',
   //COOPERATION
   Cooperation: '/cooperation',
+  //NEWS
+  News: '/news',
   //PRIVACY POLICY
   PrivacyPolicy: '/privacy-policy',
   //STATUTE
