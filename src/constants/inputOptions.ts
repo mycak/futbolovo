@@ -12,14 +12,15 @@ export const categoryOptions = (t: TranslationFunction): SelectOptions => [
   { value: EventCategoryEnum.MATCH, label: t('match') },
 ];
 
-export const ageCategoryOptions: SelectOptions = (
-  Object.keys(AgeCategoryCategoryEnum) as Array<
-    keyof typeof AgeCategoryCategoryEnum
-  >
-).map((key) => ({
-  value: AgeCategoryCategoryEnum[key],
-  label: AgeCategoryCategoryEnum[key],
-}));
+export const ageCategoryOptions: SelectOptions = 
+  typeof AgeCategoryCategoryEnum !== 'undefined' 
+    ? (Object.keys(AgeCategoryCategoryEnum) as Array<
+        keyof typeof AgeCategoryCategoryEnum
+      >).map((key) => ({
+        value: AgeCategoryCategoryEnum[key],
+        label: AgeCategoryCategoryEnum[key],
+      }))
+    : [];
 
 export const currencyOptions: {
   value: string;
