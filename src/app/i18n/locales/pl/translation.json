@@ -169,10 +169,24 @@
     "title": "Aktualności piłkarskie",
     "text1": "Bądź na bieżąco z najnowszymi <1>wydarzeniami piłkarskimi</1> i aktualnościami z całego świata. Otrzymuj informacje o nadchodzących turniejach, meczach i ekscytujących wydarzeniach w społeczności piłkarskiej.",
     "initialNews": {
-      "date": "15 stycznia 2025",
+      "date": "1 lipca 2025",
       "title": "Witamy w Futbolovo News!",
       "content": "Witamy w Futbolovo News! Tutaj znajdziesz wszystkie najnowsze aktualizacje o <1>wydarzeniach piłkarskich</1>, ogłoszeniach turniejów i aktualizacjach platformy. Śledź ekscytujące wiadomości ze społeczności piłkarskiej!",
       "category": "Aktualizacje platformy"
+    },
+    "articles": {
+      "polishChampions": {
+        "date": "8 czerwca 2025",
+        "title": "Polska reprezentacja została Mistrzem Europy w piłce 6-osobowej!",
+        "content": "Polska reprezentacja została Mistrzem Europy w piłce 6‑osobowej! W wielkim finale, rozegranym 8 czerwca 2025 w Kiszyniowie (Mołdawia), <1>Biało-Czerwoni</1> pokonali Francuzów 4:2. Kluczową postacią był <2>Norbert Jaszczak</2> – zdobywca dwóch bramek, w tym decydującego trafienia, które przypieczętowało zwycięstwo. To pierwszy tytuł Europy w historii polskiego socca – do tej pory Polska zdobywała medale jedynie na mundialach (srebro 2018, 2019 i brąz 2022).\n\nGrupa złożona z m.in. Krystiana Nowakowskiego, Bartłomieja Dębickiego i Norberta Jaszczaka imponowała skutecznością w całym turnieju. W drodze po mistrzostwo wyeliminowali Litwę, Mołdawię i Chorwację, by w finale dołożyć kolejne pięć goli (po remisie zejdą z Francuzami 4:2).\n\nTo historyczne osiągnięcie dla polskiego socca – gratulacje za pierwsze mistrzostwo Europy!",
+        "category": "Wyniki turniejów"
+      },
+      "marchUpdate": {
+        "date": "20 lipca 2025",
+        "title": "Aktualizacja platformy: Ulepszony system zarządzania zdjęciami",
+        "content": "Z przyjemnością informujemy o ostatnich ulepszeniach naszej platformy <1>poprawiających komfort użytkowania</1>:<br/><br/>• Ulepszona obsługa zdjęć - teraz możesz dodać do 3 zdjęć na wydarzenie.<br/><br/>• Dodany podgląd zdjęć w trybie edycji dla lepszego zarządzania.<br/><br/>• Ulepszony system organizacji zdjęć dla bardziej efektywnego zarządzania treścią.<br/><br/>• Uproszczony proces przesyłania zdjęć dla lepszego doświadczenia użytkownika.<br/><br/>Te aktualizacje mają na celu uczynienie Twojego doświadczenia z Futbolovo bardziej intuicyjnym i wydajnym. Stale pracujemy nad ulepszaniem naszej platformy na podstawie Twojej opinii!",
+        "category": "Aktualizacje platformy"
+      }
     },
     "moreNewsComingSoon": "Więcej aktualności już wkrótce..."
   },

@@ -234,10 +234,24 @@
     "title": "Fußball-Nachrichten",
     "text1": "Bleib auf dem Laufenden mit den neuesten <1>Fußballveranstaltungen</1> und Nachrichten aus aller Welt. Erhalte Informationen über bevorstehende Turniere, Spiele und aufregende Entwicklungen in der Fußballgemeinschaft.",
     "initialNews": {
-      "date": "15. Januar 2025",
+      "date": "1. Juli 2025",
       "title": "Willkommen bei Futbolovo News!",
       "content": "Willkommen bei Futbolovo News! Hier findest du alle neuesten Updates über <1>Fußballveranstaltungen</1>, Turnierankündigungen und Plattform-Updates. Bleib dran für aufregende Nachrichten aus der Fußballgemeinschaft!",
       "category": "Plattform-Updates"
+    },
+    "articles": {
+      "polishChampions": {
+        "date": "8. Juni 2025",
+        "title": "Polen gewinnt die Europameisterschaft im 6er-Fußball!",
+        "content": "Die polnische Nationalmannschaft wurde Europameister im 6er-Fußball! Im großen Finale, das am 8. Juni 2025 in Chisinau (Moldawien) ausgetragen wurde, besiegten die <1>Rot-Weißen</1> die Franzosen mit 4:2. Die Schlüsselfigur war <2>Norbert Jaszczak</2> – er erzielte zwei Tore, darunter den entscheidenden Treffer, der den Sieg besiegelte. Dies ist der erste Europameistertitel in der Geschichte des polnischen Kleinfeldfußballs – bisher gewann Polen nur Medaillen bei Weltmeisterschaften (Silber 2018, 2019 und Bronze 2022).\n\nDie Mannschaft mit Krystian Nowakowski, Bartłomiej Dębicki und Norbert Jaszczak beeindruckte während des gesamten Turniers mit ihrer Effektivität. Auf dem Weg zur Meisterschaft eliminierten sie Litauen, Moldawien und Kroatien, bevor sie im Finale weitere fünf Tore erzielten (nach einem Unentschieden mit Frankreich 4:2).\n\nDies ist ein historischer Erfolg für den polnischen Kleinfeldfußball – herzlichen Glückwunsch zur ersten Europameisterschaft!",
+        "category": "Turnierergebnisse"
+      },
+      "marchUpdate": {
+        "date": "20. Juli 2025",
+        "title": "Plattform-Update: Verbesserte Bildverwaltung",
+        "content": "Wir freuen uns, aktuelle Verbesserungen unserer Plattform <1>zur Verbesserung Ihres Benutzererlebnisses</1> bekannt zu geben:<br/><br/>• Verbesserte Bildverarbeitung - Sie können jetzt bis zu 3 Bilder pro Veranstaltung hinzufügen.<br/><br/>• Hinzugefügte Bildvorschaufunktion im Bearbeitungsmodus für besseres Management.<br/><br/>• Verbessertes Bildorganisationssystem für effektiveres Content-Management.<br/><br/>• Optimierter Bild-Upload-Prozess für besseres Benutzererlebnis.<br/><br/>Diese Updates sollen Ihre Erfahrung mit Futbolovo intuitiver und effizienter gestalten. Wir arbeiten kontinuierlich daran, unsere Plattform basierend auf Ihrem Feedback zu verbessern!",
+        "category": "Plattform-Updates"
+      }
     },
     "moreNewsComingSoon": "Weitere Nachrichten folgen bald..."
   },
