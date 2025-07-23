@@ -65,7 +65,7 @@ export type Event = AddEventInputs & {
 export type Events = Event[];
 
 //NAVIGATION
-export type NavigationKey = 'mainPage' | 'map' | 'auth';
+export type NavigationKey = 'mainPage' | 'map' | 'auth' | 'news';
 
 export type NavigationItem = {
   text: string;

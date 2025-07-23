@@ -31,6 +31,12 @@ export const navigationItems = (
         ]
       : []),
   ],
+  news: [
+    {
+      text: t('navigation.news'),
+      to: paths.News,
+    },
+  ],
   auth: isSignedIn
     ? [
         {

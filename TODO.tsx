@@ -1,9 +1,7 @@
 //TODO: MAJOR
 // id param to edit page
 // improve multiple locations
-// new posts
 // analytics
-// updates page
 
 //TODO: MINOR
 //google autocomplete warning

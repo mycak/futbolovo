@@ -7,7 +7,7 @@
     "companyName": "Company Name",
     "logout": "Logout",
     "haveAccount": "Already have an account?",
-    "noAccount": "Don't have an account yet?",
+    "count": "Don't have an account yet?",
     "signIn": "Sign in",
     "signUp": "Sign up",
     "termsAndConditions": "I accept the",
@@ -72,6 +72,10 @@
     "cooperation": {
       "title": "Cooperation | Futbolovo",
       "description": "Advertise your company or product on our platform. Let's grow together!"
+    },
+    "news": {
+      "title": "News | Futbolovo",
+      "description": "Stay updated with the latest football events news and announcements from the Futbolovo platform."
     },
     "statute": {
       "title": "Terms & Conditions | Futbolovo",
@@ -228,6 +232,31 @@
     "title": "Contact with us!",
     "text1": "Would you like to <1>promote</1> your company or product on our platform? Or maybe you have an idea on how we can <1>develop</1> our site together and create new, innovative solutions? We are also open to <1>collaborating with patrons</1> who would like to support our activities and become part of our growth. Reach out to us, and let's discuss opportunities for collaboration!"
   },
+  "newsPage": {
+    "title": "Football News",
+    "text1": "Stay updated with the latest <1>football events</1> and news from around the world. Get information about upcoming tournaments, matches, and exciting developments in the football community.",
+    "initialNews": {
+      "date": "July 1, 2025",
+      "title": "Welcome to Futbolovo News!",
+      "content": "Welcome to Futbolovo News! This is where you'll find all the latest updates about <1>football events</1>, tournament announcements, and platform updates. Stay tuned for exciting news from the football community!",
+      "category": "Platform Updates"
+    },
+    "articles": {
+      "polishChampions": {
+        "date": "June 8, 2025",
+        "title": "Poland Wins European 6-a-side Football Championship!",
+        "content": "The Polish national team became the European Champion in 6-a-side football! In the grand final played on June 8, 2025, in Chisinau (Moldova), the <1>White and Red</1> defeated the French 4:2. <2>Norbert Jaszczak</2> was the key player - scoring two goals, including the decisive one that sealed the victory. This is Poland's first European title in the history of Polish sixes - until now, Poland only won medals at world cups (silver in 2018, 2019, and bronze in 2022).\n\nThe team consisting of Krystian Nowakowski, Bartłomiej Dębicki, Norbert Jaszczak and others impressed with their effectiveness throughout the tournament. On their way to the championship, they eliminated Lithuania, Moldova, and Croatia, before adding another five goals in the final (after drawing with France 4:2).\n\nThis is a historic achievement for Polish sixes - congratulations on the first European championship!",
+        "category": "Tournament Results"
+      },
+      "marchUpdate": {
+        "date": "July 20, 2025",
+        "title": "Platform Update: Enhanced Image Management",
+        "content": "We are pleased to announce recent improvements to our platform <1>enhancing your user experience</1>:<br/><br/>• Enhanced image handling - now you can add up to 3 images per event.<br/><br/>• Added image preview functionality in edit mode for better management.<br/><br/>• Improved image organization system for more effective content management.<br/><br/>• Streamlined image upload process for better user experience.<br/><br/>These updates are designed to make your experience on Futbolovo more intuitive and efficient. We're continuously working to improve our platform based on your feedback!",
+        "category": "Platform Updates"
+      }
+    },
+    "moreNewsComingSoon": "More news coming soon..."
+  },
   "typeEmail": "Type email",
   "imageInputLabel": "Photo/graphic",
   "imageInputPlaceholder": "Choose a file",
@@ -257,6 +286,7 @@
   "navigation": {
     "contact": "Contact",
     "cooperation": "Cooperation",
+    "news": "News",
     "mainPage": "Home Page",
     "map": "Map",
     "addPoint": "Add a point on the map",

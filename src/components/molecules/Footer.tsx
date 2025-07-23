@@ -16,6 +16,7 @@ const Footer = async ({ lng }: { lng: string }) => {
     {
       title: t('navigation.others'),
       items: [
+        { name: t('navigation.news'), href: paths.News },
         { name: t('navigation.contact'), href: paths.Contact },
         { name: t('navigation.cooperation'), href: paths.Cooperation },
         { name: t('privacyPolicyPage.title'), href: paths.PrivacyPolicy },
