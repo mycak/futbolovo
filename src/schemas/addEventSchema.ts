@@ -49,7 +49,7 @@ export const addEventSchema = (t: TranslationFunction) =>
         .max(2, { message: t('validation.maxImages') })
         .optional(),
       isPublished: z.boolean().default(false),
-      authorId: z.string().optional(),
+      authorId: z.string().optional().nullable(),
       termsAccepted: z.boolean({ required_error: t('fieldIsRequired') }),
     })
     .refine((data) => data.termsAccepted === true, {
