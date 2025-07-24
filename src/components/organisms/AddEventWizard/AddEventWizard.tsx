@@ -8,6 +8,8 @@ import { googleApiConfig } from '@/configs/googleApi';
 import DynamicLoader from '@/components/atoms/DynamicLoader';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { clearImageFilenameStorage } from '@/utils/sessionStorage';
+import { Event } from '@prisma/client';
+import { convertEventToAddEventInputs } from '@/utils/event';
 
 const steps: {
   key: 'addEventForm' | 'preview' | 'confirmMessage';
@@ -20,11 +22,16 @@ const steps: {
   },
 ] as const;
 
-const AddEventWizard = () => {
+interface AddEventWizardProps {
+  eventData?: Event | null;
+}
+
+const AddEventWizard = ({ eventData }: AddEventWizardProps) => {
   const { isLoaded } = useJsApiLoader(googleApiConfig);
   const pathname = usePathname();
   const params = useSearchParams();
   const clearState = useAddEventWizardStore((state) => state.clearState);
+  const setAddData = useAddEventWizardStore((state) => state.setAddData);
 
   const currentStep = useAddEventWizardStore((state) => state.currentStep);
   const { Component } = steps[currentStep];
@@ -32,9 +39,13 @@ const AddEventWizard = () => {
   useEffect(() => {
     if (pathname.includes('add') && !params.get('repost')) {
       clearState();
+    } else if (pathname.includes('edit') && eventData) {
+      // Populate form with existing event data for edit mode
+      const convertedData = convertEventToAddEventInputs(eventData);
+      setAddData(convertedData);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  }, [pathname, eventData]);
 
   // Cleanup sessionStorage when component unmounts (user leaves add event page)
   useEffect(() => {

@@ -33,7 +33,7 @@ const UserEventsList: React.FC<UserEventsListProps> = ({ events, lng }) => {
   ) => {
     e.preventDefault();
     e.stopPropagation();
-    router.push(editMode ? paths.EventEdit : paths.EventRepost);
+    router.push(editMode ? paths.EventEdit(eventId) : paths.EventRepost);
     const eventData = events.find((event) => event.id === eventId);
     if (eventData) {
       setAddData({

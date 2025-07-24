@@ -2,6 +2,7 @@ import { DEFAULT_CURRENCY } from '@/constants/common';
 import { AddEventInputs } from '@/schemas/addEventSchema';
 import { EventCategoryEnum } from '@prisma/client';
 import { add } from 'date-fns';
+import { Event } from '@prisma/client';
 
 export const generateDummyPoster = (category: EventCategoryEnum) => {
   switch (category) {
@@ -115,4 +116,35 @@ export const generatePriceDescription = (event: AddEventInputs) => {
     return `${event.price ?? event.priceFrom ?? 0}${
       event.priceTo ? ` - ${event.priceTo}` : ''
     } ${event.currency ?? DEFAULT_CURRENCY}`;
+};
+
+export const convertEventToAddEventInputs = (event: Event): AddEventInputs & { id: string } => {
+  return {
+    id: event.id,
+    category: event.category,
+    location: event.location as { 
+      latitude?: number | null; 
+      longitude?: number | null; 
+      addressName?: string | null;
+    } || { latitude: null, longitude: null, addressName: null },
+    additionalLocations: [],
+    ageCategories: event.ageCategories || [],
+    date: event.date,
+    startDate: event.startDate,
+    endDate: event.endDate,
+    name: event.name,
+    price: event.price,
+    priceFrom: event.priceFrom || 0,
+    priceTo: event.priceTo,
+    currency: event.currency,
+    female: event.female,
+    description: event.description,
+    phoneNumber: event.phoneNumber,
+    email: event.email,
+    image: event.image,
+    images: event.images || [],
+    isPublished: event.isPublished,
+    authorId: event.authorId,
+    termsAccepted: true, // Assuming previously accepted terms for existing events
+  };
 };
