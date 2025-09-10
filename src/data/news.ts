@@ -12,6 +12,13 @@ export interface NewsArticle {
 
 export const newsArticles: NewsArticle[] = [
   {
+    id: 'socca-eternis-cup-2025',
+    date: '2025-09-10',
+    titleKey: 'newsPage.articles.soccaEternisCup2025.title',
+    contentKey: 'newsPage.articles.soccaEternisCup2025.content',
+    categoryKey: 'newsPage.articles.soccaEternisCup2025.category',
+  },
+  {
     id: 'platform-update-july-2025',
     date: '2025-07-20',
     titleKey: 'newsPage.articles.marchUpdate.title',
