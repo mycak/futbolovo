@@ -66,7 +66,7 @@ const EventImage = ({
       ) : null}
 
       {images.length > 0 ? (
-        <div className='relative min-w-[200px]'>
+        <div className='relative md:min-w-[200px]'>
           <CldImage
             width='424'
             priority
