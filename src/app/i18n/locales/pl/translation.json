@@ -388,7 +388,7 @@
   "eventShareDefaultText": "Sprawdź to wydarzenie!",
   "email": {
     "eventAdded": {
-      "subject": "Twoje {eventType} zostało dodane do Futbolovo!",
+      "subject": "Dodane do Futbolovo! - {eventType}",
       "greeting": "Cześć!",
       "thanks": "Dziękujemy za dodanie Twojego wydarzenia do Futbolovo!",
       "details": "Szczegóły wydarzenia",

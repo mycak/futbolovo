@@ -26,7 +26,7 @@ const Footer = async ({ lng }: { lng: string }) => {
   ];
 
   return (
-    <div className='min-w-full flex flex-wrap justify-center bg-gray-900 gap-8 md:gap-16 py-4'>
+    <div className='min-w-full flex flex-wrap md:justify-center bg-gray-900 gap-8 md:gap-16 px-8 py-4'>
       {footerItems.map((item) => (
         <div key={item.title} className='flex flex-col min-w-[220px]'>
           <h3 className='text-lg text-ivory-100 ml-2'>{item.title}</h3>
