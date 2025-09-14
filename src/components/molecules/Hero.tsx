@@ -51,11 +51,11 @@ const Hero = ({
             </div>
             <div className='ml-3'>
               <h1 className='text-3xl font-medium text-green-300 mb-2'>
-                {t('hero.successUpdate')} - 20.07.25
+                {t('hero.successUpdate')} - 14.09.25
               </h1>
               <p className={textStyle}>
                 <Trans
-                  i18nKey='hero.marchAnnouncement'
+                  i18nKey='hero.announcement'
                   t={t as TFunction<'translation', undefined>}
                   components={{
                     panel: <span className='text-grass-50 font-bold' />,
@@ -66,17 +66,17 @@ const Hero = ({
           </div>
           <ul className='list-disc list-inside ml-8 mt-3'>
             <li className={clsx(textStyle, 'text-ivory-150')}>
-              {t('hero.marchAnnouncementPoints.point2')}
+              {t('hero.announcementPoints.point2')}
             </li>
             <li className={clsx(textStyle, 'text-ivory-150')}>
-              {t('hero.marchAnnouncementPoints.point1')}
+              {t('hero.announcementPoints.point1')}
+            </li>
+            {/* <li className={clsx(textStyle, 'text-ivory-150')}>
+              {t('hero.announcementPoints.point3')}
             </li>
             <li className={clsx(textStyle, 'text-ivory-150')}>
-              {t('hero.marchAnnouncementPoints.point3')}
-            </li>
-            <li className={clsx(textStyle, 'text-ivory-150')}>
-              {t('hero.marchAnnouncementPoints.point4')}
-            </li>
+              {t('hero.announcementPoints.point4')}
+            </li> */}
           </ul>
         </div>
       </div>

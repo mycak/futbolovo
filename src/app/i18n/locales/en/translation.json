@@ -311,10 +311,10 @@
     "option1": "Discover an interactive map that opens up a world of football opportunities for you!",
     "option2": "Check what's happening in your area and join the game!",
     "buttonTitle": "Join the game!",
-    "marchAnnouncement": "We are pleased to announce recent improvements to our platform <panel>enhancing your user experience</panel>:",
-    "marchAnnouncementPoints": {
-      "point1": "Enhanced image handling - now you can add up to 3 images per event.",
-      "point2": "Added image preview functionality in edit mode for better management.",
+    "announcement": "We are pleased to announce recent improvements to our platform <panel>enhancing your user experience</panel>:",
+    "announcementPoints": {
+      "point1": "Footer improvements",
+      "point2": "Centering images in app",
       "point3": "Improved image organization system for more effective content management.",
       "point4": "Streamlined image upload process for better user experience."
     },

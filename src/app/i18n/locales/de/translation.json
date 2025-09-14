@@ -309,10 +309,10 @@
     "option1": "Entdecke eine interaktive Karte, die dir eine Welt voller Fußballmöglichkeiten eröffnet!",
     "option2": "Überprüfe, was in deiner Nähe passiert und nimm am Spiel teil!",
     "buttonTitle": "Nimm am Spiel teil!",
-    "marchAnnouncement": "Wir freuen uns, aktuelle Verbesserungen unserer Plattform <panel>zur Verbesserung Ihres Benutzererlebnisses</panel> bekannt zu geben:",
-    "marchAnnouncementPoints": {
-      "point1": "Verbesserte Bildbehandlung - jetzt können Sie bis zu 3 Bilder pro Veranstaltung hinzufügen.",
-      "point2": "Bildvorschau-Funktionalität im Bearbeitungsmodus für bessere Verwaltung hinzugefügt.",
+    "announcement": "Wir freuen uns, aktuelle Verbesserungen unserer Plattform <panel>zur Verbesserung Ihres Benutzererlebnisses</panel> bekannt zu geben:",
+    "announcementPoints": {
+      "point1": "Verbesserungen am Footer",
+      "point2": "Zentrierung von Bildern in der App",
       "point3": "Verbessertes Bildorganisationssystem für effektiveres Content-Management.",
       "point4": "Optimierter Bild-Upload-Prozess für bessere Benutzererfahrung."
     },
