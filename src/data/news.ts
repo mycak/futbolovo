@@ -12,6 +12,13 @@ export interface NewsArticle {
 
 export const newsArticles: NewsArticle[] = [
   {
+    id: 'warsaw-oldboy-league-2025',
+    date: '2025-09-14',
+    titleKey: 'newsPage.articles.warsawOldboyLeague2025.title',
+    contentKey: 'newsPage.articles.warsawOldboyLeague2025.content',
+    categoryKey: 'newsPage.articles.warsawOldboyLeague2025.category',
+  },
+  {
     id: 'socca-eternis-cup-2025',
     date: '2025-09-10',
     titleKey: 'newsPage.articles.soccaEternisCup2025.title',
@@ -31,6 +38,5 @@ export const newsArticles: NewsArticle[] = [
     titleKey: 'newsPage.articles.polishChampions.title',
     contentKey: 'newsPage.articles.polishChampions.content',
     categoryKey: 'newsPage.articles.polishChampions.category',
-    // Add image path when available
   },
 ];
