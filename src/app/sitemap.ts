@@ -28,6 +28,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     });
 
+    sitemapEntries.push({
+      url: `${baseUrl}/${locale}/news`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1,
+    });
+
     // Events pages
     sitemapEntries.push({
       url: `${baseUrl}/${locale}/events/add`,
