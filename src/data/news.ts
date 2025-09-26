@@ -12,6 +12,13 @@ export interface NewsArticle {
 
 export const newsArticles: NewsArticle[] = [
   {
+    id: 'sopot-freestyle-championship-2025',
+    date: '2025-09-26',
+    titleKey: 'newsPage.articles.sopotFreestyleChampionship2025.title',
+    contentKey: 'newsPage.articles.sopotFreestyleChampionship2025.content',
+    categoryKey: 'newsPage.articles.sopotFreestyleChampionship2025.category',
+  },
+  {
     id: 'warsaw-oldboy-league-2025',
     date: '2025-09-14',
     titleKey: 'newsPage.articles.warsawOldboyLeague2025.title',
