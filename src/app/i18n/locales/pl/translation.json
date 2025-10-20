@@ -309,10 +309,14 @@
     "option1": "Odkryj interaktywną mapę, która otwiera przed Tobą świat futbolowych możliwości!",
     "option2": "Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!",
     "buttonTitle": "Dołącz do gry!",
-    "announcement": "Z przyjemnością informujemy o ostatnich ulepszeniach naszej platformy <panel>poprawiających komfort użytkowania</panel>:",
+    "announcement": "🇵🇱 Ponad 250 piłkarskich miejsc na mapie Polski! ⚽️\nZ radością ogłaszamy, że dzięki Wam – społeczności futbolowych pasjonatów – na futbolovo.net pojawiło się już ponad 250 miejsc związanych z piłką nożną! 🙌",
     "announcementPoints": {
-      "point1": "Ulepszenia stopki strony",
-      "point2": "Wyśrodkowanie obrazów w aplikacji"
+      "point1": "15+ szkółek piłkarskich",
+      "point2": "100+ turniejów",
+      "point3": "10+ boisk",
+      "point4": "35+ lig",
+      "point5": "…i wiele innych inicjatyw, które wspólnie tworzą piłkarską mapę Polski!",
+      "point6": "Dziękujemy wszystkim, którzy już dodali swoje miejsca ❤️ Każdy wpis pomaga budować największą społeczność piłkarską w kraju – mapę, która żyje futbolem!"
     },
     "successUpdate": "Aktualizacja zakończona sukcesem!"
   },

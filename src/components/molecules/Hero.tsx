@@ -38,6 +38,21 @@ const Hero = ({
   }, []);
 
   const textStyle = 'text-base md:text-xl text-green-200';
+
+  // Dynamically get all announcement points in order
+  const announcementPointsRaw = t('hero.announcementPoints', {
+    returnObjects: true,
+  });
+  const announcementPointsObj =
+    typeof announcementPointsRaw === 'object' && announcementPointsRaw !== null
+      ? (announcementPointsRaw as Record<string, string>)
+      : {};
+  const announcementPointKeys = Object.keys(announcementPointsObj)
+    .filter((k) => /^point\d+$/.test(k))
+    .sort(
+      (a, b) => Number(a.replace('point', '')) - Number(b.replace('point', ''))
+    );
+
   return (
     <>
       <Head>
@@ -46,13 +61,13 @@ const Hero = ({
       <div className='flex flex-col items-center justify-center'>
         <div className='bg-gray-900 border-l-4 border-green-500 p-4 mb-6 w-full max-w-screen-lg rounded-r-lg shadow-md'>
           <div className='flex items-center'>
-            <div className='flex-shrink-0'>
+            {/* <div className='flex-shrink-0'>
               <i className='fa-solid fa-circle-check text-green-400' />
-            </div>
+            </div> */}
             <div className='ml-3'>
-              <h1 className='text-3xl font-medium text-green-300 mb-2'>
+              {/* <h1 className='text-3xl font-medium text-green-300 mb-2'>
                 {t('hero.successUpdate')} - 14.09.25
-              </h1>
+              </h1> */}
               <p className={textStyle}>
                 <Trans
                   i18nKey='hero.announcement'
@@ -65,18 +80,11 @@ const Hero = ({
             </div>
           </div>
           <ul className='list-disc list-inside ml-8 mt-3'>
-            <li className={clsx(textStyle, 'text-ivory-150')}>
-              {t('hero.announcementPoints.point2')}
-            </li>
-            <li className={clsx(textStyle, 'text-ivory-150')}>
-              {t('hero.announcementPoints.point1')}
-            </li>
-            {/* <li className={clsx(textStyle, 'text-ivory-150')}>
-              {t('hero.announcementPoints.point3')}
-            </li>
-            <li className={clsx(textStyle, 'text-ivory-150')}>
-              {t('hero.announcementPoints.point4')}
-            </li> */}
+            {announcementPointKeys.map((key) => (
+              <li key={key} className={clsx(textStyle, 'text-ivory-150')}>
+                {t(`hero.announcementPoints.${key}`)}
+              </li>
+            ))}
           </ul>
         </div>
       </div>

@@ -315,12 +315,14 @@
     "option1": "Entdecke eine interaktive Karte, die dir eine Welt voller Fußballmöglichkeiten eröffnet!",
     "option2": "Überprüfe, was in deiner Nähe passiert und nimm am Spiel teil!",
     "buttonTitle": "Nimm am Spiel teil!",
-    "announcement": "Wir freuen uns, aktuelle Verbesserungen unserer Plattform <panel>zur Verbesserung Ihres Benutzererlebnisses</panel> bekannt zu geben:",
+    "announcement": "Über 250 Fußballorte auf der Karte Polens! ⚽️\nWir freuen uns, bekannt zu geben, dass dank euch – unserer Community von Fußballbegeisterten – auf futbolovo.net jetzt über 250 fußballbezogene Orte zu finden sind! 🙌",
     "announcementPoints": {
-      "point1": "Verbesserungen am Footer",
-      "point2": "Zentrierung von Bildern in der App",
-      "point3": "Verbessertes Bildorganisationssystem für effektiveres Content-Management.",
-      "point4": "Optimierter Bild-Upload-Prozess für bessere Benutzererfahrung."
+      "point1": "15+ Fußballakademien",
+      "point2": "100+ Turniere",
+      "point3": "10+ Fußballfelder",
+      "point4": "35+ Ligen",
+      "point5": "…und viele weitere Initiativen, die gemeinsam die Fußballkarte Polens gestalten!",
+      "point6": "Danke an alle, die bereits ihre Orte hinzugefügt haben ❤️ Jeder Eintrag hilft, die größte Fußball-Community des Landes aufzubauen – eine Karte, die vom Fußball lebt!"
     },
     "successUpdate": "Update erfolgreich abgeschlossen!"
   },
