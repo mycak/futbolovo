@@ -42,7 +42,8 @@ const LocalizationInput = ({
 }) => {
   const [input, setInput] = useState<LocationInputState>(initialInputState);
 
-  const inputRef = useRef<HTMLInputElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const autocompleteElementRef = useRef<HTMLElement | null>(null);
   const { lng } = useParams();
   const { t } = useTranslation();
 
@@ -61,18 +62,62 @@ const LocalizationInput = ({
   }, [currentCoords]);
 
   useEffect(() => {
-    const options = {
-      ...(lng === 'pl' && { componentRestrictions: { country: 'pl' } }),
-      fields: ['address_components', 'geometry'],
+    if (!containerRef.current) return;
+
+    // Create PlaceAutocompleteElement
+    const autocompleteElement = document.createElement(
+      'gmp-place-autocomplete'
+    ) as HTMLElement & {
+      componentRestrictions?: { country: string };
+      setAttribute: (name: string, value: string) => void;
     };
 
-    const autocomplete = new google.maps.places.Autocomplete(
-      inputRef.current as HTMLInputElement,
-      options
-    );
-    autocomplete.addListener('place_changed', () =>
-      handlePlaceChanged(autocomplete)
-    );
+    // Set options
+    if (lng === 'pl') {
+      autocompleteElement.componentRestrictions = { country: 'pl' };
+    }
+
+    // Set placeholder if provided
+    if (placeholder) {
+      autocompleteElement.setAttribute('placeholder', placeholder);
+    }
+
+    // Apply custom styling to match the existing input style
+    const inputElement = autocompleteElement.querySelector('input');
+    if (inputElement) {
+      inputElement.className = customStyles({ error: !!error });
+    }
+
+    // Add event listener for place selection
+    autocompleteElement.addEventListener('gmp-placeselect', async (event) => {
+      const customEvent = event as CustomEvent;
+      const place = customEvent.detail?.place;
+      if (place) {
+        await place.fetchFields({
+          fields: ['addressComponents', 'geometry', 'formattedAddress'],
+        });
+        handlePlaceChanged(place);
+      }
+    });
+
+    // Append to container
+    containerRef.current.appendChild(autocompleteElement);
+    autocompleteElementRef.current = autocompleteElement;
+
+    // Set display value if provided
+    if (displayValue) {
+      const inputElement = autocompleteElement.querySelector('input');
+      if (inputElement) {
+        inputElement.value = displayValue;
+      }
+    }
+
+    // Cleanup
+    return () => {
+      if (autocompleteElementRef.current) {
+        autocompleteElementRef.current.remove();
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -81,17 +126,8 @@ const LocalizationInput = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [input]);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
-    setInput((values) => ({ ...values, location: value }));
-  };
-
-  const handlePlaceChanged = async (
-    address: google.maps.places.Autocomplete
-  ) => {
-    const place = address.getPlace();
-
-    if (!place?.geometry) {
+  const handlePlaceChanged = async (place: google.maps.places.Place) => {
+    if (!place?.location) {
       setInput(initialInputState);
       return;
     }
@@ -115,8 +151,8 @@ const LocalizationInput = ({
     });
   };
 
-  const formData = (data: google.maps.places.PlaceResult) => {
-    const addressComponents = data?.address_components;
+  const formData = (place: google.maps.places.Place) => {
+    const addressComponents = place?.addressComponents;
 
     const componentMap = {
       subPremise: '',
@@ -133,14 +169,32 @@ const LocalizationInput = ({
       const componentType = component.types[0];
       if (componentMap.hasOwnProperty(componentType)) {
         componentMap[componentType as keyof typeof componentMap] =
-          component.long_name;
+          component.longText || '';
       }
     }
 
     const formattedAddress =
       `${componentMap.subPremise} ${componentMap.premise} ${componentMap.street_number} ${componentMap.route}`.trim();
-    const latitude = data?.geometry?.location?.lat();
-    const longitude = data?.geometry?.location?.lng();
+    
+    // Handle both LatLng object and LatLngLiteral
+    let latitude: number | undefined;
+    let longitude: number | undefined;
+    
+    if (place?.location) {
+      if (typeof place.location.lat === 'function') {
+        latitude = place.location.lat();
+        longitude = place.location.lng();
+      } else {
+        latitude = (place.location as google.maps.LatLngLiteral).lat;
+        longitude = (place.location as google.maps.LatLngLiteral).lng;
+      }
+    }
+
+    // Get input value from the autocomplete element
+    const inputValue =
+      (autocompleteElementRef.current as HTMLInputElement | null)?.value ||
+      place.formattedAddress ||
+      '';
 
     setInput((values) => ({
       ...values,
@@ -151,7 +205,7 @@ const LocalizationInput = ({
       state: componentMap.administrative_area_level_1,
       latitude,
       longitude,
-      location: inputRef.current?.value as string,
+      location: inputValue,
     }));
   };
 
@@ -160,15 +214,7 @@ const LocalizationInput = ({
       <label className='flex flex-col'>
         <span className='text-grass-20'>{label}</span>
         <div className='flex flex-row gap-2'>
-          <input
-            ref={inputRef}
-            type='text'
-            name='localization'
-            className={customStyles({ error: !!error })}
-            onChange={handleChange}
-            value={input.location ? input.location : displayValue ?? ''}
-            placeholder={placeholder}
-          />
+          <div ref={containerRef} className='w-full' />
         </div>
       </label>
       {error && (
