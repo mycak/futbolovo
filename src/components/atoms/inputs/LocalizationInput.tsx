@@ -67,14 +67,11 @@ const LocalizationInput = ({
     // Create PlaceAutocompleteElement
     const autocompleteElement = document.createElement(
       'gmp-place-autocomplete'
-    ) as HTMLElement & {
-      componentRestrictions?: { country: string };
-      setAttribute: (name: string, value: string) => void;
-    };
+    ) as HTMLElement;
 
-    // Set options
+    // Set country restriction using attribute (for Web Component)
     if (lng === 'pl') {
-      autocompleteElement.componentRestrictions = { country: 'pl' };
+      autocompleteElement.setAttribute('country-restriction', 'pl');
     }
 
     // Set placeholder if provided
