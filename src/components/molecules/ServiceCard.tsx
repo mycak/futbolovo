@@ -41,9 +41,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, lng }) => {
     <div className='bg-gray-800 rounded-lg overflow-hidden border border-gray-700 hover:border-grass-50 transition-all duration-300'>
       <div className='grid md:grid-cols-[300px_1fr] gap-6'>
         {/* Image Section */}
-        <div className='relative h-64 md:h-auto overflow-hidden'>
-          <EventImage eventData={service} classNames='h-full w-full' />
-        </div>
+        <EventImage eventData={service} classNames='max-h-full' />
 
         {/* Content Section */}
         <div className='p-6'>
