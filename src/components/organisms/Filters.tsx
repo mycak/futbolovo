@@ -1,4 +1,6 @@
 'use client';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import 'react-datepicker/dist/react-datepicker.css';
 import { ageCategoryOptions, categoryOptions } from '@/constants/inputOptions';
 
@@ -10,7 +12,7 @@ import { useTranslation } from '@/app/i18n/client';
 import { EventCategoryEnum } from '@prisma/client';
 import { useFilters } from '@/hooks/useFilters';
 import SelectInput from '../atoms/inputs/SelectInput';
-import LocalizationInput from '../atoms/inputs/LocalizationInput';
+import LocationInput from '../atoms/inputs/LocationInput';
 import DateRangeInput from '../atoms/inputs/DateRangeInput';
 import PageWrapper from '../atoms/PageWrapper';
 import SearchInput from '../atoms/inputs/SearchInput';
@@ -105,7 +107,7 @@ const Filters = () => {
             )}
           >
             <div className='contents [&>*]:w-80'>
-              <LocalizationInput
+              <LocationInput
                 label={t('location')}
                 placeholder={t('cityAndPlace')}
                 onChangeCallback={onLocationChange}

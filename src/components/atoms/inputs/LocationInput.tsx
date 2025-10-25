@@ -16,7 +16,7 @@ const initialInputState = {
   longitude: undefined,
 };
 
-const LocalizationInput = ({
+const LocationInput = ({
   label,
   multiple,
   placeholder,
@@ -188,4 +188,4 @@ const LocalizationInput = ({
   );
 };
 
-export default LocalizationInput;
+export default LocationInput;

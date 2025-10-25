@@ -25,7 +25,7 @@ import Modal from '@/components/molecules/Modal';
 import SelectInput from '@/components/atoms/inputs/SelectInput';
 import Divider from '@/components/atoms/Divider';
 import DateRangeInput from '@/components/atoms/inputs/DateRangeInput';
-import LocalizationInput from '@/components/atoms/inputs/LocalizationInput';
+import LocationInput from '@/components/atoms/inputs/LocationInput';
 import FileInput from '@/components/atoms/inputs/FileInput';
 import EmailInput from '@/components/atoms/inputs/EmailInput';
 import PhoneNumberInput from '@/components/atoms/inputs/PhoneNumberInput';
@@ -114,6 +114,7 @@ const AddEventForm = () => {
   };
   const currentCategory = useWatch({ control, name: 'category' });
   const currentCurrency = useWatch({ control, name: 'currency' });
+  const mainLocation = useWatch({ control, name: 'location' });
 
   const startDate = useWatch({ control, name: 'startDate' });
   const endDate = useWatch({ control, name: 'endDate' });
@@ -254,7 +255,7 @@ const AddEventForm = () => {
           options={categoryOptions(t)}
           error={errors.category?.message}
         />
-        <LocalizationInput
+        <LocationInput
           label={t('location')}
           placeholder={t('cityAndPlace')}
           onChangeCallback={(data) => onLocationChange(data, 'location')}
@@ -270,12 +271,23 @@ const AddEventForm = () => {
           title={t('addMoreLocations')}
           onAccept={onAcceptLocationsModal}
         >
+          {/* Main location (first location) */}
+          <div className='flex flex-col justify-center gap-2 items-center'>
+            <LocationInput
+              label={`${t('location')} 1`}
+              placeholder={t('cityAndPlace')}
+              onChangeCallback={(data) => onLocationChange(data, 'location')}
+              error={errors.location?.message}
+              displayValue={mainLocation?.addressName}
+            />
+          </div>
+          {/* Additional locations */}
           {fields.map((field, index) => (
             <div
               key={field.id}
               className='flex flex-col justify-center gap-2 items-center'
             >
-              <LocalizationInput
+              <LocationInput
                 label={`${t('location')} ${index + 2}`}
                 placeholder={t('cityAndPlace')}
                 onChangeCallback={(data) =>
