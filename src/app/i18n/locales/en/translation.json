@@ -367,14 +367,14 @@
     "option1": "Discover an interactive map that opens up a world of football opportunities for you!",
     "option2": "Check what's happening in your area and join the game!",
     "buttonTitle": "Join the game!",
-    "announcement": "Over 250 football places on the map of Poland! ⚽️\nWe are thrilled to announce that thanks to you – our community of football enthusiasts – futbolovo.net now features over 250 football-related places! 🙌",
+    "announcement": "🎉 New Services Page & Improved Location Search! ⚽️\nWe're excited to announce that Futbolovo has gained new features! You can now browse a dedicated page with football services and benefit from improved location search. 🙌",
     "announcementPoints": {
-      "point1": "15+ football academies",
-      "point2": "100+ tournaments",
-      "point3": "10+ football fields",
-      "point4": "35+ leagues",
-      "point5": "…and many other initiatives that together create Poland's football map!",
-      "point6": "Thank you to everyone who has already added their places ❤️ Every entry helps build the largest football community in the country – a map that lives and breathes football!"
+      "point1": "📄 New \"Services\" page - discover all available football services in one place",
+      "point2": "🔍 Improved location search - find places in your area faster",
+      "point3": "🎯 Better filtering - easily search for events and services that interest you",
+      "point4": "💼 Add your service - promote your football offering on our platform",
+      "point5": "…and many other improvements that enhance your experience with the platform!",
+      "point6": "Thank you for your support and trust! ❤️ Together we're building the largest football community in Poland!"
     },
     "successUpdate": "Update completed successfully!"
   },

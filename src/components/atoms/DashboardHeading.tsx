@@ -9,6 +9,14 @@ const DashboardHeading = ({
   classNames?: string;
   mainTopics: string[];
 }) => {
+  const topicLinks: Record<string, string> = {
+    0: paths.Map, // tournaments
+    1: paths.Map, // leagues
+    2: paths.Map, // fields
+    3: paths.Map, // kidsSchools
+    4: paths.Services, // services
+  };
+
   return (
     <nav
       className={clsx(
@@ -19,7 +27,7 @@ const DashboardHeading = ({
       aria-label='Dashboard Topics'
     >
       {mainTopics.map((topic, index) => (
-        <Link href={paths.Map} key={topic} role='link'>
+        <Link href={topicLinks[index] || paths.Map} key={topic} role='link'>
           <p className='sm:text-lg md:text-xl text-grass-50'>
             {topic}
             <span
