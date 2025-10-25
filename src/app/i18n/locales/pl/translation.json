@@ -359,14 +359,11 @@
     "option1": "Odkryj interaktywną mapę, która otwiera przed Tobą świat futbolowych możliwości!",
     "option2": "Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!",
     "buttonTitle": "Dołącz do gry!",
-    "announcement": "� Nowa strona Usługi oraz ulepszone wyszukiwanie lokalizacji! ⚽️\nZ przyjemnością ogłaszamy, że platforma Futbolovo zyskała nowe funkcje! Teraz możesz przeglądać dedykowaną stronę z usługami piłkarskimi oraz korzystać z ulepszonego wyszukiwania lokalizacji. 🙌",
+    "announcement": "🎉 Nowa strona Usługi oraz ulepszone wyszukiwanie lokalizacji! ⚽️\nZ przyjemnością ogłaszamy, że platforma Futbolovo zyskała nowe funkcje! Teraz możesz przeglądać dedykowaną stronę z usługami piłkarskimi oraz korzystać z ulepszonego wyszukiwania lokalizacji. 🙌",
     "announcementPoints": {
       "point1": "📄 Nowa strona \"Usługi\" - odkryj wszystkie dostępne usługi piłkarskie w jednym miejscu",
       "point2": "🔍 Ulepszone wyszukiwanie lokalizacji - szybciej znajdź miejsca w swojej okolicy",
-      "point3": "🎯 Lepsze filtrowanie - łatwiej wyszukuj interesujące Cię wydarzenia i usługi",
-      "point4": "💼 Dodaj swoją usługę - promuj swoją ofertę piłkarską na naszej platformie",
-      "point5": "…i wiele innych usprawnień, które poprawiają Twoje doświadczenia z platformą!",
-      "point6": "Dziękujemy za wsparcie i zaufanie! ❤️ Razem tworzymy największą społeczność piłkarską w Polsce!"
+      "point3": "…i wiele innych usprawnień, które poprawiają Twoje doświadczenia z platformą!"
     },
     "successUpdate": "Aktualizacja zakończona sukcesem!"
   },
