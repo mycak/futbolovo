@@ -75,6 +75,10 @@
       "title": "Aktualności | Futbolovo",
       "description": "Bądź na bieżąco z najnowszymi wydarzeniami piłkarskimi i ogłoszeniami platformy Futbolovo."
     },
+    "services": {
+      "title": "Usługi piłkarskie | Futbolovo",
+      "description": "Odkryj szeroki wybór usług piłkarskich. Trening, coaching, sprzęt i wiele więcej!"
+    },
     "statute": {
       "title": "Regulamin | Futbolovo",
       "description": "Zapoznaj się z regulaminem platformy Futbolovo. Zasady korzystania z serwisu."
@@ -208,6 +212,52 @@
     },
     "moreNewsComingSoon": "Więcej aktualności już wkrótce..."
   },
+  "servicesPage": {
+    "title": "Usługi piłkarskie",
+    "subtitle": "Odkryj szeroki wybór <1>usług piłkarskich</1>, które pomogą Ci podnieść poziom gry.",
+    "searchPlaceholder": "Szukaj usług...",
+    "noResults": "Nie znaleziono usług",
+    "tryDifferentKeywords": "Spróbuj użyć innych słów kluczowych",
+    "noServicesInDatabase": "Brak usług w bazie danych",
+    "servicesWillAppear": "Usługi pojawią się tutaj po dodaniu ich do systemu",
+    "priceNegotiable": "Cena do ustalenia",
+    "readMore": "Czytaj więcej",
+    "showLess": "Pokaż mniej",
+    "services": {
+      "training": {
+        "title": "Trening personalny",
+        "description": "Indywidualne sesje treningowe z doświadczonymi trenerami, które pomogą Ci rozwinąć umiejętności techniczne, taktyczne i fizyczne. Treningi dostosowane do Twojego poziomu zaawansowania i celów sportowych. Profesjonalny coaching obejmujący pracę nad techniką, kondycją i mentalnym przygotowaniem do gry."
+      },
+      "coaching": {
+        "title": "Coaching i doradztwo",
+        "description": "Profesjonalne doradztwo sportowe i coaching mentalny dla piłkarzy na każdym poziomie. Pomoc w planowaniu kariery, rozwijaniu umiejętności liderskich oraz przygotowaniu psychologicznym do meczów. Sesje grupowe i indywidualne z certyfikowanymi specjalistami w dziedzinie psychologii sportu."
+      },
+      "equipment": {
+        "title": "Sprzęt piłkarski",
+        "description": "Szeroki wybór profesjonalnego sprzętu piłkarskiego - od butów i strojów, po akcesoria treningowe. Oferujemy produkty najlepszych marek sportowych, zapewniające komfort i wysoką jakość. Doradztwo w doborze odpowiedniego sprzętu do Twoich potrzeb i poziomu gry."
+      },
+      "fieldRental": {
+        "title": "Wynajem boisk",
+        "description": "Rezerwacja boisk piłkarskich na godziny, dni lub dłuższe okresy. Dostępne boiska trawiaste, syntetyczne oraz hale sportowe. Idealne rozwiązanie dla drużyn amatorskich, treningów grupowych lub meczów towarzyskich. Elastyczne godziny otwarcia i konkurencyjne ceny."
+      },
+      "events": {
+        "title": "Organizacja wydarzeń",
+        "description": "Kompleksowa organizacja turniejów piłkarskich, obozów sportowych i imprez piłkarskich. Zajmujemy się logistyką, rezerwacją obiektów, obsługą sędziowską oraz promocją wydarzenia. Idealne dla klubów, szkół i organizacji chcących zorganizować profesjonalne wydarzenie piłkarskie."
+      },
+      "nutrition": {
+        "title": "Dietetyka sportowa",
+        "description": "Indywidualne plany żywieniowe opracowane przez doświadczonych dietetyków sportowych. Profesjonalne doradztwo w zakresie suplementacji i regeneracji. Pomoc w optymalizacji diety dla maksymalnej wydolności i szybszej regeneracji po treningach i meczach."
+      },
+      "physiotherapy": {
+        "title": "Fizjoterapia sportowa",
+        "description": "Specjalistyczna opieka fizjoterapeutyczna dla piłkarzy - profilaktyka kontuzji, rehabilitacja i terapia manualna. Profesjonalne masaże sportowe, ćwiczenia regeneracyjne i programy zapobiegania urazom. Kompleksowa opieka medyczna dla zawodników na każdym poziomie."
+      },
+      "videoAnalysis": {
+        "title": "Analiza wideo",
+        "description": "Profesjonalna analiza wideo Twoich meczów i treningów z wykorzystaniem nowoczesnych narzędzi analitycznych. Szczegółowe raporty dotyczące Twojej gry, wskazówki dotyczące poprawy i porównania z zawodnikami profesjonalnymi. Idealne dla ambitnych piłkarzy chcących podnieść swój poziom gry."
+      }
+    }
+  },
   "fieldIsRequired": "To pole jest wymagane",
   "validation": {
     "incorrectPhone": "Nieprawidłowy numer telefonu",
@@ -309,14 +359,11 @@
     "option1": "Odkryj interaktywną mapę, która otwiera przed Tobą świat futbolowych możliwości!",
     "option2": "Sprawdź, co dzieje się w Twojej okolicy i dołącz do gry!",
     "buttonTitle": "Dołącz do gry!",
-    "announcement": "🇵🇱 Ponad 250 piłkarskich miejsc na mapie Polski! ⚽️\nZ radością ogłaszamy, że dzięki Wam – społeczności futbolowych pasjonatów – na futbolovo.net pojawiło się już ponad 250 miejsc związanych z piłką nożną! 🙌",
+    "announcement": "🎉 Nowa strona Usługi oraz ulepszone wyszukiwanie lokalizacji! ⚽️\nZ przyjemnością ogłaszamy, że platforma Futbolovo zyskała nowe funkcje! Teraz możesz przeglądać dedykowaną stronę z usługami piłkarskimi oraz korzystać z ulepszonego wyszukiwania lokalizacji. 🙌",
     "announcementPoints": {
-      "point1": "15+ szkółek piłkarskich",
-      "point2": "100+ turniejów",
-      "point3": "10+ boisk",
-      "point4": "35+ lig",
-      "point5": "…i wiele innych inicjatyw, które wspólnie tworzą piłkarską mapę Polski!",
-      "point6": "Dziękujemy wszystkim, którzy już dodali swoje miejsca ❤️ Każdy wpis pomaga budować największą społeczność piłkarską w kraju – mapę, która żyje futbolem!"
+      "point1": "📄 Nowa strona \"Usługi\" - odkryj wszystkie dostępne usługi piłkarskie w jednym miejscu",
+      "point2": "🔍 Ulepszone wyszukiwanie lokalizacji - szybciej znajdź miejsca w swojej okolicy",
+      "point3": "…i wiele innych usprawnień, które poprawiają Twoje doświadczenia z platformą!"
     },
     "successUpdate": "Aktualizacja zakończona sukcesem!"
   },

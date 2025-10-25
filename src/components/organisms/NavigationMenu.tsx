@@ -73,7 +73,7 @@ const NavigationMenu = ({
                     </Link>
                   )
                 )}
-                {index !== 2 && (
+                {index !== Object.keys(navigationItems).length - 1 && (
                   <div
                     className='border-b border-grass-40 mx-2'
                     role='separator'

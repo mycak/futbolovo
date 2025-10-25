@@ -11,7 +11,7 @@ export const mainTopics = (t: TranslationFunction): string[] => [
   t('leagues'),
   t('fields'),
   t('kidsSchools'),
-  t('matches'),
+  t('services'),
 ];
 
 export const usersIconsTexts = (t: TranslationFunction): IconText[] => [

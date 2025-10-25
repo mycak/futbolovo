@@ -11,6 +11,7 @@ const Footer = async ({ lng }: { lng: string }) => {
       items: [
         { name: t('navigation.map'), href: paths.Map },
         { name: t('navigation.addEvent'), href: paths.EventAdd },
+        { name: t('services'), href: paths.Services },
       ],
     },
     {
