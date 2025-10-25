@@ -77,6 +77,10 @@
       "title": "Nachrichten | Futbolovo",
       "description": "Bleib auf dem Laufenden mit den neuesten Fußballveranstaltungen und Ankündigungen von der Futbolovo-Plattform."
     },
+    "services": {
+      "title": "Fußball-Dienstleistungen | Futbolovo",
+      "description": "Entdecke eine breite Palette von Fußball-Dienstleistungen. Training, Coaching, Ausrüstung und mehr!"
+    },
     "statute": {
       "title": "AGB | Futbolovo",
       "description": "Lies die Allgemeinen Geschäftsbedingungen der Futbolovo-Plattform. Regeln für die Nutzung des Dienstes."
@@ -272,6 +276,52 @@
       }
     },
     "moreNewsComingSoon": "Weitere Nachrichten folgen bald..."
+  },
+  "servicesPage": {
+    "title": "Fußball-Dienstleistungen",
+    "subtitle": "Entdecke eine breite Palette von <1>Fußball-Dienstleistungen</1>, die dein Spiel verbessern.",
+    "searchPlaceholder": "Dienstleistungen suchen...",
+    "noResults": "Keine Dienstleistungen gefunden",
+    "tryDifferentKeywords": "Versuche andere Suchbegriffe",
+    "noServicesInDatabase": "Keine Dienstleistungen in der Datenbank",
+    "servicesWillAppear": "Dienstleistungen werden hier angezeigt, sobald sie dem System hinzugefügt wurden",
+    "priceNegotiable": "Preis verhandelbar",
+    "readMore": "Mehr lesen",
+    "showLess": "Weniger anzeigen",
+    "services": {
+      "training": {
+        "title": "Personal Training",
+        "description": "Individuelle Trainingseinheiten mit erfahrenen Trainern zur Entwicklung technischer, taktischer und physischer Fähigkeiten. Training angepasst an dein Leistungsniveau und deine sportlichen Ziele. Professionelles Coaching zur Verbesserung von Technik, Fitness und mentaler Vorbereitung."
+      },
+      "coaching": {
+        "title": "Coaching & Beratung",
+        "description": "Professionelle Sportberatung und mentales Coaching für Fußballer auf jedem Niveau. Unterstützung bei der Karriereplanung, Entwicklung von Führungsqualitäten und psychologischer Vorbereitung auf Spiele. Gruppen- und Einzelsitzungen mit zertifizierten Sportpsychologie-Spezialisten."
+      },
+      "equipment": {
+        "title": "Fußballausrüstung",
+        "description": "Große Auswahl an professioneller Fußballausrüstung - von Schuhen und Trikots bis zu Trainingsaccessoires. Wir bieten Produkte der besten Sportmarken für Komfort und hohe Qualität. Beratung bei der Auswahl der richtigen Ausrüstung für deine Bedürfnisse."
+      },
+      "fieldRental": {
+        "title": "Platzvermietung",
+        "description": "Reservierung von Fußballplätzen für Stunden, Tage oder längere Zeiträume. Verfügbar sind Rasen-, Kunstrasenplätze und Sporthallen. Ideale Lösung für Amateurteams, Gruppentrainings oder Freundschaftsspiele. Flexible Öffnungszeiten und wettbewerbsfähige Preise."
+      },
+      "events": {
+        "title": "Event-Organisation",
+        "description": "Umfassende Organisation von Fußballturnieren, Sportcamps und Fußballveranstaltungen. Wir kümmern uns um Logistik, Anlagenbuchung, Schiedsrichterbetreuung und Event-Promotion. Ideal für Vereine, Schulen und Organisationen, die professionelle Fußballveranstaltungen organisieren möchten."
+      },
+      "nutrition": {
+        "title": "Sporternährung",
+        "description": "Individuelle Ernährungspläne von erfahrenen Sporternährungsberatern. Professionelle Beratung zu Nahrungsergänzung und Regeneration. Hilfe bei der Optimierung der Ernährung für maximale Leistung und schnellere Erholung nach Training und Spielen."
+      },
+      "physiotherapy": {
+        "title": "Sportphysiotherapie",
+        "description": "Spezialisierte physiotherapeutische Betreuung für Fußballer - Verletzungsprävention, Rehabilitation und manuelle Therapie. Professionelle Sportmassagen, Regenerationsübungen und Programme zur Verletzungsprävention. Umfassende medizinische Betreuung für Spieler auf jedem Niveau."
+      },
+      "videoAnalysis": {
+        "title": "Videoanalyse",
+        "description": "Professionelle Videoanalyse deiner Spiele und Trainingseinheiten mit modernen Analysetools. Detaillierte Berichte über dein Spiel, Verbesserungstipps und Vergleiche mit Profispielern. Ideal für ambitionierte Spieler, die ihr Spielniveau verbessern möchten."
+      }
+    }
   },
   "typeEmail": "E-Mail eingeben",
   "imageInputLabel": "Foto/Grafik",

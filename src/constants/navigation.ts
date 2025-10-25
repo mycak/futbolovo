@@ -37,6 +37,12 @@ export const navigationItems = (
       to: paths.News,
     },
   ],
+  services: [
+    {
+      text: t('services'),
+      to: paths.Services,
+    },
+  ],
   auth: isSignedIn
     ? [
         {

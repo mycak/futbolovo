@@ -77,6 +77,10 @@
       "title": "News | Futbolovo",
       "description": "Stay updated with the latest football events news and announcements from the Futbolovo platform."
     },
+    "services": {
+      "title": "Football Services | Futbolovo",
+      "description": "Discover a wide range of football services. Training, coaching, equipment and more!"
+    },
     "statute": {
       "title": "Terms & Conditions | Futbolovo",
       "description": "Read the terms and conditions of the Futbolovo platform. Rules of using the service."
@@ -274,6 +278,52 @@
       }
     },
     "moreNewsComingSoon": "More news coming soon..."
+  },
+  "servicesPage": {
+    "title": "Football Services",
+    "subtitle": "Discover a wide range of <1>football services</1> to enhance your game.",
+    "searchPlaceholder": "Search services...",
+    "noResults": "No services found",
+    "tryDifferentKeywords": "Try using different keywords",
+    "noServicesInDatabase": "No services in the database",
+    "servicesWillAppear": "Services will appear here once they are added to the system",
+    "priceNegotiable": "Price negotiable",
+    "readMore": "Read more",
+    "showLess": "Show less",
+    "services": {
+      "training": {
+        "title": "Personal Training",
+        "description": "Individual training sessions with experienced coaches to help you develop technical, tactical, and physical skills. Training tailored to your skill level and sports goals. Professional coaching covering technique work, fitness, and mental preparation for the game."
+      },
+      "coaching": {
+        "title": "Coaching & Consulting",
+        "description": "Professional sports consulting and mental coaching for football players at every level. Assistance with career planning, developing leadership skills, and psychological preparation for matches. Group and individual sessions with certified specialists in sports psychology."
+      },
+      "equipment": {
+        "title": "Football Equipment",
+        "description": "Wide selection of professional football equipment - from shoes and kits to training accessories. We offer products from the best sports brands, ensuring comfort and high quality. Consultation in choosing the right equipment for your needs and level of play."
+      },
+      "fieldRental": {
+        "title": "Field Rental",
+        "description": "Reservation of football fields by the hour, day, or longer periods. Available grass, synthetic fields, and sports halls. Ideal solution for amateur teams, group training, or friendly matches. Flexible opening hours and competitive prices."
+      },
+      "events": {
+        "title": "Event Organization",
+        "description": "Comprehensive organization of football tournaments, sports camps, and football events. We handle logistics, facility booking, refereeing, and event promotion. Ideal for clubs, schools, and organizations wanting to organize professional football events."
+      },
+      "nutrition": {
+        "title": "Sports Nutrition",
+        "description": "Individual nutrition plans developed by experienced sports dietitians. Professional advice on supplementation and recovery. Help in optimizing diet for maximum performance and faster recovery after training and matches."
+      },
+      "physiotherapy": {
+        "title": "Sports Physiotherapy",
+        "description": "Specialist physiotherapy care for football players - injury prevention, rehabilitation, and manual therapy. Professional sports massages, recovery exercises, and injury prevention programs. Comprehensive medical care for players at every level."
+      },
+      "videoAnalysis": {
+        "title": "Video Analysis",
+        "description": "Professional video analysis of your matches and training sessions using modern analytical tools. Detailed reports on your game, improvement tips, and comparisons with professional players. Ideal for ambitious players looking to elevate their game."
+      }
+    }
   },
   "typeEmail": "Type email",
   "imageInputLabel": "Photo/graphic",

@@ -143,3 +143,18 @@ export async function deleteEvent(id: string) {
 
   return deletedEvent;
 }
+
+export async function getServices() {
+  const services = await prisma.event.findMany({
+    where: {
+      category: EventCategoryEnum.SERVICE,
+      isPublished: true,
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
+    cacheStrategy: { ttl: 60 * 60 * 24 }, // 1 day
+  });
+
+  return services;
+}

@@ -13,6 +13,8 @@ export const paths = {
   Cooperation: '/cooperation',
   //NEWS
   News: '/news',
+  //SERVICES
+  Services: '/services',
   //PRIVACY POLICY
   PrivacyPolicy: '/privacy-policy',
   //STATUTE
