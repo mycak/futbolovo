@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Protest_Guerrilla } from 'next/font/google';
 import clsx from 'clsx';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-expect-error
 import '../../globals.css';
 import Script from 'next/script';
 import { mainPagesMetadata } from '@/constants/metadata';
@@ -11,6 +13,7 @@ import Header from '@/components/molecules/Header';
 import Footer from '@/components/molecules/Footer';
 import Providers from '../providers';
 import { Notifications } from '@/components/organisms/Notifications';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 
 import type { Viewport } from 'next';
 
@@ -85,6 +88,7 @@ export default async function RootLayout(
           } as React.CSSProperties
         }
       >
+        <GoogleAnalytics />
         <Providers>
           <Header lng={lng} />
           {children}
