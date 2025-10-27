@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Protest_Guerrilla } from 'next/font/google';
 import clsx from 'clsx';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-expect-error
+//@ts-ignore
 import '../../globals.css';
 import Script from 'next/script';
 import { mainPagesMetadata } from '@/constants/metadata';
