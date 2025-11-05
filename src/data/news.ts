@@ -12,6 +12,13 @@ export interface NewsArticle {
 
 export const newsArticles: NewsArticle[] = [
   {
+    id: 'exc-mobile-ochota-socca-champions-2025',
+    date: '2025-11-05',
+    titleKey: 'newsPage.articles.excMobileOchotaSoccaChampions2025.title',
+    contentKey: 'newsPage.articles.excMobileOchotaSoccaChampions2025.content',
+    categoryKey: 'newsPage.articles.excMobileOchotaSoccaChampions2025.category',
+  },
+  {
     id: 'sopot-freestyle-championship-2025',
     date: '2025-09-26',
     titleKey: 'newsPage.articles.sopotFreestyleChampionship2025.title',
