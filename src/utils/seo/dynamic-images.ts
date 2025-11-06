@@ -3,6 +3,8 @@
  * This can be expanded to integrate with services like Vercel OG Image or similar
  */
 
+import { ogMainImage } from '@/constants/metadata';
+
 // Types for dynamic image generation
 export type OGImageParams = {
   title?: string;
@@ -19,7 +21,7 @@ export type OGImageParams = {
 export const generateOGImage = (_params: OGImageParams = {}) => {
   // Default OG image
   const defaultImage = {
-    url: 'https://i.ibb.co/kXK2MPN/og-futbolovo.webp',
+    url: ogMainImage,
     width: 1200,
     height: 630,
     alt: 'Futbolovo',
@@ -39,7 +41,7 @@ export const generateEventOGImage = (eventName: string) => {
   // This could be expanded to create dynamic event images
   // For demonstration, we're returning the default image
   return {
-    url: 'https://i.ibb.co/kXK2MPN/og-futbolovo.webp',
+    url: ogMainImage,
     width: 1200,
     height: 630,
     alt: eventName || 'Futbolovo Event',
@@ -53,7 +55,7 @@ export const generateFacilityOGImage = (facilityName: string) => {
   // This could be expanded to create dynamic facility images
   // For demonstration, we're returning the default image
   return {
-    url: 'https://i.ibb.co/kXK2MPN/og-futbolovo.webp',
+    url: ogMainImage,
     width: 1200,
     height: 630,
     alt: facilityName || 'Futbolovo Facility',

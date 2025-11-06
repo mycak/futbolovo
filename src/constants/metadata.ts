@@ -2,6 +2,8 @@ import { TranslationFunction } from '@/app/i18n/types';
 import { Metadata } from 'next';
 import { languageMappings } from '@/configs/i18n';
 
+export const ogMainImage = 'https://i.ibb.co/tp9wPvLv/og-Futbolovo.png';
+
 export const generateKeywords = (t: TranslationFunction, locale: string) => {
   const commonKeywords = ['futbolovo', 'sport', 'soccer', 'football'];
 
@@ -113,7 +115,7 @@ export const mainPagesMetadata = (
     url: 'https://futbolovo.net/',
     images: [
       {
-        url: 'https://i.ibb.co/kXK2MPN/og-futbolovo.webp',
+        url: ogMainImage,
         width: 1200,
         height: 630,
         alt: t('metatags.title'),
@@ -127,7 +129,7 @@ export const mainPagesMetadata = (
     creator: '@futbolovo',
     images: [
       {
-        url: 'https://i.ibb.co/kXK2MPN/og-futbolovo.webp',
+        url: ogMainImage,
         width: 1200,
         height: 630,
         alt: t('metatags.title'),

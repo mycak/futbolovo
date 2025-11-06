@@ -6,6 +6,7 @@ import {
   generateWebsiteSchema,
 } from '@/utils/jsonld.utils';
 import { TranslationFunction } from '@/app/i18n/types';
+import { ogMainImage } from '@/constants/metadata';
 
 type JsonLdType = {
   '@context': 'https://schema.org';
@@ -57,7 +58,7 @@ const SEOMetadata = ({
 
   // Default image for sharing
   const defaultImage = {
-    url: 'https://i.ibb.co/kXK2MPN/og-futbolovo.webp',
+    url: ogMainImage,
     width: 1200,
     height: 630,
     alt: t('metatags.title'),
