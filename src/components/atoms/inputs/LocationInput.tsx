@@ -2,7 +2,6 @@
 import { LocationInputState } from '@/types/common';
 import React, { useEffect, useState, useRef } from 'react';
 import { customStyles } from './styles';
-import { useParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 
 const initialInputState = {
@@ -43,7 +42,6 @@ const LocationInput = ({
   const [input, setInput] = useState<LocationInputState>(initialInputState);
 
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const { lng } = useParams();
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -62,7 +60,6 @@ const LocationInput = ({
 
   useEffect(() => {
     const options = {
-      ...(lng === 'pl' && { componentRestrictions: { country: 'pl' } }),
       fields: ['address_components', 'geometry'],
     };
 
